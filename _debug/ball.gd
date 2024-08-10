@@ -6,16 +6,14 @@ var state: Enums.BallState
 @onready var powerMeter = $Meter
 
 var power: float
-var meter_timer:= 0.0
+var meter_timer:= PI * 2
 var meter_speed:= 7.5
 var force_mult = 5.0
 
 func _ready():
-	set_power(0.0)
 	set_state(Enums.BallState.READY)
 
 func _input(event):
-	
 	if event is InputEventMouseMotion:
 		if state == Enums.BallState.READY || state == Enums.BallState.IN_SWING:
 			arrow.look_at(get_global_mouse_position())
@@ -56,11 +54,13 @@ func set_state(newState: Enums.BallState):
 	print("NEW STATE: " + Enums.BallState.keys()[newState])
 	match state:
 		Enums.BallState.READY:
+			meter_timer = PI * 2
+			set_power(0.0)
 			arrow.visible = true
 			#freeze = true
 		Enums.BallState.IN_SWING:
-			meter_timer = 0.0
 			#freeze = true
+			pass
 		Enums.BallState.WAITING:
 			arrow.visible = false
 			#freeze = false
