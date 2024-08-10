@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1drpybtj6q61"]
+
+[ext_resource type="Script" path="res://_debug/dragRigid.gd" id="1_bd5d8"]
+[ext_resource type="Script" path="res://_debug/scripts/draggable.gd" id="1_vu0sw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_klxdm"]
+radius = 20.85
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vlg0w"]
+radius = 273.87
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a2jb4"]
+radius = 96.32
+
+[node name="TestGravity" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(428, 323)
+can_sleep = false
+script = ExtResource("1_bd5d8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_klxdm")
+debug_color = Color(1, 1, 1, 0.329412)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(903, 349)
+gravity_space_override = 1
+gravity_point = true
+script = ExtResource("1_vu0sw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_vlg0w")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(171, 217)
+gravity_space_override = 1
+gravity_point = true
+script = ExtResource("1_vu0sw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+shape = SubResource("CircleShape2D_a2jb4")
+debug_color = Color(0.537559, 0.481692, 0.795514, 0.42)
