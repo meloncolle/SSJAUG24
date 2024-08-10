@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://d1drpybtj6q61"]
 
 [ext_resource type="Script" path="res://_debug/ball.gd" id="1_siboo"]
-[ext_resource type="Script" path="res://UI/HUD/powerMeter.gd" id="2_8pgal"]
+[ext_resource type="Script" path="res://_debug/scripts/draggable.gd" id="1_vu0sw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_klxdm"]
 radius = 20.85
@@ -35,20 +35,18 @@ polygon = PackedVector2Array(-10, 10, 10, 10, 0, -10)
 
 [node name="Meter" type="Polygon2D" parent="Ball"]
 position = Vector2(-90, 0)
-scale = Vector2(0.2, 1)
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
-script = ExtResource("2_8pgal")
 
 [node name="Bar" type="Polygon2D" parent="Ball/Meter"]
-position = Vector2(0, 45)
 color = Color(1, 1, 0, 1)
-polygon = PackedVector2Array(-45, 0, 45, 0, 45, -90, -45, -90)
+polygon = PackedVector2Array(-45, -45, 45, -45, 45, 45, -45, 45)
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(903, 349)
 gravity_space_override = 1
 gravity_point = true
+script = ExtResource("1_vu0sw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_vlg0w")
@@ -57,6 +55,7 @@ shape = SubResource("CircleShape2D_vlg0w")
 position = Vector2(171, 217)
 gravity_space_override = 1
 gravity_point = true
+script = ExtResource("1_vu0sw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 shape = SubResource("CircleShape2D_a2jb4")
