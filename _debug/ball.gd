@@ -15,13 +15,14 @@ func _ready():
 	set_state(Enums.BallState.READY)
 
 func _input(event):
+	
+	if event is InputEventMouseMotion:
+		if state == Enums.BallState.READY || state == Enums.BallState.IN_SWING:
+			arrow.look_at(get_global_mouse_position())
+	
 	match state:
 		Enums.BallState.READY:
-			if event is InputEventMouseMotion:
-				arrow.look_at(get_global_mouse_position())
-				pass
-				
-			elif (event is InputEventMouseButton 
+			if (event is InputEventMouseButton 
 					and event.button_index == MOUSE_BUTTON_LEFT 
 					and event.pressed
 				):
