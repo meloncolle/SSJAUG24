@@ -7,11 +7,11 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_klxdm"]
 radius = 20.85
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5hxib"]
+size = Vector2(80, 80)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_vlg0w"]
 radius = 152.61
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_4ju6v"]
-radius = 215.96
 
 [node name="TestGravity" type="Node2D"]
 
@@ -49,21 +49,61 @@ polygon = PackedVector2Array(-45, 0, 45, 0, 45, -90, -45, -90)
 
 [node name="Camera2D" type="Camera2D" parent="Ball"]
 
+[node name="Goal" type="Area2D" parent="."]
+position = Vector2(1051, 111)
+gravity_space_override = 1
+gravity_point = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
+rotation = 0.785398
+shape = SubResource("RectangleShape2D_5hxib")
+debug_color = Color(0.723302, 0.397363, 0.692014, 0.42)
+
 [node name="GravityField" type="Area2D" parent="."]
 position = Vector2(903, 349)
 gravity_space_override = 1
 gravity_point = true
+gravity = 3000.0
 script = ExtResource("1_vu0sw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GravityField"]
 shape = SubResource("CircleShape2D_vlg0w")
+debug_color = Color(0, 0.6, 0.701961, 0.756863)
 
 [node name="GravityField2" type="Area2D" parent="."]
-position = Vector2(263, 392)
+position = Vector2(246, 230)
 gravity_space_override = 1
 gravity_point = true
 script = ExtResource("1_vu0sw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GravityField2"]
-shape = SubResource("CircleShape2D_4ju6v")
-debug_color = Color(0.723302, 0.397363, 0.692014, 0.42)
+shape = SubResource("CircleShape2D_vlg0w")
+
+[node name="GravityField3" type="Area2D" parent="."]
+position = Vector2(776, 126)
+gravity_space_override = 1
+gravity_point = true
+script = ExtResource("1_vu0sw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GravityField3"]
+shape = SubResource("CircleShape2D_vlg0w")
+
+[node name="GravityField5" type="Area2D" parent="."]
+position = Vector2(508, 96)
+gravity_space_override = 1
+gravity_point = true
+script = ExtResource("1_vu0sw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GravityField5"]
+shape = SubResource("CircleShape2D_vlg0w")
+
+[node name="GravityField4" type="Area2D" parent="."]
+position = Vector2(464, 482)
+gravity_space_override = 1
+gravity_point = true
+script = ExtResource("1_vu0sw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GravityField4"]
+shape = SubResource("CircleShape2D_vlg0w")
+
+[connection signal="body_entered" from="Goal" to="Ball" method="_on_goal_body_entered"]

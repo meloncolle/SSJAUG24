@@ -11,7 +11,7 @@ var meter_timer:= PI * 2
 
 @export var cam_zoom_speed:= Vector2(0.1, 0.1) # Speed at which scrolling zooms in/out
 @export var meter_speed:= 7.5 # Speed at which power meter oscillates
-@export var force_mult = 8.0 # Multiplier for swing force
+@export var force_mult = 4.0 # Multiplier for swing force
 
 func _ready():
 	set_state(Enums.BallState.READY)
@@ -82,3 +82,8 @@ func set_state(newState: Enums.BallState):
 			#freeze = false
 			do_swing()
 			set_state(Enums.BallState.READY)
+
+
+func _on_goal_body_entered(body: Node2D) -> void:
+	print("GOAL")
+	#Main._on_press_restart()
