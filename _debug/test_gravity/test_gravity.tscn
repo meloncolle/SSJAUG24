@@ -1,21 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1drpybtj6q61"]
+[gd_scene load_steps=7 format=3 uid="uid://d1drpybtj6q61"]
 
 [ext_resource type="Script" path="res://_debug/ball.gd" id="1_siboo"]
+[ext_resource type="Script" path="res://_debug/scripts/draggable.gd" id="1_vu0sw"]
 [ext_resource type="Script" path="res://UI/HUD/powerMeter.gd" id="2_8pgal"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_klxdm"]
 radius = 20.85
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vlg0w"]
-radius = 273.87
+radius = 152.61
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_a2jb4"]
-radius = 96.32
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ju6v"]
+radius = 215.96
 
 [node name="TestGravity" type="Node2D"]
 
 [node name="Ball" type="RigidBody2D" parent="."]
-position = Vector2(428, 323)
+position = Vector2(576, 324)
 can_sleep = false
 script = ExtResource("1_siboo")
 
@@ -48,19 +49,21 @@ polygon = PackedVector2Array(-45, 0, 45, 0, 45, -90, -45, -90)
 
 [node name="Camera2D" type="Camera2D" parent="Ball"]
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="GravityField" type="Area2D" parent="."]
 position = Vector2(903, 349)
 gravity_space_override = 1
 gravity_point = true
+script = ExtResource("1_vu0sw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GravityField"]
 shape = SubResource("CircleShape2D_vlg0w")
 
-[node name="Area2D2" type="Area2D" parent="."]
-position = Vector2(171, 217)
+[node name="GravityField2" type="Area2D" parent="."]
+position = Vector2(263, 392)
 gravity_space_override = 1
 gravity_point = true
+script = ExtResource("1_vu0sw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-shape = SubResource("CircleShape2D_a2jb4")
-debug_color = Color(0.537559, 0.481692, 0.795514, 0.42)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GravityField2"]
+shape = SubResource("CircleShape2D_4ju6v")
+debug_color = Color(0.723302, 0.397363, 0.692014, 0.42)

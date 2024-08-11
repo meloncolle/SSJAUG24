@@ -51,7 +51,7 @@ func set_power(newVal: float):
 
 func set_state(newState: Enums.BallState):
 	state = newState
-	print("NEW STATE: " + Enums.BallState.keys()[newState])
+	#print("NEW STATE: " + Enums.BallState.keys()[newState])
 	match state:
 		Enums.BallState.READY:
 			meter_timer = PI * 2
