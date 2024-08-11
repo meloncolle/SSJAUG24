@@ -34,7 +34,8 @@ color = Color(0.960784, 1, 0.215686, 1)
 polygon = PackedVector2Array(-10, 10, 10, 10, 0, -10)
 
 [node name="Meter" type="Polygon2D" parent="Ball"]
-position = Vector2(-90, 0)
+visible = false
+position = Vector2(-50, 0)
 scale = Vector2(0.2, 1)
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)

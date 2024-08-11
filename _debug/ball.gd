@@ -57,12 +57,14 @@ func set_state(newState: Enums.BallState):
 			meter_timer = PI * 2
 			set_power(0.0)
 			arrow.visible = true
+			powerMeter.visible = false
 			#freeze = true
 		Enums.BallState.IN_SWING:
 			#freeze = true
-			pass
+			powerMeter.visible = true
 		Enums.BallState.WAITING:
 			arrow.visible = false
+			powerMeter.visible = false
 			#freeze = false
 			do_swing()
 			set_state(Enums.BallState.READY)
