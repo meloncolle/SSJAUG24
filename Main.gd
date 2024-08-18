@@ -9,6 +9,7 @@ var sceneInstance: Node = null
 @onready var pauseMenu: Control = $Menus/Pause
 
 func _ready():
+	get_tree().set_debug_collisions_hint(true)
 	set_state(Enums.GameState.ON_START)
 	startMenu.get_node("Panel/VBoxContainer/StartButton").pressed.connect(self._on_press_start)
 	startMenu.get_node("Panel/VBoxContainer/ExitButton").pressed.connect(self._on_press_exit)

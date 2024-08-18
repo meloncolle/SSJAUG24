@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://d1drpybtj6q61"]
 
-[ext_resource type="Script" path="res://_debug/ball.gd" id="1_siboo"]
-[ext_resource type="Script" path="res://_debug/scripts/draggable.gd" id="1_vu0sw"]
+[ext_resource type="Script" path="res://_debug/test_gravity/test_ball.gd" id="1_siboo"]
+[ext_resource type="Script" path="res://Scripts/draggable.gd" id="1_vu0sw"]
 [ext_resource type="Script" path="res://UI/HUD/powerMeter.gd" id="2_8pgal"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_klxdm"]
