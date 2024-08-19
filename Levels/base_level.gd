@@ -35,6 +35,8 @@ func _ready():
 	for bh in $BlackHoles.get_children():
 		if bh is BHEntity:
 			blackHoles.append(bh)
+	assert(blackHoles.size() > 0, "Expected at least one black hole in level")
+
 			
 	# Set active ball
 	for i in range(balls.size()):
