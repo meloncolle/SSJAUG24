@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0q8p531yqss6"]
+[gd_scene load_steps=3 format=3 uid="uid://b0q8p531yqss6"]
 
 [ext_resource type="Script" path="res://Entities/ball.gd" id="1_roe3m"]
-[ext_resource type="Script" path="res://UI/HUD/powerMeter.gd" id="2_wi7f7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8v0fu"]
 radius = 20.85
@@ -13,16 +12,3 @@ script = ExtResource("1_roe3m")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_8v0fu")
 debug_color = Color(1, 1, 1, 0.329412)
-
-[node name="Meter" type="Polygon2D" parent="."]
-visible = false
-position = Vector2(-50, 0)
-scale = Vector2(0.2, 1)
-color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
-script = ExtResource("2_wi7f7")
-
-[node name="Bar" type="Polygon2D" parent="Meter"]
-position = Vector2(0, 45)
-color = Color(1, 1, 0, 1)
-polygon = PackedVector2Array(-45, 0, 45, 0, 45, -90, -45, -90)

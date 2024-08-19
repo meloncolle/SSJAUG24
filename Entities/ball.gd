@@ -10,6 +10,7 @@ var isTargeted := false
 @export var isFirstBall := false
 
 var pointer: Node2D = null
+var powerMeter: Node2D = null
 
 func _ready():
 	pass
@@ -21,6 +22,10 @@ func _input(event):
 			pointer.look_at(get_global_mouse_position())
 
 func set_target(set: bool=true):
+	set_pointer(set)
+	isTargeted = set
+		
+func set_pointer(set: bool=true):
 	if set:
 		pointer = load("res://UI/Pointer.tscn").instantiate()
 		self.add_child(pointer)
@@ -29,4 +34,12 @@ func set_target(set: bool=true):
 		if (is_instance_valid(pointer)):
 			pointer.queue_free()
 		pointer = null
-	isTargeted = set
+		
+func set_power_meter(set: bool=true):
+	if set:
+		powerMeter = load("res://UI/PowerMeter.tscn").instantiate()
+		self.add_child(powerMeter)
+	else:
+		if (is_instance_valid(powerMeter)):
+			powerMeter.queue_free()
+		powerMeter = null

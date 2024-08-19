@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bx3uslokvfceg"]
+
+[ext_resource type="Script" path="res://UI/powerMeter.gd" id="1_ks6ve"]
+
+[node name="Meter" type="Polygon2D"]
+position = Vector2(-50, 0)
+scale = Vector2(0.2, 1)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
+script = ExtResource("1_ks6ve")
+
+[node name="Bar" type="Polygon2D" parent="."]
+position = Vector2(0, 45)
+color = Color(1, 1, 0, 1)
+polygon = PackedVector2Array(-45, 0, 45, 0, 45, -90, -45, -90)
