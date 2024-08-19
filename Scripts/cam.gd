@@ -1,21 +1,16 @@
 extends Camera2D
 
 @export var target: Node2D = null
-@export var followSpeed: float = 0.5
+@export var followSpeed: float = 5
 @export var zoomSpeed: float = 0.1
 
-var t = 0.0
-
 func set_target(_target):
-	t = 0.0
 	target = _target
 
 func _process(delta):
 	if target == null:
 		return
-	t += delta * followSpeed
-
-	global_position = global_position.lerp(target.global_position, t)
+	global_position = global_position.lerp(target.global_position, delta * followSpeed)
 
 func _input(event):
 	# Scroll to zoom
