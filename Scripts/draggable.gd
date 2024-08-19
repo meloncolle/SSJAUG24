@@ -7,7 +7,7 @@ class_name Draggable
 var dragging := false
 var dragPoint: Vector2
 
-@onready var collisionShape: Shape2D = $CollisionShape2D.shape
+@onready var collisionShape: Shape2D = $GravityField.shape
 
 func _input(event):
 	if !dragEnabled:

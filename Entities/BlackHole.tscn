@@ -10,6 +10,6 @@ gravity_space_override = 1
 gravity_point = true
 script = ExtResource("1_072iw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="GravityField" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_qic5w")
 debug_color = Color(0, 0, 0, 0.27451)

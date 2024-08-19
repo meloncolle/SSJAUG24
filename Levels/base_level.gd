@@ -11,6 +11,7 @@ var blackHoles: Array[BHEntity] = []
 var activeBallIndex: int = -1
 
 @onready var cam: Node2D = $Camera2D
+@onready var deathScreen: Control = $CanvasLayer/DeathScreen
 
 # Should this stuff be elsewhere?
 var power: float # Power level for swing, based on meter timing
@@ -20,15 +21,11 @@ var meterTimer := PI * 2
 
 signal changed_power(newPower: float)
 
-
 func _ready():
 	set_state(Enums.LevelState.INIT)
 	print("Loaded level: " + self.name)
 	
 	# populate stars/balls/blackhole lists
-	for b in $Planets.get_children():
-		if b is BallEntity:
-			balls.append(b)
 	for s in $Stars.get_children():
 		if s is StarEntity:
 			stars.append(s)	
@@ -36,8 +33,17 @@ func _ready():
 		if bh is BHEntity:
 			blackHoles.append(bh)
 	assert(blackHoles.size() > 0, "Expected at least one black hole in level")
-
-			
+	
+	for b in $Planets.get_children():
+		if b is BallEntity:
+			balls.append(b)
+	
+	# Set up listener for when a ball is destroyed
+	for b in balls:
+		b.connect("ball_destroyed", self._on_ball_destroyed)
+		
+	update_ball_indices()
+	
 	# Set active ball
 	for i in range(balls.size()):
 		if activeBallIndex == -1:
@@ -51,8 +57,11 @@ func _ready():
 	assert(activeBallIndex != -1, "Ball not found in level")
 	set_active_ball(activeBallIndex)
 	
+	# Hook up death screen buttons
+	deathScreen.get_node("Panel/VBoxContainer/RetryButton").pressed.connect(_on_press_retry)
+	deathScreen.get_node("Panel/VBoxContainer/QuitButton").pressed.connect(_on_press_quit)
+	
 	set_state(Enums.LevelState.READY)
-	# todo: connect to menu somehow...
 
 func _input(event):
 	match state:
@@ -91,11 +100,9 @@ func _input(event):
 				):
 				do_swing(power)
 				set_state(Enums.LevelState.READY)
-
-func do_swing(force: float):
-	var swing = get_global_mouse_position() - balls[activeBallIndex].position
-	# i think we have to multiply this by the camera zoom so the force is proportional?? weird
-	balls[activeBallIndex].apply_central_impulse(swing * force * swingForce * cam.zoom.y)
+				
+		Enums.LevelState.DEAD:
+			return
 
 func _physics_process(delta):
 	match state:
@@ -104,11 +111,17 @@ func _physics_process(delta):
 			meterTimer += delta
 			set_power((1 + cos(meterTimer * powerMeterSpeed)) * 0.5)
 
+func do_swing(force: float):
+	var swing = get_global_mouse_position() - balls[activeBallIndex].position
+	# i think we have to multiply this by the camera zoom so the force is proportional?? weird
+	balls[activeBallIndex].apply_central_impulse(swing * force * swingForce * cam.zoom.y)
+
 func set_power(newVal: float):
 	power = newVal
 	emit_signal("changed_power", power)
 
 func set_active_ball(newIndex: int):
+	# todo: ideally we'd want to be able to go back-forth and order by spatial distance btwn balls
 	if newIndex >= balls.size() || newIndex < 0:
 		newIndex = newIndex % balls.size()
 	
@@ -142,6 +155,40 @@ func set_state(newState: Enums.LevelState):
 		Enums.LevelState.GRAVITY:
 			pass
 		Enums.LevelState.DEAD:
-			pass
+			deathScreen.visible = true
 	
 	state = newState
+
+func update_ball_indices():
+	var ballCount := 0
+	for b in balls:
+		b.set_index(ballCount)
+		ballCount += 1
+
+func _on_ball_destroyed(destroyedIndex: int):
+	balls.remove_at(destroyedIndex)
+	if destroyedIndex <= activeBallIndex:
+		activeBallIndex -= 1
+	update_ball_indices()	
+	
+	if balls.size() == 0:
+		set_state(Enums.LevelState.DEAD)
+		return
+		
+	set_active_ball(activeBallIndex)
+	
+func _on_press_retry():
+	if Globals.sceneController != null:
+		# If running full game context
+		Globals.sceneController._on_press_restart()
+	else:
+		# If running just the level scene
+		get_tree().reload_current_scene()
+	
+func _on_press_quit():
+	if Globals.sceneController != null:
+		# If running full game context
+		Globals.sceneController._on_press_quit()
+	else:
+		# If running just the level scene
+		get_tree().quit()

@@ -9,13 +9,19 @@ var sceneInstance: Node = null
 @onready var pauseMenu: Control = $Menus/Pause
 
 func _ready():
-	get_tree().set_debug_collisions_hint(true)
+	if Globals.ENABLE_COLLISION_DEBUG_IN_EXPORT:
+		get_tree().set_debug_collisions_hint(true)
+	
+	Globals.sceneController = self
 	set_state(Enums.GameState.ON_START)
 	startMenu.get_node("Panel/VBoxContainer/StartButton").pressed.connect(self._on_press_start)
 	startMenu.get_node("Panel/VBoxContainer/ExitButton").pressed.connect(self._on_press_exit)
 	pauseMenu.get_node("Panel/VBoxContainer/ResumeButton").pressed.connect(self._on_press_resume)
 	pauseMenu.get_node("Panel/VBoxContainer/RestartButton").pressed.connect(self._on_press_restart)
 	pauseMenu.get_node("Panel/VBoxContainer/QuitButton").pressed.connect(self._on_press_quit)
+	
+	if Globals.SKIP_TITLE:
+		_on_press_start()
 
 func _input (event: InputEvent):
 	if(gameState != Enums.GameState.ON_START && event.is_action_pressed("ui_cancel")):
