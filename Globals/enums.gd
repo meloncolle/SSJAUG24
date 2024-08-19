@@ -1,6 +1,8 @@
 class_name Enums
 
 enum GameState {ON_START, IN_GAME, PAUSED}
+
+# FOR SANDBOX MODE (CURRENT) ONLY USING FIRST 3 STAGES
 enum LevelState {
 	INIT,		# Initial state for loading stuff
 	READY,		# Ready to select ball and swing

@@ -47,8 +47,39 @@ func _input(event):
 	
 	match state:
 		Enums.LevelState.READY:
+			# SPACE DOWN to change active ball
 			if event.is_action_pressed("ACTION"):
 				set_active_ball(activeBallIndex + 1)
+				
+			# LMB DOWN to start swing
+			if (event is InputEventMouseButton 
+				and event.button_index == MOUSE_BUTTON_LEFT 
+				and event.pressed
+			):
+				set_state(Enums.LevelState.IN_SWING)
+			
+			# RMB DOWN to manip gravity (IF UR NOT CLICKING A BUBBLE)
+			if (event is InputEventMouseButton 
+				and event.button_index == MOUSE_BUTTON_RIGHT 
+				and event.pressed
+			):
+				var clickedDraggable := false
+				for draggable in stars + blackHoles:
+					# todo: DO THIS SMARTER IF WE KEEP IT...
+					if draggable.is_point_inside(get_global_mouse_position()) && draggable.dragEnabled:
+						clickedDraggable = true
+						break
+				
+				if !clickedDraggable:		
+					print("TODO: manip gravity")
+			
+		Enums.LevelState.IN_SWING:
+			# LMB UP: do swing
+			if (event is InputEventMouseButton 
+				and event.button_index == MOUSE_BUTTON_LEFT 
+				and not event.pressed
+				):
+				set_state(Enums.LevelState.READY)
 
 func set_active_ball(newIndex: int):
 	if newIndex >= balls.size() || newIndex < 0:
