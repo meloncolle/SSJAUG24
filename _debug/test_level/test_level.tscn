@@ -8,25 +8,53 @@
 [node name="TestLevel" instance=ExtResource("1_h70sp")]
 
 [node name="Ball" parent="Planets" index="0" instance=ExtResource("3_2wxgh")]
-position = Vector2(-464, -16)
+position = Vector2(-475, -150)
 
 [node name="Ball2" parent="Planets" index="1" instance=ExtResource("3_2wxgh")]
-position = Vector2(-310, -4)
+position = Vector2(-362, -123)
 
 [node name="Ball3" parent="Planets" index="2" instance=ExtResource("3_2wxgh")]
-position = Vector2(-213, 0)
+position = Vector2(-252, -52)
+
+[node name="Ball4" parent="Planets" index="3" instance=ExtResource("3_2wxgh")]
+position = Vector2(-419, -37)
+
+[node name="Ball5" parent="Planets" index="4" instance=ExtResource("3_2wxgh")]
+position = Vector2(-301, 15)
+
+[node name="Ball6" parent="Planets" index="5" instance=ExtResource("3_2wxgh")]
+position = Vector2(-208, 82)
+
+[node name="Ball7" parent="Planets" index="6" instance=ExtResource("3_2wxgh")]
+position = Vector2(-121, 27)
 
 [node name="Star" parent="Stars" index="0" instance=ExtResource("4_y3xxs")]
 position = Vector2(102, -274)
+gravity = 277.0
+gravity_field_size = 300
+gravity_strength = 277.0
 
 [node name="Star2" parent="Stars" index="1" instance=ExtResource("4_y3xxs")]
 position = Vector2(-52, 254)
+gravity_field_size = 152.61
+gravity_strength = 980.0
 
 [node name="Star3" parent="Stars" index="2" instance=ExtResource("4_y3xxs")]
-position = Vector2(456, 9)
+position = Vector2(519, 184)
+gravity = 2448.0
+gravity_field_size = 152.61
+gravity_strength = 2448.0
 
 [node name="Star4" parent="Stars" index="3" instance=ExtResource("4_y3xxs")]
 position = Vector2(358, -210)
+gravity_field_size = 152.61
+gravity_strength = 980.0
+
+[node name="Star5" parent="Stars" index="4" instance=ExtResource("4_y3xxs")]
+position = Vector2(228, 86)
+gravity = -2709.0
+gravity_field_size = 48
+gravity_strength = -2709.0
 
 [node name="BlackHole" parent="BlackHoles" index="0" instance=ExtResource("5_l0xk5")]
-position = Vector2(-467, -232)
+position = Vector2(558, -36)

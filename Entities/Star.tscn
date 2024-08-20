@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Entities/star.gd" id="1_k84xc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7y8kk"]
+resource_local_to_scene = true
 radius = 152.61
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6n6ce"]

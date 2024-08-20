@@ -3,7 +3,10 @@
 extends Node
 
 # testing config stuff...
-const SKIP_TITLE = true 
-const ENABLE_COLLISION_DEBUG_IN_EXPORT = true
+const SKIP_TITLE: bool = true 
+const ENABLE_COLLISION_DEBUG_IN_EXPORT: bool = true
+
+const MAX_GRAVITY: float = 4096
+const MIN_GRAVITY: float = MAX_GRAVITY * -1
 
 var sceneController: Node = null
