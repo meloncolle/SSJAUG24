@@ -12,7 +12,7 @@ var isTargeted := false
 var pointer: Node2D = null
 var powerMeter: Node2D = null
 
-signal ball_destroyed(index: int)
+signal ball_destroyed(index: int, destroyer: Node2D)
 
 var index: int = -1 # Position in main ball array... Needs to be externally updated...
 
@@ -25,8 +25,8 @@ func _input(event):
 		if isTargeted && pointer != null:
 			pointer.look_at(get_global_mouse_position())
 
-func destroy():
-	emit_signal("ball_destroyed", index)
+func destroy(destroyer: Node2D = null):
+	emit_signal("ball_destroyed", index, destroyer)
 	self.queue_free()
 
 func set_index(set: int):

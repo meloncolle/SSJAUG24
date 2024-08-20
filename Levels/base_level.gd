@@ -19,12 +19,15 @@ var meterTimer := PI * 2
 @export var powerMeterSpeed := 7.5 ## Speed at which power meter oscillates
 @export var swingForce := 4.0 ## Multiplier for swing force
 
+var score: int
+@onready var scoreLabel: RichTextLabel = $CanvasLayer/Points
+
 signal changed_power(newPower: float)
 
 func _ready():
 	set_state(Enums.LevelState.INIT)
-	print("Loaded level: " + self.name)
-	
+	set_score(0)
+		
 	# populate stars/balls/blackhole lists
 	for s in $Stars.get_children():
 		if s is StarEntity:
@@ -159,13 +162,21 @@ func set_state(newState: Enums.LevelState):
 	
 	state = newState
 
+func set_score(newScore: int):
+	score = newScore
+	scoreLabel.text = str(score)
+	
+
 func update_ball_indices():
 	var ballCount := 0
 	for b in balls:
 		b.set_index(ballCount)
 		ballCount += 1
 
-func _on_ball_destroyed(destroyedIndex: int):
+func _on_ball_destroyed(destroyedIndex: int, destroyer: Node2D):
+	if destroyer is BHEntity:
+		set_score(score + 1)
+	
 	balls.remove_at(destroyedIndex)
 	if destroyedIndex <= activeBallIndex:
 		activeBallIndex -= 1

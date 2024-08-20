@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dawmy7e4kekbg"]
+[gd_scene load_steps=4 format=3 uid="uid://dawmy7e4kekbg"]
 
 [ext_resource type="Script" path="res://Entities/black_hole.gd" id="1_072iw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qic5w"]
 radius = 47.34
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y24q5"]
 
 [node name="BlackHole" type="Area2D"]
 gravity_space_override = 1
@@ -13,3 +15,12 @@ script = ExtResource("1_072iw")
 [node name="GravityField" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_qic5w")
 debug_color = Color(0, 0, 0, 0.27451)
+
+[node name="PointsYou" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointsYou"]
+shape = SubResource("CircleShape2D_y24q5")
+one_way_collision_margin = 10.0
+debug_color = Color(0.819608, 0.054902, 0.27451, 0.419608)
+
+[connection signal="body_entered" from="PointsYou" to="." method="_on_points_you_body_entered"]
