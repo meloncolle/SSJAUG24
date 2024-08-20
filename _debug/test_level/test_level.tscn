@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ec41q4ys3khh"]
+[gd_scene load_steps=6 format=3 uid="uid://ec41q4ys3khh"]
 
 [ext_resource type="PackedScene" uid="uid://jwa57sqwi2ws" path="res://Levels/base_level.tscn" id="1_h70sp"]
 [ext_resource type="PackedScene" uid="uid://b0q8p531yqss6" path="res://Entities/Ball.tscn" id="3_2wxgh"]
 [ext_resource type="PackedScene" uid="uid://bqujgumw3qfky" path="res://Entities/Star.tscn" id="4_y3xxs"]
 [ext_resource type="PackedScene" uid="uid://dawmy7e4kekbg" path="res://Entities/BlackHole.tscn" id="5_l0xk5"]
+[ext_resource type="PackedScene" uid="uid://bpiqrfkgh1fl1" path="res://Entities/Static/boundary.tscn" id="5_paed1"]
 
 [node name="TestLevel" instance=ExtResource("1_h70sp")]
 gravityBoostSpeed = 100.0
@@ -59,3 +60,26 @@ gravityStrength = -4096.0
 
 [node name="BlackHole" parent="BlackHoles" index="0" instance=ExtResource("5_l0xk5")]
 position = Vector2(558, -36)
+
+[node name="Boundary" parent="Boundaries" index="0" instance=ExtResource("5_paed1")]
+position = Vector2(-217, -310)
+rotation = 0.24438
+
+[node name="Boundary2" parent="Boundaries" index="1" instance=ExtResource("5_paed1")]
+position = Vector2(-454, -346)
+
+[node name="Boundary3" parent="Boundaries" index="2" instance=ExtResource("5_paed1")]
+position = Vector2(-693, 45)
+rotation = -1.81059
+
+[node name="Boundary4" parent="Boundaries" index="3" instance=ExtResource("5_paed1")]
+position = Vector2(-643, -212)
+rotation = -0.804763
+
+[node name="Boundary5" parent="Boundaries" index="4" instance=ExtResource("5_paed1")]
+position = Vector2(-491, 271)
+rotation = 0.391641
+
+[node name="Boundary6" parent="Boundaries" index="5" instance=ExtResource("5_paed1")]
+position = Vector2(-286, 358)
+rotation = -0.210073
