@@ -137,7 +137,6 @@ func set_active_ball(newIndex: int):
 	balls[activeBallIndex].set_target()
 
 func set_state(newState: Enums.LevelState):
-	print("LEVEL STATE SET TO: " + Enums.LevelState.keys()[newState])
 	var oldState := state
 	
 	match newState:
@@ -175,7 +174,10 @@ func update_ball_indices():
 
 func _on_ball_destroyed(destroyedIndex: int, destroyer: Node2D):
 	if destroyer is BHEntity:
+		print("SCORE!")
 		set_score(score + 1)
+	else:
+		print("BALL DESTROYED...")
 	
 	balls.remove_at(destroyedIndex)
 	if destroyedIndex <= activeBallIndex:
