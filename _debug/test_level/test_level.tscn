@@ -4,10 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://b0q8p531yqss6" path="res://Entities/Ball.tscn" id="3_2wxgh"]
 [ext_resource type="PackedScene" uid="uid://bqujgumw3qfky" path="res://Entities/Star.tscn" id="4_y3xxs"]
 [ext_resource type="PackedScene" uid="uid://dawmy7e4kekbg" path="res://Entities/BlackHole.tscn" id="5_l0xk5"]
-[ext_resource type="PackedScene" uid="uid://bpiqrfkgh1fl1" path="res://Entities/Static/boundary.tscn" id="5_paed1"]
+[ext_resource type="PackedScene" uid="uid://bpiqrfkgh1fl1" path="res://Entities/Static/Boundary.tscn" id="5_paed1"]
 
 [node name="TestLevel" instance=ExtResource("1_h70sp")]
-gravityBoostSpeed = 100.0
+gravityBoostSpeed = 30.0
+metadata/_edit_horizontal_guides_ = [-2154.0]
 
 [node name="Ball" parent="Planets" index="0" instance=ExtResource("3_2wxgh")]
 position = Vector2(-475, -150)
@@ -36,24 +37,69 @@ gravity = 56.0
 gravityFieldSize = 291
 gravityStrength = 56.0
 
-[node name="Star2" parent="Stars" index="1" instance=ExtResource("4_y3xxs")]
-position = Vector2(-52, 254)
-gravity = 1412.0
-gravityStrength = 1412.0
+[node name="Star8" parent="Stars" index="1" instance=ExtResource("4_y3xxs")]
+position = Vector2(-2210, 815)
+rotation = 3.83839
+gravity = 56.0
+gravityFieldSize = 1024
+gravityStrength = 56.0
 
-[node name="Star3" parent="Stars" index="2" instance=ExtResource("4_y3xxs")]
-position = Vector2(519, 184)
-gravity = 2090.0
-gravityStrength = 2090.0
+[node name="Star2" parent="Stars" index="2" instance=ExtResource("4_y3xxs")]
+position = Vector2(249, -1566)
+gravity = 200.0
+gravityFieldSize = 1024
+gravityStrength = 200.0
 
-[node name="Star4" parent="Stars" index="3" instance=ExtResource("4_y3xxs")]
-position = Vector2(358, -210)
-gravity = 1129.0
-gravityFieldSize = 128
-gravityStrength = 1129.0
+[node name="Star9" parent="Stars" index="3" instance=ExtResource("4_y3xxs")]
+position = Vector2(2096, -1160)
+gravity = 200.0
+gravityFieldSize = 1024
+gravityStrength = 200.0
 
-[node name="Star5" parent="Stars" index="4" instance=ExtResource("4_y3xxs")]
-position = Vector2(228, 86)
+[node name="Star10" parent="Stars" index="4" instance=ExtResource("4_y3xxs")]
+position = Vector2(339, 837)
+gravity = 200.0
+gravityFieldSize = 1024
+gravityStrength = 200.0
+
+[node name="Star11" parent="Stars" index="5" instance=ExtResource("4_y3xxs")]
+position = Vector2(2186, 1003)
+gravity = 200.0
+gravityFieldSize = 1024
+gravityStrength = 200.0
+
+[node name="Star12" parent="Stars" index="6" instance=ExtResource("4_y3xxs")]
+position = Vector2(3350, -161)
+gravity = 200.0
+gravityFieldSize = 1024
+gravityStrength = 200.0
+
+[node name="Star7" parent="Stars" index="7" instance=ExtResource("4_y3xxs")]
+position = Vector2(249, -1566)
+gravity = 200.0
+gravityFieldSize = 325
+gravityStrength = 200.0
+
+[node name="Star6" parent="Stars" index="8" instance=ExtResource("4_y3xxs")]
+position = Vector2(1380, -221)
+gravity = 200.0
+gravityFieldSize = 1024
+gravityStrength = 200.0
+
+[node name="Star3" parent="Stars" index="9" instance=ExtResource("4_y3xxs")]
+position = Vector2(1242, 274)
+gravity = 300.0
+gravityFieldSize = 393
+gravityStrength = 300.0
+
+[node name="Star4" parent="Stars" index="10" instance=ExtResource("4_y3xxs")]
+position = Vector2(848, -81)
+gravity = 400.0
+gravityFieldSize = 401
+gravityStrength = 400.0
+
+[node name="Star5" parent="Stars" index="11" instance=ExtResource("4_y3xxs")]
+position = Vector2(1006, -487)
 gravity = -4096.0
 gravityFieldSize = 65
 gravityStrength = -4096.0
@@ -62,24 +108,37 @@ gravityStrength = -4096.0
 position = Vector2(558, -36)
 
 [node name="Boundary" parent="Boundaries" index="0" instance=ExtResource("5_paed1")]
-position = Vector2(-217, -310)
-rotation = 0.24438
+position = Vector2(-1351, -407)
+rotation = -1.47505
 
-[node name="Boundary2" parent="Boundaries" index="1" instance=ExtResource("5_paed1")]
-position = Vector2(-454, -346)
+[node name="Boundary8" parent="Boundaries" index="1" instance=ExtResource("5_paed1")]
+position = Vector2(1534, -2806)
+rotation = 0.0817209
 
-[node name="Boundary3" parent="Boundaries" index="2" instance=ExtResource("5_paed1")]
-position = Vector2(-693, 45)
-rotation = -1.81059
+[node name="Boundary7" parent="Boundaries" index="2" instance=ExtResource("5_paed1")]
+position = Vector2(4853, -532)
+rotation = -4.88725
 
-[node name="Boundary4" parent="Boundaries" index="3" instance=ExtResource("5_paed1")]
-position = Vector2(-643, -212)
+[node name="Boundary2" parent="Boundaries" index="3" instance=ExtResource("5_paed1")]
+position = Vector2(3219, -2420)
+rotation = 0.535954
+
+[node name="Boundary3" parent="Boundaries" index="4" instance=ExtResource("5_paed1")]
+position = Vector2(-803, 1591)
+rotation = -2.26909
+
+[node name="Boundary4" parent="Boundaries" index="5" instance=ExtResource("5_paed1")]
+position = Vector2(-670, -2547)
 rotation = -0.804763
 
-[node name="Boundary5" parent="Boundaries" index="4" instance=ExtResource("5_paed1")]
-position = Vector2(-491, 271)
-rotation = 0.391641
+[node name="Boundary5" parent="Boundaries" index="6" instance=ExtResource("5_paed1")]
+position = Vector2(1978, 2238)
+rotation = -0.0784376
 
-[node name="Boundary6" parent="Boundaries" index="5" instance=ExtResource("5_paed1")]
-position = Vector2(-286, 358)
-rotation = -0.210073
+[node name="Boundary9" parent="Boundaries" index="7" instance=ExtResource("5_paed1")]
+position = Vector2(507, 2204)
+rotation = 0.25679
+
+[node name="Boundary6" parent="Boundaries" index="8" instance=ExtResource("5_paed1")]
+position = Vector2(3665, 1471)
+rotation = -0.805984

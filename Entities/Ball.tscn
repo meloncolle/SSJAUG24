@@ -6,7 +6,9 @@
 radius = 20.85
 
 [node name="Ball" type="RigidBody2D"]
+mass = 5.0
 can_sleep = false
+linear_damp_mode = 1
 script = ExtResource("1_roe3m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
