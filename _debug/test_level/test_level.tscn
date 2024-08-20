@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dawmy7e4kekbg" path="res://Entities/BlackHole.tscn" id="5_l0xk5"]
 
 [node name="TestLevel" instance=ExtResource("1_h70sp")]
+gravityBoostSpeed = 100.0
 
 [node name="Ball" parent="Planets" index="0" instance=ExtResource("3_2wxgh")]
 position = Vector2(-475, -150)
@@ -30,31 +31,31 @@ position = Vector2(-121, 27)
 
 [node name="Star" parent="Stars" index="0" instance=ExtResource("4_y3xxs")]
 position = Vector2(102, -274)
-gravity = 277.0
-gravity_field_size = 300
-gravity_strength = 277.0
+gravity = 56.0
+gravityFieldSize = 291
+gravityStrength = 56.0
 
 [node name="Star2" parent="Stars" index="1" instance=ExtResource("4_y3xxs")]
 position = Vector2(-52, 254)
-gravity_field_size = 152.61
-gravity_strength = 980.0
+gravity = 1412.0
+gravityStrength = 1412.0
 
 [node name="Star3" parent="Stars" index="2" instance=ExtResource("4_y3xxs")]
 position = Vector2(519, 184)
-gravity = 2448.0
-gravity_field_size = 152.61
-gravity_strength = 2448.0
+gravity = 2090.0
+gravityStrength = 2090.0
 
 [node name="Star4" parent="Stars" index="3" instance=ExtResource("4_y3xxs")]
 position = Vector2(358, -210)
-gravity_field_size = 152.61
-gravity_strength = 980.0
+gravity = 1129.0
+gravityFieldSize = 128
+gravityStrength = 1129.0
 
 [node name="Star5" parent="Stars" index="4" instance=ExtResource("4_y3xxs")]
 position = Vector2(228, 86)
-gravity = -2709.0
-gravity_field_size = 48
-gravity_strength = -2709.0
+gravity = -4096.0
+gravityFieldSize = 65
+gravityStrength = -4096.0
 
 [node name="BlackHole" parent="BlackHoles" index="0" instance=ExtResource("5_l0xk5")]
 position = Vector2(558, -36)

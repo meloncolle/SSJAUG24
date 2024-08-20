@@ -16,11 +16,17 @@ var activeBallIndex: int = -1
 # Should this stuff be elsewhere?
 var power: float # Power level for swing, based on meter timing
 var meterTimer := PI * 2
-@export var powerMeterSpeed := 7.5 ## Speed at which power meter oscillates
+@export_group("Swing Settings")
 @export var swingForce := 4.0 ## Multiplier for swing force
+@export var powerMeterSpeed := 7.5 ## Speed at which power meter oscillates
 
 var score: int
 @onready var scoreLabel: RichTextLabel = $CanvasLayer/Points
+
+var gravBoostActive: bool = false
+@export_group("Gravity Boost Settings")
+@export var gravityBoostLimit: float = 4096 ## Upper limit for gravity when boosting
+@export var gravityBoostSpeed := 7.5 ## Speed at which gravity is increased
 
 signal changed_power(newPower: float)
 
@@ -67,6 +73,14 @@ func _ready():
 	set_state(Enums.LevelState.READY)
 
 func _input(event):
+	# RMB UP to stop gravity manip at any point
+	if (event is InputEventMouseButton 
+		and event.button_index == MOUSE_BUTTON_RIGHT 
+		and !event.pressed
+	):
+		if gravBoostActive:
+			gravBoostActive = false
+	
 	match state:
 		Enums.LevelState.READY:
 			# SPACE DOWN to change active ball
@@ -93,7 +107,7 @@ func _input(event):
 						break
 				
 				if !clickedDraggable:
-					print("TODO: manip gravity")
+					gravBoostActive = true
 			
 		Enums.LevelState.IN_SWING:
 			# LMB UP: do swing
@@ -108,6 +122,15 @@ func _input(event):
 			return
 
 func _physics_process(delta):
+	if gravBoostActive:
+		for s in stars:
+			if s.gravityStrength < gravityBoostLimit:
+				s.gravityStrength += gravityBoostSpeed
+	else:
+		for s in stars:
+			if s.gravityStrength > s.baseGravity:
+				s.gravityStrength -= gravityBoostSpeed
+	
 	match state:
 		Enums.LevelState.IN_SWING:
 			# Oscillate power level while charging swing
