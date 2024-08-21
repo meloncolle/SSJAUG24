@@ -20,7 +20,7 @@ func _ready():
 	pauseMenu.get_node("Panel/VBoxContainer/RestartButton").pressed.connect(self._on_press_restart)
 	pauseMenu.get_node("Panel/VBoxContainer/QuitButton").pressed.connect(self._on_press_quit)
 	
-	if Globals.SKIP_TITLE:
+	if Globals.ENABLE_SKIP_TITLE_SCREEN:
 		_on_press_start()
 
 func _input (event: InputEvent):

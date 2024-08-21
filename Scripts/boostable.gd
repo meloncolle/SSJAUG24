@@ -1,0 +1,85 @@
+@tool
+extends Area2D
+
+class_name Boostable
+
+## If this object can be gravity boosted
+@export var boostEnabled := true
+
+## Radius of gravity field
+@export_range(0.01, 1024, 0.1, "suffix: px") var gravityFieldSize = 150:
+	set = set_grav_field_size
+			
+## Strength of gravity field
+@export_range(Globals.MIN_GRAVITY, Globals.MAX_GRAVITY, 0.1, "suffix: px/s²") var gravityStrength = 980:
+	set = set_grav_field_strength
+
+@onready var gravityField: CollisionShape2D = $GravityField
+
+var baseGravity := 0.0
+var isBoosting := false
+
+func _ready():
+	$Center.body_entered.connect(_on_center_entered)
+	gravityField.shape.radius = gravityFieldSize
+	gravityStrength = self.gravity
+	
+	baseGravity = gravityStrength
+
+func _physics_process(delta):
+	if not Engine.is_editor_hint():
+		if isBoosting:
+			if gravityStrength < Globals.GRAVITY_BOOST_LIMIT:
+				gravityStrength += Globals.GRAVITY_BOOST_SPEED
+		else:
+			if gravityStrength > baseGravity:
+				gravityStrength -= Globals.GRAVITY_BOOST_SPEED
+
+func _input(event):
+	if not Engine.is_editor_hint():
+		if !boostEnabled:
+			return
+		
+		if (event is InputEventMouseButton 
+			and event.button_index == MOUSE_BUTTON_RIGHT 
+			and event.pressed
+			and is_point_inside(get_global_mouse_position())
+		):
+			isBoosting = true
+		
+		elif (event is InputEventMouseButton 
+			and event.button_index == MOUSE_BUTTON_RIGHT 
+			and !event.pressed
+		):
+			isBoosting = false
+			
+		if (event is InputEventMouseMotion
+			and Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT)):
+			isBoosting = is_point_inside(get_global_mouse_position())
+
+func is_point_inside(point: Vector2) -> bool:
+	return self.global_position.distance_to(point) < gravityField.shape.radius
+
+func _on_center_entered(body: Node2D) -> void:
+	# Override this in child class n_n
+	return
+
+# ----------SETTERS/GETTERS----------
+
+func set_grav_field_size(value: float) -> void:
+	gravityFieldSize = value
+	if gravityField != null:
+		# idk why the null check is needed? it tries to do it on an [orphan] node at start otherwise??
+		gravityField.shape.radius = gravityFieldSize
+		
+func set_grav_field_strength(value: float) -> void:
+	gravityStrength = value
+	self.gravity = gravityStrength
+	
+	# color stuff
+	if gravityField != null:
+		var c := Color.CYAN
+		if gravityStrength < 0:
+			c = Color.MAGENTA
+		c.a = inverse_lerp(0, Globals.MAX_GRAVITY, abs(gravityStrength))
+		gravityField.debug_color = c

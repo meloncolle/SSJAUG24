@@ -16,17 +16,13 @@ var activeBallIndex: int = -1
 # Should this stuff be elsewhere?
 var power: float # Power level for swing, based on meter timing
 var meterTimer := PI * 2
+
 @export_group("Swing Settings")
 @export var swingForce := 4.0 ## Multiplier for swing force
 @export var powerMeterSpeed := 7.5 ## Speed at which power meter oscillates
 
 var score: int
 @onready var scoreLabel: RichTextLabel = $CanvasLayer/Points
-
-var gravBoostActive: bool = false
-@export_group("Gravity Boost Settings")
-@export var gravityBoostLimit: float = 4096 ## Upper limit for gravity when boosting
-@export var gravityBoostSpeed := 7.5 ## Speed at which gravity is increased
 
 signal changed_power(newPower: float)
 
@@ -73,19 +69,13 @@ func _ready():
 	set_state(Enums.LevelState.READY)
 
 func _input(event):
-	# RMB UP to stop gravity manip at any point
-	if (event is InputEventMouseButton 
-		and event.button_index == MOUSE_BUTTON_RIGHT 
-		and !event.pressed
-	):
-		if gravBoostActive:
-			gravBoostActive = false
 	
 	match state:
 		Enums.LevelState.READY:
 			# SPACE DOWN to change active ball
 			if event.is_action_pressed("ACTION"):
-				set_active_ball(activeBallIndex + 1)
+				if Globals.ENABLE_SWITCHING_BALLS:
+					set_active_ball(activeBallIndex + 1)
 				
 			# LMB DOWN to start swing
 			if (event is InputEventMouseButton 
@@ -93,21 +83,6 @@ func _input(event):
 				and event.pressed
 			):
 				set_state(Enums.LevelState.IN_SWING)
-			
-			# RMB DOWN to manip gravity (IF UR NOT CLICKING A BUBBLE)
-			if (event is InputEventMouseButton 
-				and event.button_index == MOUSE_BUTTON_RIGHT 
-				and event.pressed
-			):
-				var clickedDraggable := false
-				for draggable in stars + blackHoles:
-					# todo: DO THIS SMARTER IF WE KEEP IT...
-					if draggable.is_point_inside(get_global_mouse_position()) && draggable.dragEnabled:
-						clickedDraggable = true
-						break
-				
-				if !clickedDraggable:
-					gravBoostActive = true
 			
 		Enums.LevelState.IN_SWING:
 			# LMB UP: do swing
@@ -122,15 +97,6 @@ func _input(event):
 			return
 
 func _physics_process(delta):
-	if gravBoostActive:
-		for s in stars:
-			if s.gravityStrength < gravityBoostLimit:
-				s.gravityStrength += gravityBoostSpeed
-	else:
-		for s in stars:
-			if s.gravityStrength > s.baseGravity:
-				s.gravityStrength -= gravityBoostSpeed
-	
 	match state:
 		Enums.LevelState.IN_SWING:
 			# Oscillate power level while charging swing
@@ -188,17 +154,16 @@ func set_score(newScore: int):
 	score = newScore
 	scoreLabel.text = str(score)
 	
-
 func update_ball_indices():
 	var ballCount := 0
 	for b in balls:
 		b.set_index(ballCount)
 		ballCount += 1
 
-func _on_ball_destroyed(destroyedIndex: int, destroyer: Node2D):
-	if destroyer is BHEntity:
+func _on_ball_destroyed(destroyedIndex: int, points: int = 0):
+	if points != 0:
 		print("SCORE!")
-		set_score(score + 1)
+		set_score(score + points)
 	else:
 		print("BALL DESTROYED...")
 	

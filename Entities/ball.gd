@@ -16,13 +16,12 @@ signal ball_destroyed(index: int, destroyer: Node2D)
 
 var index: int = -1 # Position in main ball array... Needs to be externally updated...
 
-
 func _physics_process(delta: float) -> void:
 	if isTargeted && pointer != null:
 		pointer.look_at(get_global_mouse_position())
 
-func destroy(destroyer: Node2D = null):
-	emit_signal("ball_destroyed", index, destroyer)
+func destroy(points: int = 0):
+	emit_signal("ball_destroyed", index, points)
 	self.queue_free()
 
 func set_index(set: int):
