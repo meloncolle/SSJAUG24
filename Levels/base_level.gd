@@ -7,6 +7,7 @@ var state: Enums.LevelState
 var balls: Array[BallEntity] = []
 var stars: Array[StarEntity] = []
 var blackHoles: Array[BHEntity] = []
+var wormHoles: Array[WHEntity] = []
 
 var activeBallIndex: int = -1
 
@@ -38,6 +39,11 @@ func _ready():
 		if bh is BHEntity:
 			blackHoles.append(bh)
 	assert(blackHoles.size() > 0, "Expected at least one black hole in level")
+	
+	for wh in $WormHoles.get_children():
+		if wh is WHEntity:
+			#assert(wh.warpTarget != null, "Wormhole \"" + wh.name + "\" needs to have warp target assigned")
+			wormHoles.append(wh)
 	
 	for b in $Planets.get_children():
 		if b is BallEntity:

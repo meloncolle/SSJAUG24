@@ -10,14 +10,7 @@ func _on_center_entered(body: Node2D) -> void:
 	else:
 		return
 
-# ----------SETTERS/GETTERS----------
-# this overrides "boostable" func to keep value positive, color black
-func set_grav_field_strength(value: float) -> void:
-	gravityStrength = max(0, value)
-	self.gravity = gravityStrength
-	
-	# color stuff
-	if gravityField != null:
-		var c := Color.BLACK
-		c.a = inverse_lerp(0, Globals.MAX_GRAVITY, abs(gravityStrength))
-		gravityField.debug_color = c
+func set_appearance(gravity_strength: float) -> void:
+	var c = Color.BLACK
+	c.a = inverse_lerp(0, Globals.MAX_GRAVITY, abs(gravity_strength))
+	gravityField.debug_color = c

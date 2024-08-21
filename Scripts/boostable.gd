@@ -5,6 +5,7 @@ class_name Boostable
 
 ## If this object can be gravity boosted
 @export var boostEnabled := true
+@export var allowNegativeGravity := true
 
 ## Radius of gravity field
 @export_range(0.01, 1024, 0.1, "suffix: px") var gravityFieldSize = 150:
@@ -21,6 +22,7 @@ var isBoosting := false
 
 func _ready():
 	$Center.body_entered.connect(_on_center_entered)
+	$Center.body_exited.connect(_on_center_exited)
 	gravityField.shape.radius = gravityFieldSize
 	gravityStrength = self.gravity
 	
@@ -63,6 +65,14 @@ func is_point_inside(point: Vector2) -> bool:
 func _on_center_entered(body: Node2D) -> void:
 	# Override this in child class n_n
 	return
+	
+func _on_center_exited(body: Node2D) -> void:
+	# Override this in child class n_n
+	return
+	
+func set_appearance(gravity_strength: float) -> void:
+		# Override this in child class n_n
+	return
 
 # ----------SETTERS/GETTERS----------
 
@@ -73,13 +83,10 @@ func set_grav_field_size(value: float) -> void:
 		gravityField.shape.radius = gravityFieldSize
 		
 func set_grav_field_strength(value: float) -> void:
+	if !allowNegativeGravity:
+		gravityStrength = max(0, value)
 	gravityStrength = value
 	self.gravity = gravityStrength
 	
-	# color stuff
 	if gravityField != null:
-		var c := Color.CYAN
-		if gravityStrength < 0:
-			c = Color.MAGENTA
-		c.a = inverse_lerp(0, Globals.MAX_GRAVITY, abs(gravityStrength))
-		gravityField.debug_color = c
+		set_appearance(gravityStrength)

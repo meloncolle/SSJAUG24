@@ -16,6 +16,8 @@ script = ExtResource("2_1qgfg")
 
 [node name="BlackHoles" type="Node" parent="."]
 
+[node name="WormHoles" type="Node" parent="."]
+
 [node name="Boundaries" type="Node" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

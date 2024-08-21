@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ec41q4ys3khh"]
+[gd_scene load_steps=7 format=3 uid="uid://ec41q4ys3khh"]
 
 [ext_resource type="PackedScene" uid="uid://jwa57sqwi2ws" path="res://Levels/base_level.tscn" id="1_h70sp"]
 [ext_resource type="PackedScene" uid="uid://b0q8p531yqss6" path="res://Entities/Ball.tscn" id="3_2wxgh"]
 [ext_resource type="PackedScene" uid="uid://bqujgumw3qfky" path="res://Entities/Star.tscn" id="4_y3xxs"]
 [ext_resource type="PackedScene" uid="uid://dawmy7e4kekbg" path="res://Entities/BlackHole.tscn" id="5_l0xk5"]
 [ext_resource type="PackedScene" uid="uid://bpiqrfkgh1fl1" path="res://Entities/Static/Boundary.tscn" id="5_paed1"]
+[ext_resource type="PackedScene" uid="uid://bjw3hnypih6fe" path="res://Entities/WormHole.tscn" id="5_xjwtu"]
 
 [node name="TestLevel" instance=ExtResource("1_h70sp")]
 swingForce = 40.0
@@ -52,9 +53,9 @@ gravityStrength = 200.0
 
 [node name="Star9" parent="Stars" index="3" instance=ExtResource("4_y3xxs")]
 position = Vector2(2096, -1160)
-gravity = 200.0
+gravity = 2509.0
 gravityFieldSize = 1024.0
-gravityStrength = 200.0
+gravityStrength = 2509.0
 
 [node name="Star10" parent="Stars" index="4" instance=ExtResource("4_y3xxs")]
 position = Vector2(339, 837)
@@ -76,9 +77,9 @@ gravityStrength = 200.0
 
 [node name="Star7" parent="Stars" index="7" instance=ExtResource("4_y3xxs")]
 position = Vector2(249, -1566)
-gravity = 974.0
+gravity = 1394.0
 gravityFieldSize = 444.0
-gravityStrength = 974.0
+gravityStrength = 1394.0
 
 [node name="Star6" parent="Stars" index="8" instance=ExtResource("4_y3xxs")]
 position = Vector2(1380, -221)
@@ -105,12 +106,24 @@ gravityFieldSize = 65.0
 gravityStrength = -4096.0
 
 [node name="BlackHole" parent="BlackHoles" index="0" instance=ExtResource("5_l0xk5")]
-position = Vector2(-274, -410)
-gravity = 2502.0
-gravityStrength = 2502.0
+position = Vector2(-595, 18)
+
+[node name="WormHole" parent="WormHoles" index="0" node_paths=PackedStringArray("warpTarget") instance=ExtResource("5_xjwtu")]
+position = Vector2(-685, -363)
+gravity = 88.0
+warpTarget = NodePath("../WormHole2")
+gravityFieldSize = 77.0
+gravityStrength = 88.0
+
+[node name="WormHole2" parent="WormHoles" index="1" node_paths=PackedStringArray("warpTarget") instance=ExtResource("5_xjwtu")]
+position = Vector2(-1019, -377)
+gravity = 88.0
+warpTarget = NodePath("../WormHole")
+gravityFieldSize = 77.0
+gravityStrength = 88.0
 
 [node name="Boundary" parent="Boundaries" index="0" instance=ExtResource("5_paed1")]
-position = Vector2(-1351, -407)
+position = Vector2(-868, -393)
 rotation = -1.47505
 
 [node name="Boundary8" parent="Boundaries" index="1" instance=ExtResource("5_paed1")]
