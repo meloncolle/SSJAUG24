@@ -42,6 +42,9 @@ func _ready():
 	for c in $Collectibles.get_children():
 		if c is Collectible:
 			c.connect("collect_points", self.set_score)	
+		elif c is Fuel:
+			c.connect("collect_fuel", func(val: float): fuel.fuel += val)
+			#wait_timer.timeout.connect(func(): run_state_machine(StateAction.WAIT_COMPLETED))
 	
 	# Populate ball list
 	for b in $Planets.get_children():

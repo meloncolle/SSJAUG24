@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bjw3hnypih6fe"]
 
-[ext_resource type="Script" path="res://Entities/worm_hole.gd" id="1_mhi61"]
+[ext_resource type="Script" path="res://Entities/Environment/worm_hole.gd" id="1_mhi61"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7y8kk"]
 resource_local_to_scene = true
