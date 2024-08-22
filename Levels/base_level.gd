@@ -2,7 +2,8 @@ extends Node2D
 
 class_name BaseLevel
 
-var state: Enums.LevelState
+var state: Enums.LevelState:
+	set = set_state
 
 var balls: Array[BallEntity] = []
 
@@ -11,21 +12,13 @@ var activeBallIndex: int = -1
 @onready var cam: Node2D = $Camera2D
 @onready var deathScreen: Control = $CanvasLayer/DeathScreen
 
-# Should this stuff be elsewhere?
-var power: float # Power level for swing, based on meter timing
-var meterTimer := PI * 2
-
-@export_group("Swing Settings")
-@export var swingForce := 4.0 ## Multiplier for swing force
-@export var powerMeterSpeed := 7.5 ## Speed at which power meter oscillates
+@onready var power: Node = $Power
 
 var score: int = 0
 @onready var scoreLabel: RichTextLabel = $CanvasLayer/ScoreLabel
 
-signal changed_power(newPower: float)
-
 func _ready():
-	set_state(Enums.LevelState.INIT)
+	state = Enums.LevelState.INIT
 	set_score(0)
 	
 	# Check for at least one black hole
@@ -74,7 +67,7 @@ func _ready():
 	deathScreen.get_node("Panel/VBoxContainer/RetryButton").pressed.connect(_on_press_retry)
 	deathScreen.get_node("Panel/VBoxContainer/QuitButton").pressed.connect(_on_press_quit)
 	
-	set_state(Enums.LevelState.READY)
+	state = Enums.LevelState.READY
 
 func _input(event):
 	
@@ -90,7 +83,7 @@ func _input(event):
 				and event.button_index == MOUSE_BUTTON_LEFT 
 				and event.pressed
 			):
-				set_state(Enums.LevelState.IN_SWING)
+				state = Enums.LevelState.IN_SWING
 			
 		Enums.LevelState.IN_SWING:
 			# LMB UP: do swing
@@ -98,27 +91,16 @@ func _input(event):
 				and event.button_index == MOUSE_BUTTON_LEFT 
 				and not event.pressed
 				):
-				do_swing(power)
-				set_state(Enums.LevelState.READY)
+				do_swing(power.power)
+				state = Enums.LevelState.READY
 				
 		Enums.LevelState.DEAD:
 			return
 
-func _physics_process(delta):
-	match state:
-		Enums.LevelState.IN_SWING:
-			# Oscillate power level while charging swing
-			meterTimer += delta
-			set_power((1 + cos(meterTimer * powerMeterSpeed)) * 0.5)
-
 func do_swing(force: float):
 	var swing = get_global_mouse_position() - balls[activeBallIndex].position
 	# i think we have to multiply this by the camera zoom so the force is proportional?? weird
-	balls[activeBallIndex].apply_central_impulse(swing * force * swingForce * cam.zoom.y)
-
-func set_power(newVal: float):
-	power = newVal
-	emit_signal("changed_power", power)
+	balls[activeBallIndex].apply_central_impulse(swing * power.force * power.power * cam.zoom.y)
 
 func set_active_ball(newIndex: int):
 	# todo: ideally we'd want to be able to go back-forth and order by spatial distance btwn balls
@@ -141,18 +123,16 @@ func set_state(newState: Enums.LevelState):
 			pass
 			
 		Enums.LevelState.READY:
-			# remove powermeter
+			power.isOscillating = false
 			balls[activeBallIndex].set_power_meter(false)
 			
 		Enums.LevelState.IN_SWING:
-			# setup powermeter
-			meterTimer = PI * 2
+			power.isOscillating = true
+			power.reset()
 			balls[activeBallIndex].set_power_meter()
 			if balls[activeBallIndex].powerMeter != null:
-				self.connect("changed_power", balls[activeBallIndex].powerMeter._on_changed_power)
-				
-		Enums.LevelState.GRAVITY:
-			pass
+				power.connect("changed_power", balls[activeBallIndex].powerMeter._on_changed_power)
+		
 		Enums.LevelState.DEAD:
 			deathScreen.visible = true
 	
@@ -181,7 +161,7 @@ func _on_ball_destroyed(destroyedIndex: int, points: int = 0):
 	update_ball_indices()	
 	
 	if balls.size() == 0:
-		set_state(Enums.LevelState.DEAD)
+		state = Enums.LevelState.DEAD
 		return
 		
 	set_active_ball(activeBallIndex)
