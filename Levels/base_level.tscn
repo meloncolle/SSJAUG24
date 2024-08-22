@@ -18,6 +18,8 @@ script = ExtResource("2_1qgfg")
 
 [node name="WormHoles" type="Node" parent="."]
 
+[node name="Collectibles" type="Node" parent="."]
+
 [node name="Boundaries" type="Node" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -33,16 +35,7 @@ anchor_bottom = 0.5
 [node name="ScoreLabel" type="RichTextLabel" parent="CanvasLayer"]
 offset_left = 16.0
 offset_top = 16.0
-offset_right = 64.0
-offset_bottom = 40.0
-text = "Score:"
-fit_content = true
-autowrap_mode = 0
-
-[node name="Points" type="RichTextLabel" parent="CanvasLayer"]
-offset_left = 67.0
-offset_top = 16.0
-offset_right = 67.0
+offset_right = 16.0
 offset_bottom = 40.0
 fit_content = true
 autowrap_mode = 0

@@ -5,9 +5,6 @@ class_name BaseLevel
 var state: Enums.LevelState
 
 var balls: Array[BallEntity] = []
-var stars: Array[StarEntity] = []
-var blackHoles: Array[BHEntity] = []
-var wormHoles: Array[WHEntity] = []
 
 var activeBallIndex: int = -1
 
@@ -23,28 +20,28 @@ var meterTimer := PI * 2
 @export var powerMeterSpeed := 7.5 ## Speed at which power meter oscillates
 
 var score: int
-@onready var scoreLabel: RichTextLabel = $CanvasLayer/Points
+@onready var scoreLabel: RichTextLabel = $CanvasLayer/ScoreLabel
 
 signal changed_power(newPower: float)
 
 func _ready():
 	set_state(Enums.LevelState.INIT)
 	set_score(0)
-		
-	# populate stars/balls/blackhole lists
-	for s in $Stars.get_children():
-		if s is StarEntity:
-			stars.append(s)	
+	
+	# Check for at least one black hole
+	var foundBH: bool = false
 	for bh in $BlackHoles.get_children():
 		if bh is BHEntity:
-			blackHoles.append(bh)
-	assert(blackHoles.size() > 0, "Expected at least one black hole in level")
+			foundBH = true
+			break
+	assert(foundBH, "Expected at least one black hole in level")
 	
+	# Check all wormholes have warp target assigned
 	for wh in $WormHoles.get_children():
 		if wh is WHEntity:
-			#assert(wh.warpTarget != null, "Wormhole \"" + wh.name + "\" needs to have warp target assigned")
-			wormHoles.append(wh)
+			assert(wh.warpTarget != null, "Wormhole \"" + wh.name + "\" needs to have warp target assigned")
 	
+	# Populate ball list
 	for b in $Planets.get_children():
 		if b is BallEntity:
 			balls.append(b)
@@ -158,7 +155,7 @@ func set_state(newState: Enums.LevelState):
 
 func set_score(newScore: int):
 	score = newScore
-	scoreLabel.text = str(score)
+	scoreLabel.text = "Score: " + str(score)
 	
 func update_ball_indices():
 	var ballCount := 0
