@@ -1,25 +1,36 @@
 extends Camera2D
 
-@export var target: Node2D = null
+@export var target: Node2D = null:
+	set = set_target
 @export var followSpeed: float = 5
-@export var zoomSpeed: float = 0.1
+@export var zoomSpeed: float = 5
+@export var zoomSensitivity: float = 0.1
+@export var minZoom: float = 0.1
+@export var maxZoom: float = 1.5
 
-var zoomEnabled = true
+var zoomEnabled: bool = true
+var zoomTarget: float:
+	set = set_zoom_target
 
-func set_target(_target):
-	target = _target
+func _ready():
+	zoomTarget = zoom.x
 
 func _process(delta):
-	if target == null:
-		return
-	global_position = global_position.lerp(target.global_position, delta * followSpeed)
+	if target != null:
+		global_position = global_position.lerp(target.global_position, delta * followSpeed)
+	var newZoom: float = lerp(zoom.x, zoomTarget, delta * followSpeed)
+	zoom = Vector2(newZoom, newZoom)
 
 func _input(event):
 	# Scroll to zoom
 	if event is InputEventMouseButton && event.pressed:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP && zoomEnabled:
-			zoom.x += zoomSpeed
-			zoom.y += zoomSpeed
+			zoomTarget += zoomSensitivity
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN && zoomEnabled:
-			zoom.x -= zoomSpeed
-			zoom.y -= zoomSpeed
+			zoomTarget -= zoomSensitivity
+
+func set_target(value: Node2D):
+	target = value
+	
+func set_zoom_target(value: float):
+	zoomTarget = clamp(value, minZoom, maxZoom)
