@@ -12,13 +12,15 @@ func _ready():
 func _on_body_entered(body: Node2D) -> void:
 	if body is BallEntity:
 		if Globals.ENABLE_SIMPLE_COLLECTIBLES:
-			destroy()
-		else: 
-			# Add to ball's trail i guess?
-			return
+			destroy(true)
+		else:
+			body_entered.disconnect(_on_body_entered)
+			visible = false
+			body.inventory.add_item(self)
 	else:
 		return
 		
-func destroy() -> void:
-	emit_signal("collect_points", pointValue)
+func destroy(grantPoints: bool = false) -> void:
+	if grantPoints:
+		emit_signal("collect_points", pointValue)
 	self.queue_free()
