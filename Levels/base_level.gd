@@ -10,12 +10,13 @@ var balls: Array[BallEntity] = []
 var activeBallIndex: int = -1
 
 @onready var cam: Node2D = $Camera2D
-@onready var deathScreen: Control = $CanvasLayer/DeathScreen
+@onready var deathScreen: Control = $UI/DeathScreen
 
 @onready var power: Node = $Power
+@onready var powerMeter: Node2D = $UI/PowerMeter
 
 var score: int = 0
-@onready var scoreLabel: RichTextLabel = $CanvasLayer/ScoreLabel
+@onready var scoreLabel: RichTextLabel = $UI/ScoreLabel
 
 func _ready():
 	state = Enums.LevelState.INIT
@@ -67,6 +68,8 @@ func _ready():
 	deathScreen.get_node("Panel/VBoxContainer/RetryButton").pressed.connect(_on_press_retry)
 	deathScreen.get_node("Panel/VBoxContainer/QuitButton").pressed.connect(_on_press_quit)
 	
+	power.connect("changed_power", powerMeter._on_changed_power)
+	
 	state = Enums.LevelState.READY
 
 func _input(event):
@@ -108,12 +111,12 @@ func set_active_ball(newIndex: int):
 		newIndex = newIndex % balls.size()
 	
 	if newIndex != activeBallIndex:
-		balls[activeBallIndex].set_target(false)
+		balls[activeBallIndex].isTargeted = false
 	
 	cam.set_target(balls[newIndex])
 	
 	activeBallIndex = newIndex
-	balls[activeBallIndex].set_target()
+	balls[activeBallIndex].isTargeted = true
 
 func set_state(newState: Enums.LevelState):
 	var oldState := state
@@ -124,14 +127,12 @@ func set_state(newState: Enums.LevelState):
 			
 		Enums.LevelState.READY:
 			power.isOscillating = false
-			balls[activeBallIndex].set_power_meter(false)
+			powerMeter.visible = false
 			
 		Enums.LevelState.IN_SWING:
-			power.isOscillating = true
 			power.reset()
-			balls[activeBallIndex].set_power_meter()
-			if balls[activeBallIndex].powerMeter != null:
-				power.connect("changed_power", balls[activeBallIndex].powerMeter._on_changed_power)
+			power.isOscillating = true
+			powerMeter.visible = true
 		
 		Enums.LevelState.DEAD:
 			deathScreen.visible = true

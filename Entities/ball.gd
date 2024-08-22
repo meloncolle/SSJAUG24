@@ -2,7 +2,8 @@ extends RigidBody2D
 
 class_name BallEntity
 
-var isTargeted := false
+var isTargeted := false:
+	set = set_target
 
 ## Set this to make the game target this ball on game start.[br]
 ## If none are set, the first ball in the tree is targeted.[br]
@@ -65,13 +66,3 @@ func set_pointer(set: bool=true):
 		self.add_child(pointer)
 	else:
 		pointer = null
-		
-func set_power_meter(set: bool=true):
-	if (is_instance_valid(powerMeter)):
-		powerMeter.queue_free()
-	if set:
-		powerMeter = load("res://UI/PowerMeter.tscn").instantiate()
-		self.add_child(powerMeter)
-	else:
-		powerMeter = null
-		
