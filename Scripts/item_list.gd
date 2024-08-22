@@ -4,8 +4,7 @@ var items: Array[Collectible] = []
 
 @export var followSpeed: float = 5
 
-var zoomEnabled = true
-
+signal changed_items()
 
 # todo: i want them to follow u soo bad but i cant get it to look good atm v_v
 #func _process(delta):
@@ -17,3 +16,10 @@ var zoomEnabled = true
 	
 func add_item(item: Collectible):
 	items.append(item)
+	emit_signal("changed_items")
+	
+func get_total_points() -> int:
+	var sum: int = 0
+	for i in items:
+		sum += i.pointValue
+	return sum

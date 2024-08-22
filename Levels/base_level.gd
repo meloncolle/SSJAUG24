@@ -17,6 +17,7 @@ var activeBallIndex: int = -1
 
 var score: int = 0
 @onready var scoreLabel: RichTextLabel = $UI/ScoreLabel
+@onready var collectedLabel: RichTextLabel = $UI/CollectedLabel
 
 @onready var fuel: Node = $Fuel
 @onready var fuelLabel: RichTextLabel = $UI/FuelLabel
@@ -54,6 +55,7 @@ func _ready():
 	# Set up listener for when a ball is destroyed
 	for b in balls:
 		b.connect("ball_destroyed", self._on_ball_destroyed)
+		b.inventory.connect("changed_items", self._on_changed_items)
 		
 	update_ball_indices()
 	
@@ -81,6 +83,11 @@ func _ready():
 	
 	if Globals.ENABLE_INFINITE_FUEL:
 		fuelLabel.visible = false
+		
+	if Globals.ENABLE_SIMPLE_COLLECTIBLES:
+		collectedLabel.visible = false
+	else:
+		_on_changed_items()
 	
 	state = Enums.LevelState.READY
 
@@ -131,6 +138,7 @@ func set_active_ball(newIndex: int):
 	
 	activeBallIndex = newIndex
 	balls[activeBallIndex].isTargeted = true
+	_on_changed_items()
 
 func set_state(newState: Enums.LevelState):
 	var oldState := state
@@ -162,6 +170,9 @@ func _on_changed_fuel(value: float):
 		fuelLabel.text = "Fuel: [color=#ff0000]" + "%.2f" % value + "[/color]"
 	else:
 		fuelLabel.text = "Fuel: " + "%.2f" % value
+
+func _on_changed_items():
+	collectedLabel.text = "Points (this ball): " + str(balls[activeBallIndex].inventory.get_total_points())
 
 func update_ball_indices():
 	var ballCount := 0
