@@ -18,6 +18,9 @@ var activeBallIndex: int = -1
 var score: int = 0
 @onready var scoreLabel: RichTextLabel = $UI/ScoreLabel
 
+@onready var fuel: Node = $Fuel
+@onready var fuelLabel: RichTextLabel = $UI/FuelLabel
+
 func _ready():
 	state = Enums.LevelState.INIT
 	set_score(0)
@@ -69,6 +72,12 @@ func _ready():
 	deathScreen.get_node("Panel/VBoxContainer/QuitButton").pressed.connect(_on_press_quit)
 	
 	power.connect("changed_power", powerMeter._on_changed_power)
+	fuel.connect("changed_fuel", _on_changed_fuel)
+	fuel.connect("changed_fuel", power.check_limit)
+	_on_changed_fuel(fuel.fuel) # to trigger UI to appear
+	
+	if Globals.ENABLE_INFINITE_FUEL:
+		fuelLabel.visible = false
 	
 	state = Enums.LevelState.READY
 
@@ -104,6 +113,8 @@ func do_swing(force: float):
 	var swing = get_global_mouse_position() - balls[activeBallIndex].position
 	# i think we have to multiply this by the camera zoom so the force is proportional?? weird
 	balls[activeBallIndex].apply_central_impulse(swing * power.force * power.power * cam.zoom.y)
+	if !Globals.ENABLE_INFINITE_FUEL:
+		fuel.fuel -= power.power * Globals.MAX_FUEL_PER_SWING 
 
 func set_active_ball(newIndex: int):
 	# todo: ideally we'd want to be able to go back-forth and order by spatial distance btwn balls
@@ -142,7 +153,13 @@ func set_state(newState: Enums.LevelState):
 func set_score(newScore: int, baseScore: int = score):
 	score = newScore + baseScore
 	scoreLabel.text = "Score: " + str(score)
-	
+
+func _on_changed_fuel(value: float):
+	if value < Globals.MAX_FUEL_PER_SWING:
+		fuelLabel.text = "Fuel: [color=#ff0000]" + "%.2f" % value + "[/color]"
+	else:
+		fuelLabel.text = "Fuel: " + "%.2f" % value
+
 func update_ball_indices():
 	var ballCount := 0
 	for b in balls:
@@ -166,7 +183,7 @@ func _on_ball_destroyed(destroyedIndex: int, points: int = 0):
 		return
 		
 	set_active_ball(activeBallIndex)
-	
+
 func _on_press_retry():
 	if Globals.sceneController != null:
 		# If running full game context

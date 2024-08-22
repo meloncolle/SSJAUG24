@@ -3,6 +3,9 @@ extends Node
 @export var force := 4.0 ## Multiplier for swing force
 @export var meterSpeed := 7.5 ## Speed at which power meter oscillates
 
+# Set this lower if we are low on fuel!
+var limit: float = 1.0
+
 signal changed_power(newPower: float)
 
 var power: float:
@@ -17,12 +20,16 @@ func _ready():
 func _physics_process(delta):
 	if isOscillating:
 		meterTimer += delta
-		set_power((1 + cos(meterTimer * meterSpeed)) * 0.5)
+		set_power(limit * (1 + sin(meterTimer * meterSpeed)) * 0.5)
 
 func reset():
-	meterTimer = PI * 2
+	meterTimer = PI * 1.5
 	set_power(0)
 
 func set_power(value: float) -> void:
 	power = value
 	emit_signal("changed_power", power)
+	
+func check_limit(fuel: float):
+	if fuel < Globals.MAX_FUEL_PER_SWING:
+		limit = fuel / Globals.MAX_FUEL_PER_SWING
