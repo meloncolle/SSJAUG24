@@ -5,8 +5,7 @@ class_name BHEntity
 
 func _on_center_entered(body: Node2D) -> void:
 	if body is BallEntity:
-		# give 1 point for this? for now?
-		body.destroy(1)
+		body.destroy()
 	else:
 		return
 

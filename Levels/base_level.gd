@@ -19,7 +19,7 @@ var meterTimer := PI * 2
 @export var swingForce := 4.0 ## Multiplier for swing force
 @export var powerMeterSpeed := 7.5 ## Speed at which power meter oscillates
 
-var score: int
+var score: int = 0
 @onready var scoreLabel: RichTextLabel = $CanvasLayer/ScoreLabel
 
 signal changed_power(newPower: float)
@@ -40,6 +40,11 @@ func _ready():
 	for wh in $WormHoles.get_children():
 		if wh is WHEntity:
 			assert(wh.warpTarget != null, "Wormhole \"" + wh.name + "\" needs to have warp target assigned")
+			
+	# Setup score signal for each collectible
+	for c in $Collectibles.get_children():
+		if c is Collectible:
+			c.connect("collect_points", self.set_score)	
 	
 	# Populate ball list
 	for b in $Planets.get_children():
@@ -153,8 +158,8 @@ func set_state(newState: Enums.LevelState):
 	
 	state = newState
 
-func set_score(newScore: int):
-	score = newScore
+func set_score(newScore: int, baseScore: int = score):
+	score = newScore + baseScore
 	scoreLabel.text = "Score: " + str(score)
 	
 func update_ball_indices():
@@ -166,7 +171,7 @@ func update_ball_indices():
 func _on_ball_destroyed(destroyedIndex: int, points: int = 0):
 	if points != 0:
 		print("SCORE!")
-		set_score(score + points)
+		set_score(points)
 	else:
 		print("BALL DESTROYED...")
 	
