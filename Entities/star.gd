@@ -5,7 +5,8 @@ class_name StarEntity
 
 func _on_center_entered(body: Node2D) -> void:
 	if body is BallEntity:
-		body.destroy()
+		# Don't grant points in inventory
+		body.destroy(false)
 	else:
 		return
 

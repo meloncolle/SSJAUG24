@@ -12,8 +12,8 @@ const ENABLE_INFINITE_FUEL: bool = true
 # Can press space to select next ball
 const ENABLE_SWITCHING_BALLS: bool = true
 # true: Player scores points on contact w/ collectible
-# false: Collectibles trail behind player, and points scored when reaching black hole
-const ENABLE_SIMPLE_COLLECTIBLES: bool = true
+# false: Collectibles 'carried' by ball, and points granted when reaching black hole
+const ENABLE_SIMPLE_COLLECTIBLES: bool = false
 
 
 # for setting star gravity in editor

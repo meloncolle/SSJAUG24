@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ceht6yka27cw1" path="res://Entities/Collectible.tscn" id="6_6iecb"]
 
 [node name="TestLevel" instance=ExtResource("1_h70sp")]
-swingForce = 40.0
+swingForce = 10.0
 metadata/_edit_horizontal_guides_ = [-2154.0]
 
 [node name="Ball" parent="Planets" index="0" instance=ExtResource("3_2wxgh")]
@@ -125,12 +125,15 @@ gravityStrength = 88.0
 
 [node name="Collectible" parent="Collectibles" index="0" instance=ExtResource("6_6iecb")]
 position = Vector2(-554, -114)
+pointValue = 1
 
 [node name="Collectible2" parent="Collectibles" index="1" instance=ExtResource("6_6iecb")]
 position = Vector2(-638, -75)
+pointValue = 1
 
 [node name="Collectible3" parent="Collectibles" index="2" instance=ExtResource("6_6iecb")]
 position = Vector2(-715, -72)
+pointValue = 1
 
 [node name="Boundary" parent="Boundaries" index="0" instance=ExtResource("5_paed1")]
 position = Vector2(-868, -393)

@@ -16,16 +16,22 @@ var lastWarpSource: WHEntity = null
 var warpTarget: WHEntity = null
 var awaitingWarp: bool = false
 
+@onready var inventory = $FollowTarget
+
 signal ball_destroyed(index: int, destroyer: Node2D)
 
 var index: int = -1 # Position in main ball array... Needs to be externally updated...
 
 func _physics_process(delta: float) -> void:
 	if isTargeted && pointer != null:
-		pointer.look_at(get_global_mouse_position())
+		look_at(get_global_mouse_position())
 
-func destroy(points: int = 0):
-	emit_signal("ball_destroyed", index, points)
+func destroy(grantPoints: bool = false):
+	emit_signal("ball_destroyed", index)
+	
+	for item in inventory.items:
+		item.destroy(grantPoints)
+	
 	self.queue_free()
 	
 func warp(source: WHEntity, target: WHEntity) -> bool:
@@ -37,14 +43,12 @@ func warp(source: WHEntity, target: WHEntity) -> bool:
 		warpTarget = target
 		awaitingWarp = true
 		return true
-		
 
 func _integrate_forces(state):
 	if awaitingWarp && warpTarget != null:
 		self.global_position = warpTarget.global_position
 		awaitingWarp = false
 		warpTarget = null
-	
 
 func set_index(set: int):
 	index = set
@@ -59,7 +63,6 @@ func set_pointer(set: bool=true):
 	if set:
 		pointer = load("res://UI/Pointer.tscn").instantiate()
 		self.add_child(pointer)
-		pointer.look_at(get_global_mouse_position())
 	else:
 		pointer = null
 		
