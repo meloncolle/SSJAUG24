@@ -33,3 +33,5 @@ func set_power(value: float) -> void:
 func check_limit(fuel: float):
 	if fuel < Globals.MAX_FUEL_PER_SWING:
 		limit = fuel / Globals.MAX_FUEL_PER_SWING
+	else:
+		limit = 1.0
