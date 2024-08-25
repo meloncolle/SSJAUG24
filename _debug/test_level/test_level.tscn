@@ -43,6 +43,18 @@ position = Vector2(1535, 2420)
 [node name="Ball8" parent="Planets" index="7" instance=ExtResource("3_2wxgh")]
 position = Vector2(399, -2233)
 
+[node name="Ball9" parent="Planets" index="8" instance=ExtResource("3_2wxgh")]
+position = Vector2(340, -2377)
+
+[node name="Ball10" parent="Planets" index="9" instance=ExtResource("3_2wxgh")]
+position = Vector2(315, -2292)
+
+[node name="Ball11" parent="Planets" index="10" instance=ExtResource("3_2wxgh")]
+position = Vector2(417, -2309)
+
+[node name="Ball12" parent="Planets" index="11" instance=ExtResource("3_2wxgh")]
+position = Vector2(349, -2462)
+
 [node name="Starting" parent="Stars" index="0" instance=ExtResource("4_y3xxs")]
 position = Vector2(102, -274)
 gravity = 56.0
