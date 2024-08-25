@@ -28,7 +28,7 @@ func reset():
 
 func set_power(value: float) -> void:
 	power = value
-	emit_signal("changed_power", power)
+	changed_power.emit(power)
 	
 func check_limit(fuel: float):
 	if fuel < Globals.MAX_FUEL_PER_SWING:

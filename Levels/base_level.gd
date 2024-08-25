@@ -75,7 +75,7 @@ func _ready():
 	deathScreen.get_node("Panel/VBoxContainer/RetryButton").pressed.connect(_on_press_retry)
 	deathScreen.get_node("Panel/VBoxContainer/QuitButton").pressed.connect(_on_press_quit)
 	
-	power.connect("changed_power", powerMeter._on_changed_power)
+	power.connect("changed_power", $UI/PowerMeter/Mask/Bar._on_changed_power)
 	fuel.connect("changed_fuel", _on_changed_fuel)
 	fuel.connect("changed_fuel", power.check_limit)
 	_on_changed_fuel(fuel.fuel) # to trigger UI to appear
@@ -140,7 +140,7 @@ func set_active_ball(newIndex: int):
 	_on_changed_items()
 
 func set_state(newState: Enums.LevelState):
-	var oldState := state
+	var _oldState := state
 	
 	match newState:
 		Enums.LevelState.INIT:

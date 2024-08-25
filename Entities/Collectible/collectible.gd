@@ -22,5 +22,5 @@ func _on_body_entered(body: Node2D) -> void:
 		
 func destroy(grantPoints: bool = false) -> void:
 	if grantPoints:
-		emit_signal("collect_points", pointValue)
+		collect_points.emit(pointValue)
 	self.queue_free()
