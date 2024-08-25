@@ -16,7 +16,7 @@ script = ExtResource("1_roe3m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_8v0fu")
-debug_color = Color(1, 1, 1, 0.329412)
+debug_color = Color(1, 1, 1, 1)
 
 [node name="FollowTarget" type="Node2D" parent="."]
 position = Vector2(-29.99, 0)

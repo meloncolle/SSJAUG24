@@ -19,96 +19,11 @@ meterSpeed = 5.0
 [node name="Ball" parent="Planets" index="0" instance=ExtResource("3_2wxgh")]
 position = Vector2(-475, -150)
 
-[node name="Ball2" parent="Planets" index="1" instance=ExtResource("3_2wxgh")]
-position = Vector2(-362, -123)
-
-[node name="Ball3" parent="Planets" index="2" instance=ExtResource("3_2wxgh")]
-position = Vector2(-252, -52)
-
-[node name="Ball4" parent="Planets" index="3" instance=ExtResource("3_2wxgh")]
-position = Vector2(-419, -37)
-
-[node name="Ball5" parent="Planets" index="4" instance=ExtResource("3_2wxgh")]
-position = Vector2(-301, 15)
-
-[node name="Ball6" parent="Planets" index="5" instance=ExtResource("3_2wxgh")]
-position = Vector2(-208, 82)
-
-[node name="Ball7" parent="Planets" index="6" instance=ExtResource("3_2wxgh")]
-position = Vector2(-121, 27)
-
 [node name="Star" parent="Stars" index="0" instance=ExtResource("4_y3xxs")]
 position = Vector2(102, -274)
 gravity = 56.0
 gravityFieldSize = 291.0
 gravityStrength = 56.0
-
-[node name="Star8" parent="Stars" index="1" instance=ExtResource("4_y3xxs")]
-position = Vector2(-2210, 815)
-rotation = 3.83839
-gravity = 56.0
-gravityFieldSize = 1024.0
-gravityStrength = 56.0
-
-[node name="Star2" parent="Stars" index="2" instance=ExtResource("4_y3xxs")]
-position = Vector2(249, -1566)
-gravity = 200.0
-gravityFieldSize = 1024.0
-gravityStrength = 200.0
-
-[node name="Star9" parent="Stars" index="3" instance=ExtResource("4_y3xxs")]
-position = Vector2(2096, -1160)
-gravity = 2509.0
-gravityFieldSize = 1024.0
-gravityStrength = 2509.0
-
-[node name="Star10" parent="Stars" index="4" instance=ExtResource("4_y3xxs")]
-position = Vector2(339, 837)
-gravity = 200.0
-gravityFieldSize = 1024.0
-gravityStrength = 200.0
-
-[node name="Star11" parent="Stars" index="5" instance=ExtResource("4_y3xxs")]
-position = Vector2(2186, 1003)
-gravity = 200.0
-gravityFieldSize = 1024.0
-gravityStrength = 200.0
-
-[node name="Star12" parent="Stars" index="6" instance=ExtResource("4_y3xxs")]
-position = Vector2(3350, -161)
-gravity = 200.0
-gravityFieldSize = 1024.0
-gravityStrength = 200.0
-
-[node name="Star7" parent="Stars" index="7" instance=ExtResource("4_y3xxs")]
-position = Vector2(249, -1566)
-gravity = 1394.0
-gravityFieldSize = 444.0
-gravityStrength = 1394.0
-
-[node name="Star6" parent="Stars" index="8" instance=ExtResource("4_y3xxs")]
-position = Vector2(1380, -221)
-gravity = 200.0
-gravityFieldSize = 1024.0
-gravityStrength = 200.0
-
-[node name="Star3" parent="Stars" index="9" instance=ExtResource("4_y3xxs")]
-position = Vector2(1242, 274)
-gravity = 300.0
-gravityFieldSize = 393.0
-gravityStrength = 300.0
-
-[node name="Star4" parent="Stars" index="10" instance=ExtResource("4_y3xxs")]
-position = Vector2(848, -81)
-gravity = 400.0
-gravityFieldSize = 401.0
-gravityStrength = 400.0
-
-[node name="Star5" parent="Stars" index="11" instance=ExtResource("4_y3xxs")]
-position = Vector2(1006, -487)
-gravity = -4096.0
-gravityFieldSize = 65.0
-gravityStrength = -4096.0
 
 [node name="BlackHole" parent="BlackHoles" index="0" instance=ExtResource("5_l0xk5")]
 position = Vector2(-595, 18)
@@ -117,39 +32,21 @@ position = Vector2(-595, 18)
 position = Vector2(-685, -363)
 gravity = 88.0
 warpTarget = NodePath("../WormHole2")
-gravityFieldSize = 77.0
+gravityFieldSize = 31.0
 gravityStrength = 88.0
 
 [node name="WormHole2" parent="WormHoles" index="1" node_paths=PackedStringArray("warpTarget") instance=ExtResource("5_xjwtu")]
 position = Vector2(-1019, -377)
 gravity = 88.0
 warpTarget = NodePath("../WormHole")
-gravityFieldSize = 77.0
+gravityFieldSize = 31.0
 gravityStrength = 88.0
 
 [node name="Collectible" parent="Collectibles" index="0" instance=ExtResource("6_6iecb")]
 position = Vector2(-554, -114)
 
-[node name="Collectible2" parent="Collectibles" index="1" instance=ExtResource("6_6iecb")]
-position = Vector2(-638, -75)
-
-[node name="Collectible3" parent="Collectibles" index="2" instance=ExtResource("6_6iecb")]
-position = Vector2(-742, -114)
-
-[node name="Collectible4" parent="Collectibles" index="3" instance=ExtResource("6_6iecb")]
-position = Vector2(-794, -72)
-
-[node name="Collectible5" parent="Collectibles" index="4" instance=ExtResource("6_6iecb")]
-position = Vector2(-841, -23)
-
-[node name="Collectible6" parent="Collectibles" index="5" instance=ExtResource("6_6iecb")]
-position = Vector2(-899, -20)
-
-[node name="FuelTank" parent="Collectibles" index="6" instance=ExtResource("7_4v3k8")]
+[node name="FuelTank" parent="Collectibles" index="1" instance=ExtResource("7_4v3k8")]
 position = Vector2(-903, -150)
-
-[node name="FuelTank2" parent="Collectibles" index="7" instance=ExtResource("7_4v3k8")]
-position = Vector2(-1000, -72)
 
 [node name="Boundary" parent="Boundaries" index="0" instance=ExtResource("5_paed1")]
 position = Vector2(-868, -393)

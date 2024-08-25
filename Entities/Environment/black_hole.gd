@@ -11,6 +11,6 @@ func _on_center_entered(body: Node2D) -> void:
 		return
 
 func set_appearance(gravity_strength: float) -> void:
-	var c = Color.BLACK
+	var c = Color.DARK_CYAN
 	c.a = inverse_lerp(0, Globals.MAX_GRAVITY, abs(gravity_strength))
 	gravityField.debug_color = c

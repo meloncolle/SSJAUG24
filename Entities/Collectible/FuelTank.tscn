@@ -11,4 +11,4 @@ script = ExtResource("1_mu3py")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 0.785398
 shape = SubResource("RectangleShape2D_co61k")
-debug_color = Color(0.158548, 0.588848, 1, 1)
+debug_color = Color(0.619608, 0.976471, 0.517647, 1)
