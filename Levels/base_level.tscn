@@ -71,6 +71,5 @@ fit_content = true
 autowrap_mode = 0
 
 [node name="PowerMeter" parent="UI" instance=ExtResource("5_j3a3o")]
-visible = false
-position = Vector2(1124, 484)
-scale = Vector2(3, 3)
+position = Vector2(1037, 542)
+scale = Vector2(0.478595, 0.478595)

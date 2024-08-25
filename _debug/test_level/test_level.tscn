@@ -11,10 +11,11 @@
 
 [node name="TestLevel" instance=ExtResource("1_h70sp")]
 metadata/_edit_horizontal_guides_ = [-2154.0]
+metadata/_edit_vertical_guides_ = [-5027.0]
 
 [node name="Power" parent="." index="0"]
-force = 20.0
-meterSpeed = 5.0
+force = 10.0
+meterSpeed = 4.0
 
 [node name="Ball" parent="Planets" index="0" instance=ExtResource("3_2wxgh")]
 position = Vector2(-475, -150)
