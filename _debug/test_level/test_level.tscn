@@ -22,8 +22,24 @@ position = Vector2(-475, -150)
 [node name="Star" parent="Stars" index="0" instance=ExtResource("4_y3xxs")]
 position = Vector2(102, -274)
 gravity = 56.0
+starBodySize = Vector2(5, 1)
 gravityFieldSize = 291.0
 gravityStrength = 56.0
+
+[node name="DANGER STAR" parent="Stars" index="1" instance=ExtResource("4_y3xxs")]
+position = Vector2(2517, 3488)
+starBodySize = Vector2(1, 1)
+gravityFieldSize = 1024.0
+
+[node name="DANGER STAR3" parent="Stars" index="2" instance=ExtResource("4_y3xxs")]
+position = Vector2(4123, 1498)
+starBodySize = Vector2(1, 1)
+gravityFieldSize = 1024.0
+
+[node name="DANGER STAR2" parent="Stars" index="3" instance=ExtResource("4_y3xxs")]
+position = Vector2(5646, 1295)
+starBodySize = Vector2(1, 1)
+gravityFieldSize = 1024.0
 
 [node name="BlackHole" parent="BlackHoles" index="0" instance=ExtResource("5_l0xk5")]
 position = Vector2(-595, 18)
@@ -55,31 +71,44 @@ rotation = -1.47505
 [node name="Boundary8" parent="Boundaries" index="1" instance=ExtResource("5_paed1")]
 position = Vector2(1534, -2806)
 rotation = 0.0817209
+scale = Vector2(10, 1)
 
 [node name="Boundary7" parent="Boundaries" index="2" instance=ExtResource("5_paed1")]
-position = Vector2(4853, -532)
+position = Vector2(5848, 295)
 rotation = -4.88725
+scale = Vector2(10, 1)
 
 [node name="Boundary2" parent="Boundaries" index="3" instance=ExtResource("5_paed1")]
-position = Vector2(3219, -2420)
+position = Vector2(4418, -1905)
 rotation = 0.535954
+scale = Vector2(10, 1)
 
 [node name="Boundary3" parent="Boundaries" index="4" instance=ExtResource("5_paed1")]
-position = Vector2(-803, 1591)
+position = Vector2(-1618, 2178)
 rotation = -2.26909
+scale = Vector2(10, 1)
 
 [node name="Boundary4" parent="Boundaries" index="5" instance=ExtResource("5_paed1")]
-position = Vector2(-670, -2547)
-rotation = -0.804763
+position = Vector2(-1090, -2367)
+rotation = -0.448591
+scale = Vector2(10, 1)
 
-[node name="Boundary5" parent="Boundaries" index="6" instance=ExtResource("5_paed1")]
-position = Vector2(1978, 2238)
+[node name="Boundary10" parent="Boundaries" index="6" instance=ExtResource("5_paed1")]
+position = Vector2(-2404, -471)
+rotation = -1.45761
+scale = Vector2(10, 1)
+
+[node name="Boundary5" parent="Boundaries" index="7" instance=ExtResource("5_paed1")]
+position = Vector2(3452, 3796)
 rotation = -0.0784376
+scale = Vector2(10, 1)
 
-[node name="Boundary9" parent="Boundaries" index="7" instance=ExtResource("5_paed1")]
-position = Vector2(507, 2204)
+[node name="Boundary9" parent="Boundaries" index="8" instance=ExtResource("5_paed1")]
+position = Vector2(675, 3570)
 rotation = 0.25679
+scale = Vector2(10, 1)
 
-[node name="Boundary6" parent="Boundaries" index="8" instance=ExtResource("5_paed1")]
-position = Vector2(3665, 1471)
+[node name="Boundary6" parent="Boundaries" index="9" instance=ExtResource("5_paed1")]
+position = Vector2(5235, 2694)
 rotation = -0.805984
+scale = Vector2(10, 1)

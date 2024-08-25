@@ -2,6 +2,9 @@
 extends Boostable
 
 class_name StarEntity
+@export var starBody: CollisionObject2D
+@export var starBodySize: Vector2 = Vector2(1,1)
+
 
 func _on_center_entered(body: Node2D) -> void:
 	if body is BallEntity:

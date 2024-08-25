@@ -9,10 +9,12 @@ radius = 150.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_6n6ce"]
 radius = 42.0
 
-[node name="Star" type="Area2D"]
+[node name="Star" type="Area2D" node_paths=PackedStringArray("starBody")]
 gravity_space_override = 1
 gravity_point = true
 script = ExtResource("1_k84xc")
+starBody = NodePath("Center")
+starBodySize = null
 gravityStrength = 980.0
 
 [node name="GravityField" type="CollisionShape2D" parent="."]
