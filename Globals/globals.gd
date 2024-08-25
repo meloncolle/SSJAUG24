@@ -23,6 +23,6 @@ const GRAVITY_BOOST_LIMIT: float = 4096
 const GRAVITY_BOOST_SPEED: float = 50
 
 # fuel cost for 100% power swing
-const MAX_FUEL_PER_SWING: float = 20
+const MAX_FUEL_PER_SWING: float = 40
 
 var sceneController: Node = null

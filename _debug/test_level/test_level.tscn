@@ -113,20 +113,23 @@ gravityStrength = -4096.0
 
 [node name="BlackHole" parent="BlackHoles" index="0" instance=ExtResource("5_l0xk5")]
 position = Vector2(-595, 18)
+boostEnabled = false
 
-[node name="WormHole" parent="WormHoles" index="0" node_paths=PackedStringArray("warpTarget") instance=ExtResource("5_xjwtu")]
+[node name="WormHole" parent="WormHoles" index="0" instance=ExtResource("5_xjwtu")]
 position = Vector2(-685, -363)
 gravity = 88.0
-warpTarget = NodePath("../WormHole2")
+boostEnabled = false
 gravityFieldSize = 77.0
 gravityStrength = 88.0
+centerSize = 10.0
 
-[node name="WormHole2" parent="WormHoles" index="1" node_paths=PackedStringArray("warpTarget") instance=ExtResource("5_xjwtu")]
+[node name="WormHole2" parent="WormHoles" index="1" instance=ExtResource("5_xjwtu")]
 position = Vector2(-1019, -377)
 gravity = 88.0
-warpTarget = NodePath("../WormHole")
+boostEnabled = false
 gravityFieldSize = 77.0
 gravityStrength = 88.0
+centerSize = 10.0
 
 [node name="Collectible" parent="Collectibles" index="0" instance=ExtResource("6_6iecb")]
 position = Vector2(-554, -114)
