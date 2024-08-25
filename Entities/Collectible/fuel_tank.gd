@@ -16,5 +16,5 @@ func _on_body_entered(body: Node2D) -> void:
 		return
 		
 func destroy() -> void:
-	emit_signal("collect_fuel", fuelValue)
+	collect_fuel.emit(fuelValue)
 	self.queue_free()

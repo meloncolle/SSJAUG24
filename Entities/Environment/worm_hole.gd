@@ -8,7 +8,7 @@ class_name WHEntity
 
 func _on_center_entered(body: Node2D) -> void:
 	if body is BallEntity:
-		var warped: bool = body.warp(self, warpTarget)
+		body.warp(self, warpTarget)
 	else:
 		return
 		

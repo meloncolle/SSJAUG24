@@ -16,7 +16,7 @@ signal changed_items()
 	
 func add_item(item: Collectible):
 	items.append(item)
-	emit_signal("changed_items")
+	changed_items.emit()
 	
 func get_total_points() -> int:
 	var sum: int = 0

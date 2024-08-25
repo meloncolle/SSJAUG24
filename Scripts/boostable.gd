@@ -28,7 +28,7 @@ func _ready():
 	
 	baseGravity = gravityStrength
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if not Engine.is_editor_hint():
 		if isBoosting:
 			if gravityStrength < Globals.GRAVITY_BOOST_LIMIT:
@@ -62,15 +62,15 @@ func _input(event):
 func is_point_inside(point: Vector2) -> bool:
 	return self.global_position.distance_to(point) < gravityField.shape.radius
 
-func _on_center_entered(body: Node2D) -> void:
+func _on_center_entered(_body: Node2D) -> void:
 	# Override this in child class n_n
 	return
 	
-func _on_center_exited(body: Node2D) -> void:
+func _on_center_exited(_body: Node2D) -> void:
 	# Override this in child class n_n
 	return
 	
-func set_appearance(gravity_strength: float) -> void:
+func set_appearance(_gravity_strength: float) -> void:
 		# Override this in child class n_n
 	return
 

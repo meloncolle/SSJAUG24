@@ -13,4 +13,4 @@ var fuel: float:
 	
 func set_fuel(value: float) -> void:
 	fuel = clamp(value, 0, maxFuel)
-	emit_signal("changed_fuel", fuel)
+	changed_fuel.emit(fuel)
