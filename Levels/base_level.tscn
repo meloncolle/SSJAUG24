@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://jwa57sqwi2ws"]
+[gd_scene load_steps=11 format=3 uid="uid://jwa57sqwi2ws"]
 
 [ext_resource type="Script" path="res://Levels/base_level.gd" id="1_uc3i8"]
 [ext_resource type="Script" path="res://Scripts/cam.gd" id="2_1qgfg"]
@@ -6,12 +6,17 @@
 [ext_resource type="PackedScene" uid="uid://c6a1hop38o3mq" path="res://UI/menus/death_screen.tscn" id="2_l5cqc"]
 [ext_resource type="Script" path="res://Scripts/fuel.gd" id="3_ma3hl"]
 [ext_resource type="PackedScene" uid="uid://bx3uslokvfceg" path="res://UI/PowerMeter.tscn" id="5_j3a3o"]
+[ext_resource type="AudioStream" uid="uid://cb6ex57pdok7a" path="res://Audio/Placeholder/SSG-prelim loop.wav" id="7_q1rc5"]
+[ext_resource type="AudioStream" uid="uid://vyjvn62ih6nk" path="res://Audio/Placeholder/SSG-hitball.mp3" id="8_161d1"]
+[ext_resource type="AudioStream" uid="uid://brykw53sasc0r" path="res://Audio/Placeholder/SSG-ChangeBall.mp3" id="9_kt76s"]
+[ext_resource type="AudioStream" uid="uid://dhk42ucq1x068" path="res://Audio/Placeholder/SSG-LowFuel.mp3" id="10_peebs"]
 
 [node name="BaseLevel" type="Node2D"]
 script = ExtResource("1_uc3i8")
 
 [node name="Power" type="Node" parent="."]
 script = ExtResource("2_bhbfv")
+meterSpeed = 15.0
 
 [node name="Fuel" type="Node" parent="."]
 script = ExtResource("3_ma3hl")
@@ -73,3 +78,27 @@ autowrap_mode = 0
 [node name="PowerMeter" parent="UI" instance=ExtResource("5_j3a3o")]
 position = Vector2(1037, 542)
 scale = Vector2(0.478595, 0.478595)
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("7_q1rc5")
+volume_db = -33.333
+autoplay = true
+max_distance = 99999.0
+attenuation = 0.0
+
+[node name="HitBall" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("8_161d1")
+max_distance = 999999.0
+attenuation = 0.0
+
+[node name="ChangeBall" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("9_kt76s")
+max_distance = 1e+06
+attenuation = 0.0
+
+[node name="HitBallLowFuel" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("10_peebs")
+max_distance = 1e+12
+attenuation = 0.0

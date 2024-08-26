@@ -5,11 +5,13 @@ class_name StarEntity
 @export var starBody: CollisionObject2D
 @export var starBodySize: Vector2 = Vector2(1,1)
 
+@onready var dieSFX = $DieEmitter
 
 func _on_center_entered(body: Node2D) -> void:
 	if body is BallEntity:
 		# Don't grant points in inventory
 		body.destroy(false)
+		dieSFX.play()
 	else:
 		return
 

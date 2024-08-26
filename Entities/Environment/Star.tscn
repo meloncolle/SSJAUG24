@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqujgumw3qfky"]
+[gd_scene load_steps=5 format=3 uid="uid://bqujgumw3qfky"]
 
 [ext_resource type="Script" path="res://Entities/Environment/star.gd" id="1_k84xc"]
+[ext_resource type="AudioStream" uid="uid://dmmdgt7p0lf7d" path="res://Audio/Placeholder/SSG-Die.mp3" id="2_sxln7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7y8kk"]
 resource_local_to_scene = true
@@ -14,7 +15,6 @@ gravity_space_override = 1
 gravity_point = true
 script = ExtResource("1_k84xc")
 starBody = NodePath("Center")
-starBodySize = null
 gravityStrength = 980.0
 
 [node name="GravityField" type="CollisionShape2D" parent="."]
@@ -27,3 +27,11 @@ debug_color = Color(0, 1, 1, 0.239258)
 shape = SubResource("CircleShape2D_6n6ce")
 one_way_collision_margin = 10.0
 debug_color = Color(0.94902, 0.52549, 0.137255, 1)
+
+[node name="GravityBoostEmitter" type="AudioStreamPlayer2D" parent="."]
+volume_db = 0.001
+
+[node name="DieEmitter" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_sxln7")
+max_distance = 1e+09
+attenuation = 0.0

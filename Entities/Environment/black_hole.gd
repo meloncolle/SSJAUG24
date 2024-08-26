@@ -3,10 +3,13 @@ extends Boostable
 
 class_name BHEntity
 
+@onready var scoreSFX = $ScoreEmitter
+
 func _on_center_entered(body: Node2D) -> void:
 	if body is BallEntity:
 		# Grant any points in inventory
 		body.destroy(true)
+		scoreSFX.play()
 	else:
 		return
 

@@ -20,6 +20,8 @@ class_name Boostable
 var baseGravity := 0.0
 var isBoosting := false
 
+#@onready var gravityBoostSFX = $GravityBoostEmitter
+
 func _ready():
 	$Center.body_entered.connect(_on_center_entered)
 	$Center.body_exited.connect(_on_center_exited)
@@ -87,6 +89,11 @@ func set_grav_field_strength(value: float) -> void:
 		gravityStrength = max(0, value)
 	gravityStrength = value
 	self.gravity = gravityStrength
+	#if baseGravity != gravityStrength and gravityBoostSFX.is_playing == false:
+	#	gravityBoostSFX.play()
+	#else:
+	#	gravityBoostSFX.stop()
 	
+	# sfx pitch = basegravity -= gravity strength
 	if gravityField != null:
 		set_appearance(gravityStrength)
