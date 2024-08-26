@@ -90,7 +90,8 @@ func set_grav_field_size(value: float) -> void:
 func set_grav_field_strength(value: float) -> void:
 	if !allowNegativeGravity:
 		gravityStrength = max(0, value)
-	gravityStrength = value
+	else:
+		gravityStrength = value
 	self.gravity = gravityStrength
 	
 	if gravityField != null:
