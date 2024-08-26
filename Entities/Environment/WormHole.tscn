@@ -7,7 +7,7 @@ resource_local_to_scene = true
 radius = 80.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6n6ce"]
-radius = 14.0
+resource_local_to_scene = true
 
 [node name="WormHole" type="Area2D"]
 gravity_space_override = 1
@@ -26,4 +26,4 @@ debug_color = Color(0, 1, 0, 0.239258)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Center"]
 shape = SubResource("CircleShape2D_6n6ce")
 one_way_collision_margin = 10.0
-debug_color = Color(0.384314, 0.839216, 0.396078, 1)
+debug_color = Color(0.819608, 0.054902, 0.27451, 0.419608)

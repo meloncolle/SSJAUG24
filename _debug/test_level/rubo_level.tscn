@@ -1,0 +1,289 @@
+[gd_scene load_steps=13 format=3 uid="uid://dg6025g6xi41g"]
+
+[ext_resource type="PackedScene" uid="uid://jwa57sqwi2ws" path="res://Levels/base_level.tscn" id="1_j5pj5"]
+[ext_resource type="PackedScene" uid="uid://b0q8p531yqss6" path="res://Entities/Ball.tscn" id="2_54yev"]
+[ext_resource type="PackedScene" uid="uid://bqujgumw3qfky" path="res://Entities/Environment/Star.tscn" id="3_84abb"]
+[ext_resource type="PackedScene" uid="uid://dawmy7e4kekbg" path="res://Entities/Environment/BlackHole.tscn" id="4_a24wj"]
+[ext_resource type="PackedScene" uid="uid://bjw3hnypih6fe" path="res://Entities/Environment/WormHole.tscn" id="5_v14nf"]
+[ext_resource type="PackedScene" uid="uid://ceht6yka27cw1" path="res://Entities/Collectible/Collectible.tscn" id="6_baouv"]
+[ext_resource type="PackedScene" uid="uid://4f1m2s6ovnyx" path="res://Entities/Collectible/FuelTank.tscn" id="7_evrk6"]
+[ext_resource type="PackedScene" uid="uid://bpiqrfkgh1fl1" path="res://Entities/Environment/Static/Boundary.tscn" id="8_c0gos"]
+[ext_resource type="PackedScene" uid="uid://bifkp2m7aoj61" path="res://Entities/Environment/Static/Boundary (bouncy).tscn" id="8_sb2gp"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0enft"]
+friction = 0.7
+bounce = 0.48
+absorbent = true
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qcvt3"]
+bounce = 0.5
+absorbent = true
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mp52k"]
+friction = 0.0
+
+[node name="TestLevel" instance=ExtResource("1_j5pj5")]
+metadata/_edit_horizontal_guides_ = [-2154.0]
+
+[node name="Power" parent="." index="0"]
+force = 20.0
+meterSpeed = 5.0
+
+[node name="Fuel" parent="." index="1"]
+startingFuel = 100.0
+
+[node name="Ball" parent="Planets" index="0" instance=ExtResource("2_54yev")]
+position = Vector2(430, -871)
+rotation = -3.07174
+physics_material_override = SubResource("PhysicsMaterial_0enft")
+
+[node name="Ball2" parent="Planets" index="1" instance=ExtResource("2_54yev")]
+position = Vector2(-1661, -951)
+physics_material_override = SubResource("PhysicsMaterial_qcvt3")
+
+[node name="Ball3" parent="Planets" index="2" instance=ExtResource("2_54yev")]
+position = Vector2(-1589, -597)
+rotation = 0.821453
+physics_material_override = SubResource("PhysicsMaterial_qcvt3")
+isFirstBall = true
+
+[node name="Boundary" parent="Planets" index="3" instance=ExtResource("8_c0gos")]
+position = Vector2(-1372, -369)
+rotation = 0.673496
+scale = Vector2(2.4, 0.399998)
+physics_material_override = SubResource("PhysicsMaterial_mp52k")
+
+[node name="Boundary3" parent="Planets" index="4" instance=ExtResource("8_c0gos")]
+position = Vector2(149, -33.0001)
+rotation = -0.291464
+scale = Vector2(0.798691, 0.399998)
+physics_material_override = SubResource("PhysicsMaterial_mp52k")
+
+[node name="Boundary4" parent="Planets" index="5" instance=ExtResource("8_c0gos")]
+position = Vector2(108, -104)
+rotation = -0.889638
+scale = Vector2(0.798691, 0.399998)
+physics_material_override = SubResource("PhysicsMaterial_mp52k")
+
+[node name="Boundary2" parent="Planets" index="6" instance=ExtResource("8_c0gos")]
+position = Vector2(-1177, -165)
+rotation = -0.374417
+scale = Vector2(2.4, 0.399998)
+physics_material_override = SubResource("PhysicsMaterial_mp52k")
+
+[node name="Star" parent="Stars" index="0" instance=ExtResource("3_84abb")]
+position = Vector2(261, -573)
+gravity = -2151.0
+gravityFieldSize = 272.0
+gravityStrength = -2151.0
+centerSize = 22.0
+
+[node name="Star2" parent="Stars" index="1" instance=ExtResource("3_84abb")]
+position = Vector2(259, -158)
+rotation = 0.125747
+centerSize = 29.0
+
+[node name="Star11" parent="Stars" index="2" instance=ExtResource("3_84abb")]
+position = Vector2(256, 420)
+gravityFieldSize = 150.0
+centerSize = 29.0
+
+[node name="Star13" parent="Stars" index="3" instance=ExtResource("3_84abb")]
+position = Vector2(748, 414)
+gravityFieldSize = 150.0
+centerSize = 29.0
+
+[node name="Star14" parent="Stars" index="4" instance=ExtResource("3_84abb")]
+position = Vector2(491, 420)
+gravityFieldSize = 150.0
+centerSize = 29.0
+
+[node name="Star12" parent="Stars" index="5" instance=ExtResource("3_84abb")]
+position = Vector2(262, 128)
+gravityFieldSize = 150.0
+centerSize = 29.0
+
+[node name="Star3" parent="Stars" index="6" instance=ExtResource("3_84abb")]
+position = Vector2(-589, -570)
+gravity = 4096.0
+gravityFieldSize = 32.0
+gravityStrength = 4096.0
+
+[node name="Star4" parent="Stars" index="7" instance=ExtResource("3_84abb")]
+position = Vector2(-440, -579)
+gravity = 4096.0
+gravityFieldSize = 32.0
+gravityStrength = 4096.0
+centerSize = 10.0
+
+[node name="Star10" parent="Stars" index="8" instance=ExtResource("3_84abb")]
+position = Vector2(-383, -390)
+gravity = 4096.0
+gravityFieldSize = 32.0
+gravityStrength = 4096.0
+centerSize = 10.0
+
+[node name="Star7" parent="Stars" index="9" instance=ExtResource("3_84abb")]
+position = Vector2(-665, -551)
+gravity = 4096.0
+gravityFieldSize = 32.0
+gravityStrength = 4096.0
+centerSize = 10.0
+
+[node name="Star8" parent="Stars" index="10" instance=ExtResource("3_84abb")]
+position = Vector2(-441, -392)
+gravity = 4096.0
+gravityFieldSize = 32.0
+gravityStrength = 4096.0
+centerSize = 10.0
+
+[node name="Star9" parent="Stars" index="11" instance=ExtResource("3_84abb")]
+position = Vector2(-516, -585)
+gravity = 4096.0
+gravityFieldSize = 32.0
+gravityStrength = 4096.0
+centerSize = 10.0
+
+[node name="Star5" parent="Stars" index="12" instance=ExtResource("3_84abb")]
+position = Vector2(-516, -389)
+gravity = 4096.0
+gravityFieldSize = 32.0
+gravityStrength = 4096.0
+centerSize = 10.0
+
+[node name="Star6" parent="Stars" index="13" instance=ExtResource("3_84abb")]
+position = Vector2(-592, -363)
+gravity = 4096.0
+gravityFieldSize = 32.0
+gravityStrength = 4096.0
+centerSize = 10.0
+
+[node name="Boundary" parent="Stars" index="14" instance=ExtResource("8_sb2gp")]
+position = Vector2(276, 2046)
+rotation = 3.13399
+scale = Vector2(14.9928, 1.21166)
+
+[node name="Boundary2" parent="Stars" index="15" instance=ExtResource("8_sb2gp")]
+position = Vector2(-191, -2166)
+rotation = 3.13015
+scale = Vector2(14.9928, 1.21166)
+
+[node name="Boundary3" parent="Stars" index="16" instance=ExtResource("8_sb2gp")]
+position = Vector2(1793, -163)
+rotation = 1.57297
+scale = Vector2(14.9928, 1.21166)
+
+[node name="Boundary4" parent="Stars" index="17" instance=ExtResource("8_sb2gp")]
+position = Vector2(-1897, -154)
+rotation = 1.57539
+scale = Vector2(14.9928, 1.21166)
+
+[node name="BlackHole" parent="BlackHoles" index="0" instance=ExtResource("4_a24wj")]
+position = Vector2(262, -504)
+centerSize = 43.0
+
+[node name="WormHole" parent="WormHoles" index="0" node_paths=PackedStringArray("warpTarget") instance=ExtResource("5_v14nf")]
+position = Vector2(4, -546)
+scale = Vector2(1.22228, 0.898478)
+gravity = 1492.0
+warpTarget = NodePath("../WormHole2")
+gravityFieldSize = 77.0
+gravityStrength = 1492.0
+centerSize = 78.0
+
+[node name="WormHole2" parent="WormHoles" index="1" node_paths=PackedStringArray("warpTarget") instance=ExtResource("5_v14nf")]
+position = Vector2(-297, -924)
+scale = Vector2(2.07699, 1.51995)
+gravity = 823.0
+warpTarget = NodePath("../WormHole")
+gravityStrength = 823.0
+centerSize = 69.0
+
+[node name="Collectible" parent="Collectibles" index="0" instance=ExtResource("6_baouv")]
+position = Vector2(-533, -473)
+
+[node name="Collectible2" parent="Collectibles" index="1" instance=ExtResource("6_baouv")]
+position = Vector2(-465, -485)
+
+[node name="Collectible9" parent="Collectibles" index="2" instance=ExtResource("6_baouv")]
+position = Vector2(-435, -490)
+
+[node name="Collectible6" parent="Collectibles" index="3" instance=ExtResource("6_baouv")]
+position = Vector2(72, -1563)
+scale = Vector2(-2.57022, -2.58649)
+
+[node name="Collectible7" parent="Collectibles" index="4" instance=ExtResource("6_baouv")]
+position = Vector2(58, -1416)
+scale = Vector2(-2.57022, -2.58649)
+
+[node name="Collectible8" parent="Collectibles" index="5" instance=ExtResource("6_baouv")]
+position = Vector2(46, -1279)
+scale = Vector2(-2.57022, -2.58649)
+
+[node name="Collectible3" parent="Collectibles" index="6" instance=ExtResource("6_baouv")]
+position = Vector2(-567, -464)
+
+[node name="Collectible4" parent="Collectibles" index="7" instance=ExtResource("6_baouv")]
+position = Vector2(-497, -478)
+
+[node name="Collectible5" parent="Collectibles" index="8" instance=ExtResource("6_baouv")]
+position = Vector2(-597, -455)
+
+[node name="FuelTank" parent="Collectibles" index="9" instance=ExtResource("7_evrk6")]
+position = Vector2(86, -642)
+scale = Vector2(-1.20933, 1.09681)
+fuelValue = 50.0
+
+[node name="FuelTank2" parent="Collectibles" index="10" instance=ExtResource("7_evrk6")]
+position = Vector2(4, -654)
+fuelValue = 50.0
+
+[node name="Boundary" parent="Boundaries" index="0" instance=ExtResource("8_sb2gp")]
+position = Vector2(-143, -1209)
+rotation = 1.59324
+scale = Vector2(2.30324, -0.664715)
+
+[node name="Boundary6" parent="Boundaries" index="1" instance=ExtResource("8_sb2gp")]
+position = Vector2(-460, -1221)
+rotation = 1.52021
+scale = Vector2(2.30324, -0.664715)
+
+[node name="Boundary7" parent="Boundaries" index="2" instance=ExtResource("8_sb2gp")]
+position = Vector2(-281, -1463)
+rotation = 1.56148
+scale = Vector2(1.54937, -0.406526)
+
+[node name="Boundary8" parent="Boundaries" index="3" instance=ExtResource("8_sb2gp")]
+position = Vector2(-304, -1561)
+rotation = 3.09896
+scale = Vector2(1.22966, -0.406526)
+
+[node name="Boundary10" parent="Boundaries" index="4" instance=ExtResource("8_sb2gp")]
+position = Vector2(211, -1659)
+rotation = 4.06179
+scale = Vector2(0.541753, -0.406526)
+
+[node name="Boundary9" parent="Boundaries" index="5" instance=ExtResource("8_sb2gp")]
+position = Vector2(-62, -1705)
+rotation = 3.09896
+scale = Vector2(1.54937, -0.406526)
+
+[node name="Boundary2" parent="Boundaries" index="6" instance=ExtResource("8_c0gos")]
+position = Vector2(-1910, -721)
+rotation = 1.57011
+scale = Vector2(18.6426, 0.195497)
+
+[node name="Boundary5" parent="Boundaries" index="7" instance=ExtResource("8_c0gos")]
+position = Vector2(1797, -703)
+rotation = 1.57011
+scale = Vector2(18.6426, 0.195497)
+
+[node name="Boundary3" parent="Boundaries" index="8" instance=ExtResource("8_c0gos")]
+position = Vector2(875, 2051)
+rotation = 3.13988
+scale = Vector2(18.6426, 0.195497)
+
+[node name="Boundary4" parent="Boundaries" index="9" instance=ExtResource("8_c0gos")]
+position = Vector2(878, -2163)
+rotation = 3.14158
+scale = Vector2(18.6426, 0.195497)

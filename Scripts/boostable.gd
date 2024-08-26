@@ -14,8 +14,13 @@ class_name Boostable
 ## Strength of gravity field
 @export_range(Globals.MIN_GRAVITY, Globals.MAX_GRAVITY, 0.1, "suffix: px/s²") var gravityStrength = 980:
 	set = set_grav_field_strength
+	
+## Radius of Center
+@export_range(0.01, 1024, 0.1, "suffix: px") var centerSize = 10:
+	set = set_center_size
 
 @onready var gravityField: CollisionShape2D = $GravityField
+@onready var center: CollisionShape2D = $Center/CollisionShape2D
 
 var baseGravity := 0.0
 var isBoosting := false
@@ -87,7 +92,8 @@ func set_grav_field_size(value: float) -> void:
 func set_grav_field_strength(value: float) -> void:
 	if !allowNegativeGravity:
 		gravityStrength = max(0, value)
-	gravityStrength = value
+	else:
+		gravityStrength = value
 	self.gravity = gravityStrength
 	#if baseGravity != gravityStrength and gravityBoostSFX.is_playing == false:
 	#	gravityBoostSFX.play()
@@ -97,3 +103,9 @@ func set_grav_field_strength(value: float) -> void:
 	# sfx pitch = basegravity -= gravity strength
 	if gravityField != null:
 		set_appearance(gravityStrength)
+		
+func set_center_size(value: float) -> void:
+	centerSize = value
+	if center != null:
+		# idk why the null check is needed? it tries to do it on an [orphan] node at start otherwise??
+		center.shape.radius = centerSize
