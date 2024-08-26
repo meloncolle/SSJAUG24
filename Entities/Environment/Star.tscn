@@ -7,6 +7,7 @@ resource_local_to_scene = true
 radius = 150.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6n6ce"]
+resource_local_to_scene = true
 
 [node name="Star" type="Area2D"]
 gravity_space_override = 1

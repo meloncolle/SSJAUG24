@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bifkp2m7aoj61"]
 
 [ext_resource type="PackedScene" uid="uid://bpiqrfkgh1fl1" path="res://Entities/Environment/Static/Boundary.tscn" id="1_8x1h0"]
-[ext_resource type="PhysicsMaterial" uid="uid://dssu0isdkukmf" path="res://Entities/Environment/Static/bounzy.tres" id="2_phh6l"]
+[ext_resource type="PhysicsMaterial" uid="uid://dssu0isdkukmf" path="res://ArtAssets/Materials/bouncy.tres" id="2_phh6l"]
 
 [node name="Boundary" instance=ExtResource("1_8x1h0")]
 rotation = -0.00125869

@@ -6,6 +6,7 @@
 radius = 50.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y24q5"]
+resource_local_to_scene = true
 
 [node name="BlackHole" type="Area2D"]
 gravity_space_override = 1
