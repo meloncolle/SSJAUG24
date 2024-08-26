@@ -45,7 +45,7 @@ gravityFieldSize = 291.0
 gravityStrength = 56.0
 
 [node name="Star8" parent="Stars" index="1" instance=ExtResource("4_y3xxs")]
-position = Vector2(-2210, 815)
+position = Vector2(-1778, 1079)
 rotation = 3.83839
 gravity = 56.0
 gravityFieldSize = 1024.0

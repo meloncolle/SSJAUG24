@@ -287,3 +287,6 @@ scale = Vector2(18.6426, 0.195497)
 position = Vector2(878, -2163)
 rotation = 3.14158
 scale = Vector2(18.6426, 0.195497)
+
+[node name="BackgroundMusic" parent="Audio" index="0"]
+max_distance = 9.22337e+18
