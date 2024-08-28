@@ -1,15 +1,15 @@
 [gd_scene load_steps=6 format=3 uid="uid://c2pnj083n28r6"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_n8ihv"]
+[ext_resource type="PackedScene" uid="uid://cibypoo1i0xd1" path="res://_debug/test_level/melon_level.tscn" id="2_1s2n3"]
 [ext_resource type="PackedScene" uid="uid://cccvsiorwsaq2" path="res://UI/menus/start_menu.tscn" id="2_s22xw"]
-[ext_resource type="PackedScene" uid="uid://dg6025g6xi41g" path="res://_debug/test_level/rubo_level.tscn" id="2_uo3ue"]
 [ext_resource type="PackedScene" uid="uid://bmlhgvnxyd87" path="res://UI/menus/pause_menu.tscn" id="3_3cpd8"]
 [ext_resource type="AudioStream" uid="uid://io3s88nofgrh" path="res://_debug/Audio/Placeholder/SSG-ButtonPress.mp3" id="5_j0y1y"]
 
 [node name="Main" type="Node"]
 process_mode = 3
 script = ExtResource("1_n8ihv")
-starting_level = ExtResource("2_uo3ue")
+starting_level = ExtResource("2_1s2n3")
 
 [node name="Menus" type="CanvasLayer" parent="."]
 
