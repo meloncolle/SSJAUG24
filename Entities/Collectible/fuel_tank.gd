@@ -3,7 +3,6 @@ extends Area2D
 class_name Fuel
 
 @export var fuelValue: float = 25.0
-@onready var fuelGet = $fuelGet
 
 signal collect_fuel(fuel: float)
 

@@ -25,12 +25,12 @@ var score: int = 0
 ###KYE STUFF
 ###KYE STUFF
 ###KYE STUFF
-@onready var hitBall = $Audio/HitBall
-@onready var changeBall = $Audio/ChangeBall
-@onready var hitBallLowFuel = $Audio/HitBallLowFuel
-
-@onready var lowFuel = false
-
+@onready var sfx = {
+	"hitBall": $Audio/HitBall,
+	"changeBall": $Audio/ChangeBall,
+	"hitBallLowFuel": $Audio/HitBallLowFuel,
+	"scoreGet": $Audio/ScoreGet
+	}
 
 func _ready():
 	state = Enums.LevelState.INIT
@@ -108,7 +108,7 @@ func _input(event):
 			if event.is_action_pressed("ACTION"):
 				if Globals.ENABLE_SWITCHING_BALLS:
 					set_active_ball(activeBallIndex + 1)
-					changeBall.play()
+					sfx.changeBall.play()
 				
 			# LMB DOWN to start swing
 			if (event is InputEventMouseButton 
@@ -118,8 +118,6 @@ func _input(event):
 				state = Enums.LevelState.IN_SWING
 			
 		Enums.LevelState.IN_SWING:
-			if lowFuel == true and not hitBallLowFuel.is_playing():
-				hitBallLowFuel.play()
 			# LMB UP: do swing
 			if (event is InputEventMouseButton 
 				and event.button_index == MOUSE_BUTTON_LEFT 
@@ -135,10 +133,11 @@ func do_swing(force: float):
 	var swing = get_global_mouse_position() - balls[activeBallIndex].position
 	# i think we have to multiply this by the camera zoom so the force is proportional?? weird
 	balls[activeBallIndex].apply_central_impulse(swing * power.force * power.power * cam.zoom.y)
-	#if fuel.fuel < Globals.MAX_FUEL_PER_SWING:
-	#Low Fuel hit sfx KYE
-	if lowFuel == false:
-		hitBall.play()
+	if fuel.fuel >= Globals.MAX_FUEL_PER_SWING:
+		sfx.hitBall.play()
+	elif !sfx.hitBallLowFuel.is_playing():
+		sfx.hitBallLowFuel.play()
+		
 	if !Globals.ENABLE_INFINITE_FUEL:
 		fuel.fuel -= power.power * Globals.MAX_FUEL_PER_SWING 
 
@@ -178,15 +177,15 @@ func set_state(newState: Enums.LevelState):
 
 func set_score(newScore: int, baseScore: int = score):
 	score = newScore + baseScore
+	if score > baseScore:
+		sfx.scoreGet.play()
 	scoreLabel.text = "Score: " + str(score)
 
 func _on_changed_fuel(value: float):
 	if value < Globals.MAX_FUEL_PER_SWING:
 		fuelLabel.text = "Fuel: [color=#ff0000]" + "%.2f" % value + "[/color]"
-		lowFuel = true
 	else:
 		fuelLabel.text = "Fuel: " + "%.2f" % value
-		lowFuel = false
 
 func _on_changed_items():
 	collectedLabel.text = "Points (this ball): " + str(balls[activeBallIndex].inventory.get_total_points())

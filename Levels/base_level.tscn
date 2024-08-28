@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://jwa57sqwi2ws"]
+[gd_scene load_steps=16 format=3 uid="uid://jwa57sqwi2ws"]
 
 [ext_resource type="Script" path="res://Levels/base_level.gd" id="1_uc3i8"]
 [ext_resource type="Script" path="res://Scripts/cam.gd" id="2_1qgfg"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://vyjvn62ih6nk" path="res://Audio/Placeholder/SSG-hitball.mp3" id="8_161d1"]
 [ext_resource type="AudioStream" uid="uid://brykw53sasc0r" path="res://Audio/Placeholder/SSG-ChangeBall.mp3" id="9_kt76s"]
 [ext_resource type="AudioStream" uid="uid://dhk42ucq1x068" path="res://Audio/Placeholder/SSG-LowFuel.mp3" id="10_peebs"]
+[ext_resource type="AudioStream" uid="uid://ce75hq8osryvc" path="res://Audio/Placeholder/SSG-Score.mp3" id="11_c44io"]
 [ext_resource type="AudioStream" uid="uid://dmpmi3bor8cry" path="res://Audio/Placeholder/SSG-FuelGet.mp3" id="11_toix1"]
 [ext_resource type="AudioStream" uid="uid://b4t1lajhm5w41" path="res://Audio/Placeholder/SSG-Collect.mp3" id="12_jvlb3"]
 [ext_resource type="AudioStream" uid="uid://dq8o2x2eei4iq" path="res://Audio/Placeholder/SSG-Warp.mp3" id="13_kmerr"]
@@ -104,6 +105,11 @@ attenuation = 0.0
 [node name="HitBallLowFuel" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource("10_peebs")
 max_distance = 1e+12
+attenuation = 0.0
+
+[node name="ScoreGet" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("11_c44io")
+max_distance = 1e+09
 attenuation = 0.0
 
 [node name="FuelGet" type="AudioStreamPlayer" parent="Audio"]
