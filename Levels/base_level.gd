@@ -89,11 +89,13 @@ func _ready():
 	# Hook up death screen buttons
 	deathScreen.get_node("Panel/VBoxContainer/RetryButton").pressed.connect(_on_press_retry)
 	deathScreen.get_node("Panel/VBoxContainer/QuitButton").pressed.connect(_on_press_quit)
-	for button in [
-		deathScreen.get_node("Panel/VBoxContainer/RetryButton"),
-		deathScreen.get_node("Panel/VBoxContainer/QuitButton"),
-	]:
-		button.pressed.connect(func(): Globals.sceneController.sfx.UIButtonPress.play())
+	
+	if Globals.sceneController != null:
+		for button in [
+			deathScreen.get_node("Panel/VBoxContainer/RetryButton"),
+			deathScreen.get_node("Panel/VBoxContainer/QuitButton"),
+		]:
+			button.pressed.connect(func(): Globals.sceneController.sfx.UIButtonPress.play())
 	
 	power.connect("changed_power", $UI/PowerMeter/Mask/Bar._on_changed_power)
 	fuel.connect("changed_fuel", _on_changed_fuel)

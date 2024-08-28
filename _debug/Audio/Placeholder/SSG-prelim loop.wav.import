@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cb6ex57pdok7a"
-path="res://.godot/imported/SSG-prelim loop.wav-96e6859a3101329e0953cfb63d207776.sample"
+path="res://.godot/imported/SSG-prelim loop.wav-712efb230474b43a4365304997006939.sample"
 
 [deps]
 
-source_file="res://Audio/Placeholder/SSG-prelim loop.wav"
-dest_files=["res://.godot/imported/SSG-prelim loop.wav-96e6859a3101329e0953cfb63d207776.sample"]
+source_file="res://_debug/Audio/Placeholder/SSG-prelim loop.wav"
+dest_files=["res://.godot/imported/SSG-prelim loop.wav-712efb230474b43a4365304997006939.sample"]
 
 [params]
 

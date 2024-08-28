@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cmm0ethebysd1"
-path="res://.godot/imported/SSG-DronePlaceholder.wav-35380b0ca92535378a829cfdee0cb905.sample"
+path="res://.godot/imported/SSG-DronePlaceholder.wav-f8c75e6a6cb0c29730b2862b262ce757.sample"
 
 [deps]
 
-source_file="res://Audio/Placeholder/SSG-DronePlaceholder.wav"
-dest_files=["res://.godot/imported/SSG-DronePlaceholder.wav-35380b0ca92535378a829cfdee0cb905.sample"]
+source_file="res://_debug/Audio/Placeholder/SSG-DronePlaceholder.wav"
+dest_files=["res://.godot/imported/SSG-DronePlaceholder.wav-f8c75e6a6cb0c29730b2862b262ce757.sample"]
 
 [params]
 

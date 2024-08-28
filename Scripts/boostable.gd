@@ -31,6 +31,7 @@ func _ready():
 	$Center.body_entered.connect(_on_center_entered)
 	$Center.body_exited.connect(_on_center_exited)
 	gravityField.shape.radius = gravityFieldSize
+	center.shape.radius = centerSize
 	gravityStrength = self.gravity
 	
 	baseGravity = gravityStrength

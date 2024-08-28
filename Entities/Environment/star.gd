@@ -2,8 +2,6 @@
 extends Boostable
 
 class_name StarEntity
-@export var starBody: CollisionObject2D
-@export var starBodySize: Vector2 = Vector2(1,1)
 
 @onready var dieSFX = $DieEmitter
 
