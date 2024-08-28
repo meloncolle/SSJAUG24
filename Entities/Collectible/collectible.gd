@@ -4,13 +4,15 @@ class_name Collectible
 
 @export var pointValue: int = 1
 
-signal collect_points(points: int)
+signal granted_points(points: int)
+signal collected()
 
 func _ready():
 	body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is BallEntity:
+		collected.emit()
 		if Globals.ENABLE_SIMPLE_COLLECTIBLES:
 			destroy(true)
 		else:
@@ -22,5 +24,5 @@ func _on_body_entered(body: Node2D) -> void:
 		
 func destroy(grantPoints: bool = false) -> void:
 	if grantPoints:
-		collect_points.emit(pointValue)
+		granted_points.emit(pointValue)
 	self.queue_free()

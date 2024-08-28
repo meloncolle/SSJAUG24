@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://jwa57sqwi2ws"]
+[gd_scene load_steps=15 format=3 uid="uid://jwa57sqwi2ws"]
 
 [ext_resource type="Script" path="res://Levels/base_level.gd" id="1_uc3i8"]
 [ext_resource type="Script" path="res://Scripts/cam.gd" id="2_1qgfg"]
@@ -14,7 +14,6 @@
 [ext_resource type="AudioStream" uid="uid://dmpmi3bor8cry" path="res://Audio/Placeholder/SSG-FuelGet.mp3" id="11_toix1"]
 [ext_resource type="AudioStream" uid="uid://b4t1lajhm5w41" path="res://Audio/Placeholder/SSG-Collect.mp3" id="12_jvlb3"]
 [ext_resource type="AudioStream" uid="uid://dq8o2x2eei4iq" path="res://Audio/Placeholder/SSG-Warp.mp3" id="13_kmerr"]
-[ext_resource type="AudioStream" uid="uid://io3s88nofgrh" path="res://Audio/Placeholder/SSG-ButtonPress.mp3" id="14_gnu65"]
 
 [node name="BaseLevel" type="Node2D"]
 script = ExtResource("1_uc3i8")
@@ -115,11 +114,8 @@ attenuation = 0.0
 [node name="FuelGet" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("11_toix1")
 
-[node name="CollectableGet" type="AudioStreamPlayer" parent="Audio"]
+[node name="CollectibleGet" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("12_jvlb3")
 
 [node name="WarpEnter" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("13_kmerr")
-
-[node name="UIButtonPress" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("14_gnu65")

@@ -29,7 +29,10 @@ var score: int = 0
 	"hitBall": $Audio/HitBall,
 	"changeBall": $Audio/ChangeBall,
 	"hitBallLowFuel": $Audio/HitBallLowFuel,
-	"scoreGet": $Audio/ScoreGet
+	"scoreGet": $Audio/ScoreGet,
+	"fuelGet": $Audio/FuelGet,
+	"collectibleGet": $Audio/CollectibleGet,
+	"warpEnter": $Audio/WarpEnter,
 	}
 
 func _ready():
@@ -48,11 +51,13 @@ func _ready():
 	for wh in $WormHoles.get_children():
 		if wh is WHEntity:
 			assert(wh.warpTarget != null, "Wormhole \"" + wh.name + "\" needs to have warp target assigned")
-			
+			wh.connect("warped", func(): sfx.warpEnter.play())
+	
 	# Setup score signal for each collectible
 	for c in $Collectibles.get_children():
 		if c is Collectible:
-			c.connect("collect_points", self.set_score)	
+			c.connect("granted_points", self.set_score)
+			c.connect("collected", func(): sfx.collectibleGet.play())
 		elif c is Fuel:
 			c.connect("collect_fuel", func(val: float): fuel.fuel += val)
 	
@@ -84,11 +89,16 @@ func _ready():
 	# Hook up death screen buttons
 	deathScreen.get_node("Panel/VBoxContainer/RetryButton").pressed.connect(_on_press_retry)
 	deathScreen.get_node("Panel/VBoxContainer/QuitButton").pressed.connect(_on_press_quit)
+	for button in [
+		deathScreen.get_node("Panel/VBoxContainer/RetryButton"),
+		deathScreen.get_node("Panel/VBoxContainer/QuitButton"),
+	]:
+		button.pressed.connect(func(): Globals.sceneController.sfx.UIButtonPress.play())
 	
 	power.connect("changed_power", $UI/PowerMeter/Mask/Bar._on_changed_power)
 	fuel.connect("changed_fuel", _on_changed_fuel)
 	fuel.connect("changed_fuel", power.check_limit)
-	_on_changed_fuel(fuel.fuel) # to trigger UI to appear
+	_on_changed_fuel(fuel.fuel, fuel.fuel) # to trigger UI to appear
 	
 	if Globals.ENABLE_INFINITE_FUEL:
 		fuelLabel.visible = false
@@ -181,11 +191,13 @@ func set_score(newScore: int, baseScore: int = score):
 		sfx.scoreGet.play()
 	scoreLabel.text = "Score: " + str(score)
 
-func _on_changed_fuel(value: float):
-	if value < Globals.MAX_FUEL_PER_SWING:
-		fuelLabel.text = "Fuel: [color=#ff0000]" + "%.2f" % value + "[/color]"
+func _on_changed_fuel(newVal: float, oldVal: float):
+	if newVal > oldVal:
+		sfx.fuelGet.play()
+	if newVal < Globals.MAX_FUEL_PER_SWING:
+		fuelLabel.text = "Fuel: [color=#ff0000]" + "%.2f" % newVal + "[/color]"
 	else:
-		fuelLabel.text = "Fuel: " + "%.2f" % value
+		fuelLabel.text = "Fuel: " + "%.2f" % newVal
 
 func _on_changed_items():
 	collectedLabel.text = "Points (this ball): " + str(balls[activeBallIndex].inventory.get_total_points())

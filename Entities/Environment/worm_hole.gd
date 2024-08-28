@@ -6,9 +6,13 @@ class_name WHEntity
 ## The wormhole that this one warps you to
 @export var warpTarget: WHEntity = null
 
+signal warped()
+
 func _on_center_entered(body: Node2D) -> void:
 	if body is BallEntity:
-		body.warp(self, warpTarget)
+		var success: bool = body.warp(self, warpTarget)
+		if success:
+			warped.emit()
 	else:
 		return
 		
