@@ -47,7 +47,7 @@ func _physics_process(_delta):
 
 func _input(event):
 	if not Engine.is_editor_hint():
-		if !boostEnabled:
+		if Globals.disableInput || !boostEnabled:
 			return
 		
 		if (event is InputEventMouseButton 

@@ -26,3 +26,4 @@ const GRAVITY_BOOST_SPEED: float = 50
 const MAX_FUEL_PER_SWING: float = 40
 
 var sceneController: Node = null
+var disableInput: bool = false

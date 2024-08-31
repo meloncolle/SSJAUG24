@@ -10,7 +10,7 @@ var dragPoint: Vector2
 @onready var collisionShape: Shape2D = $GravityField.shape
 
 func _input(event):
-	if !dragEnabled:
+	if Globals.disableInput || !dragEnabled:
 		return
 	
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT:

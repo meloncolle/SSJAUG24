@@ -24,7 +24,7 @@ signal ball_destroyed(index: int, destroyer: Node2D)
 var index: int = -1 # Position in main ball array... Needs to be externally updated...
 
 func _physics_process(_delta: float) -> void:
-	if isTargeted && pointer != null:
+	if !Globals.disableInput && isTargeted && pointer != null:
 		look_at(get_global_mouse_position())
 
 func destroy(grantPoints: bool = false):

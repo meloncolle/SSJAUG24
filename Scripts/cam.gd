@@ -22,6 +22,8 @@ func _process(delta):
 	zoom = Vector2(newZoom, newZoom)
 
 func _input(event):
+	if Globals.disableInput:
+		return
 	# Scroll to zoom
 	if event is InputEventMouseButton && event.pressed:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP && zoomEnabled:

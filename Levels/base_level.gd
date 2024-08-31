@@ -113,6 +113,8 @@ func _ready():
 	state = Enums.LevelState.READY
 
 func _input(event):
+	if Globals.disableInput:
+		return
 	
 	match state:
 		Enums.LevelState.READY:
@@ -175,6 +177,7 @@ func set_state(newState: Enums.LevelState):
 			pass
 			
 		Enums.LevelState.READY:
+			Globals.disableInput = false
 			power.isOscillating = false
 			powerMeter.visible = false
 			
@@ -184,6 +187,7 @@ func set_state(newState: Enums.LevelState):
 			powerMeter.visible = true
 		
 		Enums.LevelState.DEAD:
+			Globals.disableInput = true
 			deathScreen.visible = true
 	state = newState
 
@@ -212,10 +216,7 @@ func update_ball_indices():
 
 func _on_ball_destroyed(destroyedIndex: int, points: int = 0):
 	if points != 0:
-		print("SCORE!")
 		set_score(points)
-	else:
-		print("BALL DESTROYED...")
 	
 	balls.remove_at(destroyedIndex)
 	if destroyedIndex <= activeBallIndex:

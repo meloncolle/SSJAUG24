@@ -52,6 +52,7 @@ func set_state(newState: Enums.GameState):
 		Enums.GameState.ON_START:
 			startMenu.visible = true
 			pauseMenu.visible = false
+			Globals.disableInput = false
 			
 		Enums.GameState.IN_GAME:
 			startMenu.visible = false
@@ -59,6 +60,7 @@ func set_state(newState: Enums.GameState):
 			
 		Enums.GameState.PAUSED:
 			pauseMenu.visible = true
+			Globals.disableInput = true
 			
 	gameState = newState
 
