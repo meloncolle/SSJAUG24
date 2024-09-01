@@ -22,6 +22,9 @@ var score: int = 0
 @onready var fuel: Node = $Fuel
 @onready var fuelLabel: RichTextLabel = $UI/FuelLabel
 
+var strokes: int = 0: set = set_strokes
+@onready var strokeLabel: RichTextLabel = $UI/StrokesLabel
+
 ###KYE STUFF
 ###KYE STUFF
 ###KYE STUFF
@@ -38,6 +41,7 @@ var score: int = 0
 func _ready():
 	state = Enums.LevelState.INIT
 	set_score(0)
+	set_strokes(0)
 	
 	# Check for at least one black hole
 	var foundBH: bool = false
@@ -154,6 +158,8 @@ func do_swing(force: float):
 		
 	if !Globals.ENABLE_INFINITE_FUEL:
 		fuel.fuel -= power.power * Globals.MAX_FUEL_PER_SWING 
+		
+	strokes += 1
 
 func set_active_ball(newIndex: int):
 	# todo: ideally we'd want to be able to go back-forth and order by spatial distance btwn balls
@@ -196,6 +202,10 @@ func set_score(newScore: int, baseScore: int = score):
 	if score > baseScore:
 		sfx.scoreGet.play()
 	scoreLabel.text = "Score: " + str(score)
+	
+func set_strokes(val: int):
+	strokes = val
+	strokeLabel.text = "Strokes: " + str(strokes)
 
 func _on_changed_fuel(newVal: float, oldVal: float):
 	if newVal > oldVal:

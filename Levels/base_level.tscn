@@ -80,6 +80,16 @@ bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
 
+[node name="StrokesLabel" type="RichTextLabel" parent="UI"]
+offset_left = 16.0
+offset_top = 136.0
+offset_right = 16.0
+offset_bottom = 181.0
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+
 [node name="PowerMeter" parent="UI" instance=ExtResource("5_j3a3o")]
 visible = false
 position = Vector2(1037, 542)
