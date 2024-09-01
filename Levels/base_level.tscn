@@ -70,21 +70,11 @@ bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
 
-[node name="CollectedLabel" type="RichTextLabel" parent="UI"]
+[node name="StrokesLabel" type="RichTextLabel" parent="UI"]
 offset_left = 16.0
 offset_top = 96.0
 offset_right = 16.0
 offset_bottom = 141.0
-theme_override_font_sizes/normal_font_size = 32
-bbcode_enabled = true
-fit_content = true
-autowrap_mode = 0
-
-[node name="StrokesLabel" type="RichTextLabel" parent="UI"]
-offset_left = 16.0
-offset_top = 136.0
-offset_right = 16.0
-offset_bottom = 181.0
 theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 fit_content = true

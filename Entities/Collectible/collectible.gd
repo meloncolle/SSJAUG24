@@ -17,7 +17,6 @@ func _on_body_entered(body: Node2D) -> void:
 			destroy(true)
 		else:
 			body_entered.disconnect(_on_body_entered)
-			visible = false
 			body.inventory.add_item(self)
 	else:
 		return
