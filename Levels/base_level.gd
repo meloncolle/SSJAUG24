@@ -95,11 +95,16 @@ func _ready():
 	deathScreen.get_node("Panel/VBoxContainer/QuitButton").pressed.connect(_on_press_quit)
 	
 	if Globals.sceneController != null:
+		# Hook up button sounds (UI sound emitter is in main.tscn)
 		for button in [
 			deathScreen.get_node("Panel/VBoxContainer/RetryButton"),
 			deathScreen.get_node("Panel/VBoxContainer/QuitButton"),
 		]:
 			button.pressed.connect(func(): Globals.sceneController.sfx.UIButtonPress.play())
+			
+		# Hook up submit score button on pause menu (yuck)
+		Globals.sceneController.pauseMenu.get_node(
+			"Panel/VBoxContainer/SubmitButton").pressed.connect(end_level)
 	
 	power.connect("changed_power", $UI/PowerMeter/Mask/Bar._on_changed_power)
 	fuel.connect("changed_fuel", _on_changed_fuel)
@@ -234,10 +239,14 @@ func _on_ball_destroyed(destroyedIndex: int, points: int = 0):
 	update_ball_indices()	
 	
 	if balls.size() == 0:
-		state = Enums.LevelState.DEAD
-		return
-		
-	set_active_ball(activeBallIndex)
+		end_level(true)
+	else:
+		set_active_ball(activeBallIndex)
+
+func end_level(died: bool = false):
+	state = Enums.LevelState.DEAD
+	if died:
+		print("no more balls :(")
 
 func _on_press_retry():
 	if Globals.sceneController != null:

@@ -21,6 +21,7 @@ func _ready():
 	startMenu.get_node("Panel/VBoxContainer/StartButton").pressed.connect(self._on_press_start)
 	startMenu.get_node("Panel/VBoxContainer/ExitButton").pressed.connect(self._on_press_exit)
 	pauseMenu.get_node("Panel/VBoxContainer/ResumeButton").pressed.connect(self._on_press_resume)
+	pauseMenu.get_node("Panel/VBoxContainer/SubmitButton").pressed.connect(self._on_press_resume)
 	pauseMenu.get_node("Panel/VBoxContainer/RestartButton").pressed.connect(self._on_press_restart)
 	pauseMenu.get_node("Panel/VBoxContainer/QuitButton").pressed.connect(self._on_press_quit)
 	
