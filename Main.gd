@@ -20,17 +20,18 @@ func _ready():
 	set_state(Enums.GameState.ON_START)
 	startMenu.get_node("Panel/VBoxContainer/StartButton").pressed.connect(self._on_press_start)
 	startMenu.get_node("Panel/VBoxContainer/ExitButton").pressed.connect(self._on_press_exit)
-	pauseMenu.get_node("Panel/VBoxContainer/ResumeButton").pressed.connect(self._on_press_resume)
-	pauseMenu.get_node("Panel/VBoxContainer/SubmitButton").pressed.connect(self._on_press_resume)
-	pauseMenu.get_node("Panel/VBoxContainer/RestartButton").pressed.connect(self._on_press_restart)
-	pauseMenu.get_node("Panel/VBoxContainer/QuitButton").pressed.connect(self._on_press_quit)
-	
+	pauseMenu.resumeButton.pressed.connect(self._on_press_resume)
+	pauseMenu.submitButton.pressed.connect(self._on_press_resume)
+	pauseMenu.restartButton.pressed.connect(self._on_press_restart)
+	pauseMenu.quitButton.pressed.connect(self._on_press_quit)
+		
 	for button in [
 		startMenu.get_node("Panel/VBoxContainer/StartButton"),
 		startMenu.get_node("Panel/VBoxContainer/ExitButton"),
-		pauseMenu.get_node("Panel/VBoxContainer/ResumeButton"),
-		pauseMenu.get_node("Panel/VBoxContainer/RestartButton"),
-		pauseMenu.get_node("Panel/VBoxContainer/QuitButton")
+		pauseMenu.resumeButton,
+		pauseMenu.submitButton,
+		pauseMenu.restartButton,
+		pauseMenu.quitButton
 	]:
 		button.pressed.connect(func(): sfx.UIButtonPress.play())
 	
@@ -57,11 +58,14 @@ func set_state(newState: Enums.GameState):
 			
 		Enums.GameState.IN_GAME:
 			startMenu.visible = false
-			pauseMenu.visible = false
+			pauseMenu.close()
+			await pauseMenu.closed
+			Globals.disableInput = false
 			
 		Enums.GameState.PAUSED:
-			pauseMenu.visible = true
 			Globals.disableInput = true
+			pauseMenu.open()
+			await pauseMenu.opened
 			
 	gameState = newState
 

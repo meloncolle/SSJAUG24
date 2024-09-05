@@ -1,60 +1,363 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmlhgvnxyd87"]
+[gd_scene load_steps=23 format=3 uid="uid://bmlhgvnxyd87"]
 
-[ext_resource type="Theme" uid="uid://biksopsiahq0c" path="res://UI/menus/menu_theme.tres" id="1_b0yqk"]
+[ext_resource type="Shader" path="res://ArtAssets/Shaders/blur.gdshader" id="1_kgmmh"]
+[ext_resource type="Texture2D" uid="uid://b7jj0286gul1c" path="res://ArtAssets/UI/Pause Menu/clubs_frames.png" id="2_fb0ml"]
+[ext_resource type="Script" path="res://UI/menus/pause_menu.gd" id="2_t5lq8"]
+[ext_resource type="Texture2D" uid="uid://df5wpcf4ekr74" path="res://ArtAssets/UI/Pause Menu/mask.png" id="3_vs3sw"]
+[ext_resource type="Texture2D" uid="uid://dcoio3rlnp65u" path="res://ArtAssets/UI/Pause Menu/tile.png" id="5_i2blp"]
+[ext_resource type="Texture2D" uid="uid://i3y31xgu3qh8" path="res://ArtAssets/UI/Pause Menu/button_resume.png" id="7_kfs25"]
+[ext_resource type="Texture2D" uid="uid://cqdcv8cu2fux1" path="res://ArtAssets/UI/Pause Menu/button_submit.png" id="8_e5re3"]
+[ext_resource type="Texture2D" uid="uid://ds70q04psi7k3" path="res://ArtAssets/UI/Pause Menu/button_restart.png" id="9_hj22y"]
+[ext_resource type="Texture2D" uid="uid://dcwvfaqlipwtr" path="res://ArtAssets/UI/Pause Menu/button_quit.png" id="10_o8tlk"]
 
-[node name="PauseMenu" type="Control"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1qa1x"]
+shader = ExtResource("1_kgmmh")
+shader_parameter/blur = 0.0
+shader_parameter/brightness = 1.0
+
+[sub_resource type="Animation" id="Animation_eblmt"]
+resource_name = "scroll"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Frame/Fill Mask/TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-280, -356), Vector2(-209.6, -356)]
+}
+
+[sub_resource type="Animation" id="Animation_dtwk7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Frame/Fill Mask/TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-209.6, -356)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f7ljl"]
+_data = {
+"RESET": SubResource("Animation_dtwk7"),
+"scroll": SubResource("Animation_eblmt")
+}
+
+[sub_resource type="Animation" id="Animation_28ead"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Frame/Fill Mask/TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-209.6, -356)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("QuitButton:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(101, 530)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RestartButton:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(121, 470)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SubmitButton:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(141, 410)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ResumeButton:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(161, 350)]
+}
+
+[sub_resource type="Animation" id="Animation_nx0wh"]
+resource_name = "open"
+length = 0.3
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Frame/Bag:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0588231, 0.117647, 0.17647, 0.235294, 0.294117),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Frame/Fill Mask:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0588231, 0.117647, 0.17647, 0.235294, 0.294117),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(177, 460), Vector2(177, 449), Vector2(177, 439), Vector2(177, 439), Vector2(177, 421.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:material:shader_parameter/brightness")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.294118),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [1.0, 0.75]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:material:shader_parameter/blur")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.294118),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [0.0, 2.5]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Frame:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.117647),
+"transitions": PackedFloat32Array(1.8025, 1),
+"update": 0,
+"values": [Vector2(0, -562), Vector2(0, 55)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ResumeButton:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.01, 0.19),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(-360, 350), Vector2(161, 350)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SubmitButton:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.04, 0.22),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(-380, 410), Vector2(141, 410)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("RestartButton:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.07, 0.25),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(-400, 470), Vector2(121, 470)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("QuitButton:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.1, 0.28),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(-420, 530), Vector2(101, 530)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qg3x3"]
+_data = {
+"RESET": SubResource("Animation_28ead"),
+"open": SubResource("Animation_nx0wh")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p54ha"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y1bsa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8uxax"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jvvm6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6pbuy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_euihk"]
+
+[node name="PauseMenu" type="ColorRect"]
 process_mode = 2
-layout_mode = 3
+material = SubResource("ShaderMaterial_1qa1x")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_t5lq8")
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -158.5
-offset_top = -76.0
-offset_right = 158.5
-offset_bottom = 149.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("1_b0yqk")
+[node name="Frame" type="Node2D" parent="."]
+position = Vector2(0, -562)
+scale = Vector2(0.88, 0.88)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -109.0
-offset_bottom = 109.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Fill Mask" type="Sprite2D" parent="Frame"]
+clip_children = 1
+position = Vector2(177, 460)
+scale = Vector2(0.732857, 0.732857)
+texture = ExtResource("3_vs3sw")
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer"]
-layout_mode = 2
-text = "Paused"
-horizontal_alignment = 1
+[node name="TextureRect" type="TextureRect" parent="Frame/Fill Mask"]
+offset_left = -209.6
+offset_top = -356.0
+offset_right = 406.4
+offset_bottom = 495.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_i2blp")
+stretch_mode = 1
 
-[node name="ResumeButton" type="Button" parent="Panel/VBoxContainer"]
-layout_mode = 2
-text = "Resume
-"
+[node name="Bag" type="Sprite2D" parent="Frame"]
+position = Vector2(227, 357)
+scale = Vector2(0.732857, 0.732857)
+texture = ExtResource("2_fb0ml")
+hframes = 6
+frame = 1
 
-[node name="SubmitButton" type="Button" parent="Panel/VBoxContainer"]
-layout_mode = 2
-text = "Submit Score"
+[node name="ScrollAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_f7ljl")
+}
+autoplay = "scroll"
 
-[node name="RestartButton" type="Button" parent="Panel/VBoxContainer"]
-layout_mode = 2
-text = "Restart Level"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qg3x3")
+}
+autoplay = "scroll_pattern"
 
-[node name="QuitButton" type="Button" parent="Panel/VBoxContainer"]
-layout_mode = 2
-text = "Quit to Title"
+[node name="ResumeButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 161.0
+offset_top = 350.0
+offset_right = 492.0
+offset_bottom = 419.0
+scale = Vector2(0.75, 0.75)
+theme_override_colors/icon_pressed_color = Color(0.945098, 0.34902, 0.439216, 1)
+theme_override_colors/icon_hover_color = Color(0.972549, 0.690196, 0.733333, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p54ha")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_y1bsa")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_8uxax")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jvvm6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_6pbuy")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_euihk")
+icon = ExtResource("7_kfs25")
+
+[node name="SubmitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 410.0
+offset_right = 644.0
+offset_bottom = 479.0
+scale = Vector2(0.75, 0.75)
+theme_override_colors/icon_pressed_color = Color(0.945098, 0.34902, 0.439216, 1)
+theme_override_colors/icon_hover_color = Color(0.972549, 0.690196, 0.733333, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p54ha")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_y1bsa")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_8uxax")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jvvm6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_6pbuy")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_euihk")
+icon = ExtResource("8_e5re3")
+
+[node name="RestartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 470.0
+offset_right = 471.0
+offset_bottom = 539.0
+scale = Vector2(0.75, 0.75)
+theme_override_colors/icon_pressed_color = Color(0.945098, 0.34902, 0.439216, 1)
+theme_override_colors/icon_hover_color = Color(0.972549, 0.690196, 0.733333, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p54ha")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_y1bsa")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_8uxax")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jvvm6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_6pbuy")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_euihk")
+icon = ExtResource("9_hj22y")
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 530.0
+offset_right = 575.0
+offset_bottom = 599.0
+scale = Vector2(0.75, 0.75)
+theme_override_colors/icon_pressed_color = Color(0.945098, 0.34902, 0.439216, 1)
+theme_override_colors/icon_hover_color = Color(0.972549, 0.690196, 0.733333, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p54ha")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_y1bsa")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_8uxax")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jvvm6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_6pbuy")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_euihk")
+icon = ExtResource("10_o8tlk")

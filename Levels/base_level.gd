@@ -101,8 +101,7 @@ func _ready():
 			button.pressed.connect(func(): Globals.sceneController.sfx.UIButtonPress.play())
 			
 		# Hook up submit score button on pause menu (yuck)
-		Globals.sceneController.pauseMenu.get_node(
-			"Panel/VBoxContainer/SubmitButton").pressed.connect(end_level)
+		Globals.sceneController.pauseMenu.submitButton.pressed.connect(end_level)
 	
 	power.connect("changed_power", $UI/PowerMeter/Mask/Bar._on_changed_power)
 	fuel.connect("changed_fuel", _on_changed_fuel)

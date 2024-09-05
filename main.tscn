@@ -12,10 +12,12 @@ script = ExtResource("1_n8ihv")
 starting_level = ExtResource("2_1s2n3")
 
 [node name="Menus" type="CanvasLayer" parent="."]
+process_mode = 3
 
 [node name="Start" parent="Menus" instance=ExtResource("2_s22xw")]
 
 [node name="Pause" parent="Menus" instance=ExtResource("3_3cpd8")]
+process_mode = 0
 
 [node name="Audio" type="Node" parent="."]
 

@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://dq8o2x2eei4iq" path="res://_debug/Audio/Placeholder/SSG-Warp.mp3" id="13_kmerr"]
 
 [node name="BaseLevel" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_uc3i8")
 
 [node name="Power" type="Node" parent="."]
@@ -42,6 +43,7 @@ script = ExtResource("2_1qgfg")
 [node name="Boundaries" type="Node" parent="."]
 
 [node name="UI" type="CanvasLayer" parent="."]
+layer = 0
 
 [node name="DeathScreen" parent="UI" instance=ExtResource("2_l5cqc")]
 visible = false
