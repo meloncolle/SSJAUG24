@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://jwa57sqwi2ws"]
+[gd_scene load_steps=16 format=3 uid="uid://jwa57sqwi2ws"]
 
 [ext_resource type="Script" path="res://Levels/base_level.gd" id="1_uc3i8"]
 [ext_resource type="Script" path="res://Scripts/cam.gd" id="2_1qgfg"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c6a1hop38o3mq" path="res://UI/menus/death_screen.tscn" id="2_l5cqc"]
 [ext_resource type="Script" path="res://Scripts/fuel.gd" id="3_ma3hl"]
 [ext_resource type="PackedScene" uid="uid://bx3uslokvfceg" path="res://UI/PowerMeter.tscn" id="5_j3a3o"]
+[ext_resource type="Texture2D" uid="uid://chw2b1i41ldvx" path="res://ArtAssets/bg.png" id="7_ch58c"]
 [ext_resource type="AudioStream" uid="uid://cb6ex57pdok7a" path="res://_debug/Audio/Placeholder/SSG-prelim loop.wav" id="7_q1rc5"]
 [ext_resource type="AudioStream" uid="uid://vyjvn62ih6nk" path="res://_debug/Audio/Placeholder/SSG-hitball.mp3" id="8_161d1"]
 [ext_resource type="AudioStream" uid="uid://brykw53sasc0r" path="res://_debug/Audio/Placeholder/SSG-ChangeBall.mp3" id="9_kt76s"]
@@ -30,8 +31,6 @@ script = ExtResource("3_ma3hl")
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("2_1qgfg")
 
-[node name="Planets" type="Node" parent="."]
-
 [node name="Stars" type="Node" parent="."]
 
 [node name="BlackHoles" type="Node" parent="."]
@@ -41,6 +40,18 @@ script = ExtResource("2_1qgfg")
 [node name="Collectibles" type="Node" parent="."]
 
 [node name="Boundaries" type="Node" parent="."]
+
+[node name="Planets" type="Node" parent="."]
+
+[node name="ParallaxBackground" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.5, 0.5)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground"]
+offset_left = -1491.0
+offset_top = -1329.0
+offset_right = 1509.0
+offset_bottom = 1671.0
+texture = ExtResource("7_ch58c")
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 0
