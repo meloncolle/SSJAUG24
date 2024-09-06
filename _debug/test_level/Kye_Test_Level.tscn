@@ -12,10 +12,6 @@
 [node name="TestLevel" instance=ExtResource("1_obkf1")]
 metadata/_edit_horizontal_guides_ = [-2154.0]
 
-[node name="Power" parent="." index="0"]
-force = 20.0
-meterSpeed = 5.0
-
 [node name="Camera2D" parent="." index="2"]
 followSpeed = 8.0
 
@@ -58,35 +54,30 @@ position = Vector2(349, -2462)
 [node name="Starting" parent="Stars" index="0" instance=ExtResource("3_e6704")]
 position = Vector2(102, -274)
 gravity = 56.0
-starBodySize = Vector2(5, 1)
 gravityFieldSize = 291.0
 gravityStrength = 56.0
 
 [node name="DANGER STAR" parent="Stars" index="1" instance=ExtResource("3_e6704")]
 position = Vector2(2841, 3260)
 gravity = 1452.0
-starBodySize = Vector2(1, 1)
 gravityFieldSize = 1024.0
 gravityStrength = 1452.0
 
 [node name="DANGER STAR4" parent="Stars" index="2" instance=ExtResource("3_e6704")]
 position = Vector2(5005, 3502)
 gravity = -2958.0
-starBodySize = Vector2(1, 1)
 gravityFieldSize = 1024.0
 gravityStrength = -2958.0
 
 [node name="DANGER STAR3" parent="Stars" index="3" instance=ExtResource("3_e6704")]
 position = Vector2(4123, 1498)
 gravity = 1452.0
-starBodySize = Vector2(1, 1)
 gravityFieldSize = 1024.0
 gravityStrength = 1452.0
 
 [node name="DANGER STAR2" parent="Stars" index="4" instance=ExtResource("3_e6704")]
 position = Vector2(5646, 1295)
 gravity = 1452.0
-starBodySize = Vector2(1, 1)
 gravityFieldSize = 1024.0
 gravityStrength = 1452.0
 
@@ -94,119 +85,102 @@ gravityStrength = 1452.0
 position = Vector2(1596, -1876)
 scale = Vector2(2, 2)
 gravity = 244.0
-starBodySize = Vector2(1, 1)
 gravityFieldSize = 563.0
 gravityStrength = 244.0
 
 [node name="Star" parent="Stars" index="6" instance=ExtResource("3_e6704")]
 position = Vector2(2533, -1562)
 gravity = 927.0
-starBodySize = Vector2(1, 1)
 gravityFieldSize = 327.0
 gravityStrength = 927.0
 
 [node name="Star3" parent="Stars" index="7" instance=ExtResource("3_e6704")]
 position = Vector2(872, -2532)
 gravity = 927.0
-starBodySize = Vector2(1, 1)
 gravityFieldSize = 327.0
 gravityStrength = 927.0
 
 [node name="Star4" parent="Stars" index="8" instance=ExtResource("3_e6704")]
 position = Vector2(1932, -503)
 gravity = 927.0
-starBodySize = Vector2(1, 1)
 gravityFieldSize = 458.0
 gravityStrength = 927.0
 
 [node name="Star5" parent="Stars" index="9" instance=ExtResource("3_e6704")]
 position = Vector2(1600, -1877)
 gravity = -3221.0
-starBodySize = Vector2(1, 1)
 gravityFieldSize = 327.0
 gravityStrength = -3221.0
 
 [node name="Star6" parent="Stars" index="10" instance=ExtResource("3_e6704")]
 position = Vector2(-984, -1373)
 gravity = -1119.0
-starBodySize = Vector2(1, 1)
 gravityFieldSize = 176.0
 gravityStrength = -1119.0
 
 [node name="Star7" parent="Stars" index="11" instance=ExtResource("3_e6704")]
 position = Vector2(-1320, -1736)
 gravity = -332.0
-starBodySize = Vector2(1, 1)
 gravityFieldSize = 176.0
 gravityStrength = -332.0
 
 [node name="Star8" parent="Stars" index="12" instance=ExtResource("3_e6704")]
 position = Vector2(-1576, -1352)
 gravity = -332.0
-starBodySize = Vector2(1, 1)
 gravityFieldSize = 176.0
 gravityStrength = -332.0
 
 [node name="Star9" parent="Stars" index="13" instance=ExtResource("3_e6704")]
 position = Vector2(-1240, -784)
 gravity = -1277.0
-starBodySize = Vector2(1, 1)
 gravityFieldSize = 176.0
 gravityStrength = -1277.0
 
 [node name="Star10" parent="Stars" index="14" instance=ExtResource("3_e6704")]
 position = Vector2(-736, -1096)
 gravity = -4096.0
-starBodySize = Vector2(1, 1)
 gravityFieldSize = 176.0
 gravityStrength = -4096.0
 
 [node name="Star11" parent="Stars" index="15" instance=ExtResource("3_e6704")]
 position = Vector2(-1760, -624)
 gravity = -332.0
-starBodySize = Vector2(1, 1)
 gravityFieldSize = 176.0
 gravityStrength = -332.0
 
 [node name="Star12" parent="Stars" index="16" instance=ExtResource("3_e6704")]
 position = Vector2(-1240, -264)
 gravity = -2800.0
-starBodySize = Vector2(1, 1)
 gravityFieldSize = 176.0
 gravityStrength = -2800.0
 
 [node name="Star13" parent="Stars" index="17" instance=ExtResource("3_e6704")]
 position = Vector2(-424, -760)
 gravity = -1486.0
-starBodySize = Vector2(1, 1)
 gravityFieldSize = 195.0
 gravityStrength = -1486.0
 
 [node name="Star14" parent="Stars" index="18" instance=ExtResource("3_e6704")]
 position = Vector2(-1440, 432)
 gravity = 87.0
-starBodySize = Vector2(1, 1)
 gravityFieldSize = 346.0
 gravityStrength = 87.0
 
 [node name="Star15" parent="Stars" index="19" instance=ExtResource("3_e6704")]
 position = Vector2(1512, 712)
 gravity = 87.0
-starBodySize = Vector2(1, 1)
 gravityFieldSize = 346.0
 gravityStrength = 87.0
 
 [node name="Star16" parent="Stars" index="20" instance=ExtResource("3_e6704")]
 position = Vector2(936, -456)
 gravity = 87.0
-starBodySize = Vector2(1, 1)
 gravityFieldSize = 346.0
 gravityStrength = 87.0
 
 [node name="Star17" parent="Stars" index="21" instance=ExtResource("3_e6704")]
 position = Vector2(72, -1952)
 gravity = 87.0
-starBodySize = Vector2(1, 1)
 gravityFieldSize = 346.0
 gravityStrength = 87.0
 
@@ -219,16 +193,16 @@ gravityStrength = 822.0
 
 [node name="WormHole" parent="WormHoles" index="0" node_paths=PackedStringArray("warpTarget") instance=ExtResource("5_t2gf8")]
 position = Vector2(1402, -84)
-gravity = -1488.0
+gravity = 0.0
 warpTarget = NodePath("../WormHole2")
 gravityFieldSize = 211.0
-gravityStrength = -1488.0
+gravityStrength = 0
 
 [node name="WormHole2" parent="WormHoles" index="1" node_paths=PackedStringArray("warpTarget") instance=ExtResource("5_t2gf8")]
 position = Vector2(992, -2004)
-gravity = -3010.0
+gravity = 0.0
 warpTarget = NodePath("../WormHole")
-gravityStrength = -3010.0
+gravityStrength = 0
 
 [node name="WH-BlackHole1" parent="WormHoles" index="2" node_paths=PackedStringArray("warpTarget") instance=ExtResource("5_t2gf8")]
 position = Vector2(-624, 3001)
