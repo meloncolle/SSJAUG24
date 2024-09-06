@@ -1,0 +1,138 @@
+[gd_scene load_steps=9 format=3 uid="uid://b1v12tsco225w"]
+
+[ext_resource type="PackedScene" uid="uid://jwa57sqwi2ws" path="res://Levels/base_level.tscn" id="1_h06yk"]
+[ext_resource type="PackedScene" uid="uid://b0q8p531yqss6" path="res://Entities/Ball.tscn" id="2_mi6ua"]
+[ext_resource type="PackedScene" uid="uid://bqujgumw3qfky" path="res://Entities/Environment/Star.tscn" id="3_tqycn"]
+[ext_resource type="PackedScene" uid="uid://dawmy7e4kekbg" path="res://Entities/Environment/BlackHole.tscn" id="4_3rnsb"]
+[ext_resource type="PackedScene" uid="uid://bjw3hnypih6fe" path="res://Entities/Environment/WormHole.tscn" id="5_rq30p"]
+[ext_resource type="PackedScene" uid="uid://ceht6yka27cw1" path="res://Entities/Collectible/Collectible.tscn" id="6_3mtx7"]
+[ext_resource type="Script" path="res://_debug/Scripts/arc_toolscript.gd" id="6_yectv"]
+[ext_resource type="PackedScene" uid="uid://4f1m2s6ovnyx" path="res://Entities/Collectible/FuelTank.tscn" id="7_b31is"]
+
+[node name="BaseLevel" instance=ExtResource("1_h06yk")]
+
+[node name="Ball" parent="Planets" index="0" instance=ExtResource("2_mi6ua")]
+position = Vector2(-110, 202)
+
+[node name="Star" parent="Stars" index="0" instance=ExtResource("3_tqycn")]
+position = Vector2(277, 107)
+
+[node name="BlackHole" parent="BlackHoles" index="0" instance=ExtResource("4_3rnsb")]
+position = Vector2(-281, -45)
+
+[node name="WormHole" parent="WormHoles" index="0" node_paths=PackedStringArray("warpTarget") instance=ExtResource("5_rq30p")]
+position = Vector2(-486, 234)
+warpTarget = NodePath("../WormHole2")
+
+[node name="WormHole2" parent="WormHoles" index="1" node_paths=PackedStringArray("warpTarget") instance=ExtResource("5_rq30p")]
+position = Vector2(504, -237)
+warpTarget = NodePath("../WormHole")
+centerSize = 10.0
+
+[node name="Collectibles" parent="." index="7"]
+script = ExtResource("6_yectv")
+resource = ExtResource("6_3mtx7")
+density = 51
+
+[node name="Collectible" parent="Collectibles" index="0" instance=ExtResource("6_3mtx7")]
+position = Vector2(-289, 81)
+
+[node name="Collectible2" parent="Collectibles" index="1" instance=ExtResource("6_3mtx7")]
+position = Vector2(-198, 51)
+
+[node name="Collectible3" parent="Collectibles" index="2" instance=ExtResource("6_3mtx7")]
+position = Vector2(-155, -33)
+
+[node name="Collectible4" parent="Collectibles" index="3" instance=ExtResource("6_3mtx7")]
+position = Vector2(-360, 91)
+
+[node name="Collectible16" parent="Collectibles" index="4" instance=ExtResource("6_3mtx7")]
+position = Vector2(-433, -2)
+
+[node name="Collectible17" parent="Collectibles" index="5" instance=ExtResource("6_3mtx7")]
+position = Vector2(-423, -122)
+
+[node name="Collectible5" parent="Collectibles" index="6" instance=ExtResource("6_3mtx7")]
+position = Vector2(-178, -124)
+
+[node name="Collectible6" parent="Collectibles" index="7" instance=ExtResource("6_3mtx7")]
+position = Vector2(-327, -196)
+
+[node name="Collectible7" parent="Collectibles" index="8" instance=ExtResource("6_3mtx7")]
+position = Vector2(-229, 106)
+
+[node name="Collectible8" parent="Collectibles" index="9" instance=ExtResource("6_3mtx7")]
+position = Vector2(-203, -182)
+
+[node name="Collectible9" parent="Collectibles" index="10" instance=ExtResource("6_3mtx7")]
+position = Vector2(-139, 27)
+
+[node name="Collectible10" parent="Collectibles" index="11" instance=ExtResource("6_3mtx7")]
+position = Vector2(-134, -81)
+
+[node name="Collectible11" parent="Collectibles" index="12" instance=ExtResource("6_3mtx7")]
+position = Vector2(-267, -181)
+
+[node name="Collectible12" parent="Collectibles" index="13" instance=ExtResource("6_3mtx7")]
+position = Vector2(-404, -58)
+
+[node name="Collectible13" parent="Collectibles" index="14" instance=ExtResource("6_3mtx7")]
+position = Vector2(-360, -150)
+
+[node name="Collectible14" parent="Collectibles" index="15" instance=ExtResource("6_3mtx7")]
+position = Vector2(-385, 29)
+
+[node name="Collectible15" parent="Collectibles" index="16" instance=ExtResource("6_3mtx7")]
+position = Vector2(-385, 29)
+
+[node name="FuelTank" parent="Collectibles" index="17" instance=ExtResource("7_b31is")]
+position = Vector2(-62, -103)
+
+[node name="FuelLabel2" type="RichTextLabel" parent="UI" index="4"]
+offset_left = 155.0
+offset_top = -316.0
+offset_right = 155.0
+offset_bottom = -271.0
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+
+[node name="StrokesLabel2" type="RichTextLabel" parent="UI" index="5"]
+offset_left = 155.0
+offset_top = -276.0
+offset_right = 155.0
+offset_bottom = -231.0
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+
+[node name="FuelLabel3" type="RichTextLabel" parent="UI" index="6"]
+offset_left = -405.0
+offset_top = -163.0
+offset_right = -405.0
+offset_bottom = -118.0
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+
+[node name="StrokesLabel3" type="RichTextLabel" parent="UI" index="7"]
+offset_left = -405.0
+offset_top = -123.0
+offset_right = -405.0
+offset_bottom = -78.0
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+
+[node name="BackgroundMusic" parent="Audio" index="0"]
+volume_db = -80.0
+
+[node name="HitBallLowFuel" parent="Audio" index="3"]
+position = Vector2(-2, 1)
+
+[node name="ScoreGet" parent="Audio" index="4"]
+position = Vector2(1, 0)
