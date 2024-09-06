@@ -31,3 +31,4 @@ debug_color = Color(0.94902, 0.52549, 0.137255, 1)
 stream = ExtResource("2_efo8y")
 max_distance = 1e+08
 attenuation = 0.0
+bus = &"SFX"
