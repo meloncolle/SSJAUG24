@@ -42,7 +42,7 @@ func makeArc(_val: bool) -> void:
 		
 		var item: Node2D = load(resource.resource_path).instantiate()
 		add_child(item, true)
-		item.owner = self
+		item.owner = self.get_parent()
 		item.position = pos
 		
 		last_arc.append(item)
