@@ -15,14 +15,6 @@
 [node name="Camera2D" parent="." index="2"]
 zoom = Vector2(0.5, 0.5)
 
-[node name="Ball" parent="Planets" index="0" instance=ExtResource("2_nd8cx")]
-
-[node name="Ball2" parent="Planets" index="1" instance=ExtResource("2_nd8cx")]
-position = Vector2(-280, -420)
-
-[node name="Ball3" parent="Planets" index="2" instance=ExtResource("2_nd8cx")]
-position = Vector2(280, -420)
-
 [node name="Star" parent="Stars" index="0" instance=ExtResource("3_esan7")]
 position = Vector2(-150, 0)
 gravity = 400.0
@@ -397,3 +389,11 @@ scale = Vector2(0.3, 0.5)
 position = Vector2(-237, -464)
 rotation = 0.610865
 scale = Vector2(0.3, 0.5)
+
+[node name="Ball" parent="Planets" index="0" instance=ExtResource("2_nd8cx")]
+
+[node name="Ball2" parent="Planets" index="1" instance=ExtResource("2_nd8cx")]
+position = Vector2(-280, -420)
+
+[node name="Ball3" parent="Planets" index="2" instance=ExtResource("2_nd8cx")]
+position = Vector2(280, -420)

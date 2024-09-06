@@ -38,9 +38,12 @@ var strokes: int = 0: set = set_strokes
 	}
 
 func _ready():
-	state = Enums.LevelState.INIT
-	set_score(0)
+	# don't do this here...
 	set_strokes(0)
+	fuelLabel.dispVal = fuel.startingFuel
+	fuelLabel.warnThreshold = Globals.MAX_FUEL_PER_SWING
+	fuelLabel.update_text()
+	state = Enums.LevelState.INIT
 	
 	# Check for at least one black hole
 	var foundBH: bool = false
@@ -197,19 +200,16 @@ func set_score(newScore: int, baseScore: int = score):
 	score = newScore + baseScore
 	if score > baseScore:
 		sfx.scoreGet.play()
-	scoreLabel.text = "Score: " + str(score)
+	scoreLabel.value = score
 	
 func set_strokes(val: int):
 	strokes = val
-	strokeLabel.text = "Strokes: " + str(strokes)
+	strokeLabel.text = "Strokes: %d" % strokes
 
 func _on_changed_fuel(newVal: float, oldVal: float):
 	if newVal > oldVal:
 		sfx.fuelGet.play()
-	if newVal < Globals.MAX_FUEL_PER_SWING:
-		fuelLabel.text = "Fuel: [color=#ff0000]" + "%.2f" % newVal + "[/color]"
-	else:
-		fuelLabel.text = "Fuel: " + "%.2f" % newVal
+	fuelLabel.value = newVal
 
 func update_ball_indices():
 	var ballCount := 0
