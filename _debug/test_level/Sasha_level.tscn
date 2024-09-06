@@ -12,7 +12,7 @@
 [node name="BaseLevel" instance=ExtResource("1_h06yk")]
 
 [node name="Ball" parent="Planets" index="0" instance=ExtResource("2_mi6ua")]
-position = Vector2(-110, 202)
+position = Vector2(-1, 0)
 
 [node name="Star" parent="Stars" index="0" instance=ExtResource("3_tqycn")]
 position = Vector2(277, 107)
@@ -21,7 +21,7 @@ position = Vector2(277, 107)
 position = Vector2(-281, -45)
 
 [node name="WormHole" parent="WormHoles" index="0" node_paths=PackedStringArray("warpTarget") instance=ExtResource("5_rq30p")]
-position = Vector2(-486, 234)
+position = Vector2(-809, 402)
 warpTarget = NodePath("../WormHole2")
 
 [node name="WormHole2" parent="WormHoles" index="1" node_paths=PackedStringArray("warpTarget") instance=ExtResource("5_rq30p")]
@@ -135,4 +135,4 @@ volume_db = -80.0
 position = Vector2(-2, 1)
 
 [node name="ScoreGet" parent="Audio" index="4"]
-position = Vector2(1, 0)
+position = Vector2(-7, -8)
