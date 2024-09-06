@@ -1,9 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dawmy7e4kekbg"]
+[gd_scene load_steps=5 format=3 uid="uid://dawmy7e4kekbg"]
 
 [ext_resource type="Script" path="res://Entities/Environment/black_hole.gd" id="1_072iw"]
+[ext_resource type="Texture2D" uid="uid://dlrktot7lmn6b" path="res://ArtAssets/Sprites/black_hole1.png" id="2_j2wr8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qic5w"]
-radius = 50.0
+radius = 180.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y24q5"]
 resource_local_to_scene = true
@@ -18,7 +19,7 @@ gravityStrength = 980.0
 
 [node name="GravityField" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_qic5w")
-debug_color = Color(0, 0.545098, 0.545098, 0.239258)
+debug_color = Color(0, 0, 0, 0.239258)
 
 [node name="Center" type="Area2D" parent="."]
 
@@ -26,3 +27,7 @@ debug_color = Color(0, 0.545098, 0.545098, 0.239258)
 shape = SubResource("CircleShape2D_y24q5")
 one_way_collision_margin = 10.0
 debug_color = Color(0.109804, 0.054902, 0.203922, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("2_j2wr8")
