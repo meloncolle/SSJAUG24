@@ -21,6 +21,7 @@ class_name Boostable
 
 @onready var gravityField: CollisionShape2D = $GravityField
 @onready var center: CollisionShape2D = $Center/CollisionShape2D
+@onready var sprite: Sprite2D = get_node_or_null("Center/Sprite2D")
 
 var baseGravity := 0.0
 var isBoosting := false
@@ -30,9 +31,9 @@ var isBoosting := false
 func _ready():
 	$Center.body_entered.connect(_on_center_entered)
 	$Center.body_exited.connect(_on_center_exited)
-	gravityField.shape.radius = gravityFieldSize
-	center.shape.radius = centerSize
-	gravityStrength = self.gravity
+	set_grav_field_size(gravityFieldSize)
+	set_center_size(centerSize)
+	set_grav_field_strength(self.gravity)
 	
 	baseGravity = gravityStrength
 
@@ -110,3 +111,6 @@ func set_center_size(value: float) -> void:
 	if center != null:
 		# idk why the null check is needed? it tries to do it on an [orphan] node at start otherwise??
 		center.shape.radius = centerSize
+	if sprite != null:
+		var scaleFactor: float = value / 100
+		sprite.scale = Vector2(scaleFactor, scaleFactor)

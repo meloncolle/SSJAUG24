@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Entities/ball.gd" id="1_roe3m"]
 [ext_resource type="Script" path="res://Scripts/item_list.gd" id="2_nqmvc"]
-[ext_resource type="Texture2D" uid="uid://b4hx83vrbriac" path="res://ArtAssets/Sprites/planet1.png" id="3_u72jg"]
+[ext_resource type="Texture2D" uid="uid://b4hx83vrbriac" path="res://ArtAssets/Sprites/planet.png" id="3_u72jg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8v0fu"]
 radius = 20.85
@@ -24,5 +24,6 @@ position = Vector2(-29.99, 0)
 script = ExtResource("2_nqmvc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_u72jg")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4hx83vrbriac"
-path="res://.godot/imported/planet1.png-2bd3ee37c8f143fefe975ca75087fd93.ctex"
+uid="uid://dlrktot7lmn6b"
+path="res://.godot/imported/black_hole.png-cf80ed268774d434115ed1d6cb58e604.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ArtAssets/Sprites/planet1.png"
-dest_files=["res://.godot/imported/planet1.png-2bd3ee37c8f143fefe975ca75087fd93.ctex"]
+source_file="res://ArtAssets/Sprites/black_hole.png"
+dest_files=["res://.godot/imported/black_hole.png-cf80ed268774d434115ed1d6cb58e604.ctex"]
 
 [params]
 

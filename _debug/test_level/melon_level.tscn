@@ -12,7 +12,7 @@
 
 [node name="BaseLevel" instance=ExtResource("1_k3xql")]
 
-[node name="Camera2D" parent="." index="2"]
+[node name="Camera2D" parent="." index="3"]
 zoom = Vector2(0.5, 0.5)
 
 [node name="Star" parent="Stars" index="0" instance=ExtResource("3_esan7")]
@@ -48,6 +48,7 @@ position = Vector2(0, -600)
 gravity = -1526.0
 gravityFieldSize = 239.0
 gravityStrength = -1526.0
+centerSize = 10.0
 
 [node name="Star6" parent="Stars" index="5" instance=ExtResource("3_esan7")]
 position = Vector2(585, 416)
@@ -59,7 +60,9 @@ centerSize = 48.0
 [node name="Star7" parent="Stars" index="6" instance=ExtResource("3_esan7")]
 position = Vector2(-459, -577)
 gravity = -2367.0
+gravityFieldSize = 150.0
 gravityStrength = -2367.0
+centerSize = 10.0
 
 [node name="Star8" parent="Stars" index="7" instance=ExtResource("3_esan7")]
 position = Vector2(459, -577)
@@ -71,7 +74,7 @@ centerSize = 10.0
 [node name="BlackHole" parent="BlackHoles" index="0" instance=ExtResource("4_ykw2v")]
 position = Vector2(-536, 404)
 gravityFieldSize = 61.0
-centerSize = 43.0
+centerSize = 26.0
 
 [node name="WormHole" parent="WormHoles" index="0" node_paths=PackedStringArray("warpTarget") instance=ExtResource("4_luy0q")]
 position = Vector2(0, -288)
@@ -84,6 +87,7 @@ gravity = -2685.0
 warpTarget = NodePath("../WormHole")
 allowNegativeGravity = true
 gravityStrength = -2685.0
+centerSize = 10.0
 
 [node name="FuelTank" parent="Collectibles" index="0" instance=ExtResource("6_2jybj")]
 position = Vector2(0, 400)
