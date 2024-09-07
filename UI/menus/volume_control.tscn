@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3 uid="uid://c65l1jmj4gi3m"]
+
+[ext_resource type="Script" path="res://UI/menus/volume_control.gd" id="1_xpu8u"]
+
+[node name="VolumeControl" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_xpu8u")
+
+[node name="VolumeLabel" type="RichTextLabel" parent="."]
+clip_contents = false
+layout_mode = 0
+offset_left = -10.0
+offset_top = -44.0
+offset_right = 143.0
+offset_bottom = -4.0
+theme_override_font_sizes/normal_font_size = 24
+text = "Volume:"
+
+[node name="BGMLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 308.0
+offset_right = 54.0
+offset_bottom = 348.0
+theme_override_font_sizes/normal_font_size = 18
+text = "BGM"
+scroll_active = false
+
+[node name="SFXLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 308.0
+offset_right = 86.0
+offset_bottom = 348.0
+theme_override_font_sizes/normal_font_size = 18
+text = "SFX
+"
+
+[node name="BGM" type="VSlider" parent="."]
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 150.0
+scale = Vector2(2, 2)
+max_value = 1.0
+step = 0.05
+
+[node name="SFX" type="VSlider" parent="."]
+layout_mode = 0
+offset_left = 45.0
+offset_right = 61.0
+offset_bottom = 150.0
+scale = Vector2(2, 2)
+max_value = 1.0
+step = 0.05
+
+[connection signal="value_changed" from="BGM" to="." method="_on_bgm_value_changed"]
+[connection signal="value_changed" from="SFX" to="." method="_on_sfx_value_changed"]

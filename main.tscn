@@ -23,3 +23,4 @@ process_mode = 0
 
 [node name="UIButtonPress" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("5_j0y1y")
+bus = &"SFX"

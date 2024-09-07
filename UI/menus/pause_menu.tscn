@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bmlhgvnxyd87"]
+[gd_scene load_steps=24 format=3 uid="uid://bmlhgvnxyd87"]
 
 [ext_resource type="Shader" path="res://ArtAssets/Shaders/blur.gdshader" id="1_kgmmh"]
 [ext_resource type="Texture2D" uid="uid://b7jj0286gul1c" path="res://ArtAssets/UI/Pause Menu/clubs_frames.png" id="2_fb0ml"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://i3y31xgu3qh8" path="res://ArtAssets/UI/Pause Menu/button_resume.png" id="7_kfs25"]
 [ext_resource type="Texture2D" uid="uid://cqdcv8cu2fux1" path="res://ArtAssets/UI/Pause Menu/button_submit.png" id="8_e5re3"]
 [ext_resource type="Texture2D" uid="uid://ds70q04psi7k3" path="res://ArtAssets/UI/Pause Menu/button_restart.png" id="9_hj22y"]
+[ext_resource type="PackedScene" uid="uid://c65l1jmj4gi3m" path="res://UI/menus/volume_control.tscn" id="10_hq26d"]
 [ext_resource type="Texture2D" uid="uid://dcwvfaqlipwtr" path="res://ArtAssets/UI/Pause Menu/button_quit.png" id="10_o8tlk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1qa1x"]
@@ -257,7 +258,7 @@ grow_vertical = 2
 script = ExtResource("2_t5lq8")
 
 [node name="Frame" type="Node2D" parent="."]
-position = Vector2(0, -562)
+position = Vector2(0, 55)
 scale = Vector2(0.88, 0.88)
 
 [node name="Fill Mask" type="Sprite2D" parent="Frame"]
@@ -361,3 +362,9 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_jvvm6")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_6pbuy")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_euihk")
 icon = ExtResource("10_o8tlk")
+
+[node name="VolumeControl" parent="." instance=ExtResource("10_hq26d")]
+offset_left = 1038.0
+offset_top = 289.0
+offset_right = 1078.0
+offset_bottom = 329.0
