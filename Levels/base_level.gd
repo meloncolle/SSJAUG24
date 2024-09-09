@@ -183,6 +183,7 @@ func set_state(newState: Enums.LevelState):
 			
 		Enums.LevelState.READY:
 			Globals.disableInput = false
+			Globals.isPausable = true
 			power.isOscillating = false
 			powerMeter.visible = false
 			
@@ -193,6 +194,7 @@ func set_state(newState: Enums.LevelState):
 		
 		Enums.LevelState.DEAD:
 			Globals.disableInput = true
+			Globals.isPausable = false
 			deathScreen.visible = true
 	state = newState
 

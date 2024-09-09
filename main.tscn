@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2pnj083n28r6"]
+[gd_scene load_steps=7 format=3 uid="uid://c2pnj083n28r6"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_n8ihv"]
 [ext_resource type="PackedScene" uid="uid://cccvsiorwsaq2" path="res://UI/menus/start_menu.tscn" id="2_s22xw"]
 [ext_resource type="PackedScene" uid="uid://bmlhgvnxyd87" path="res://UI/menus/pause_menu.tscn" id="3_3cpd8"]
+[ext_resource type="Shader" path="res://ArtAssets/Shaders/blur.gdshader" id="4_835yh"]
 [ext_resource type="AudioStream" uid="uid://io3s88nofgrh" path="res://_debug/Audio/Placeholder/SSG-ButtonPress.mp3" id="5_j0y1y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fqayn"]
+resource_local_to_scene = true
+shader = ExtResource("4_835yh")
+shader_parameter/blur = 0.0
+shader_parameter/brightness = 1.0
 
 [node name="Main" type="Node"]
 process_mode = 3
@@ -17,6 +24,7 @@ process_mode = 3
 [node name="Pause" parent="Menus" instance=ExtResource("3_3cpd8")]
 process_mode = 0
 visible = false
+material = SubResource("ShaderMaterial_fqayn")
 
 [node name="Audio" type="Node" parent="."]
 

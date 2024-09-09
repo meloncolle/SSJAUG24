@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dcwvfaqlipwtr" path="res://ArtAssets/UI/Pause Menu/button_quit.png" id="10_o8tlk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1qa1x"]
+resource_local_to_scene = true
 shader = ExtResource("1_kgmmh")
 shader_parameter/blur = 0.0
 shader_parameter/brightness = 1.0
@@ -258,7 +259,7 @@ grow_vertical = 2
 script = ExtResource("2_t5lq8")
 
 [node name="Frame" type="Node2D" parent="."]
-position = Vector2(0, 55)
+position = Vector2(0, -562)
 scale = Vector2(0.88, 0.88)
 
 [node name="Fill Mask" type="Sprite2D" parent="Frame"]
@@ -297,9 +298,9 @@ autoplay = "scroll_pattern"
 
 [node name="ResumeButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 161.0
+offset_left = -360.0
 offset_top = 350.0
-offset_right = 492.0
+offset_right = -29.0
 offset_bottom = 419.0
 scale = Vector2(0.75, 0.75)
 theme_override_colors/icon_pressed_color = Color(0.945098, 0.34902, 0.439216, 1)
@@ -314,9 +315,9 @@ icon = ExtResource("7_kfs25")
 
 [node name="SubmitButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 141.0
+offset_left = -380.0
 offset_top = 410.0
-offset_right = 644.0
+offset_right = 123.0
 offset_bottom = 479.0
 scale = Vector2(0.75, 0.75)
 theme_override_colors/icon_pressed_color = Color(0.945098, 0.34902, 0.439216, 1)
@@ -331,9 +332,9 @@ icon = ExtResource("8_e5re3")
 
 [node name="RestartButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 121.0
+offset_left = -400.0
 offset_top = 470.0
-offset_right = 471.0
+offset_right = -50.0
 offset_bottom = 539.0
 scale = Vector2(0.75, 0.75)
 theme_override_colors/icon_pressed_color = Color(0.945098, 0.34902, 0.439216, 1)
@@ -348,9 +349,9 @@ icon = ExtResource("9_hj22y")
 
 [node name="QuitButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 101.0
+offset_left = -420.0
 offset_top = 530.0
-offset_right = 575.0
+offset_right = 54.0
 offset_bottom = 599.0
 scale = Vector2(0.75, 0.75)
 theme_override_colors/icon_pressed_color = Color(0.945098, 0.34902, 0.439216, 1)

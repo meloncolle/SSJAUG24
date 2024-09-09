@@ -30,3 +30,4 @@ const MAX_SCORES_PER_LEVEL: int = 5
 
 var sceneController: Node = null
 var disableInput: bool = false
+var isPausable: bool = true

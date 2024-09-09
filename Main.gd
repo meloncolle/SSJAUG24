@@ -36,7 +36,7 @@ func _ready():
 		button.pressed.connect(func(): sfx.UIButtonPress.play())
 
 func _input (event: InputEvent):
-	if(gameState != Enums.GameState.ON_START && event.is_action_pressed("ui_cancel")):
+	if(gameState != Enums.GameState.ON_START && event.is_action_pressed("ui_cancel") && Globals.isPausable):
 		get_tree().paused = !get_tree().paused
 		
 		match gameState:
@@ -56,8 +56,8 @@ func set_state(newState: Enums.GameState):
 		Enums.GameState.IN_GAME:
 			startMenu.visible = false
 			pauseMenu.close()
-			await pauseMenu.closed
 			Globals.disableInput = false
+			await pauseMenu.closed
 			
 		Enums.GameState.PAUSED:
 			Globals.disableInput = true
