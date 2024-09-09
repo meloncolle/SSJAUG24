@@ -1,9 +1,8 @@
 extends Node
 
-@export var starting_level: PackedScene = null
-
 var gameState: Enums.GameState
 var sceneInstance: Node = null
+var levelPath: String
 
 @onready var startMenu: Control = $Menus/Start
 @onready var pauseMenu: Control = $Menus/Pause
@@ -18,7 +17,8 @@ func _ready():
 	
 	Globals.sceneController = self
 	set_state(Enums.GameState.ON_START)
-	startMenu.get_node("Panel/VBoxContainer/StartButton").pressed.connect(self._on_press_start)
+	#startMenu.get_node("Panel/VBoxContainer/StartButton").pressed.connect(self._on_press_start)
+	startMenu.get_node("Panel/VBoxContainer/LevelButton").pressed.connect(self._on_press_level)
 	startMenu.get_node("Panel/VBoxContainer/ExitButton").pressed.connect(self._on_press_exit)
 	pauseMenu.resumeButton.pressed.connect(self._on_press_resume)
 	pauseMenu.submitButton.pressed.connect(self._on_press_resume)
@@ -26,7 +26,7 @@ func _ready():
 	pauseMenu.quitButton.pressed.connect(self._on_press_quit)
 		
 	for button in [
-		startMenu.get_node("Panel/VBoxContainer/StartButton"),
+		startMenu.get_node("Panel/VBoxContainer/LevelButton"),
 		startMenu.get_node("Panel/VBoxContainer/ExitButton"),
 		pauseMenu.resumeButton,
 		pauseMenu.submitButton,
@@ -34,9 +34,6 @@ func _ready():
 		pauseMenu.quitButton
 	]:
 		button.pressed.connect(func(): sfx.UIButtonPress.play())
-	
-	if Globals.ENABLE_SKIP_TITLE_SCREEN:
-		_on_press_start()
 
 func _input (event: InputEvent):
 	if(gameState != Enums.GameState.ON_START && event.is_action_pressed("ui_cancel")):
@@ -69,9 +66,13 @@ func set_state(newState: Enums.GameState):
 			
 	gameState = newState
 
-
-func _on_press_start():
-	sceneInstance = load(starting_level.resource_path).instantiate()
+func _on_press_level():
+	var levelSelect: Node = load("res://UI/menus/level_select.tscn").instantiate()
+	$Menus.add_child(levelSelect)
+	
+func load_level(path: String):
+	levelPath = path
+	sceneInstance = load(levelPath).instantiate()
 	self.add_child(sceneInstance)
 	set_state(Enums.GameState.IN_GAME)
 	
@@ -85,7 +86,7 @@ func _on_press_resume():
 func _on_press_restart():
 	if (is_instance_valid(sceneInstance)):
 		sceneInstance.queue_free()
-	sceneInstance = load(starting_level.resource_path).instantiate()
+	sceneInstance = load(levelPath).instantiate()
 	self.add_child(sceneInstance)
 	get_tree().paused = false
 	set_state(Enums.GameState.IN_GAME)

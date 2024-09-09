@@ -1,8 +1,6 @@
 extends Node
 
 # -----STUFF FOR TESTING----- #
-# Go straight to first level
-const ENABLE_SKIP_TITLE_SCREEN: bool = false
 # Show debug collision shapes in build 
 const ENABLE_COLLISION_DEBUG_IN_EXPORT: bool = true
 # Don't drain fuel when we hit ball

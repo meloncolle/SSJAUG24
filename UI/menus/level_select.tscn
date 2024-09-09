@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://njd5xweh7jm2"]
+
+[ext_resource type="Theme" uid="uid://biksopsiahq0c" path="res://UI/menus/menu_theme.tres" id="1_3ppnv"]
+[ext_resource type="Script" path="res://UI/menus/level_select.gd" id="1_h0qqy"]
+
+[node name="LevelsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h0qqy")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -162.0
+offset_top = -150.0
+offset_right = 162.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_3ppnv")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 2
+offset_top = -86.5
+offset_right = 317.0
+offset_bottom = -52.5
+text = "Levels:
+"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -67.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackButton" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="Panel/VBoxContainer/BackButton" to="." method="_on_button_pressed"]

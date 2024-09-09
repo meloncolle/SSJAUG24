@@ -6,11 +6,7 @@ var data = ConfigFile.new()
 
 func _init() -> void:
 	# Load data from a file.
-	var err = data.load(Globals.SAVE_PATH)
-
-	# If the file didn't load, ignore it.
-	if err != OK:
-		print("no conf found")
+	var _err = data.load(Globals.SAVE_PATH)
 
 	# Init volume values
 	for key in ["BGM", "SFX"]:
