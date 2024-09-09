@@ -27,35 +27,30 @@ position = Vector2(-150, 0)
 gravity = 400.0
 gravityFieldSize = 245.0
 gravityStrength = 400.0
-flipSprite = false
 
 [node name="Star2" parent="Stars" index="1" instance=ExtResource("3_esan7")]
 position = Vector2(150, 0)
 gravity = 400.0
 gravityFieldSize = 245.0
 gravityStrength = 400.0
-flipSprite = false
 
 [node name="Star3" parent="Stars" index="2" instance=ExtResource("3_esan7")]
 position = Vector2(650, 0)
 gravity = 150.0
 gravityFieldSize = 500.0
 gravityStrength = 150.0
-flipSprite = false
 
 [node name="Star4" parent="Stars" index="3" instance=ExtResource("3_esan7")]
 position = Vector2(-650, 0)
 gravity = 150.0
 gravityFieldSize = 500.0
 gravityStrength = 150.0
-flipSprite = false
 
 [node name="Star5" parent="Stars" index="4" instance=ExtResource("3_esan7")]
 position = Vector2(0, -600)
 gravity = -1526.0
 gravityFieldSize = 239.0
 gravityStrength = -1526.0
-flipSprite = false
 
 [node name="Star6" parent="Stars" index="5" instance=ExtResource("3_esan7")]
 position = Vector2(585, 416)
@@ -63,19 +58,16 @@ gravity = 4096.0
 gravityFieldSize = 100.0
 gravityStrength = 4096.0
 centerSize = 48.0
-flipSprite = false
 
 [node name="Star7" parent="Stars" index="6" instance=ExtResource("3_esan7")]
 position = Vector2(-459, -577)
 gravity = -2367.0
 gravityStrength = -2367.0
-flipSprite = false
 
 [node name="Star8" parent="Stars" index="7" instance=ExtResource("3_esan7")]
 position = Vector2(459, -577)
 gravity = -2367.0
 gravityStrength = -2367.0
-flipSprite = false
 
 [node name="BlackHole" parent="BlackHoles" index="0" instance=ExtResource("4_ykw2v")]
 position = Vector2(-536, 404)

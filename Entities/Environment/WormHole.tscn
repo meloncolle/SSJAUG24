@@ -23,7 +23,7 @@ rotateSprite = true
 
 [node name="GravityField" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7y8kk")
-debug_color = Color(0, 1, 0, 0.239258)
+debug_color = Color(0, 1, 1, 0.239258)
 
 [node name="Center" type="Area2D" parent="."]
 

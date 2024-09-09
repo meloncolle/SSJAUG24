@@ -72,7 +72,7 @@ func _on_press_level():
 	
 func load_level(path: String):
 	levelPath = path
-	sceneInstance = load(levelPath).instantiate()
+	sceneInstance = ResourceLoader.load(levelPath).instantiate()
 	self.add_child(sceneInstance)
 	set_state(Enums.GameState.IN_GAME)
 	
@@ -86,7 +86,7 @@ func _on_press_resume():
 func _on_press_restart():
 	if (is_instance_valid(sceneInstance)):
 		sceneInstance.queue_free()
-	sceneInstance = load(levelPath).instantiate()
+	sceneInstance = ResourceLoader.load(levelPath).instantiate()
 	self.add_child(sceneInstance)
 	get_tree().paused = false
 	set_state(Enums.GameState.IN_GAME)

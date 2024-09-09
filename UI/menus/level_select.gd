@@ -4,14 +4,11 @@ extends Control
 var levels: Array[String] = []
 
 func _init() -> void:
-	var dir = DirAccess.open(levels_dir)
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			if !dir.current_is_dir() && file_name.ends_with(".tscn"):
-				levels.append(file_name)
-			file_name = dir.get_next()
+	for file_name in DirAccess.get_files_at("res://_debug/test_level/"):
+		if file_name.ends_with(".tscn"):
+			levels.append(file_name)
+		elif file_name.ends_with(".remap"):
+			levels.append(file_name.split(".remap")[0])
 
 func _ready() -> void:
 	for level in levels:
