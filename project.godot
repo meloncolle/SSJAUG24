@@ -23,6 +23,7 @@ general/3d_panning_strength=0.0
 [autoload]
 
 Globals="*res://Globals/globals.gd"
+Config="*res://Globals/config.gd"
 
 [dotnet]
 

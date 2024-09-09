@@ -12,6 +12,10 @@ func _ready() -> void:
 
 func _on_bgm_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(bgm_bus, linear_to_db(value))
+	Config.data.set_value("Volume", "BGM", value)
+	Config.data.save(Globals.SAVE_PATH)
 
 func _on_sfx_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(sfx_bus, linear_to_db(value))
+	Config.data.set_value("Volume", "SFX", value)
+	Config.data.save(Globals.SAVE_PATH)

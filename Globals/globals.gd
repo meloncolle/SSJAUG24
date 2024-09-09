@@ -1,6 +1,6 @@
 extends Node
 
-# -----STUFF FOR TESTING CONFIG----- #
+# -----STUFF FOR TESTING----- #
 # Go straight to first level
 const ENABLE_SKIP_TITLE_SCREEN: bool = false
 # Show debug collision shapes in build 
@@ -24,6 +24,10 @@ const GRAVITY_BOOST_SPEED: float = 50
 
 # fuel cost for 100% power swing
 const MAX_FUEL_PER_SWING: float = 40
+
+const SAVE_PATH: String = "user://data.cfg"
+
+# ---------dont touch this -------------#
 
 var sceneController: Node = null
 var disableInput: bool = false
