@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cibypoo1i0xd1"]
+[gd_scene load_steps=12 format=3 uid="uid://cibypoo1i0xd1"]
 
 [ext_resource type="PackedScene" uid="uid://jwa57sqwi2ws" path="res://Levels/base_level.tscn" id="1_k3xql"]
 [ext_resource type="PackedScene" uid="uid://b0q8p531yqss6" path="res://Entities/Ball.tscn" id="2_nd8cx"]
@@ -9,6 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://4f1m2s6ovnyx" path="res://Entities/Collectible/FuelTank.tscn" id="6_2jybj"]
 [ext_resource type="PackedScene" uid="uid://ceht6yka27cw1" path="res://Entities/Collectible/Collectible.tscn" id="7_6vpne"]
 [ext_resource type="PackedScene" uid="uid://bpiqrfkgh1fl1" path="res://Entities/Environment/Static/Boundary.tscn" id="7_g2xb8"]
+[ext_resource type="Shader" path="res://ArtAssets/Shaders/blur.gdshader" id="10_8stsq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6mcnd"]
+resource_local_to_scene = true
+shader = ExtResource("10_8stsq")
+shader_parameter/blur = 0.0
+shader_parameter/brightness = 1.0
 
 [node name="BaseLevel" instance=ExtResource("1_k3xql")]
 
@@ -20,35 +27,35 @@ position = Vector2(-150, 0)
 gravity = 400.0
 gravityFieldSize = 245.0
 gravityStrength = 400.0
-centerSize = 10.0
+flipSprite = false
 
 [node name="Star2" parent="Stars" index="1" instance=ExtResource("3_esan7")]
 position = Vector2(150, 0)
 gravity = 400.0
 gravityFieldSize = 245.0
 gravityStrength = 400.0
-centerSize = 10.0
+flipSprite = false
 
 [node name="Star3" parent="Stars" index="2" instance=ExtResource("3_esan7")]
 position = Vector2(650, 0)
 gravity = 150.0
 gravityFieldSize = 500.0
 gravityStrength = 150.0
-centerSize = 10.0
+flipSprite = false
 
 [node name="Star4" parent="Stars" index="3" instance=ExtResource("3_esan7")]
 position = Vector2(-650, 0)
 gravity = 150.0
 gravityFieldSize = 500.0
 gravityStrength = 150.0
-centerSize = 10.0
+flipSprite = false
 
 [node name="Star5" parent="Stars" index="4" instance=ExtResource("3_esan7")]
 position = Vector2(0, -600)
 gravity = -1526.0
 gravityFieldSize = 239.0
 gravityStrength = -1526.0
-centerSize = 10.0
+flipSprite = false
 
 [node name="Star6" parent="Stars" index="5" instance=ExtResource("3_esan7")]
 position = Vector2(585, 416)
@@ -56,20 +63,19 @@ gravity = 4096.0
 gravityFieldSize = 100.0
 gravityStrength = 4096.0
 centerSize = 48.0
+flipSprite = false
 
 [node name="Star7" parent="Stars" index="6" instance=ExtResource("3_esan7")]
 position = Vector2(-459, -577)
 gravity = -2367.0
-gravityFieldSize = 150.0
 gravityStrength = -2367.0
-centerSize = 10.0
+flipSprite = false
 
 [node name="Star8" parent="Stars" index="7" instance=ExtResource("3_esan7")]
 position = Vector2(459, -577)
 gravity = -2367.0
-gravityFieldSize = 150.0
 gravityStrength = -2367.0
-centerSize = 10.0
+flipSprite = false
 
 [node name="BlackHole" parent="BlackHoles" index="0" instance=ExtResource("4_ykw2v")]
 position = Vector2(-536, 404)
@@ -79,7 +85,8 @@ centerSize = 26.0
 [node name="WormHole" parent="WormHoles" index="0" node_paths=PackedStringArray("warpTarget") instance=ExtResource("4_luy0q")]
 position = Vector2(0, -288)
 warpTarget = NodePath("../WormHole2")
-centerSize = 54.0
+gravityFieldSize = 127.0
+centerSize = 38.0
 
 [node name="WormHole2" parent="WormHoles" index="1" node_paths=PackedStringArray("warpTarget") instance=ExtResource("4_luy0q")]
 position = Vector2(366, 405)
@@ -87,7 +94,7 @@ gravity = -2685.0
 warpTarget = NodePath("../WormHole")
 allowNegativeGravity = true
 gravityStrength = -2685.0
-centerSize = 10.0
+centerSize = 25.0
 
 [node name="FuelTank" parent="Collectibles" index="0" instance=ExtResource("6_2jybj")]
 position = Vector2(0, 400)
@@ -401,3 +408,6 @@ position = Vector2(-280, -420)
 
 [node name="Ball3" parent="Planets" index="2" instance=ExtResource("2_nd8cx")]
 position = Vector2(280, -420)
+
+[node name="DeathScreen" parent="UI" index="4"]
+material = SubResource("ShaderMaterial_6mcnd")

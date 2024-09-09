@@ -14,7 +14,10 @@ resource_local_to_scene = true
 gravity_space_override = 1
 gravity_point = true
 script = ExtResource("1_k84xc")
+gravityFieldSize = 150.0
 gravityStrength = 980.0
+centerSize = 10.0
+flipSprite = null
 
 [node name="GravityField" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7y8kk")

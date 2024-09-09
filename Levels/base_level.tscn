@@ -19,7 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://b4t1lajhm5w41" path="res://_debug/Audio/Placeholder/SSG-Collect.mp3" id="12_jvlb3"]
 [ext_resource type="AudioStream" uid="uid://dq8o2x2eei4iq" path="res://_debug/Audio/Placeholder/SSG-Warp.mp3" id="13_kmerr"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_577bk"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_btjph"]
 resource_local_to_scene = true
 shader = ExtResource("3_2ydd2")
 shader_parameter/blur = 0.0
@@ -33,10 +33,10 @@ script = ExtResource("1_uc3i8")
 scroll_scale = Vector2(0.5, 0.5)
 
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground"]
-offset_left = -1491.0
-offset_top = -1329.0
-offset_right = 1509.0
-offset_bottom = 1671.0
+offset_left = -1894.0
+offset_top = -1498.0
+offset_right = 1946.0
+offset_bottom = 1502.0
 texture = ExtResource("7_ch58c")
 
 [node name="Power" type="Node" parent="."]
@@ -123,7 +123,7 @@ scale = Vector2(0.478595, 0.478595)
 
 [node name="DeathScreen" parent="UI" instance=ExtResource("2_l5cqc")]
 visible = false
-material = SubResource("ShaderMaterial_577bk")
+material = SubResource("ShaderMaterial_btjph")
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

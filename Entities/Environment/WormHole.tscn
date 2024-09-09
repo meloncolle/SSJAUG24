@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjw3hnypih6fe"]
+[gd_scene load_steps=6 format=3 uid="uid://bjw3hnypih6fe"]
 
 [ext_resource type="Script" path="res://Entities/Environment/worm_hole.gd" id="1_mhi61"]
+[ext_resource type="Texture2D" uid="uid://yx00uunbyu1o" path="res://ArtAssets/Sprites/wormhole.png" id="2_a1ndp"]
+[ext_resource type="Script" path="res://Scripts/rotate.gd" id="3_js2jq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7y8kk"]
 resource_local_to_scene = true
@@ -16,6 +18,8 @@ script = ExtResource("1_mhi61")
 allowNegativeGravity = false
 gravityFieldSize = 80.0
 gravityStrength = 980.0
+centerSize = 10.0
+rotateSprite = true
 
 [node name="GravityField" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7y8kk")
@@ -27,3 +31,8 @@ debug_color = Color(0, 1, 0, 0.239258)
 shape = SubResource("CircleShape2D_6n6ce")
 one_way_collision_margin = 10.0
 debug_color = Color(0.384314, 0.839216, 0.396078, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Center"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_a1ndp")
+script = ExtResource("3_js2jq")

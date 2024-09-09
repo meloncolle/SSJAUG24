@@ -18,6 +18,10 @@ class_name Boostable
 ## Radius of Center
 @export_range(0.01, 1024, 0.1, "suffix: px") var centerSize = 10:
 	set = set_center_size
+	
+## If it has a sprite, rotate it?
+@export var rotateSprite: bool = false
+@export var flipSprite: bool = false: set = set_sprite_flip
 
 @onready var gravityField: CollisionShape2D = $GravityField
 @onready var center: CollisionShape2D = $Center/CollisionShape2D
@@ -45,6 +49,9 @@ func _physics_process(_delta):
 		else:
 			if gravityStrength > baseGravity:
 				gravityStrength -= Globals.GRAVITY_BOOST_SPEED
+				
+	if rotateSprite && sprite != null:
+		sprite.rotation = fmod(sprite.rotation + gravityStrength * _delta * 0.002, 360)
 
 func _input(event):
 	if not Engine.is_editor_hint():
@@ -114,3 +121,10 @@ func set_center_size(value: float) -> void:
 	if sprite != null:
 		var scaleFactor: float = value / 100
 		sprite.scale = Vector2(scaleFactor, scaleFactor)
+
+func set_sprite_flip(value: bool) -> void:
+	if sprite == null:
+		return
+		
+	sprite.scale.x = sprite.scale.x * -1
+	
