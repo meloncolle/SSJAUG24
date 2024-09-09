@@ -14,7 +14,7 @@ func _init() -> void:
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index(key), linear_to_db(val))
 
 #return -1 if not high score, return placement if it was a high score
-func add_new_score(level_name: String, new_score: int, end_time: float) -> int:
+func add_new_score(level_name: String, new_score: int, end_time: String) -> int:
 	var scores: Array = Config.data.get_value("Scores", level_name, [])
 	
 	if (scores.size() < Globals.MAX_SCORES_PER_LEVEL || 

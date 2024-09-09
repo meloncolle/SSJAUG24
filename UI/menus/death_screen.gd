@@ -8,7 +8,7 @@ var points: int
 var fuel_remaining: float
 var strokes: int
 var final_score: int
-var end_time: float
+var end_time: String
 
 func _ready() -> void:
 	pass
@@ -22,7 +22,7 @@ func show_results(_died: bool, _points: int, _fuel_remaining: float, _strokes: i
 	fuel_remaining = _fuel_remaining
 	strokes = _strokes
 	
-	end_time = Time.get_unix_time_from_system()
+	end_time = Time.get_datetime_string_from_system()
 
 	final_score = calc_score()
 	
@@ -46,7 +46,7 @@ func show_results(_died: bool, _points: int, _fuel_remaining: float, _strokes: i
 			if i == new_hi_score:
 				hs_string += "[color=#11ff01]"
 			hs_string += "%d" % hi_scores[i][0]
-			hs_string += "\t\t\t%s" % Time.get_datetime_string_from_unix_time(hi_scores[i][1])
+			hs_string += "\t\t\t%s" % hi_scores[i][1]
 			if i == new_hi_score:
 				hs_string += "[/color]"
 		else:
