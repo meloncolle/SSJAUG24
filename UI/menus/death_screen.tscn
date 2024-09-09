@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c6a1hop38o3mq"]
+[gd_scene load_steps=3 format=3 uid="uid://c6a1hop38o3mq"]
 
 [ext_resource type="Theme" uid="uid://biksopsiahq0c" path="res://UI/menus/menu_theme.tres" id="1_23aqv"]
+[ext_resource type="Script" path="res://UI/menus/death_screen.gd" id="1_srhpk"]
 
 [node name="DeathScreen" type="Control"]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_srhpk")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1

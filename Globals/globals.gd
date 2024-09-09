@@ -11,7 +11,6 @@ const ENABLE_SWITCHING_BALLS: bool = true
 # false: Collectibles 'carried' by ball, and points granted when reaching black hole
 const ENABLE_SIMPLE_COLLECTIBLES: bool = false
 
-
 # for setting star gravity in editor
 const MAX_GRAVITY: float = 4096
 const MIN_GRAVITY: float = MAX_GRAVITY * -1
@@ -24,6 +23,8 @@ const GRAVITY_BOOST_SPEED: float = 50
 const MAX_FUEL_PER_SWING: float = 40
 
 const SAVE_PATH: String = "user://data.cfg"
+
+const MAX_SCORES_PER_LEVEL: int = 5
 
 # ---------dont touch this -------------#
 

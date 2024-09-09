@@ -233,8 +233,7 @@ func _on_ball_destroyed(destroyedIndex: int, points: int = 0):
 
 func end_level(died: bool = false):
 	state = Enums.LevelState.DEAD
-	if died:
-		print("no more balls :(")
+	deathScreen.show_results(died, score, fuel.fuel, strokes)
 
 func _on_press_retry():
 	if Globals.sceneController != null:
