@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://72v1vv7qwagm"
+path="res://.godot/imported/zapsplat_sound_design_whoosh_approach_hit_metal_hard_whoosh_tail_001_32222.mp3-43a6c55f20ed19c421c5b10747a8afd0.mp3str"
+
+[deps]
+
+source_file="res://_debug/Audio/v0.1 sfx/zapsplat_sound_design_whoosh_approach_hit_metal_hard_whoosh_tail_001_32222.mp3"
+dest_files=["res://.godot/imported/zapsplat_sound_design_whoosh_approach_hit_metal_hard_whoosh_tail_001_32222.mp3-43a6c55f20ed19c421c5b10747a8afd0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

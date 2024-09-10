@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://x6kbuxjpikto"
+path="res://.godot/imported/zapsplat_multimedia_game_sound_rise_ascend_arcade_64274.mp3-81887697c63b860970a4b8654bf09652.mp3str"
+
+[deps]
+
+source_file="res://_debug/Audio/v0.1 sfx/zapsplat_multimedia_game_sound_rise_ascend_arcade_64274.mp3"
+dest_files=["res://.godot/imported/zapsplat_multimedia_game_sound_rise_ascend_arcade_64274.mp3-81887697c63b860970a4b8654bf09652.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

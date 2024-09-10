@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b5nktr3unyw4o"
+path="res://.godot/imported/zapsplat_multimedia_game_sound_beep_blip_arcade_104798.mp3-27f061334df933accf1945c9e11cc34a.mp3str"
+
+[deps]
+
+source_file="res://_debug/Audio/v0.1 sfx/zapsplat_multimedia_game_sound_beep_blip_arcade_104798.mp3"
+dest_files=["res://.godot/imported/zapsplat_multimedia_game_sound_beep_blip_arcade_104798.mp3-27f061334df933accf1945c9e11cc34a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

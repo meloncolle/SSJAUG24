@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bqujgumw3qfky"]
 
 [ext_resource type="Script" path="res://Entities/Environment/star.gd" id="1_k84xc"]
-[ext_resource type="AudioStream" uid="uid://dmmdgt7p0lf7d" path="res://_debug/Audio/Placeholder/SSG-Die.mp3" id="2_efo8y"]
+[ext_resource type="AudioStream" uid="uid://w7jm1bi3sbv8" path="res://_debug/Audio/v0.1 sfx/esm_game_explosion_bomb_boom_blast_cannon_retro_old_school_classic_cartoon.mp3" id="2_2m52w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7y8kk"]
 resource_local_to_scene = true
@@ -30,7 +30,8 @@ one_way_collision_margin = 10.0
 debug_color = Color(0.94902, 0.52549, 0.137255, 1)
 
 [node name="DieEmitter" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_efo8y")
+stream = ExtResource("2_2m52w")
+volume_db = 2.971
 max_distance = 1e+08
 attenuation = 0.0
 bus = &"SFX"

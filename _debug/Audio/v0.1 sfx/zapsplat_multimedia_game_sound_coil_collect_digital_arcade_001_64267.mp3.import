@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://di23bpo8ep1op"
+path="res://.godot/imported/zapsplat_multimedia_game_sound_coil_collect_digital_arcade_001_64267.mp3-81e2c095b9ac4d073c1bff219a2f2308.mp3str"
+
+[deps]
+
+source_file="res://_debug/Audio/v0.1 sfx/zapsplat_multimedia_game_sound_coil_collect_digital_arcade_001_64267.mp3"
+dest_files=["res://.godot/imported/zapsplat_multimedia_game_sound_coil_collect_digital_arcade_001_64267.mp3-81e2c095b9ac4d073c1bff219a2f2308.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

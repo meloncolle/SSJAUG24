@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://3wm8vtau2tid"
+path="res://.godot/imported/jessey_drake_oldschool_SHORT_WARP_DOWN_video_retro_game_chip_set_8BIT_JD.mp3-7129493cad75c99a10d0d85fb90c6d74.mp3str"
+
+[deps]
+
+source_file="res://_debug/Audio/v0.1 sfx/jessey_drake_oldschool_SHORT_WARP_DOWN_video_retro_game_chip_set_8BIT_JD.mp3"
+dest_files=["res://.godot/imported/jessey_drake_oldschool_SHORT_WARP_DOWN_video_retro_game_chip_set_8BIT_JD.mp3-7129493cad75c99a10d0d85fb90c6d74.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

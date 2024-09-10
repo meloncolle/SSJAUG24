@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dtmn1lurxq6xa"
+path="res://.godot/imported/esm_retro_game_classic_explosion_1_8_bit_arcade_80s_weapon_attack.mp3-40f3541e02f173978a0a69d1592d5d90.mp3str"
+
+[deps]
+
+source_file="res://_debug/Audio/v0.1 sfx/esm_retro_game_classic_explosion_1_8_bit_arcade_80s_weapon_attack.mp3"
+dest_files=["res://.godot/imported/esm_retro_game_classic_explosion_1_8_bit_arcade_80s_weapon_attack.mp3-40f3541e02f173978a0a69d1592d5d90.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

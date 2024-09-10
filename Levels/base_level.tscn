@@ -10,16 +10,16 @@
 [ext_resource type="Texture2D" uid="uid://chw2b1i41ldvx" path="res://ArtAssets/bg.png" id="7_ch58c"]
 [ext_resource type="FontFile" uid="uid://dwadptpgvjl5g" path="res://ArtAssets/UI/CAT North.ttf" id="7_oh2q1"]
 [ext_resource type="AudioStream" uid="uid://cb6ex57pdok7a" path="res://_debug/Audio/Placeholder/SSG-prelim loop.wav" id="7_q1rc5"]
-[ext_resource type="AudioStream" uid="uid://vyjvn62ih6nk" path="res://_debug/Audio/Placeholder/SSG-hitball.mp3" id="8_161d1"]
 [ext_resource type="Script" path="res://UI/UI_label.gd" id="8_qh13y"]
-[ext_resource type="AudioStream" uid="uid://brykw53sasc0r" path="res://_debug/Audio/Placeholder/SSG-ChangeBall.mp3" id="9_kt76s"]
-[ext_resource type="AudioStream" uid="uid://dhk42ucq1x068" path="res://_debug/Audio/Placeholder/SSG-LowFuel.mp3" id="10_peebs"]
-[ext_resource type="AudioStream" uid="uid://ce75hq8osryvc" path="res://_debug/Audio/Placeholder/SSG-Score.mp3" id="11_c44io"]
-[ext_resource type="AudioStream" uid="uid://dmpmi3bor8cry" path="res://_debug/Audio/Placeholder/SSG-FuelGet.mp3" id="11_toix1"]
-[ext_resource type="AudioStream" uid="uid://b4t1lajhm5w41" path="res://_debug/Audio/Placeholder/SSG-Collect.mp3" id="12_jvlb3"]
-[ext_resource type="AudioStream" uid="uid://dq8o2x2eei4iq" path="res://_debug/Audio/Placeholder/SSG-Warp.mp3" id="13_kmerr"]
+[ext_resource type="AudioStream" uid="uid://to7aepsocryg" path="res://_debug/Audio/v0.1 sfx/zapsplat_multimedia_game_sound_retro_arcade_hit_blip_002_92276.mp3" id="12_ggnrl"]
+[ext_resource type="AudioStream" uid="uid://deoeeuo4iv55y" path="res://_debug/Audio/v0.1 sfx/esm_fun_bonus_explode_3_sound_fx_arcade_casino_kids_mobile_app.mp3" id="13_cpngn"]
+[ext_resource type="AudioStream" uid="uid://c2m7hw2xsknm2" path="res://_debug/Audio/v0.1 sfx/zapsplat_multimedia_game_sound_retro_arcade_lo_fi_die_death_lose_life_warble_107580.mp3" id="14_fv3bp"]
+[ext_resource type="AudioStream" uid="uid://fj778cqkxxcb" path="res://_debug/Audio/v0.1 sfx/esm_game_bonus_sound_long_2_sound_fx_arcade_casino_kids_mobile_app.mp3" id="15_2w7c8"]
+[ext_resource type="AudioStream" uid="uid://b5nktr3unyw4o" path="res://_debug/Audio/v0.1 sfx/zapsplat_multimedia_game_sound_beep_blip_arcade_104798.mp3" id="16_cngpj"]
+[ext_resource type="AudioStream" uid="uid://di23bpo8ep1op" path="res://_debug/Audio/v0.1 sfx/zapsplat_multimedia_game_sound_coil_collect_digital_arcade_001_64267.mp3" id="17_lhbbc"]
+[ext_resource type="AudioStream" uid="uid://3wm8vtau2tid" path="res://_debug/Audio/v0.1 sfx/jessey_drake_oldschool_SHORT_WARP_DOWN_video_retro_game_chip_set_8BIT_JD.mp3" id="18_bkwis"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ksa16"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bvi0x"]
 resource_local_to_scene = true
 shader = ExtResource("3_2ydd2")
 shader_parameter/blur = 0.0
@@ -123,7 +123,7 @@ scale = Vector2(0.478595, 0.478595)
 
 [node name="DeathScreen" parent="UI" instance=ExtResource("2_l5cqc")]
 visible = false
-material = SubResource("ShaderMaterial_ksa16")
+material = SubResource("ShaderMaterial_bvi0x")
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -138,43 +138,47 @@ offset_bottom = -324.0
 
 [node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource("7_q1rc5")
+volume_db = -13.867
 autoplay = true
 max_distance = 99999.0
 attenuation = 0.0
 bus = &"BGM"
 
 [node name="HitBall" type="AudioStreamPlayer2D" parent="Audio"]
-stream = ExtResource("8_161d1")
+stream = ExtResource("12_ggnrl")
+volume_db = -11.886
 max_distance = 999999.0
 attenuation = 0.0
 bus = &"SFX"
 
 [node name="ChangeBall" type="AudioStreamPlayer2D" parent="Audio"]
-stream = ExtResource("9_kt76s")
+stream = ExtResource("13_cpngn")
+volume_db = -22.781
 max_distance = 1e+06
 attenuation = 0.0
 bus = &"SFX"
 
 [node name="HitBallLowFuel" type="AudioStreamPlayer2D" parent="Audio"]
-stream = ExtResource("10_peebs")
+stream = ExtResource("14_fv3bp")
+volume_db = -13.867
 max_distance = 1e+12
 attenuation = 0.0
 bus = &"SFX"
 
 [node name="ScoreGet" type="AudioStreamPlayer2D" parent="Audio"]
-stream = ExtResource("11_c44io")
+stream = ExtResource("15_2w7c8")
 max_distance = 1e+09
 attenuation = 0.0
 bus = &"SFX"
 
 [node name="FuelGet" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("11_toix1")
+stream = ExtResource("16_cngpj")
 bus = &"SFX"
 
 [node name="CollectibleGet" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("12_jvlb3")
+stream = ExtResource("17_lhbbc")
 bus = &"SFX"
 
 [node name="WarpEnter" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("13_kmerr")
+stream = ExtResource("18_bkwis")
 bus = &"SFX"
