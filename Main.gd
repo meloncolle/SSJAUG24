@@ -17,17 +17,14 @@ func _ready():
 	
 	Globals.sceneController = self
 	set_state(Enums.GameState.ON_START)
-	#startMenu.get_node("Panel/VBoxContainer/StartButton").pressed.connect(self._on_press_start)
-	startMenu.get_node("Panel/VBoxContainer/LevelButton").pressed.connect(self._on_press_level)
-	startMenu.get_node("Panel/VBoxContainer/ExitButton").pressed.connect(self._on_press_exit)
+	startMenu.get_node("StartButton").pressed.connect(self._on_press_level)
 	pauseMenu.resumeButton.pressed.connect(self._on_press_resume)
 	pauseMenu.submitButton.pressed.connect(self._on_press_resume)
 	pauseMenu.restartButton.pressed.connect(self._on_press_restart)
 	pauseMenu.quitButton.pressed.connect(self._on_press_quit)
 		
 	for button in [
-		startMenu.get_node("Panel/VBoxContainer/LevelButton"),
-		startMenu.get_node("Panel/VBoxContainer/ExitButton"),
+		startMenu.get_node("StartButton"),
 		pauseMenu.resumeButton,
 		pauseMenu.submitButton,
 		pauseMenu.restartButton,
@@ -68,7 +65,7 @@ func set_state(newState: Enums.GameState):
 
 func _on_press_level():
 	var levelSelect: Node = load("res://UI/menus/level_select.tscn").instantiate()
-	$Menus.add_child(levelSelect)
+	startMenu.add_child(levelSelect)
 	
 func load_level(path: String):
 	levelPath = path
@@ -96,4 +93,5 @@ func _on_press_quit():
 		sceneInstance.queue_free()
 	sceneInstance = null
 	get_tree().paused = false
+	startMenu.go_to_end()
 	set_state(Enums.GameState.ON_START)

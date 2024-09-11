@@ -25,6 +25,10 @@ general/3d_panning_strength=0.0
 Globals="*res://Globals/globals.gd"
 Config="*res://Globals/config.gd"
 
+[display]
+
+window/size/resizable=false
+
 [dotnet]
 
 project/assembly_name="Base"
