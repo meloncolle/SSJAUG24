@@ -21,6 +21,7 @@ class_name Boostable
 	
 ## If it has a sprite, rotate it?
 @export var rotateSprite: bool = false
+var rotationSpeed: float = 1
 @export var flipSprite: bool = false: set = set_sprite_flip
 
 @onready var gravityField: CollisionShape2D = $GravityField
@@ -50,8 +51,8 @@ func _physics_process(_delta):
 			if gravityStrength > baseGravity:
 				gravityStrength -= Globals.GRAVITY_BOOST_SPEED
 				
-	if rotateSprite && sprite != null:
-		sprite.rotation = fmod(sprite.rotation + gravityStrength * _delta * 0.002, 360)
+		if rotateSprite && sprite != null:
+			sprite.rotation = fmod(sprite.rotation + gravityStrength * _delta * 0.002 * rotationSpeed, 360)
 
 func _input(event):
 	if not Engine.is_editor_hint():
