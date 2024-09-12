@@ -1,0 +1,253 @@
+[gd_scene load_steps=8 format=3 uid="uid://b1v12tsco225w"]
+
+[ext_resource type="PackedScene" uid="uid://jwa57sqwi2ws" path="res://Levels/base_level.tscn" id="1_h06yk"]
+[ext_resource type="PackedScene" uid="uid://b0q8p531yqss6" path="res://Entities/Ball.tscn" id="2_mi6ua"]
+[ext_resource type="PackedScene" uid="uid://bqujgumw3qfky" path="res://Entities/Environment/Star.tscn" id="3_tqycn"]
+[ext_resource type="PackedScene" uid="uid://dawmy7e4kekbg" path="res://Entities/Environment/BlackHole.tscn" id="4_3rnsb"]
+[ext_resource type="PackedScene" uid="uid://bjw3hnypih6fe" path="res://Entities/Environment/WormHole.tscn" id="5_rq30p"]
+[ext_resource type="PackedScene" uid="uid://ceht6yka27cw1" path="res://Entities/Collectible/Collectible.tscn" id="6_3mtx7"]
+[ext_resource type="Script" path="res://_debug/Scripts/arc_toolscript.gd" id="6_yectv"]
+
+[node name="BaseLevel" instance=ExtResource("1_h06yk")]
+
+[node name="Fuel" parent="." index="1"]
+maxFuel = 10000.0
+startingFuel = 1000.0
+
+[node name="Ball" parent="Planets" index="0" instance=ExtResource("2_mi6ua")]
+position = Vector2(-156, 158)
+
+[node name="Star" parent="Stars" index="0" instance=ExtResource("3_tqycn")]
+position = Vector2(512, 456)
+gravity = 400.0
+gravityFieldSize = 608.0
+gravityStrength = 400.0
+
+[node name="Star2" parent="Stars" index="1" instance=ExtResource("3_tqycn")]
+position = Vector2(-985, -348)
+gravity = 400.0
+gravityFieldSize = 608.0
+gravityStrength = 400.0
+centerSize = 10.0
+
+[node name="Star3" parent="Stars" index="2" instance=ExtResource("3_tqycn")]
+position = Vector2(19, -502)
+gravity = 400.0
+gravityFieldSize = 608.0
+gravityStrength = 400.0
+centerSize = 10.0
+
+[node name="Star4" parent="Stars" index="3" instance=ExtResource("3_tqycn")]
+position = Vector2(-600, 616)
+gravity = 400.0
+gravityFieldSize = 608.0
+gravityStrength = 400.0
+centerSize = 10.0
+
+[node name="Star5" parent="Stars" index="4" instance=ExtResource("3_tqycn")]
+position = Vector2(-1722, 501)
+gravity = 400.0
+gravityFieldSize = 608.0
+gravityStrength = 400.0
+centerSize = 10.0
+
+[node name="Star6" parent="Stars" index="5" instance=ExtResource("3_tqycn")]
+position = Vector2(-2051, -619)
+gravity = 400.0
+gravityFieldSize = 608.0
+gravityStrength = 400.0
+centerSize = 10.0
+
+[node name="Star7" parent="Stars" index="6" instance=ExtResource("3_tqycn")]
+position = Vector2(-1239, 1516)
+gravity = 400.0
+gravityFieldSize = 608.0
+gravityStrength = 400.0
+centerSize = 10.0
+
+[node name="Star8" parent="Stars" index="7" instance=ExtResource("3_tqycn")]
+position = Vector2(-159, 1636)
+gravity = 400.0
+gravityFieldSize = 608.0
+gravityStrength = 400.0
+centerSize = 10.0
+
+[node name="Star9" parent="Stars" index="8" instance=ExtResource("3_tqycn")]
+position = Vector2(399, 1173)
+gravity = 400.0
+gravityFieldSize = 608.0
+gravityStrength = 400.0
+centerSize = 10.0
+
+[node name="Star10" parent="Stars" index="9" instance=ExtResource("3_tqycn")]
+position = Vector2(1498, 886)
+gravity = 400.0
+gravityFieldSize = 608.0
+gravityStrength = 400.0
+centerSize = 10.0
+
+[node name="Star11" parent="Stars" index="10" instance=ExtResource("3_tqycn")]
+position = Vector2(1122, -432)
+gravity = 400.0
+gravityFieldSize = 608.0
+gravityStrength = 400.0
+centerSize = 10.0
+
+[node name="Star12" parent="Stars" index="11" instance=ExtResource("3_tqycn")]
+position = Vector2(1771, -45)
+gravity = 400.0
+gravityFieldSize = 608.0
+gravityStrength = 400.0
+centerSize = 10.0
+
+[node name="Star13" parent="Stars" index="12" instance=ExtResource("3_tqycn")]
+position = Vector2(1036, 1915)
+gravity = 400.0
+gravityFieldSize = 608.0
+gravityStrength = 400.0
+centerSize = 10.0
+
+[node name="Star14" parent="Stars" index="13" instance=ExtResource("3_tqycn")]
+position = Vector2(-1267, -1417)
+gravity = 400.0
+gravityFieldSize = 608.0
+gravityStrength = 400.0
+centerSize = 10.0
+
+[node name="Star15" parent="Stars" index="14" instance=ExtResource("3_tqycn")]
+position = Vector2(-280, -1571)
+gravity = 400.0
+gravityFieldSize = 608.0
+gravityStrength = 400.0
+centerSize = 10.0
+
+[node name="Star16" parent="Stars" index="15" instance=ExtResource("3_tqycn")]
+position = Vector2(623, -1403)
+gravity = 400.0
+gravityFieldSize = 608.0
+gravityStrength = 400.0
+centerSize = 10.0
+
+[node name="BlackHole" parent="BlackHoles" index="0" instance=ExtResource("4_3rnsb")]
+position = Vector2(2101, 553)
+
+[node name="WormHole" parent="WormHoles" index="0" node_paths=PackedStringArray("warpTarget") instance=ExtResource("5_rq30p")]
+position = Vector2(-749, 438)
+gravity = 0.0
+warpTarget = NodePath("../WormHole2")
+gravityFieldSize = 60.0
+gravityStrength = 0
+centerSize = 60.0
+
+[node name="WormHole2" parent="WormHoles" index="1" node_paths=PackedStringArray("warpTarget") instance=ExtResource("5_rq30p")]
+position = Vector2(791, -670)
+gravity = 0.0
+warpTarget = NodePath("../WormHole")
+gravityFieldSize = 60.0
+gravityStrength = 0
+centerSize = 60.0
+
+[node name="Collectibles" parent="." index="7"]
+script = ExtResource("6_yectv")
+resource = ExtResource("6_3mtx7")
+density = 51
+
+[node name="Collectible" parent="Collectibles" index="0" instance=ExtResource("6_3mtx7")]
+position = Vector2(-629, 922)
+
+[node name="Collectible2" parent="Collectibles" index="1" instance=ExtResource("6_3mtx7")]
+position = Vector2(-148, -195)
+
+[node name="Collectible3" parent="Collectibles" index="2" instance=ExtResource("6_3mtx7")]
+position = Vector2(1157, 266)
+
+[node name="Collectible4" parent="Collectibles" index="3" instance=ExtResource("6_3mtx7")]
+position = Vector2(-952, 387)
+
+[node name="Collectible16" parent="Collectibles" index="4" instance=ExtResource("6_3mtx7")]
+position = Vector2(-450, -406)
+
+[node name="Collectible17" parent="Collectibles" index="5" instance=ExtResource("6_3mtx7")]
+position = Vector2(-1351, 638)
+
+[node name="Collectible5" parent="Collectibles" index="6" instance=ExtResource("6_3mtx7")]
+position = Vector2(397, -380)
+
+[node name="Collectible6" parent="Collectibles" index="7" instance=ExtResource("6_3mtx7")]
+position = Vector2(958, -300)
+
+[node name="Collectible7" parent="Collectibles" index="8" instance=ExtResource("6_3mtx7")]
+position = Vector2(265, 1155)
+
+[node name="Collectible8" parent="Collectibles" index="9" instance=ExtResource("6_3mtx7")]
+position = Vector2(772, 366)
+
+[node name="Collectible9" parent="Collectibles" index="10" instance=ExtResource("6_3mtx7")]
+position = Vector2(921, 905)
+
+[node name="Collectible10" parent="Collectibles" index="11" instance=ExtResource("6_3mtx7")]
+position = Vector2(1423, 191)
+
+[node name="Collectible11" parent="Collectibles" index="12" instance=ExtResource("6_3mtx7")]
+position = Vector2(520, 855)
+
+[node name="Collectible12" parent="Collectibles" index="13" instance=ExtResource("6_3mtx7")]
+position = Vector2(-317, 1432)
+
+[node name="Collectible13" parent="Collectibles" index="14" instance=ExtResource("6_3mtx7")]
+position = Vector2(1446, 657)
+
+[node name="Collectible14" parent="Collectibles" index="15" instance=ExtResource("6_3mtx7")]
+position = Vector2(-1091, -99)
+
+[node name="Collectible15" parent="Collectibles" index="16" instance=ExtResource("6_3mtx7")]
+position = Vector2(-1401, 446)
+
+[node name="FuelLabel2" type="RichTextLabel" parent="UI" index="4"]
+offset_left = 155.0
+offset_top = -316.0
+offset_right = 155.0
+offset_bottom = -271.0
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+
+[node name="StrokesLabel2" type="RichTextLabel" parent="UI" index="5"]
+offset_left = 155.0
+offset_top = -276.0
+offset_right = 155.0
+offset_bottom = -231.0
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+
+[node name="FuelLabel3" type="RichTextLabel" parent="UI" index="6"]
+offset_left = -405.0
+offset_top = -163.0
+offset_right = -405.0
+offset_bottom = -118.0
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+
+[node name="StrokesLabel3" type="RichTextLabel" parent="UI" index="7"]
+offset_left = -405.0
+offset_top = -123.0
+offset_right = -405.0
+offset_bottom = -78.0
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+
+[node name="BackgroundMusic" parent="Audio" index="0"]
+volume_db = -80.0
+
+[node name="HitBallLowFuel" parent="Audio" index="3"]
+position = Vector2(-2, 1)
+
+[node name="ScoreGet" parent="Audio" index="4"]
+position = Vector2(-7, -8)
