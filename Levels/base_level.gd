@@ -226,7 +226,10 @@ func update_ball_indices():
 		b.set_index(ballCount)
 		ballCount += 1
 
-func _on_ball_destroyed(destroyedIndex: int, points: int = 0):
+func _on_ball_destroyed(destroyedIndex: int, pos: Vector2, points: int = 0):
+	var explosion: Sprite2D = ResourceLoader.load("res://ArtAssets/Sprites/explode.tscn").instantiate()
+	explosion.global_position = pos
+	$Planets.add_child(explosion)
 	if points != 0:
 		set_score(points)
 	
@@ -239,6 +242,8 @@ func _on_ball_destroyed(destroyedIndex: int, points: int = 0):
 		end_level(true)
 	else:
 		set_active_ball(activeBallIndex)
+	await explosion.get_node("AnimationPlayer").animation_finished
+	explosion.queue_free()
 
 func end_level(died: bool = false):
 	state = Enums.LevelState.DEAD
