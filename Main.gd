@@ -52,6 +52,9 @@ func set_state(newState: Enums.GameState):
 			
 		Enums.GameState.IN_GAME:
 			startMenu.visible = false
+			startMenu.loopVid.stop()
+			startMenu.openingVid.stop()
+			startMenu.titleMusic.stop()
 			pauseMenu.close()
 			Globals.disableInput = false
 			await pauseMenu.closed

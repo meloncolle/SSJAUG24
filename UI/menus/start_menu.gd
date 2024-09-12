@@ -4,8 +4,10 @@ extends Control
 @onready var loopVid: VideoStreamPlayer = $LoopVid
 @onready var fadeAnimationPlayer: AnimationPlayer = $FadeAnimationPlayer
 @onready var btnAnimationPlayer: AnimationPlayer = $ButtonAnimationPlayer
+@onready var titleMusic: AudioStreamPlayer = $TitleMusic
+@onready var voiceOver: AudioStreamPlayer = $Voiceover
 
-@export var resetTime: float = 20
+@export var resetTime: float = 30
 var timer: float = 0
 
 func _ready() -> void:
@@ -38,8 +40,11 @@ func reset(fade: bool = false):
 		fadeAnimationPlayer.play("fade_to_black")
 		await fadeAnimationPlayer.animation_finished
 
+	loopVid.stop()
 	btnAnimationPlayer.stop()
 	openingVid.visible = true
+	titleMusic.volume_db = 0.0
+	titleMusic.play()
 	openingVid.play()
 	
 	if fade:
@@ -54,11 +59,13 @@ func go_to_end(fade: bool = false):
 		fadeAnimationPlayer.play("fade_to_black")
 		await fadeAnimationPlayer.animation_finished
 	
+	titleMusic.play(13.65)
 	openingVid.visible = false
+	voiceOver.play()
 	openingVid.stop()
 	loopVid.play()
 	btnAnimationPlayer.play("button_enter")
 	
 	if fade:
-		fadeAnimationPlayer.play_backwards("fade_to_black")
+		fadeAnimationPlayer.play_backwards("fade_to_black_noaudio")
 		await fadeAnimationPlayer.animation_finished
