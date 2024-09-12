@@ -35,7 +35,7 @@ func _ready():
 func _input (event: InputEvent):
 	if(gameState != Enums.GameState.ON_START && event.is_action_pressed("ui_cancel") && Globals.isPausable):
 		get_tree().paused = !get_tree().paused
-		
+		Globals.isPausable = false
 		match gameState:
 			Enums.GameState.IN_GAME:
 				set_state(Enums.GameState.PAUSED)
@@ -58,11 +58,13 @@ func set_state(newState: Enums.GameState):
 			pauseMenu.close()
 			Globals.disableInput = false
 			await pauseMenu.closed
+			Globals.isPausable = true
 			
 		Enums.GameState.PAUSED:
 			Globals.disableInput = true
 			pauseMenu.open()
 			await pauseMenu.opened
+			Globals.isPausable = true
 			
 	gameState = newState
 
