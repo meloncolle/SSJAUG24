@@ -242,6 +242,7 @@ func _on_ball_destroyed(destroyedIndex: int, points: int = 0):
 
 func end_level(died: bool = false):
 	state = Enums.LevelState.DEAD
+	$MusicSwitcher.play("end_lvl")
 	deathScreen.show_results(died, score, fuel.fuel, strokes)
 
 func _on_press_retry():

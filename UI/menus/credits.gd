@@ -19,6 +19,7 @@ func _input(event):
 		return
 	if ((event is InputEventMouseButton and event.is_pressed()) ||
 	(event is InputEventKey and event.is_pressed())):
+		Globals.sceneController.sfx.UIButtonPress.play()
 		closing = true
 		animationPlayer.play_backwards("open")
 		await animationPlayer.animation_finished

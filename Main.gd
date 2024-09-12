@@ -25,6 +25,7 @@ func _ready():
 	pauseMenu.quitButton.pressed.connect(self._on_press_quit)
 		
 	for button in [
+		startMenu.get_node("CreditsButton"),
 		startMenu.get_node("StartButton"),
 		pauseMenu.resumeButton,
 		pauseMenu.submitButton,

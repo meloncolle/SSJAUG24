@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c74cb3qsopchl"
+path="res://.godot/imported/9trillion again 9-5 acid edit.mp3-adf65e865fa8e284bd296e39dc14166c.mp3str"
+
+[deps]
+
+source_file="res://_debug/Audio/Placeholder/9trillion again 9-5 acid edit.mp3"
+dest_files=["res://.godot/imported/9trillion again 9-5 acid edit.mp3-adf65e865fa8e284bd296e39dc14166c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
