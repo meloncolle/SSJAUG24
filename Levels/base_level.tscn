@@ -20,7 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://di23bpo8ep1op" path="res://_debug/Audio/v0.1 sfx/zapsplat_multimedia_game_sound_coil_collect_digital_arcade_001_64267.mp3" id="17_lhbbc"]
 [ext_resource type="AudioStream" uid="uid://3wm8vtau2tid" path="res://_debug/Audio/v0.1 sfx/jessey_drake_oldschool_SHORT_WARP_DOWN_video_retro_game_chip_set_8BIT_JD.mp3" id="18_bkwis"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_pxkpc"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aopju"]
 resource_local_to_scene = true
 shader = ExtResource("3_2ydd2")
 shader_parameter/blur = 0.0
@@ -359,7 +359,7 @@ scale = Vector2(0.478595, 0.478595)
 
 [node name="DeathScreen" parent="UI" instance=ExtResource("2_l5cqc")]
 visible = false
-material = SubResource("ShaderMaterial_pxkpc")
+material = SubResource("ShaderMaterial_aopju")
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
