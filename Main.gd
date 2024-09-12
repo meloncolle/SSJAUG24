@@ -18,6 +18,7 @@ func _ready():
 	Globals.sceneController = self
 	set_state(Enums.GameState.ON_START)
 	startMenu.get_node("StartButton").pressed.connect(self._on_press_level)
+	startMenu.get_node("CreditsButton").pressed.connect(self._on_press_credits)
 	pauseMenu.resumeButton.pressed.connect(self._on_press_resume)
 	pauseMenu.submitButton.pressed.connect(self._on_press_resume)
 	pauseMenu.restartButton.pressed.connect(self._on_press_restart)
@@ -72,6 +73,11 @@ func set_state(newState: Enums.GameState):
 func _on_press_level():
 	var levelSelect: Node = load("res://UI/menus/level_select.tscn").instantiate()
 	startMenu.add_child(levelSelect)
+	
+func _on_press_credits():
+	var levelSelect: Node = load("res://UI/menus/credits.tscn").instantiate()
+	startMenu.add_child(levelSelect)
+	levelSelect.animationPlayer.play("open")
 	
 func load_level(path: String):
 	levelPath = path
