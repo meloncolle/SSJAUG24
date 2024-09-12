@@ -1,0 +1,252 @@
+[gd_scene load_steps=12 format=3 uid="uid://ieeedr78f3y5"]
+
+[ext_resource type="PackedScene" uid="uid://jwa57sqwi2ws" path="res://Levels/base_level.tscn" id="1_8tpll"]
+[ext_resource type="Shader" path="res://ArtAssets/Shaders/blur.gdshader" id="2_1j078"]
+[ext_resource type="PackedScene" uid="uid://bqujgumw3qfky" path="res://Entities/Environment/Star.tscn" id="2_31tq3"]
+[ext_resource type="PackedScene" uid="uid://dawmy7e4kekbg" path="res://Entities/Environment/BlackHole.tscn" id="3_2odub"]
+[ext_resource type="PackedScene" uid="uid://bjw3hnypih6fe" path="res://Entities/Environment/WormHole.tscn" id="4_idypl"]
+[ext_resource type="Script" path="res://_debug/Scripts/arc_toolscript.gd" id="5_80bm5"]
+[ext_resource type="PackedScene" uid="uid://4f1m2s6ovnyx" path="res://Entities/Collectible/FuelTank.tscn" id="5_loe5d"]
+[ext_resource type="PackedScene" uid="uid://bifkp2m7aoj61" path="res://Entities/Environment/Static/Boundary (bouncy).tscn" id="5_ulf32"]
+[ext_resource type="PackedScene" uid="uid://ceht6yka27cw1" path="res://Entities/Collectible/Collectible.tscn" id="6_o6o2s"]
+[ext_resource type="PackedScene" uid="uid://b0q8p531yqss6" path="res://Entities/Ball.tscn" id="8_fmne1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jrflj"]
+resource_local_to_scene = true
+shader = ExtResource("2_1j078")
+shader_parameter/blur = 0.0
+shader_parameter/brightness = 1.0
+
+[node name="BaseLevel" instance=ExtResource("1_8tpll")]
+metadata/_edit_horizontal_guides_ = [-582.0]
+
+[node name="TextureRect" parent="ParallaxBackground" index="0"]
+offset_left = -2649.0
+offset_top = -2093.0
+offset_right = 1191.0
+offset_bottom = 907.0
+metadata/_edit_lock_ = true
+
+[node name="Power" parent="." index="1"]
+force = 17.0
+
+[node name="FuelTank" parent="Fuel" index="0" instance=ExtResource("5_loe5d")]
+position = Vector2(395, -226)
+scale = Vector2(0.6, 0.6)
+fuelValue = 30.0
+
+[node name="FuelTank2" parent="Fuel" index="1" instance=ExtResource("5_loe5d")]
+position = Vector2(482, -68)
+scale = Vector2(0.6, 0.6)
+fuelValue = 30.0
+
+[node name="FuelTank3" parent="Fuel" index="2" instance=ExtResource("5_loe5d")]
+position = Vector2(150, -229)
+scale = Vector2(0.4, 0.4)
+fuelValue = 30.0
+
+[node name="FuelTank4" parent="Fuel" index="3" instance=ExtResource("5_loe5d")]
+position = Vector2(349, -27)
+scale = Vector2(0.4, 0.4)
+fuelValue = 30.0
+
+[node name="Star" parent="Stars" index="0" instance=ExtResource("2_31tq3")]
+position = Vector2(327, -60)
+gravity = 3244.0
+gravityFieldSize = 25.0
+gravityStrength = 3244.0
+centerSize = 19.0
+
+[node name="Star2" parent="Stars" index="1" instance=ExtResource("2_31tq3")]
+position = Vector2(327, -60)
+gravityFieldSize = 30.0
+centerSize = 5.0
+
+[node name="Star3" parent="Stars" index="2" instance=ExtResource("2_31tq3")]
+modulate = Color(1, 0, 0.0166664, 0.694118)
+self_modulate = Color(4.81307e-07, 0.619797, 0.619996, 1)
+position = Vector2(83, 136)
+rotation = 2.14298
+gravity = 161.0
+gravityFieldSize = 317.0
+gravityStrength = 161.0
+centerSize = 112.0
+
+[node name="BlackHole" parent="BlackHoles" index="0" instance=ExtResource("3_2odub")]
+position = Vector2(547, -262)
+gravityFieldSize = 25.0
+centerSize = 8.0
+
+[node name="WormHole" parent="WormHoles" index="0" node_paths=PackedStringArray("warpTarget") instance=ExtResource("4_idypl")]
+modulate = Color(0, 1.622, 0, 1)
+position = Vector2(395, -226)
+scale = Vector2(0.988712, 1.08192)
+warpTarget = NodePath("../WormHole2")
+gravityFieldSize = 40.0
+centerSize = 8.0
+
+[node name="WormHole2" parent="WormHoles" index="1" node_paths=PackedStringArray("warpTarget") instance=ExtResource("4_idypl")]
+modulate = Color(0.065, 3.243, 0.057, 1)
+self_modulate = Color(1, 0, 1, 1)
+position = Vector2(482, -68)
+warpTarget = NodePath("../WormHole")
+gravityFieldSize = 29.0
+
+[node name="WormHole3" parent="WormHoles" index="2" node_paths=PackedStringArray("warpTarget") instance=ExtResource("4_idypl")]
+position = Vector2(349, -27)
+gravity = 0.0
+warpTarget = NodePath("../WormHole4")
+gravityFieldSize = 29.0
+gravityStrength = 0
+centerSize = 6.0
+
+[node name="WormHole4" parent="WormHoles" index="3" node_paths=PackedStringArray("warpTarget") instance=ExtResource("4_idypl")]
+position = Vector2(151, -45)
+warpTarget = NodePath("../WormHole3")
+gravityFieldSize = 30.0
+centerSize = 12.0
+
+[node name="WormHole5" parent="WormHoles" index="4" node_paths=PackedStringArray("warpTarget") instance=ExtResource("4_idypl")]
+position = Vector2(-33, -53)
+warpTarget = NodePath("../WormHole6")
+gravityFieldSize = 30.0
+centerSize = 18.0
+
+[node name="WormHole6" parent="WormHoles" index="5" node_paths=PackedStringArray("warpTarget") instance=ExtResource("4_idypl")]
+position = Vector2(150, -228)
+gravity = -1536.0
+warpTarget = NodePath(".")
+allowNegativeGravity = true
+gravityFieldSize = 70.0
+gravityStrength = -1536.0
+centerSize = 0.0
+
+[node name="Collectibles" parent="." index="7"]
+script = ExtResource("5_80bm5")
+resource = ExtResource("6_o6o2s")
+density = 20
+
+[node name="Collectible2" parent="." index="8" instance=ExtResource("6_o6o2s")]
+position = Vector2(38, -258)
+
+[node name="Collectible" parent="." index="9" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.0762294, 0.971882, 0.0681857, 1)
+position = Vector2(565, -67)
+
+[node name="Collectible3" parent="." index="10" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.0762294, 0.971882, 0.0681857, 1)
+position = Vector2(588, -62)
+
+[node name="Collectible4" parent="." index="11" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.0762294, 0.971882, 0.0681857, 1)
+position = Vector2(538, -69)
+
+[node name="Collectible5" parent="." index="12" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.0762294, 0.971882, 0.0681857, 1)
+position = Vector2(389, -34)
+
+[node name="Boundary" parent="Boundaries" index="0" instance=ExtResource("5_ulf32")]
+position = Vector2(616, -169)
+rotation = 1.5708
+scale = Vector2(-1.50088, -0.560419)
+
+[node name="Boundary2" parent="Boundaries" index="1" instance=ExtResource("5_ulf32")]
+position = Vector2(279, -166)
+rotation = 1.5708
+scale = Vector2(1.48548, -0.632152)
+
+[node name="Boundary3" parent="Boundaries" index="2" instance=ExtResource("5_ulf32")]
+position = Vector2(447, -387)
+rotation = 3.14159
+scale = Vector2(1.22119, -0.776028)
+
+[node name="Boundary12" parent="Boundaries" index="3" instance=ExtResource("5_ulf32")]
+position = Vector2(95, -386)
+rotation = 3.14159
+scale = Vector2(1.22119, -0.776028)
+
+[node name="Boundary9" parent="Boundaries" index="4" instance=ExtResource("5_ulf32")]
+position = Vector2(379, -64)
+rotation = 3.14159
+scale = Vector2(1.22119, -0.776028)
+
+[node name="Boundary8" parent="Boundaries" index="5" instance=ExtResource("5_ulf32")]
+position = Vector2(-88, -32)
+rotation = 4.71248
+scale = Vector2(1.22119, -0.776028)
+
+[node name="Boundary11" parent="Boundaries" index="6" instance=ExtResource("5_ulf32")]
+position = Vector2(-88, -280)
+rotation = 4.71248
+scale = Vector2(1.22119, -0.776028)
+
+[node name="Boundary10" parent="Boundaries" index="7" instance=ExtResource("5_ulf32")]
+position = Vector2(94, 35)
+rotation = 3.14159
+scale = Vector2(-1.281, 0.9)
+
+[node name="Boundary5" parent="Boundaries" index="8" instance=ExtResource("5_ulf32")]
+position = Vector2(563, -217)
+rotation = 3.14159
+scale = Vector2(0.445, -0.646)
+
+[node name="Boundary6" parent="Boundaries" index="9" instance=ExtResource("5_ulf32")]
+position = Vector2(507, -284)
+rotation = 1.5708
+scale = Vector2(0.554847, -0.425071)
+
+[node name="Boundary4" parent="Boundaries" index="10" instance=ExtResource("5_ulf32")]
+position = Vector2(445, 34.9999)
+rotation = 8.74228e-08
+scale = Vector2(1.193, -0.9)
+
+[node name="Boundary7" parent="Boundaries" index="11" instance=ExtResource("5_ulf32")]
+position = Vector2(454, -124)
+rotation = 3.14159
+scale = Vector2(1.11436, -0.839646)
+
+[node name="Ball" parent="Planets" index="0" instance=ExtResource("8_fmne1")]
+modulate = Color(0.94474, 0.942298, 0.94125, 1)
+self_modulate = Color(0.257593, 0.675086, 0.70481, 1)
+position = Vector2(87, -13)
+disable_mode = 1
+gravity_scale = 0.7
+isFirstBall = true
+
+[node name="CollisionShape2D" parent="Planets/Ball" index="0"]
+z_index = 1
+position = Vector2(-3.05176e-05, 0)
+scale = Vector2(0.6, 0.6)
+
+[node name="FollowTarget" parent="Planets/Ball" index="1"]
+position = Vector2(-4.00543e-05, 0)
+followSpeed = 7.0
+
+[node name="ScoreLabel" parent="UI" index="0"]
+metadata/_edit_use_anchors_ = true
+
+[node name="FuelLabel" parent="UI" index="1"]
+metadata/_edit_use_anchors_ = true
+
+[node name="StrokesLabel" parent="UI" index="2"]
+metadata/_edit_use_anchors_ = true
+
+[node name="DeathScreen" parent="UI" index="4"]
+material = SubResource("ShaderMaterial_jrflj")
+
+[node name="BackgroundMusic" parent="Audio" index="0"]
+metadata/_edit_lock_ = true
+
+[node name="HitBall" parent="Audio" index="1"]
+metadata/_edit_lock_ = true
+
+[node name="ChangeBall" parent="Audio" index="2"]
+metadata/_edit_lock_ = true
+
+[node name="HitBallLowFuel" parent="Audio" index="3"]
+metadata/_edit_lock_ = true
+
+[node name="ScoreGet" parent="Audio" index="4"]
+metadata/_edit_lock_ = true
+
+[editable path="Planets/Ball"]

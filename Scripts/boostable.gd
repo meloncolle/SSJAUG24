@@ -50,8 +50,8 @@ func _physics_process(_delta):
 			if gravityStrength > baseGravity:
 				gravityStrength -= Globals.GRAVITY_BOOST_SPEED
 				
-	if rotateSprite && sprite != null:
-		sprite.rotation = fmod(sprite.rotation + gravityStrength * _delta * 0.002, 360)
+		if rotateSprite && sprite != null:
+			sprite.rotation = fmod(sprite.rotation + gravityStrength * _delta * 0.002, 360)
 
 func _input(event):
 	if not Engine.is_editor_hint():
