@@ -74,7 +74,11 @@ func _on_press_level():
 	
 func load_level(path: String):
 	levelPath = path
+	startMenu.fadeAnimationPlayer.play("fade_to_black")
+	$Audio/GolfHitSFX.play()
+	await startMenu.fadeAnimationPlayer.animation_finished
 	sceneInstance = ResourceLoader.load(levelPath).instantiate()
+	await $Audio/GolfHitSFX.finished
 	self.add_child(sceneInstance)
 	set_state(Enums.GameState.IN_GAME)
 	
@@ -95,8 +99,9 @@ func _on_press_restart():
 
 func _on_press_quit():
 	if (is_instance_valid(sceneInstance)):
+		startMenu.go_to_end(true)
+		await startMenu.fadeAnimationPlayer.animation_finished
 		sceneInstance.queue_free()
 	sceneInstance = null
 	get_tree().paused = false
-	startMenu.go_to_end()
 	set_state(Enums.GameState.ON_START)
