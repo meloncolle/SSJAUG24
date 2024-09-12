@@ -238,12 +238,13 @@ func _on_ball_destroyed(destroyedIndex: int, pos: Vector2, points: int = 0):
 		activeBallIndex -= 1
 	update_ball_indices()	
 	
+	await explosion.get_node("AnimationPlayer").animation_finished
+	explosion.queue_free()
+	
 	if balls.size() == 0:
 		end_level(true)
 	else:
 		set_active_ball(activeBallIndex)
-	await explosion.get_node("AnimationPlayer").animation_finished
-	explosion.queue_free()
 
 func end_level(died: bool = false):
 	state = Enums.LevelState.DEAD
