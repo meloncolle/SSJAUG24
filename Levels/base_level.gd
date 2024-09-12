@@ -26,6 +26,8 @@ var strokes: int = 0: set = set_strokes
 
 @onready var fadeAnimationPlayer: AnimationPlayer = $FadeAnimationPlayer
 
+@onready var submitHint: Control = $UI/SubmitHint
+@export var hintLimit: float = 10
 ###KYE STUFF
 ###KYE STUFF
 ###KYE STUFF
@@ -196,6 +198,7 @@ func set_state(newState: Enums.LevelState):
 			powerMeter.visible = true
 		
 		Enums.LevelState.DEAD:
+			submitHint.visible = false
 			Globals.disableInput = true
 			Globals.isPausable = false
 			deathScreen.visible = true
@@ -215,6 +218,7 @@ func _on_changed_fuel(newVal: float, oldVal: float):
 	if newVal > oldVal:
 		sfx.fuelGet.play()
 	fuelLabel.value = newVal
+	submitHint.visible = newVal <= hintLimit
 
 func update_ball_indices():
 	var ballCount := 0
