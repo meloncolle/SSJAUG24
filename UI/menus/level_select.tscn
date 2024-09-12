@@ -1,9 +1,24 @@
-[gd_scene load_steps=15 format=3 uid="uid://njd5xweh7jm2"]
+[gd_scene load_steps=20 format=3 uid="uid://njd5xweh7jm2"]
 
 [ext_resource type="Script" path="res://UI/menus/level_select.gd" id="1_h0qqy"]
 [ext_resource type="Texture2D" uid="uid://dcoio3rlnp65u" path="res://ArtAssets/UI/Pause Menu/tile.png" id="3_lwgpf"]
 [ext_resource type="Texture2D" uid="uid://b2jh287tr3og2" path="res://ArtAssets/UI/base_button.png" id="3_p15qb"]
 [ext_resource type="FontFile" uid="uid://dwadptpgvjl5g" path="res://ArtAssets/UI/CAT North.ttf" id="4_u4ml0"]
+
+[sub_resource type="Animation" id="Animation_m50ot"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/BG/TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-140, -82)]
+}
 
 [sub_resource type="Animation" id="Animation_0wta5"]
 resource_name = "scroll"
@@ -20,21 +35,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-184, -82), Vector2(-140, -38)]
-}
-
-[sub_resource type="Animation" id="Animation_m50ot"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MarginContainer/BG/TextureRect:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-140, -82)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_npo4k"]
@@ -54,6 +54,9 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 shadow_offset = Vector2(3, 3)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mphyj"]
+content_margin_bottom = 10.0
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wdbqo"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i4445"]
@@ -65,6 +68,134 @@ shadow_offset = Vector2(3, 3)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ko45s"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0rk8p"]
+
+[sub_resource type="Animation" id="Animation_eq0ts"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:opened")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/VBoxContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MarginContainer/VBoxContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ewkjr"]
+resource_name = "close"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:opened")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(2.5, 2.5),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/VBoxContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MarginContainer/VBoxContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_72xtb"]
+resource_name = "open"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:opened")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(2.5, 2.5),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/VBoxContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MarginContainer/VBoxContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.15, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_12hdh"]
+_data = {
+"RESET": SubResource("Animation_eq0ts"),
+"close": SubResource("Animation_ewkjr"),
+"open": SubResource("Animation_72xtb")
+}
 
 [node name="LevelsMenu" type="Control"]
 layout_mode = 3
@@ -82,18 +213,10 @@ libraries = {
 autoplay = "scroll"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -202.0
-offset_top = -332.0
-offset_right = 202.0
-offset_bottom = 332.0
-grow_horizontal = 2
-grow_vertical = 2
+clip_contents = true
+layout_mode = 0
+offset_left = 376.0
+offset_right = 776.0
 
 [node name="BG" type="Panel" parent="MarginContainer"]
 clip_children = 1
@@ -107,10 +230,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -342.0
-offset_top = -414.0
-offset_right = 872.0
-offset_bottom = 1098.0
+offset_left = -340.0
+offset_top = -133.5
+offset_right = 874.0
+offset_bottom = 1378.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
@@ -118,9 +241,22 @@ texture = ExtResource("3_lwgpf")
 stretch_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="Title" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("4_u4ml0")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mphyj")
+bbcode_enabled = true
+text = "[center]LEVEL SELECT:[/center]"
+fit_content = true
 
 [node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -149,5 +285,10 @@ theme_override_font_sizes/normal_font_size = 23
 bbcode_enabled = true
 text = "[center]BACK[/center]"
 fit_content = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_12hdh")
+}
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BackButton" to="." method="_on_button_pressed"]

@@ -24,6 +24,8 @@ var score: int = 0
 var strokes: int = 0: set = set_strokes
 @onready var strokeLabel: RichTextLabel = $UI/StrokesLabel
 
+@onready var fadeAnimationPlayer: AnimationPlayer = $FadeAnimationPlayer
+
 ###KYE STUFF
 ###KYE STUFF
 ###KYE STUFF
@@ -43,6 +45,7 @@ func _ready():
 	fuelLabel.dispVal = fuel.startingFuel
 	fuelLabel.warnThreshold = Globals.MAX_FUEL_PER_SWING
 	fuelLabel.update_text()
+	power.check_limit(fuel.fuel)
 	state = Enums.LevelState.INIT
 	
 	# Check for at least one black hole
@@ -243,6 +246,8 @@ func _on_press_retry():
 		Globals.sceneController._on_press_restart()
 	else:
 		# If running just the level scene
+		fadeAnimationPlayer.play_backwards("fade_in")
+		await fadeAnimationPlayer.animation_finished
 		get_tree().reload_current_scene()
 	
 func _on_press_quit():
