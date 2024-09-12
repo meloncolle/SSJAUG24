@@ -45,6 +45,7 @@ func _ready():
 	fuelLabel.dispVal = fuel.startingFuel
 	fuelLabel.warnThreshold = Globals.MAX_FUEL_PER_SWING
 	fuelLabel.update_text()
+	power.check_limit(fuel.fuel)
 	state = Enums.LevelState.INIT
 	
 	# Check for at least one black hole
