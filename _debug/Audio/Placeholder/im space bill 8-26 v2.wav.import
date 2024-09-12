@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dwv1whjt8l4p2"
+path="res://.godot/imported/im space bill 8-26 v2.wav-23f39b049d2a7a232fba49da84c9b9bd.sample"
+
+[deps]
+
+source_file="res://_debug/Audio/Placeholder/im space bill 8-26 v2.wav"
+dest_files=["res://.godot/imported/im space bill 8-26 v2.wav-23f39b049d2a7a232fba49da84c9b9bd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -19,7 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://di23bpo8ep1op" path="res://_debug/Audio/v0.1 sfx/zapsplat_multimedia_game_sound_coil_collect_digital_arcade_001_64267.mp3" id="17_lhbbc"]
 [ext_resource type="AudioStream" uid="uid://3wm8vtau2tid" path="res://_debug/Audio/v0.1 sfx/jessey_drake_oldschool_SHORT_WARP_DOWN_video_retro_game_chip_set_8BIT_JD.mp3" id="18_bkwis"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bvi0x"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mdc8d"]
 resource_local_to_scene = true
 shader = ExtResource("3_2ydd2")
 shader_parameter/blur = 0.0
@@ -31,6 +31,7 @@ script = ExtResource("1_uc3i8")
 
 [node name="ParallaxBackground" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.5, 0.5)
+metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground"]
 offset_left = -1894.0
@@ -38,6 +39,7 @@ offset_top = -1498.0
 offset_right = 1946.0
 offset_bottom = 1502.0
 texture = ExtResource("7_ch58c")
+metadata/_edit_lock_ = true
 
 [node name="Power" type="Node" parent="."]
 script = ExtResource("2_bhbfv")
@@ -50,6 +52,7 @@ startingFuel = 100.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("2_1qgfg")
+metadata/_edit_lock_ = true
 
 [node name="Stars" type="Node" parent="."]
 
@@ -123,7 +126,7 @@ scale = Vector2(0.478595, 0.478595)
 
 [node name="DeathScreen" parent="UI" instance=ExtResource("2_l5cqc")]
 visible = false
-material = SubResource("ShaderMaterial_bvi0x")
+material = SubResource("ShaderMaterial_mdc8d")
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -136,39 +139,28 @@ offset_bottom = -324.0
 
 [node name="Audio" type="Node" parent="."]
 
-[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="Audio"]
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("7_q1rc5")
-volume_db = -13.867
 autoplay = true
-max_distance = 99999.0
-attenuation = 0.0
 bus = &"BGM"
 
-[node name="HitBall" type="AudioStreamPlayer2D" parent="Audio"]
+[node name="HitBall" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("12_ggnrl")
 volume_db = -11.886
-max_distance = 999999.0
-attenuation = 0.0
 bus = &"SFX"
 
-[node name="ChangeBall" type="AudioStreamPlayer2D" parent="Audio"]
+[node name="ChangeBall" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("13_cpngn")
 volume_db = -22.781
-max_distance = 1e+06
-attenuation = 0.0
 bus = &"SFX"
 
-[node name="HitBallLowFuel" type="AudioStreamPlayer2D" parent="Audio"]
+[node name="HitBallLowFuel" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("14_fv3bp")
 volume_db = -13.867
-max_distance = 1e+12
-attenuation = 0.0
 bus = &"SFX"
 
-[node name="ScoreGet" type="AudioStreamPlayer2D" parent="Audio"]
+[node name="ScoreGet" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("15_2w7c8")
-max_distance = 1e+09
-attenuation = 0.0
 bus = &"SFX"
 
 [node name="FuelGet" type="AudioStreamPlayer" parent="Audio"]

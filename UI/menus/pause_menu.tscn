@@ -269,9 +269,9 @@ scale = Vector2(0.732857, 0.732857)
 texture = ExtResource("3_vs3sw")
 
 [node name="TextureRect" type="TextureRect" parent="Frame/Fill Mask"]
-offset_left = -209.6
+offset_left = -280.0
 offset_top = -356.0
-offset_right = 406.4
+offset_right = 336.0
 offset_bottom = 495.0
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("5_i2blp")
