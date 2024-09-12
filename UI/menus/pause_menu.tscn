@@ -14,8 +14,8 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1qa1x"]
 resource_local_to_scene = true
 shader = ExtResource("1_kgmmh")
-shader_parameter/blur = 0.0
-shader_parameter/brightness = 1.0
+shader_parameter/blur = 1.89975
+shader_parameter/brightness = 0.810025
 
 [sub_resource type="Animation" id="Animation_dtwk7"]
 length = 0.001
@@ -115,6 +115,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(161, 350)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("VolumeControl:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_nx0wh"]
@@ -229,6 +241,18 @@ tracks/8/keys = {
 "update": 0,
 "values": [Vector2(-420, 530), Vector2(101, 530)]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("VolumeControl:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qg3x3"]
 _data = {
@@ -259,19 +283,19 @@ grow_vertical = 2
 script = ExtResource("2_t5lq8")
 
 [node name="Frame" type="Node2D" parent="."]
-position = Vector2(0, -562)
+position = Vector2(0, 55)
 scale = Vector2(0.88, 0.88)
 
 [node name="Fill Mask" type="Sprite2D" parent="Frame"]
 clip_children = 1
-position = Vector2(177, 460)
+position = Vector2(177, 449)
 scale = Vector2(0.732857, 0.732857)
 texture = ExtResource("3_vs3sw")
 
 [node name="TextureRect" type="TextureRect" parent="Frame/Fill Mask"]
-offset_left = -280.0
+offset_left = -209.6
 offset_top = -356.0
-offset_right = 336.0
+offset_right = 406.4
 offset_bottom = 495.0
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("5_i2blp")
@@ -282,7 +306,7 @@ position = Vector2(227, 357)
 scale = Vector2(0.732857, 0.732857)
 texture = ExtResource("2_fb0ml")
 hframes = 6
-frame = 1
+frame = 2
 
 [node name="ScrollAnimation" type="AnimationPlayer" parent="."]
 libraries = {
@@ -298,9 +322,9 @@ autoplay = "scroll_pattern"
 
 [node name="ResumeButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = -360.0
+offset_left = 159.729
 offset_top = 350.0
-offset_right = -29.0
+offset_right = 490.729
 offset_bottom = 419.0
 scale = Vector2(0.75, 0.75)
 theme_override_colors/icon_pressed_color = Color(0.945098, 0.34902, 0.439216, 1)
@@ -315,9 +339,9 @@ icon = ExtResource("7_kfs25")
 
 [node name="SubmitButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = -380.0
+offset_left = 129.084
 offset_top = 410.0
-offset_right = 123.0
+offset_right = 632.084
 offset_bottom = 479.0
 scale = Vector2(0.75, 0.75)
 theme_override_colors/icon_pressed_color = Color(0.945098, 0.34902, 0.439216, 1)
@@ -332,9 +356,9 @@ icon = ExtResource("8_e5re3")
 
 [node name="RestartButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = -400.0
+offset_left = 71.3696
 offset_top = 470.0
-offset_right = -50.0
+offset_right = 421.37
 offset_bottom = 539.0
 scale = Vector2(0.75, 0.75)
 theme_override_colors/icon_pressed_color = Color(0.945098, 0.34902, 0.439216, 1)
@@ -349,9 +373,9 @@ icon = ExtResource("9_hj22y")
 
 [node name="QuitButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = -420.0
+offset_left = -40.7494
 offset_top = 530.0
-offset_right = 54.0
+offset_right = 433.251
 offset_bottom = 599.0
 scale = Vector2(0.75, 0.75)
 theme_override_colors/icon_pressed_color = Color(0.945098, 0.34902, 0.439216, 1)
@@ -365,6 +389,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_euihk")
 icon = ExtResource("10_o8tlk")
 
 [node name="VolumeControl" parent="." instance=ExtResource("10_hq26d")]
+modulate = Color(1, 1, 1, 0)
 offset_left = 1038.0
 offset_top = 289.0
 offset_right = 1078.0

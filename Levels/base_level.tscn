@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://jwa57sqwi2ws"]
+[gd_scene load_steps=23 format=3 uid="uid://jwa57sqwi2ws"]
 
 [ext_resource type="Script" path="res://Levels/base_level.gd" id="1_uc3i8"]
 [ext_resource type="Script" path="res://Scripts/cam.gd" id="2_1qgfg"]
@@ -19,11 +19,97 @@
 [ext_resource type="AudioStream" uid="uid://di23bpo8ep1op" path="res://_debug/Audio/v0.1 sfx/zapsplat_multimedia_game_sound_coil_collect_digital_arcade_001_64267.mp3" id="17_lhbbc"]
 [ext_resource type="AudioStream" uid="uid://3wm8vtau2tid" path="res://_debug/Audio/v0.1 sfx/jessey_drake_oldschool_SHORT_WARP_DOWN_video_retro_game_chip_set_8BIT_JD.mp3" id="18_bkwis"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_67am5"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t7yek"]
 resource_local_to_scene = true
 shader = ExtResource("3_2ydd2")
 shader_parameter/blur = 0.0
 shader_parameter/brightness = 1.0
+
+[sub_resource type="Animation" id="Animation_urvjq"]
+resource_name = "fade_out"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/Fader:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/Fader:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.249, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Audio/BackgroundMusic:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-80.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_eyv71"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/Fader:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/Fader:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Audio/BackgroundMusic:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ej1co"]
+_data = {
+"RESET": SubResource("Animation_eyv71"),
+"fade_in": SubResource("Animation_urvjq")
+}
 
 [node name="BaseLevel" type="Node2D"]
 process_mode = 1
@@ -126,7 +212,7 @@ scale = Vector2(0.478595, 0.478595)
 
 [node name="DeathScreen" parent="UI" instance=ExtResource("2_l5cqc")]
 visible = false
-material = SubResource("ShaderMaterial_67am5")
+material = SubResource("ShaderMaterial_t7yek")
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -136,6 +222,15 @@ offset_left = -576.0
 offset_top = -324.0
 offset_right = -576.0
 offset_bottom = -324.0
+
+[node name="Fader" type="ColorRect" parent="UI"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="Audio" type="Node" parent="."]
 
@@ -174,3 +269,9 @@ bus = &"SFX"
 [node name="WarpEnter" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("18_bkwis")
 bus = &"SFX"
+
+[node name="FadeAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ej1co")
+}
+autoplay = "fade_in"

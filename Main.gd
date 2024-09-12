@@ -58,7 +58,8 @@ func set_state(newState: Enums.GameState):
 			pauseMenu.close()
 			Globals.disableInput = false
 			await pauseMenu.closed
-			Globals.isPausable = true
+			if sceneInstance != null && sceneInstance.state != Enums.LevelState.DEAD:
+				Globals.isPausable = true
 			
 		Enums.GameState.PAUSED:
 			Globals.disableInput = true
@@ -90,12 +91,15 @@ func _on_press_resume():
 	set_state(Enums.GameState.IN_GAME)
 
 func _on_press_restart():
+	get_tree().paused = false
+	# hope this doesnt screw up
+	set_state(Enums.GameState.IN_GAME)
 	if (is_instance_valid(sceneInstance)):
+		sceneInstance.fadeAnimationPlayer.play_backwards("fade_in")
+		await sceneInstance.fadeAnimationPlayer.animation_finished
 		sceneInstance.queue_free()
 	sceneInstance = ResourceLoader.load(levelPath).instantiate()
 	self.add_child(sceneInstance)
-	get_tree().paused = false
-	set_state(Enums.GameState.IN_GAME)
 
 func _on_press_quit():
 	if (is_instance_valid(sceneInstance)):
