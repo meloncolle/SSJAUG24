@@ -1,8 +1,8 @@
 [gd_scene load_steps=19 format=3 uid="uid://cccvsiorwsaq2"]
 
 [ext_resource type="Script" path="res://UI/menus/start_menu.gd" id="1_vbgxm"]
-[ext_resource type="VideoStream" path="res://ArtAssets/UI/Start Menu/loop_final_noaudio.ogv" id="2_4nxuh"]
-[ext_resource type="VideoStream" path="res://ArtAssets/UI/Start Menu/opening_final_noaudio_trimmed.ogv" id="3_5gtx5"]
+[ext_resource type="VideoStream" path="res://ArtAssets/UI/Start Menu/loop.ogv" id="2_vft22"]
+[ext_resource type="VideoStream" path="res://ArtAssets/UI/Start Menu/opening.ogv" id="3_au5nc"]
 [ext_resource type="Texture2D" uid="uid://c367dkplpipy4" path="res://ArtAssets/UI/Start Menu/start_button.png" id="4_i7frp"]
 [ext_resource type="AudioStream" uid="uid://d0qxfxooqwjos" path="res://_debug/Audio/Placeholder/space 9-6.mp3" id="5_2hpgn"]
 
@@ -221,7 +221,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-stream = ExtResource("2_4nxuh")
+stream = ExtResource("2_vft22")
 expand = true
 loop = true
 
@@ -233,7 +233,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-stream = ExtResource("3_5gtx5")
+stream = ExtResource("3_au5nc")
 autoplay = true
 expand = true
 bus = &"BGM"

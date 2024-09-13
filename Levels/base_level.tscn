@@ -337,6 +337,40 @@ script = ExtResource("8_qh13y")
 format = "Fuel: %.2f"
 changeSpeed = 20.0
 
+[node name="InfinityFuel" type="RichTextLabel" parent="UI"]
+visible = false
+clip_contents = false
+offset_left = 16.0
+offset_top = 41.0
+offset_right = 16.0
+offset_bottom = 76.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("7_oh2q1")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Fuel:"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Infinity" type="RichTextLabel" parent="UI/InfinityFuel"]
+clip_contents = false
+layout_mode = 0
+offset_left = 138.0
+offset_top = 1.0
+offset_right = 172.0
+offset_bottom = 71.0
+rotation = 1.5708
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 51
+bbcode_enabled = true
+text = "8"
+fit_content = true
+autowrap_mode = 0
+
 [node name="StrokesLabel" type="RichTextLabel" parent="UI"]
 clip_contents = false
 offset_left = 16.0
