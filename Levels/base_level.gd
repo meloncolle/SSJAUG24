@@ -64,7 +64,7 @@ func _ready():
 	# Check all wormholes have warp target assigned
 	for wh in $WormHoles.get_children():
 		if wh is WHEntity:
-			assert(wh.warpTarget != null, "Wormhole \"" + wh.name + "\" needs to have warp target assigned")
+			#assert(wh.warpTarget != null, "Wormhole \"" + wh.name + "\" needs to have warp target assigned")
 			wh.connect("warped", func(): sfx.warpEnter.play())
 	
 	# Setup score signal for each collectible
@@ -224,7 +224,8 @@ func _on_changed_fuel(newVal: float, oldVal: float):
 	if newVal > oldVal:
 		sfx.fuelGet.play()
 	fuelLabel.value = newVal
-	submitHint.visible = newVal <= hintLimit
+	if fuel.startingFuel > 0:
+		submitHint.visible = newVal <= hintLimit
 
 func update_ball_indices():
 	var ballCount := 0

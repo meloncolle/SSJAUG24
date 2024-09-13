@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlxwvtxoi8ly"]
+
+[ext_resource type="PackedScene" uid="uid://bpiqrfkgh1fl1" path="res://Entities/Environment/Static/Boundary.tscn" id="1_abmmp"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kr4ms"]
+friction = 0.0
+
+[node name="Boundary" instance=ExtResource("1_abmmp")]
+physics_material_override = SubResource("PhysicsMaterial_kr4ms")
+
+[node name="CollisionShape2D" parent="." index="0"]
+debug_color = Color(1.39579e-06, 0.424105, 0.265364, 0.419608)

@@ -1,0 +1,1223 @@
+[gd_scene load_steps=15 format=3 uid="uid://ieeedr78f3y5"]
+
+[ext_resource type="PackedScene" uid="uid://jwa57sqwi2ws" path="res://Levels/base_level.tscn" id="1_8tpll"]
+[ext_resource type="Shader" path="res://ArtAssets/Shaders/blur.gdshader" id="2_1j078"]
+[ext_resource type="PackedScene" uid="uid://bqujgumw3qfky" path="res://Entities/Environment/Star.tscn" id="2_31tq3"]
+[ext_resource type="PackedScene" uid="uid://dawmy7e4kekbg" path="res://Entities/Environment/BlackHole.tscn" id="3_2odub"]
+[ext_resource type="PackedScene" uid="uid://4f1m2s6ovnyx" path="res://Entities/Collectible/FuelTank.tscn" id="3_ikt7q"]
+[ext_resource type="Script" path="res://_debug/Scripts/arc_toolscript.gd" id="5_80bm5"]
+[ext_resource type="PackedScene" uid="uid://bjw3hnypih6fe" path="res://Entities/Environment/WormHole.tscn" id="5_p5c5p"]
+[ext_resource type="PackedScene" uid="uid://bifkp2m7aoj61" path="res://Entities/Environment/Static/Boundary (bouncy).tscn" id="5_ulf32"]
+[ext_resource type="PackedScene" uid="uid://bguf5iwlkixc0" path="res://Entities/Environment/FreezeHole.tscn" id="6_7hdnr"]
+[ext_resource type="PackedScene" uid="uid://ceht6yka27cw1" path="res://Entities/Collectible/Collectible.tscn" id="6_o6o2s"]
+[ext_resource type="PackedScene" uid="uid://b0q8p531yqss6" path="res://Entities/Ball.tscn" id="8_fmne1"]
+[ext_resource type="PackedScene" uid="uid://dlxwvtxoi8ly" path="res://Entities/Environment/Static/Boundary(smooth).tscn" id="12_jklxn"]
+[ext_resource type="PackedScene" uid="uid://bpiqrfkgh1fl1" path="res://Entities/Environment/Static/Boundary.tscn" id="13_ke1up"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jrflj"]
+resource_local_to_scene = true
+shader = ExtResource("2_1j078")
+shader_parameter/blur = 0.0
+shader_parameter/brightness = 1.0
+
+[node name="BaseLevel" instance=ExtResource("1_8tpll")]
+hintLimit = 0.0
+metadata/_edit_horizontal_guides_ = [-582.0]
+
+[node name="TextureRect" parent="ParallaxBackground" index="0"]
+offset_left = -2649.0
+offset_top = -2093.0
+offset_right = 1191.0
+offset_bottom = 907.0
+
+[node name="Power" parent="." index="1"]
+force = 17.0
+
+[node name="Fuel" parent="." index="2"]
+maxFuel = 125.0
+startingFuel = 0.0
+
+[node name="FuelTank" parent="Fuel" index="0" instance=ExtResource("3_ikt7q")]
+position = Vector2(957, -295)
+
+[node name="FuelTank2" parent="Fuel" index="1" instance=ExtResource("3_ikt7q")]
+position = Vector2(796, -293)
+
+[node name="FuelTank3" parent="Fuel" index="2" instance=ExtResource("3_ikt7q")]
+position = Vector2(850, -294)
+
+[node name="FuelTank4" parent="Fuel" index="3" instance=ExtResource("3_ikt7q")]
+position = Vector2(905, -294)
+
+[node name="FuelTank5" parent="Fuel" index="4" instance=ExtResource("3_ikt7q")]
+position = Vector2(743, -292)
+
+[node name="Star" parent="Stars" index="0" instance=ExtResource("2_31tq3")]
+position = Vector2(327, -60)
+rotation = -0.413906
+gravity = 3244.0
+gravityFieldSize = 25.0
+gravityStrength = 3244.0
+centerSize = 19.0
+
+[node name="Star2" parent="Stars" index="1" instance=ExtResource("2_31tq3")]
+position = Vector2(327, -60)
+rotation = -0.331297
+gravity = 463.0
+gravityFieldSize = 30.0
+gravityStrength = 463.0
+centerSize = 0.0
+
+[node name="Star3" parent="Stars" index="2" instance=ExtResource("2_31tq3")]
+modulate = Color(1, 1, 1, 0.596078)
+self_modulate = Color(4.81307e-07, 0.619797, 0.619996, 1)
+position = Vector2(46, 180)
+rotation = 2.14298
+gravity = -1046.0
+gravityFieldSize = 300.0
+gravityStrength = -1046.0
+centerSize = 112.0
+
+[node name="Star5" parent="Stars" index="3" instance=ExtResource("2_31tq3")]
+position = Vector2(-1981, -1544)
+rotation = -0.575959
+gravity = 849.0
+gravityFieldSize = 1024.0
+gravityStrength = 849.0
+centerSize = 225.0
+
+[node name="Star4" parent="Stars" index="4" instance=ExtResource("2_31tq3")]
+position = Vector2(-506, -536)
+gravityFieldSize = 61.0
+centerSize = 26.0
+
+[node name="Star6" parent="Stars" index="5" instance=ExtResource("2_31tq3")]
+position = Vector2(-614, -497)
+gravityFieldSize = 0.0
+centerSize = 34.0
+
+[node name="Star7" parent="Stars" index="6" instance=ExtResource("2_31tq3")]
+position = Vector2(-641, -379)
+gravityFieldSize = 61.0
+centerSize = 26.0
+
+[node name="Star9" parent="Stars" index="7" instance=ExtResource("2_31tq3")]
+position = Vector2(-1323, 182)
+gravity = -4096.0
+boostEnabled = false
+gravityFieldSize = 109.0
+gravityStrength = -4096.0
+centerSize = 18.0
+
+[node name="Star10" parent="Stars" index="8" instance=ExtResource("2_31tq3")]
+position = Vector2(-912, 100)
+gravity = -4096.0
+boostEnabled = false
+gravityStrength = -4096.0
+centerSize = 30.0
+
+[node name="Star11" parent="Stars" index="9" instance=ExtResource("2_31tq3")]
+position = Vector2(-682, 376)
+gravity = -4096.0
+boostEnabled = false
+gravityFieldSize = 141.0
+gravityStrength = -4096.0
+centerSize = 20.0
+
+[node name="Star12" parent="Stars" index="10" instance=ExtResource("2_31tq3")]
+position = Vector2(-759, 912)
+gravity = -4096.0
+boostEnabled = false
+gravityFieldSize = 270.0
+gravityStrength = -4096.0
+centerSize = 82.0
+
+[node name="Star13" parent="Stars" index="11" instance=ExtResource("2_31tq3")]
+position = Vector2(-1266, 935)
+gravity = -4096.0
+boostEnabled = false
+gravityFieldSize = 206.0
+gravityStrength = -4096.0
+centerSize = 54.0
+
+[node name="Star22" parent="Stars" index="12" instance=ExtResource("2_31tq3")]
+position = Vector2(486, -1607)
+scale = Vector2(0.99249, 1)
+gravity = 0.0
+boostEnabled = false
+gravityFieldSize = 303.0
+gravityStrength = 0.0
+centerSize = 90.0
+
+[node name="BlackHole" parent="BlackHoles" index="0" instance=ExtResource("3_2odub")]
+position = Vector2(576, -323)
+rotation = -5.36584
+gravity = 2207.0
+gravityFieldSize = 52.0
+gravityStrength = 2207.0
+centerSize = 23.0
+rotateSprite = true
+
+[node name="FreezeHole2" parent="WormHoles" index="0" instance=ExtResource("6_7hdnr")]
+modulate = Color(0, 0.81874, 0.588367, 1)
+position = Vector2(237, -80)
+
+[node name="FreezeHole3" parent="WormHoles" index="1" node_paths=PackedStringArray("warpTarget") instance=ExtResource("6_7hdnr")]
+modulate = Color(0, 0.81874, 0.588367, 1)
+position = Vector2(400, -245)
+gravity = 0.0
+warpTarget = NodePath("../FreezeHole")
+gravityFieldSize = 105.0
+gravityStrength = 0.0
+
+[node name="FreezeHole" parent="WormHoles" index="2" instance=ExtResource("6_7hdnr")]
+modulate = Color(0, 0.81874, 0.588367, 1)
+position = Vector2(458, -62)
+gravity = 12.0
+gravityFieldSize = 40.0
+gravityStrength = 12.0
+
+[node name="FreezeHole4" parent="WormHoles" index="3" node_paths=PackedStringArray("warpTarget") instance=ExtResource("6_7hdnr")]
+modulate = Color(0, 0.81874, 0.588367, 1)
+position = Vector2(352, -19)
+gravity = 128.0
+warpTarget = NodePath("../FreezeHole2")
+gravityFieldSize = 32.0
+gravityStrength = 128.0
+centerSize = 11.0
+
+[node name="FreezeHole5" parent="WormHoles" index="4" node_paths=PackedStringArray("warpTarget") instance=ExtResource("6_7hdnr")]
+modulate = Color(0, 0.81874, 0.588367, 1)
+position = Vector2(-15, -76)
+warpTarget = NodePath("../FreezeHole7")
+
+[node name="FreezeHole6" parent="WormHoles" index="5" instance=ExtResource("6_7hdnr")]
+modulate = Color(0, 0.81874, 0.588367, 1)
+position = Vector2(-208, -239)
+gravity = -140.0
+gravityFieldSize = 48.0
+gravityStrength = -140.0
+centerSize = 16.0
+
+[node name="FreezeHole7" parent="WormHoles" index="6" instance=ExtResource("6_7hdnr")]
+modulate = Color(0, 0.81874, 0.588367, 1)
+position = Vector2(107, -253)
+gravity = -210.0
+gravityFieldSize = 65.0
+gravityStrength = -210.0
+
+[node name="FreezeHole8" parent="WormHoles" index="7" node_paths=PackedStringArray("warpTarget") instance=ExtResource("6_7hdnr")]
+modulate = Color(0, 0.81874, 0.588367, 1)
+position = Vector2(111, -351)
+warpTarget = NodePath("../FreezeHole6")
+gravityFieldSize = 15.0
+centerSize = 11.0
+
+[node name="FreezeHole9" parent="WormHoles" index="8" instance=ExtResource("6_7hdnr")]
+modulate = Color(0, 0.81874, 0.588367, 1)
+position = Vector2(-1045, -245)
+gravity = 288.0
+gravityStrength = 288.0
+centerSize = 16.0
+
+[node name="FreezeHole10" parent="WormHoles" index="9" node_paths=PackedStringArray("warpTarget") instance=ExtResource("6_7hdnr")]
+modulate = Color(0, 0.81874, 0.588367, 1)
+position = Vector2(-551, -432)
+gravity = 1700.0
+warpTarget = NodePath("../FreezeHole9")
+gravityFieldSize = 65.0
+gravityStrength = 1700.0
+centerSize = 25.0
+
+[node name="FreezeHole11" parent="WormHoles" index="10" instance=ExtResource("6_7hdnr")]
+modulate = Color(0, 0.81874, 0.588367, 1)
+position = Vector2(-1197, -520)
+gravity = 1063.0
+boostEnabled = false
+gravityFieldSize = 160.0
+gravityStrength = 1063.0
+centerSize = 124.0
+
+[node name="FreezeHole12" parent="WormHoles" index="11" node_paths=PackedStringArray("warpTarget") instance=ExtResource("6_7hdnr")]
+modulate = Color(0, 0.81874, 0.588367, 1)
+position = Vector2(-1197, -520)
+gravity = 1224.0
+warpTarget = NodePath("../FreezeHole14")
+boostEnabled = false
+gravityFieldSize = 140.0
+gravityStrength = 1224.0
+centerSize = 40.0
+
+[node name="FreezeHole13" parent="WormHoles" index="12" instance=ExtResource("6_7hdnr")]
+modulate = Color(0, 0.81874, 0.588367, 1)
+position = Vector2(-1197, -520)
+gravity = 451.0
+gravityFieldSize = 193.0
+gravityStrength = 451.0
+centerSize = 0.0
+
+[node name="FreezeHole14" parent="WormHoles" index="13" instance=ExtResource("6_7hdnr")]
+modulate = Color(0, 0.81874, 0.588367, 1)
+position = Vector2(-1068, 492)
+gravity = -644.0
+gravityFieldSize = 279.0
+gravityStrength = -644.0
+centerSize = 38.0
+
+[node name="FreezeHole15" parent="WormHoles" index="14" instance=ExtResource("6_7hdnr")]
+visible = false
+modulate = Color(0, 0.81874, 0.588367, 1)
+position = Vector2(-552, -293)
+gravity = 1225.0
+gravityFieldSize = 194.0
+gravityStrength = 1225.0
+centerSize = 0.0
+
+[node name="FreezeHole16" parent="WormHoles" index="15" instance=ExtResource("6_7hdnr")]
+modulate = Color(0, 0.81874, 0.588367, 1)
+position = Vector2(-1489, 557)
+gravity = 1184.0
+gravityFieldSize = 102.0
+gravityStrength = 1184.0
+centerSize = 0.0
+
+[node name="FreezeHole17" parent="WormHoles" index="16" node_paths=PackedStringArray("warpTarget") instance=ExtResource("6_7hdnr")]
+modulate = Color(0, 0.81874, 0.588367, 1)
+position = Vector2(-1489, 557)
+gravity = 1061.0
+warpTarget = NodePath("../FreezeHole18")
+gravityFieldSize = 72.0
+gravityStrength = 1061.0
+centerSize = 39.0
+
+[node name="FreezeHole18" parent="WormHoles" index="17" instance=ExtResource("6_7hdnr")]
+modulate = Color(0.999933, 0.000162489, 0.822379, 1)
+position = Vector2(-418, -1505)
+gravity = -1757.0
+gravityFieldSize = 103.0
+gravityStrength = -1757.0
+centerSize = 36.0
+
+[node name="FreezeHole19" parent="WormHoles" index="18" node_paths=PackedStringArray("warpTarget") instance=ExtResource("6_7hdnr")]
+visible = false
+modulate = Color(0, 0.81874, 0.588367, 1)
+position = Vector2(-1219, -711)
+gravity = 4096.0
+warpTarget = NodePath("../FreezeHole14")
+gravityFieldSize = 121.0
+gravityStrength = 4096.0
+centerSize = 62.0
+
+[node name="FreezeHole20" parent="WormHoles" index="19" node_paths=PackedStringArray("warpTarget") instance=ExtResource("6_7hdnr")]
+modulate = Color(0, 0.81874, 0.588367, 1)
+position = Vector2(813, -1648)
+gravity = 4096.0
+warpTarget = NodePath("../FreezeHole21")
+gravityFieldSize = 89.0
+gravityStrength = 4096.0
+centerSize = 38.0
+
+[node name="FreezeHole21" parent="WormHoles" index="20" instance=ExtResource("6_7hdnr")]
+modulate = Color(0, 0.81874, 0.588367, 1)
+position = Vector2(1138, -320)
+gravity = -1677.0
+gravityFieldSize = 63.0
+gravityStrength = -1677.0
+
+[node name="FreezeHole22" parent="WormHoles" index="21" instance=ExtResource("6_7hdnr")]
+modulate = Color(0, 0.81874, 0.588367, 1)
+position = Vector2(-208, -239)
+gravity = 16.0
+gravityFieldSize = 100.0
+gravityStrength = 16.0
+centerSize = 0.0
+
+[node name="WormHole" parent="WormHoles" index="22" node_paths=PackedStringArray("warpTarget") instance=ExtResource("5_p5c5p")]
+position = Vector2(663, -1968)
+gravity = 89.0
+warpTarget = NodePath("../WormHole8")
+allowNegativeGravity = true
+gravityStrength = 89.0
+centerSize = 50.0
+
+[node name="WormHole2" parent="WormHoles" index="23" node_paths=PackedStringArray("warpTarget") instance=ExtResource("5_p5c5p")]
+position = Vector2(872, -1938)
+gravity = 89.0
+warpTarget = NodePath("../WormHole")
+allowNegativeGravity = true
+gravityStrength = 89.0
+centerSize = 50.0
+
+[node name="WormHole3" parent="WormHoles" index="24" node_paths=PackedStringArray("warpTarget") instance=ExtResource("5_p5c5p")]
+position = Vector2(888, -1306)
+gravity = 89.0
+warpTarget = NodePath("../WormHole9")
+allowNegativeGravity = true
+gravityStrength = 89.0
+centerSize = 50.0
+
+[node name="WormHole4" parent="WormHoles" index="25" node_paths=PackedStringArray("warpTarget") instance=ExtResource("5_p5c5p")]
+position = Vector2(334, -1255)
+gravity = 89.0
+warpTarget = NodePath("../WormHole7")
+allowNegativeGravity = true
+gravityStrength = 89.0
+centerSize = 50.0
+
+[node name="WormHole5" parent="WormHoles" index="26" node_paths=PackedStringArray("warpTarget") instance=ExtResource("5_p5c5p")]
+position = Vector2(-55, -1806)
+gravity = 89.0
+warpTarget = NodePath("../WormHole3")
+allowNegativeGravity = true
+gravityStrength = 89.0
+centerSize = 50.0
+
+[node name="WormHole6" parent="WormHoles" index="27" node_paths=PackedStringArray("warpTarget") instance=ExtResource("5_p5c5p")]
+position = Vector2(-808, -1381)
+gravity = 89.0
+warpTarget = NodePath("../WormHole2")
+gravityStrength = 89.0
+centerSize = 42.0
+
+[node name="WormHole7" parent="WormHoles" index="28" node_paths=PackedStringArray("warpTarget") instance=ExtResource("5_p5c5p")]
+position = Vector2(34, -1266)
+gravity = 89.0
+warpTarget = NodePath("../FreezeHole21")
+allowNegativeGravity = true
+gravityStrength = 89.0
+centerSize = 50.0
+
+[node name="WormHole8" parent="WormHoles" index="29" node_paths=PackedStringArray("warpTarget") instance=ExtResource("5_p5c5p")]
+position = Vector2(131, -1734)
+gravity = 89.0
+warpTarget = NodePath("../WormHole5")
+allowNegativeGravity = true
+gravityStrength = 89.0
+centerSize = 50.0
+
+[node name="WormHole9" parent="WormHoles" index="30" node_paths=PackedStringArray("warpTarget") instance=ExtResource("5_p5c5p")]
+position = Vector2(643, -1246)
+gravity = 89.0
+warpTarget = NodePath("../WormHole4")
+allowNegativeGravity = true
+gravityStrength = 89.0
+centerSize = 50.0
+
+[node name="WormHole10" parent="WormHoles" index="31" instance=ExtResource("5_p5c5p")]
+position = Vector2(1102, -1646)
+gravity = 89.0
+allowNegativeGravity = true
+gravityStrength = 89.0
+centerSize = 50.0
+
+[node name="FreezeHole23" parent="WormHoles" index="32" instance=ExtResource("6_7hdnr")]
+visible = false
+position = Vector2(-349, -1696)
+gravity = -2026.0
+boostEnabled = false
+gravityFieldSize = 114.0
+gravityStrength = -2026.0
+centerSize = 0.0
+
+[node name="FreezeHole24" parent="WormHoles" index="33" instance=ExtResource("6_7hdnr")]
+visible = false
+position = Vector2(-311, -1131)
+gravity = -2376.0
+gravityFieldSize = 179.0
+gravityStrength = -2376.0
+
+[node name="FreezeHole25" parent="WormHoles" index="34" instance=ExtResource("6_7hdnr")]
+visible = false
+position = Vector2(-179, -1236)
+gravity = -2376.0
+gravityFieldSize = 179.0
+gravityStrength = -2376.0
+
+[node name="FreezeHole26" parent="WormHoles" index="35" instance=ExtResource("6_7hdnr")]
+visible = false
+position = Vector2(-338, -1713)
+gravity = -2376.0
+gravityFieldSize = 179.0
+gravityStrength = -2376.0
+
+[node name="Collectibles" parent="." index="7"]
+script = ExtResource("5_80bm5")
+resource = ExtResource("6_o6o2s")
+density = 10
+x_radius = 110.0
+y_radius = 110.0
+
+[node name="Collectible" parent="Collectibles" index="0" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(177, -252)
+scale = Vector2(0.52, 0.52)
+
+[node name="Collectible2" parent="Collectibles" index="1" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(173.574, -230.369)
+scale = Vector2(0.52, 0.52)
+
+[node name="Collectible3" parent="Collectibles" index="2" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(163.631, -210.855)
+scale = Vector2(0.52, 0.52)
+
+[node name="Collectible4" parent="Collectibles" index="3" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(148.145, -195.369)
+scale = Vector2(0.52, 0.52)
+
+[node name="Collectible5" parent="Collectibles" index="4" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(128.631, -185.426)
+scale = Vector2(0.52, 0.52)
+
+[node name="Collectible6" parent="Collectibles" index="5" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(107, -182)
+scale = Vector2(0.52, 0.52)
+
+[node name="Collectible7" parent="Collectibles" index="6" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(85.3688, -185.426)
+scale = Vector2(0.52, 0.52)
+
+[node name="Collectible8" parent="Collectibles" index="7" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(65.855, -195.369)
+scale = Vector2(0.52, 0.52)
+
+[node name="Collectible9" parent="Collectibles" index="8" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(50.3688, -210.855)
+scale = Vector2(0.52, 0.52)
+
+[node name="Collectible10" parent="Collectibles" index="9" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(40.426, -230.369)
+scale = Vector2(0.52, 0.52)
+
+[node name="Collectible11" parent="Collectibles" index="10" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(37, -252)
+scale = Vector2(0.52, 0.52)
+
+[node name="Collectible12" parent="Collectibles" index="11" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(40.426, -273.631)
+scale = Vector2(0.52, 0.52)
+
+[node name="Collectible13" parent="Collectibles" index="12" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(50.3688, -293.145)
+scale = Vector2(0.52, 0.52)
+
+[node name="Collectible14" parent="Collectibles" index="13" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(65.855, -308.631)
+scale = Vector2(0.52, 0.52)
+
+[node name="Collectible15" parent="Collectibles" index="14" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(85.3688, -318.574)
+scale = Vector2(0.52, 0.52)
+
+[node name="Collectible16" parent="Collectibles" index="15" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(107, -322)
+scale = Vector2(0.52, 0.52)
+
+[node name="Collectible17" parent="Collectibles" index="16" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(128.631, -318.574)
+scale = Vector2(0.52, 0.52)
+
+[node name="Collectible18" parent="Collectibles" index="17" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(148.145, -308.631)
+scale = Vector2(0.52, 0.52)
+
+[node name="Collectible19" parent="Collectibles" index="18" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(163.631, -293.145)
+scale = Vector2(0.52, 0.52)
+
+[node name="Collectible20" parent="Collectibles" index="19" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(173.574, -273.631)
+scale = Vector2(0.52, 0.52)
+
+[node name="Collectible21" parent="Collectibles" index="20" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-259, -191)
+scale = Vector2(0.52, 0.52)
+
+[node name="Collectible22" parent="Collectibles" index="21" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-136, -232)
+scale = Vector2(0.52, 0.52)
+
+[node name="Collectible23" parent="Collectibles" index="22" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-136, -261)
+scale = Vector2(0.52, 0.52)
+
+[node name="Collectible24" parent="Collectibles" index="23" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-163, -182)
+scale = Vector2(0.52, 0.52)
+
+[node name="Collectible25" parent="Collectibles" index="24" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-239, -177)
+scale = Vector2(0.52, 0.52)
+
+[node name="Collectible26" parent="Collectibles" index="25" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(97, 0)
+scale = Vector2(0.52, 0.52)
+pointValue = 20
+
+[node name="Collectible27" parent="Collectibles" index="26" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(375, -46)
+scale = Vector2(0.52, 0.52)
+pointValue = 30
+
+[node name="Collectible28" parent="Collectibles" index="27" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-54, -360)
+scale = Vector2(0.52, 0.52)
+pointValue = 40
+
+[node name="Collectible29" parent="Collectibles" index="28" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(251, -159)
+scale = Vector2(0.52, 0.52)
+pointValue = 40
+
+[node name="Collectible30" parent="Collectibles" index="29" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(250, -352)
+scale = Vector2(0.52, 0.52)
+pointValue = 40
+
+[node name="Collectible31" parent="Collectibles" index="30" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-52, -156)
+scale = Vector2(0.52, 0.52)
+pointValue = 40
+
+[node name="Collectible32" parent="Collectibles" index="31" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-146, -205)
+scale = Vector2(0.52, 0.52)
+
+[node name="Collectible33" parent="Collectibles" index="32" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-213, -167)
+scale = Vector2(0.52, 0.52)
+
+[node name="Collectible34" parent="Collectibles" index="33" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-187, -172)
+scale = Vector2(0.52, 0.52)
+
+[node name="Collectible35" parent="Collectibles" index="34" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(376, -277)
+scale = Vector2(0.52, 0.52)
+
+[node name="Collectible36" parent="Collectibles" index="35" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(97, -25)
+scale = Vector2(0.52, 0.52)
+pointValue = 20
+
+[node name="Collectible37" parent="Collectibles" index="36" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(97, -52)
+scale = Vector2(0.52, 0.52)
+pointValue = 20
+
+[node name="Collectible38" parent="Collectibles" index="37" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-870, 498)
+
+[node name="Collectible39" parent="Collectibles" index="38" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-879.299, 556.713)
+
+[node name="Collectible40" parent="Collectibles" index="39" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-906.287, 609.679)
+
+[node name="Collectible41" parent="Collectibles" index="40" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-948.321, 651.713)
+
+[node name="Collectible42" parent="Collectibles" index="41" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-1001.29, 678.701)
+
+[node name="Collectible43" parent="Collectibles" index="42" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-1060, 688)
+
+[node name="Collectible44" parent="Collectibles" index="43" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-1118.71, 678.701)
+
+[node name="Collectible45" parent="Collectibles" index="44" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-1171.68, 651.713)
+
+[node name="Collectible46" parent="Collectibles" index="45" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-1213.71, 609.679)
+
+[node name="Collectible47" parent="Collectibles" index="46" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-1240.7, 556.713)
+
+[node name="Collectible48" parent="Collectibles" index="47" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-1250, 498)
+
+[node name="Collectible49" parent="Collectibles" index="48" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-1240.7, 439.287)
+
+[node name="Collectible50" parent="Collectibles" index="49" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-1213.71, 386.321)
+
+[node name="Collectible51" parent="Collectibles" index="50" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-1171.68, 344.287)
+
+[node name="Collectible52" parent="Collectibles" index="51" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-1118.71, 317.299)
+
+[node name="Collectible53" parent="Collectibles" index="52" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-1060, 308)
+
+[node name="Collectible54" parent="Collectibles" index="53" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-1001.29, 317.299)
+
+[node name="Collectible55" parent="Collectibles" index="54" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-948.321, 344.287)
+
+[node name="Collectible56" parent="Collectibles" index="55" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-906.287, 386.321)
+
+[node name="Collectible57" parent="Collectibles" index="56" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-879.299, 439.287)
+
+[node name="Collectible58" parent="Collectibles" index="57" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-954, 497.616)
+
+[node name="Collectible59" parent="Collectibles" index="58" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-975.008, 562.273)
+
+[node name="Collectible60" parent="Collectibles" index="59" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-1030.01, 602.232)
+
+[node name="Collectible61" parent="Collectibles" index="60" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-1097.99, 602.232)
+
+[node name="Collectible62" parent="Collectibles" index="61" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-1152.99, 562.273)
+
+[node name="Collectible63" parent="Collectibles" index="62" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-1174, 497.616)
+
+[node name="Collectible64" parent="Collectibles" index="63" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-1152.99, 432.96)
+
+[node name="Collectible65" parent="Collectibles" index="64" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-1097.99, 393)
+
+[node name="Collectible66" parent="Collectibles" index="65" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-1030.01, 393)
+
+[node name="Collectible67" parent="Collectibles" index="66" instance=ExtResource("6_o6o2s")]
+modulate = Color(0.431373, 0.443137, 100, 1)
+position = Vector2(-975.008, 432.96)
+
+[node name="Boundary" parent="Boundaries" index="0" instance=ExtResource("5_ulf32")]
+position = Vector2(620, -94)
+rotation = 1.5708
+scale = Vector2(1, -0.56)
+
+[node name="Boundary2" parent="Boundaries" index="1" instance=ExtResource("5_ulf32")]
+position = Vector2(279, -166)
+rotation = 1.5708
+scale = Vector2(1.48548, -0.632152)
+
+[node name="Boundary3" parent="Boundaries" index="2" instance=ExtResource("5_ulf32")]
+position = Vector2(447, -387)
+rotation = 3.14159
+scale = Vector2(1.22119, -0.776028)
+
+[node name="Boundary12" parent="Boundaries" index="3" instance=ExtResource("5_ulf32")]
+position = Vector2(95, -386)
+rotation = 3.14159
+scale = Vector2(1.22119, -0.776028)
+
+[node name="Boundary9" parent="Boundaries" index="4" instance=ExtResource("5_ulf32")]
+position = Vector2(106, -124)
+rotation = 3.14159
+scale = Vector2(1.221, 1)
+
+[node name="Boundary8" parent="Boundaries" index="5" instance=ExtResource("5_ulf32")]
+position = Vector2(-79, 5)
+rotation = 4.71248
+scale = Vector2(1.5, -0.776)
+
+[node name="Boundary11" parent="Boundaries" index="6" instance=ExtResource("5_ulf32")]
+position = Vector2(-79, -294)
+rotation = 4.71248
+scale = Vector2(0.741186, -0.776028)
+
+[node name="Boundary10" parent="Boundaries" index="7" instance=ExtResource("5_ulf32")]
+position = Vector2(94, 35)
+rotation = 3.14159
+scale = Vector2(-1.281, 0.9)
+
+[node name="Boundary5" parent="Boundaries" index="8" instance=ExtResource("5_ulf32")]
+position = Vector2(566, -256)
+rotation = 3.14159
+scale = Vector2(0.453, -0.646)
+
+[node name="Boundary6" parent="Boundaries" index="9" instance=ExtResource("5_ulf32")]
+position = Vector2(509, -323)
+rotation = 1.5708
+scale = Vector2(0.555, -0.438)
+
+[node name="Boundary4" parent="Boundaries" index="10" instance=ExtResource("5_ulf32")]
+position = Vector2(445, 34.9999)
+rotation = 8.74228e-08
+scale = Vector2(1.193, -0.9)
+
+[node name="Boundary7" parent="Boundaries" index="11" instance=ExtResource("5_ulf32")]
+position = Vector2(454, -124)
+rotation = 3.14159
+scale = Vector2(1.11436, -0.839646)
+
+[node name="Boundary13" parent="Boundaries" index="12" instance=ExtResource("5_ulf32")]
+position = Vector2(-250, -124)
+
+[node name="Boundary18" parent="Boundaries" index="13" instance=ExtResource("5_ulf32")]
+position = Vector2(-206, 441)
+rotation = 0.590714
+
+[node name="Boundary20" parent="Boundaries" index="14" instance=ExtResource("5_ulf32")]
+position = Vector2(137, 650)
+rotation = 2.03983
+
+[node name="Boundary19" parent="Boundaries" index="15" instance=ExtResource("5_ulf32")]
+position = Vector2(616, 117)
+rotation = -1.57079
+scale = Vector2(0.657611, 0.762637)
+
+[node name="Boundary15" parent="Boundaries" index="16" instance=ExtResource("5_ulf32")]
+position = Vector2(-1015, -167)
+rotation = -0.361163
+
+[node name="Boundary16" parent="Boundaries" index="17" instance=ExtResource("5_ulf32")]
+position = Vector2(-1180, -248)
+rotation = 1.64473
+
+[node name="Boundary30" parent="Boundaries" index="18" instance=ExtResource("5_ulf32")]
+position = Vector2(-1397, -259)
+rotation = -0.975641
+
+[node name="Boundary17" parent="Boundaries" index="19" instance=ExtResource("5_ulf32")]
+position = Vector2(-986, -361)
+rotation = 0.707996
+
+[node name="Boundary14" parent="Boundaries" index="20" instance=ExtResource("5_ulf32")]
+position = Vector2(-223, -322)
+rotation = -0.411231
+
+[node name="Boundary21" parent="Boundaries" index="21" instance=ExtResource("13_ke1up")]
+position = Vector2(-719, -2088)
+scale = Vector2(13.04, -1.14114)
+
+[node name="Boundary22" parent="Boundaries" index="22" instance=ExtResource("13_ke1up")]
+position = Vector2(1216, -661)
+rotation = 1.5708
+scale = Vector2(13.04, -1.14114)
+
+[node name="Boundary23" parent="Boundaries" index="23" instance=ExtResource("13_ke1up")]
+position = Vector2(-2649, -613)
+rotation = 1.5708
+scale = Vector2(13.04, -1.14114)
+
+[node name="Boundary24" parent="Boundaries" index="24" instance=ExtResource("13_ke1up")]
+position = Vector2(-719, 891)
+scale = Vector2(13.04, -1.14114)
+
+[node name="Boundary25" parent="Boundaries" index="25" instance=ExtResource("5_ulf32")]
+visible = false
+position = Vector2(-882, -248)
+rotation = -1.12724
+scale = Vector2(-0.507149, 0.717134)
+
+[node name="Boundary26" parent="Boundaries" index="26" instance=ExtResource("5_ulf32")]
+visible = false
+position = Vector2(-568, -573)
+rotation = -0.278093
+scale = Vector2(-0.507149, 0.717134)
+
+[node name="Boundary27" parent="Boundaries" index="27" instance=ExtResource("5_ulf32")]
+visible = false
+position = Vector2(-676, -356)
+rotation = -1.80397
+scale = Vector2(-0.507149, 0.717134)
+
+[node name="Boundary28" parent="Boundaries" index="28" instance=ExtResource("5_ulf32")]
+visible = false
+position = Vector2(-658, -495)
+rotation = -1.12724
+scale = Vector2(-0.507149, 0.717134)
+
+[node name="Boundary29" parent="Boundaries" index="29" instance=ExtResource("5_ulf32")]
+visible = false
+position = Vector2(-1172, -104)
+rotation = 0.442703
+scale = Vector2(-0.507149, 0.717134)
+
+[node name="Boundary31" parent="Boundaries" index="30" instance=ExtResource("12_jklxn")]
+modulate = Color(0, 0.928102, 0.928102, 1)
+position = Vector2(-481, -251)
+rotation = 0.86529
+
+[node name="Boundary32" parent="Boundaries" index="31" instance=ExtResource("12_jklxn")]
+visible = false
+modulate = Color(0, 0.928102, 0.928102, 1)
+position = Vector2(-422, -339)
+rotation = 0.727063
+scale = Vector2(0.711229, 0.3697)
+
+[node name="Boundary34" parent="Boundaries" index="32" instance=ExtResource("5_ulf32")]
+position = Vector2(-1055, 800)
+scale = Vector2(0.71471, 0.550377)
+
+[node name="Boundary47" parent="Boundaries" index="33" instance=ExtResource("5_ulf32")]
+visible = false
+position = Vector2(-1193, 780)
+rotation = 0.437058
+scale = Vector2(0.509972, 0.453338)
+
+[node name="Boundary35" parent="Boundaries" index="34" instance=ExtResource("5_ulf32")]
+position = Vector2(-1317, 691)
+rotation = -2.35619
+scale = Vector2(0.766671, 0.510868)
+
+[node name="Boundary38" parent="Boundaries" index="35" instance=ExtResource("5_ulf32")]
+position = Vector2(-851, 283)
+rotation = 0.785397
+scale = Vector2(0.688656, 0.427987)
+
+[node name="Boundary44" parent="Boundaries" index="36" instance=ExtResource("5_ulf32")]
+visible = false
+position = Vector2(-1577, 661)
+rotation = 1.0472
+scale = Vector2(1.22375, -0.678818)
+
+[node name="Boundary50" parent="Boundaries" index="37" instance=ExtResource("5_ulf32")]
+visible = false
+position = Vector2(-1509, 472)
+rotation = 2.35619
+scale = Vector2(1.22375, -0.678818)
+
+[node name="Boundary52" parent="Boundaries" index="38" instance=ExtResource("5_ulf32")]
+visible = false
+position = Vector2(-1415, 412)
+rotation = 1.94064
+scale = Vector2(0.264762, -0.946596)
+
+[node name="Boundary51" parent="Boundaries" index="39" instance=ExtResource("5_ulf32")]
+visible = false
+position = Vector2(-1457, 719)
+rotation = 2.59882
+scale = Vector2(0.832304, -0.678818)
+
+[node name="Boundary39" parent="Boundaries" index="40" instance=ExtResource("5_ulf32")]
+position = Vector2(-1130, 186)
+rotation = -0.0803682
+scale = Vector2(0.967142, 0.549446)
+
+[node name="Boundary43" parent="Boundaries" index="41" instance=ExtResource("5_ulf32")]
+visible = false
+position = Vector2(-958, 198)
+rotation = 0.391165
+scale = Vector2(0.735373, 0.239799)
+
+[node name="Boundary45" parent="Boundaries" index="42" instance=ExtResource("5_ulf32")]
+visible = false
+position = Vector2(-1292, 230)
+rotation = -0.523598
+scale = Vector2(0.735373, 0.239799)
+
+[node name="Boundary40" parent="Boundaries" index="43" instance=ExtResource("5_ulf32")]
+position = Vector2(-1380, 363)
+rotation = -1.01377
+scale = Vector2(0.854806, 0.575084)
+
+[node name="Boundary41" parent="Boundaries" index="44" instance=ExtResource("5_ulf32")]
+visible = false
+position = Vector2(-1642, 402)
+rotation = -1.82355
+scale = Vector2(0.171636, 0.239799)
+
+[node name="Boundary36" parent="Boundaries" index="45" instance=ExtResource("5_ulf32")]
+position = Vector2(-761, 597)
+rotation = -1.309
+scale = Vector2(0.698409, 0.530044)
+
+[node name="Boundary46" parent="Boundaries" index="46" instance=ExtResource("5_ulf32")]
+visible = false
+position = Vector2(-877, 749)
+rotation = -0.523598
+scale = Vector2(0.758814, 0.287748)
+
+[node name="Boundary37" parent="Boundaries" index="47" instance=ExtResource("5_ulf32")]
+visible = false
+position = Vector2(-764, 414)
+rotation = -1.83259
+scale = Vector2(0.810003, 0.62988)
+
+[node name="Boundary33" parent="Boundaries" index="48" instance=ExtResource("13_ke1up")]
+position = Vector2(907, -389)
+scale = Vector2(1.87114, 0.801932)
+
+[node name="Boundary42" parent="Boundaries" index="49" instance=ExtResource("13_ke1up")]
+position = Vector2(908, -253)
+scale = Vector2(1.87114, 0.801932)
+
+[node name="Boundary48" parent="Boundaries" index="50" instance=ExtResource("13_ke1up")]
+position = Vector2(-505, -1242)
+rotation = 0.261799
+scale = Vector2(2.59477, 0.980731)
+
+[node name="Boundary49" parent="Boundaries" index="51" instance=ExtResource("13_ke1up")]
+position = Vector2(-543, -1578)
+rotation = -0.492394
+scale = Vector2(2.60503, 0.959228)
+
+[node name="Boundary63" parent="Boundaries" index="52" instance=ExtResource("13_ke1up")]
+position = Vector2(-1, -1990)
+rotation = -0.785397
+scale = Vector2(2.60503, 0.959228)
+
+[node name="Boundary78" parent="Boundaries" index="53" instance=ExtResource("13_ke1up")]
+visible = false
+position = Vector2(931, -1923)
+rotation = 1.57079
+scale = Vector2(0.924459, 0.844589)
+
+[node name="Boundary79" parent="Boundaries" index="54" instance=ExtResource("13_ke1up")]
+visible = false
+position = Vector2(-302, -1536)
+rotation = 1.57079
+scale = Vector2(0.924459, 0.844589)
+
+[node name="Boundary80" parent="Boundaries" index="55" instance=ExtResource("13_ke1up")]
+visible = false
+position = Vector2(-304, -1304)
+rotation = 1.57079
+scale = Vector2(0.924459, 0.844589)
+
+[node name="Boundary53" parent="Boundaries" index="56" instance=ExtResource("13_ke1up")]
+position = Vector2(62, -940)
+rotation = -2.39959
+scale = Vector2(2.07862, 0.959228)
+
+[node name="Boundary57" parent="Boundaries" index="57" instance=ExtResource("13_ke1up")]
+position = Vector2(914, -966)
+rotation = -2.39959
+scale = Vector2(1.5517, 0.86106)
+
+[node name="Boundary65" parent="Boundaries" index="58" instance=ExtResource("13_ke1up")]
+position = Vector2(1306, -1199)
+rotation = -3.40339
+scale = Vector2(1.5517, 0.86106)
+
+[node name="Boundary58" parent="Boundaries" index="59" instance=ExtResource("13_ke1up")]
+position = Vector2(586, -960)
+rotation = -0.785397
+scale = Vector2(1.5517, 0.86106)
+
+[node name="Boundary55" parent="Boundaries" index="60" instance=ExtResource("13_ke1up")]
+position = Vector2(161, -1144)
+rotation = -3.14159
+scale = Vector2(2.07862, 0.959228)
+
+[node name="Boundary56" parent="Boundaries" index="61" instance=ExtResource("13_ke1up")]
+position = Vector2(787, -1143)
+rotation = -3.14159
+scale = Vector2(2.07862, 0.959228)
+
+[node name="Boundary54" parent="Boundaries" index="62" instance=ExtResource("13_ke1up")]
+position = Vector2(-501, -952)
+rotation = -0.492394
+scale = Vector2(2.60503, 0.959228)
+
+[node name="Boundary59" parent="Boundaries" index="63" instance=ExtResource("5_ulf32")]
+position = Vector2(-901, -1377)
+rotation = 0.350218
+scale = Vector2(0.203903, -0.245135)
+
+[node name="Boundary60" parent="Boundaries" index="64" instance=ExtResource("5_ulf32")]
+position = Vector2(-1046, -1389)
+rotation = -0.523598
+scale = Vector2(0.203903, -0.245135)
+
+[node name="Boundary61" parent="Boundaries" index="65" instance=ExtResource("5_ulf32")]
+position = Vector2(-996, -1406)
+rotation = -0.261799
+scale = Vector2(0.203903, -0.245135)
+
+[node name="Boundary62" parent="Boundaries" index="66" instance=ExtResource("5_ulf32")]
+position = Vector2(-945, -1401)
+rotation = 0.523598
+scale = Vector2(0.203903, -0.245135)
+
+[node name="Boundary64" parent="Boundaries" index="67" instance=ExtResource("13_ke1up")]
+visible = false
+position = Vector2(981, -1741)
+scale = Vector2(1.12246, 0.575084)
+
+[node name="Boundary76" parent="Boundaries" index="68" instance=ExtResource("13_ke1up")]
+visible = false
+position = Vector2(-37, -1243)
+rotation = 1.57079
+scale = Vector2(1.12246, 0.575084)
+
+[node name="Boundary77" parent="Boundaries" index="69" instance=ExtResource("13_ke1up")]
+visible = false
+position = Vector2(971, -1277)
+rotation = 1.0472
+scale = Vector2(1.12246, 0.575084)
+
+[node name="Boundary66" parent="Boundaries" index="70" instance=ExtResource("13_ke1up")]
+visible = false
+position = Vector2(605, -1985)
+rotation = -1.309
+scale = Vector2(1.12246, 0.575084)
+
+[node name="Boundary67" parent="Boundaries" index="71" instance=ExtResource("13_ke1up")]
+visible = false
+position = Vector2(785, -1655)
+rotation = 1.57079
+scale = Vector2(1.12246, 0.575084)
+
+[node name="Boundary68" parent="Boundaries" index="72" instance=ExtResource("13_ke1up")]
+visible = false
+position = Vector2(131, -1333)
+rotation = 0.0295824
+scale = Vector2(1.12246, 0.575084)
+
+[node name="Boundary69" parent="Boundaries" index="73" instance=ExtResource("13_ke1up")]
+visible = false
+position = Vector2(461, -1313)
+rotation = 0.0910879
+scale = Vector2(1.12246, 0.575084)
+
+[node name="Boundary70" parent="Boundaries" index="74" instance=ExtResource("13_ke1up")]
+visible = false
+position = Vector2(731, -1339)
+rotation = -0.261799
+scale = Vector2(1.12246, 0.575084)
+
+[node name="Boundary71" parent="Boundaries" index="75" instance=ExtResource("13_ke1up")]
+visible = false
+position = Vector2(19, -1711)
+rotation = 0.391404
+scale = Vector2(1.12246, 0.575084)
+
+[node name="Boundary72" parent="Boundaries" index="76" instance=ExtResource("13_ke1up")]
+visible = false
+position = Vector2(69, -1823)
+rotation = 0.401303
+scale = Vector2(1.12246, 0.575084)
+
+[node name="Boundary73" parent="Boundaries" index="77" instance=ExtResource("13_ke1up")]
+visible = false
+position = Vector2(759, -1865)
+rotation = 0.261799
+scale = Vector2(1.12246, 0.575084)
+
+[node name="Boundary74" parent="Boundaries" index="78" instance=ExtResource("13_ke1up")]
+visible = false
+position = Vector2(789, -2011)
+rotation = 0.261799
+scale = Vector2(1.12246, 0.575084)
+
+[node name="Boundary75" parent="Boundaries" index="79" instance=ExtResource("13_ke1up")]
+visible = false
+position = Vector2(979, -1569)
+scale = Vector2(1.12246, 0.575084)
+
+[node name="Ball" parent="Planets" index="0" instance=ExtResource("8_fmne1")]
+modulate = Color(0.94474, 0.942298, 0.94125, 1)
+self_modulate = Color(0.257593, 0.675086, 0.70481, 1)
+position = Vector2(353, -302)
+disable_mode = 1
+isFirstBall = true
+
+[node name="CollisionShape2D" parent="Planets/Ball" index="0"]
+z_index = 1
+scale = Vector2(0.6, 0.6)
+
+[node name="FollowTarget" parent="Planets/Ball" index="1"]
+visible = false
+position = Vector2(-4.00543e-05, 0)
+followSpeed = 8.0
+
+[node name="ScoreLabel" parent="UI" index="0"]
+metadata/_edit_use_anchors_ = true
+
+[node name="FuelLabel" parent="UI" index="1"]
+metadata/_edit_use_anchors_ = true
+
+[node name="StrokesLabel" parent="UI" index="3"]
+metadata/_edit_use_anchors_ = true
+
+[node name="DeathScreen" parent="UI" index="5"]
+material = SubResource("ShaderMaterial_jrflj")
+
+[node name="BackgroundMusic" parent="Audio" index="0"]
+metadata/_edit_lock_ = true
+
+[node name="HitBall" parent="Audio" index="2"]
+metadata/_edit_lock_ = true
+
+[node name="ChangeBall" parent="Audio" index="3"]
+metadata/_edit_lock_ = true
+
+[node name="HitBallLowFuel" parent="Audio" index="4"]
+metadata/_edit_lock_ = true
+
+[node name="ScoreGet" parent="Audio" index="5"]
+metadata/_edit_lock_ = true
+
+[editable path="Planets/Ball"]
