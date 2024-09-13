@@ -157,6 +157,8 @@ func _input(event):
 			return
 
 func do_swing(force: float):
+	if balls.size() == 0:
+		return
 	var swing = get_global_mouse_position() - balls[activeBallIndex].position
 	# i think we have to multiply this by the camera zoom so the force is proportional?? weird
 	balls[activeBallIndex].apply_central_impulse(swing * power.force * power.power * cam.zoom.y)
