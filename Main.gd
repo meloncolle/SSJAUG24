@@ -49,10 +49,12 @@ func set_state(newState: Enums.GameState):
 	match newState:
 		Enums.GameState.ON_START:
 			startMenu.visible = true
+			startMenu.timerActive = true
 			pauseMenu.visible = false
 			Globals.disableInput = false
 			
 		Enums.GameState.IN_GAME:
+			startMenu.timerActive = false
 			startMenu.visible = false
 			startMenu.loopVid.stop()
 			startMenu.openingVid.stop()

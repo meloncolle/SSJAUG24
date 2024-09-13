@@ -9,11 +9,14 @@ extends Control
 
 @export var resetTime: float = 30
 var timer: float = 0
+var timerActive: bool = true: set = set_timer_active
 
 func _ready() -> void:
 	reset()
 
 func _process(delta: float) -> void:
+	if !timerActive:
+		return
 	timer += delta
 	if timer >= resetTime:
 		timer = 0
@@ -69,3 +72,8 @@ func go_to_end(fade: bool = false):
 	if fade:
 		fadeAnimationPlayer.play_backwards("fade_to_black_noaudio")
 		await fadeAnimationPlayer.animation_finished
+
+
+func set_timer_active(val: bool) -> void:
+	timerActive = val
+	timer = 0
