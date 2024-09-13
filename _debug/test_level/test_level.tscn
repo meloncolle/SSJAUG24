@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ec41q4ys3khh"]
+[gd_scene load_steps=11 format=3 uid="uid://ec41q4ys3khh"]
 
 [ext_resource type="PackedScene" uid="uid://jwa57sqwi2ws" path="res://Levels/base_level.tscn" id="1_h70sp"]
 [ext_resource type="PackedScene" uid="uid://b0q8p531yqss6" path="res://Entities/Ball.tscn" id="3_2wxgh"]
@@ -8,35 +8,21 @@
 [ext_resource type="PackedScene" uid="uid://bjw3hnypih6fe" path="res://Entities/Environment/WormHole.tscn" id="5_xjwtu"]
 [ext_resource type="PackedScene" uid="uid://ceht6yka27cw1" path="res://Entities/Collectible/Collectible.tscn" id="6_6iecb"]
 [ext_resource type="PackedScene" uid="uid://4f1m2s6ovnyx" path="res://Entities/Collectible/FuelTank.tscn" id="7_4v3k8"]
+[ext_resource type="Shader" path="res://ArtAssets/Shaders/blur.gdshader" id="9_jq6ey"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1aqhc"]
+resource_local_to_scene = true
+shader = ExtResource("9_jq6ey")
+shader_parameter/blur = 0.0
+shader_parameter/brightness = 1.0
 
 [node name="TestLevel" instance=ExtResource("1_h70sp")]
 metadata/_edit_horizontal_guides_ = [-2154.0]
 metadata/_edit_vertical_guides_ = [-5027.0]
 
-[node name="Power" parent="." index="0"]
+[node name="Power" parent="." index="1"]
 force = 10.0
 meterSpeed = 4.0
-
-[node name="Ball" parent="Planets" index="0" instance=ExtResource("3_2wxgh")]
-position = Vector2(-475, -150)
-
-[node name="Ball2" parent="Planets" index="1" instance=ExtResource("3_2wxgh")]
-position = Vector2(-362, -123)
-
-[node name="Ball3" parent="Planets" index="2" instance=ExtResource("3_2wxgh")]
-position = Vector2(-252, -52)
-
-[node name="Ball4" parent="Planets" index="3" instance=ExtResource("3_2wxgh")]
-position = Vector2(-419, -37)
-
-[node name="Ball5" parent="Planets" index="4" instance=ExtResource("3_2wxgh")]
-position = Vector2(-301, 15)
-
-[node name="Ball6" parent="Planets" index="5" instance=ExtResource("3_2wxgh")]
-position = Vector2(-208, 82)
-
-[node name="Ball7" parent="Planets" index="6" instance=ExtResource("3_2wxgh")]
-position = Vector2(-121, 27)
 
 [node name="Star" parent="Stars" index="0" instance=ExtResource("4_y3xxs")]
 position = Vector2(102, -274)
@@ -122,7 +108,6 @@ warpTarget = NodePath("../WormHole2")
 boostEnabled = false
 gravityFieldSize = 77.0
 gravityStrength = 88.0
-centerSize = 10.0
 
 [node name="WormHole2" parent="WormHoles" index="1" node_paths=PackedStringArray("warpTarget") instance=ExtResource("5_xjwtu")]
 position = Vector2(-1019, -377)
@@ -131,7 +116,6 @@ warpTarget = NodePath("../WormHole")
 boostEnabled = false
 gravityFieldSize = 77.0
 gravityStrength = 88.0
-centerSize = 10.0
 
 [node name="Collectible" parent="Collectibles" index="0" instance=ExtResource("6_6iecb")]
 position = Vector2(-554, -114)
@@ -192,3 +176,27 @@ rotation = 0.25679
 [node name="Boundary6" parent="Boundaries" index="8" instance=ExtResource("5_paed1")]
 position = Vector2(3665, 1471)
 rotation = -0.805984
+
+[node name="Ball" parent="Planets" index="0" instance=ExtResource("3_2wxgh")]
+position = Vector2(-475, -150)
+
+[node name="Ball2" parent="Planets" index="1" instance=ExtResource("3_2wxgh")]
+position = Vector2(-362, -123)
+
+[node name="Ball3" parent="Planets" index="2" instance=ExtResource("3_2wxgh")]
+position = Vector2(-252, -52)
+
+[node name="Ball4" parent="Planets" index="3" instance=ExtResource("3_2wxgh")]
+position = Vector2(-419, -37)
+
+[node name="Ball5" parent="Planets" index="4" instance=ExtResource("3_2wxgh")]
+position = Vector2(-301, 15)
+
+[node name="Ball6" parent="Planets" index="5" instance=ExtResource("3_2wxgh")]
+position = Vector2(-208, 82)
+
+[node name="Ball7" parent="Planets" index="6" instance=ExtResource("3_2wxgh")]
+position = Vector2(-121, 27)
+
+[node name="DeathScreen" parent="UI" index="4"]
+material = SubResource("ShaderMaterial_1aqhc")
