@@ -26,8 +26,11 @@ var strokes: int = 0: set = set_strokes
 
 @onready var fadeAnimationPlayer: AnimationPlayer = $FadeAnimationPlayer
 
+@export var infinite_fuel: bool = false
+
 @onready var submitHint: Control = $UI/SubmitHint
 @export var hintLimit: float = 10
+
 ###KYE STUFF
 ###KYE STUFF
 ###KYE STUFF
@@ -116,8 +119,9 @@ func _ready():
 	fuel.connect("changed_fuel", power.check_limit)
 	_on_changed_fuel(fuel.fuel, fuel.fuel) # to trigger UI to appear
 	
-	if Globals.ENABLE_INFINITE_FUEL:
+	if infinite_fuel:
 		fuelLabel.visible = false
+		$UI/InfinityFuel.visible = true
 	
 	state = Enums.LevelState.READY
 
@@ -161,7 +165,7 @@ func do_swing(force: float):
 	elif !sfx.hitBallLowFuel.is_playing():
 		sfx.hitBallLowFuel.play()
 		
-	if !Globals.ENABLE_INFINITE_FUEL:
+	if !infinite_fuel:
 		fuel.fuel -= power.power * Globals.MAX_FUEL_PER_SWING 
 		
 	strokes += 1

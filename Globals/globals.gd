@@ -3,8 +3,6 @@ extends Node
 # -----STUFF FOR TESTING----- #
 # Show debug collision shapes in build 
 const ENABLE_COLLISION_DEBUG_IN_EXPORT: bool = true
-# Don't drain fuel when we hit ball
-const ENABLE_INFINITE_FUEL: bool = false
 # Can press space to select next ball
 const ENABLE_SWITCHING_BALLS: bool = true
 # true: Player scores points on contact w/ collectible
