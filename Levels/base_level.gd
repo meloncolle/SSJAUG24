@@ -235,6 +235,7 @@ func update_ball_indices():
 func _on_ball_destroyed(destroyedIndex: int, pos: Vector2, points: int = 0):
 	var explosion: Sprite2D = ResourceLoader.load("res://ArtAssets/Sprites/explode.tscn").instantiate()
 	explosion.global_position = pos
+	
 	$Planets.add_child(explosion)
 	if points != 0:
 		set_score(points)

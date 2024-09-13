@@ -313,7 +313,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [1.0, 0.75]
+"values": [1.0, 0.329]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -647,9 +647,9 @@ offset_bottom = 390.0
 
 [node name="Clear" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 55.0
+offset_left = -1072.0
 offset_top = 29.0
-offset_right = 1117.0
+offset_right = -10.0
 offset_bottom = 103.0
 theme_override_fonts/normal_font = ExtResource("6_qdnv5")
 theme_override_font_sizes/normal_font_size = 50
@@ -711,7 +711,7 @@ layout_mode = 0
 offset_left = 54.0
 offset_top = 110.0
 offset_right = 535.0
-offset_bottom = 523.0
+offset_bottom = 120.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_2gbwb")
 
 [node name="Title" type="Label" parent="Results"]

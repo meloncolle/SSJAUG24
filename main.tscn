@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bmlhgvnxyd87" path="res://UI/menus/pause_menu.tscn" id="3_3cpd8"]
 [ext_resource type="Shader" path="res://ArtAssets/Shaders/blur.gdshader" id="4_835yh"]
 [ext_resource type="AudioStream" uid="uid://5beb33ggi0sg" path="res://_debug/Audio/v0.1 sfx/esm_fun_bonus_explode_4_sound_fx_arcade_casino_kids_mobile_app.mp3" id="5_krgc6"]
-[ext_resource type="AudioStream" uid="uid://bvvadkj0146yf" path="res://_debug/Audio/mixkit-golf-ball-hit-2105.mp3" id="6_y8m88"]
+[ext_resource type="AudioStream" uid="uid://bc08yf0227xi" path="res://_debug/Audio/space golf ball sfx.wav" id="6_43bo0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fqayn"]
 resource_local_to_scene = true
@@ -35,5 +35,5 @@ volume_db = -9.0
 bus = &"SFX"
 
 [node name="GolfHitSFX" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("6_y8m88")
+stream = ExtResource("6_43bo0")
 bus = &"SFX"
