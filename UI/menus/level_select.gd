@@ -1,6 +1,6 @@
 extends Control
 
-@export var levels_dir: String = "res://_debug/test_level/"
+@export var levels_dir: String = "res://Levels/Showcase/"
 var levels: Array[String] = []
 
 var buttonInstance: Node = null

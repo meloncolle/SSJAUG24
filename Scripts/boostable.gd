@@ -8,7 +8,7 @@ class_name Boostable
 @export var allowNegativeGravity := true
 
 ## Radius of gravity field
-@export_range(0.01, 1024, 0.1, "suffix: px") var gravityFieldSize = 150:
+@export_range(0.01, 4096, 0.1, "suffix: px") var gravityFieldSize = 150:
 	set = set_grav_field_size
 			
 ## Strength of gravity field

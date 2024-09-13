@@ -27,6 +27,7 @@
 var last_arc: Array[Node2D] = []
 
 func makeArc(_val: bool) -> void:
+	last_arc = []
 	var angle: float
 	var pos: Vector2
 	

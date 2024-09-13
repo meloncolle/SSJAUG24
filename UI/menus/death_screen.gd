@@ -14,7 +14,7 @@ func _ready() -> void:
 	pass
 	
 func calc_score() -> int:
-	return roundi(points * (fuel_remaining * fuel_bonus) - (strokes * stroke_penalty))
+	return roundi(points * maxf(1.0, (fuel_remaining * fuel_bonus)) - (strokes * stroke_penalty))
 	
 func show_results(_died: bool, _points: int, _fuel_remaining: float, _strokes: int) -> void:
 	died = _died

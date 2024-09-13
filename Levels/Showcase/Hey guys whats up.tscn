@@ -1,0 +1,1705 @@
+[gd_scene load_steps=12 format=3 uid="uid://bx7cu3ikfdm6g"]
+
+[ext_resource type="PackedScene" uid="uid://jwa57sqwi2ws" path="res://Levels/base_level.tscn" id="1_mq86q"]
+[ext_resource type="PackedScene" uid="uid://dawmy7e4kekbg" path="res://Entities/Environment/BlackHole.tscn" id="2_kjhkd"]
+[ext_resource type="Shader" path="res://ArtAssets/Shaders/blur.gdshader" id="2_vm3jt"]
+[ext_resource type="Script" path="res://_debug/Scripts/arc_toolscript.gd" id="3_awcxs"]
+[ext_resource type="PackedScene" uid="uid://ciyai8m6gm63n" path="res://Entities/Collectible/ChonkyCollectible.tscn" id="3_bee08"]
+[ext_resource type="PackedScene" uid="uid://bqujgumw3qfky" path="res://Entities/Environment/Star.tscn" id="3_eg452"]
+[ext_resource type="PackedScene" uid="uid://b0q8p531yqss6" path="res://Entities/Ball.tscn" id="3_f5ome"]
+[ext_resource type="PackedScene" uid="uid://ceht6yka27cw1" path="res://Entities/Collectible/Collectible.tscn" id="4_hqnfd"]
+[ext_resource type="PackedScene" uid="uid://4f1m2s6ovnyx" path="res://Entities/Collectible/FuelTank.tscn" id="4_x3df3"]
+[ext_resource type="PackedScene" uid="uid://bjw3hnypih6fe" path="res://Entities/Environment/WormHole.tscn" id="5_h4mr1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bcalg"]
+resource_local_to_scene = true
+shader = ExtResource("2_vm3jt")
+shader_parameter/blur = 0.0
+shader_parameter/brightness = 1.0
+
+[node name="BaseLevel" instance=ExtResource("1_mq86q")]
+
+[node name="Fuel" parent="." index="2"]
+maxFuel = 350.0
+
+[node name="Camera2D" parent="." index="3"]
+zoom = Vector2(0.3, 0.3)
+
+[node name="Star" parent="Stars" index="0" instance=ExtResource("3_eg452")]
+position = Vector2(2000, 1047)
+gravity = -3621.0
+gravityFieldSize = 357.0
+gravityStrength = -3621.0
+centerSize = 96.0
+
+[node name="Star2" parent="Stars" index="1" instance=ExtResource("3_eg452")]
+position = Vector2(1902.11, 1665.03)
+gravity = -3621.0
+gravityFieldSize = 357.0
+gravityStrength = -3621.0
+centerSize = 96.0
+
+[node name="Star3" parent="Stars" index="2" instance=ExtResource("3_eg452")]
+position = Vector2(1618.03, 2222.57)
+gravity = -3621.0
+gravityFieldSize = 357.0
+gravityStrength = -3621.0
+centerSize = 96.0
+
+[node name="Star4" parent="Stars" index="3" instance=ExtResource("3_eg452")]
+position = Vector2(1175.57, 2665.03)
+gravity = -3621.0
+gravityFieldSize = 357.0
+gravityStrength = -3621.0
+centerSize = 96.0
+
+[node name="Star5" parent="Stars" index="4" instance=ExtResource("3_eg452")]
+position = Vector2(618.034, 2949.11)
+gravity = -3621.0
+gravityFieldSize = 357.0
+gravityStrength = -3621.0
+centerSize = 96.0
+
+[node name="Star6" parent="Stars" index="5" instance=ExtResource("3_eg452")]
+position = Vector2(1.22461e-13, 3047)
+gravity = -3621.0
+gravityFieldSize = 357.0
+gravityStrength = -3621.0
+centerSize = 96.0
+
+[node name="Star7" parent="Stars" index="6" instance=ExtResource("3_eg452")]
+position = Vector2(-618.034, 2949.11)
+gravity = -3621.0
+gravityFieldSize = 357.0
+gravityStrength = -3621.0
+centerSize = 96.0
+
+[node name="Star8" parent="Stars" index="7" instance=ExtResource("3_eg452")]
+position = Vector2(-1175.57, 2665.03)
+gravity = -3621.0
+gravityFieldSize = 357.0
+gravityStrength = -3621.0
+centerSize = 96.0
+
+[node name="Star9" parent="Stars" index="8" instance=ExtResource("3_eg452")]
+position = Vector2(-1618.03, 2222.57)
+gravity = -3621.0
+gravityFieldSize = 357.0
+gravityStrength = -3621.0
+centerSize = 96.0
+
+[node name="Star10" parent="Stars" index="9" instance=ExtResource("3_eg452")]
+position = Vector2(-1902.11, 1665.03)
+gravity = -3621.0
+gravityFieldSize = 357.0
+gravityStrength = -3621.0
+centerSize = 96.0
+
+[node name="Star11" parent="Stars" index="10" instance=ExtResource("3_eg452")]
+position = Vector2(-2000, 1047)
+gravity = -3621.0
+gravityFieldSize = 357.0
+gravityStrength = -3621.0
+centerSize = 96.0
+
+[node name="Star12" parent="Stars" index="11" instance=ExtResource("3_eg452")]
+position = Vector2(-1902.11, 428.966)
+gravity = -3621.0
+gravityFieldSize = 357.0
+gravityStrength = -3621.0
+centerSize = 96.0
+
+[node name="Star13" parent="Stars" index="12" instance=ExtResource("3_eg452")]
+position = Vector2(-1618.03, -128.571)
+gravity = -3621.0
+gravityFieldSize = 357.0
+gravityStrength = -3621.0
+centerSize = 96.0
+
+[node name="Star14" parent="Stars" index="13" instance=ExtResource("3_eg452")]
+position = Vector2(-1175.57, -571.034)
+gravity = -3621.0
+gravityFieldSize = 357.0
+gravityStrength = -3621.0
+centerSize = 96.0
+
+[node name="Star15" parent="Stars" index="14" instance=ExtResource("3_eg452")]
+position = Vector2(-618.034, -855.113)
+gravity = -3621.0
+gravityFieldSize = 357.0
+gravityStrength = -3621.0
+centerSize = 96.0
+
+[node name="Star16" parent="Stars" index="15" instance=ExtResource("3_eg452")]
+position = Vector2(-3.67382e-13, -953)
+gravity = -3621.0
+gravityFieldSize = 357.0
+gravityStrength = -3621.0
+centerSize = 96.0
+
+[node name="Star17" parent="Stars" index="16" instance=ExtResource("3_eg452")]
+position = Vector2(618.034, -855.113)
+gravity = -3621.0
+gravityFieldSize = 357.0
+gravityStrength = -3621.0
+centerSize = 96.0
+
+[node name="Star18" parent="Stars" index="17" instance=ExtResource("3_eg452")]
+position = Vector2(1175.57, -571.034)
+gravity = -3621.0
+gravityFieldSize = 357.0
+gravityStrength = -3621.0
+centerSize = 96.0
+
+[node name="Star19" parent="Stars" index="18" instance=ExtResource("3_eg452")]
+position = Vector2(1618.03, -128.571)
+gravity = -3621.0
+gravityFieldSize = 357.0
+gravityStrength = -3621.0
+centerSize = 96.0
+
+[node name="Star20" parent="Stars" index="19" instance=ExtResource("3_eg452")]
+position = Vector2(1902.11, 428.966)
+gravity = -3621.0
+gravityFieldSize = 357.0
+gravityStrength = -3621.0
+centerSize = 96.0
+
+[node name="Star21" parent="Stars" index="20" instance=ExtResource("3_eg452")]
+position = Vector2(-395.112, -1305.9)
+gravity = -3254.0
+gravityFieldSize = 449.0
+gravityStrength = -3254.0
+centerSize = 79.0
+
+[node name="Star22" parent="Stars" index="21" instance=ExtResource("3_eg452")]
+position = Vector2(355.659, -1319)
+gravity = -3254.0
+gravityFieldSize = 449.0
+gravityStrength = -3254.0
+centerSize = 79.0
+
+[node name="Star23" parent="Stars" index="22" instance=ExtResource("3_eg452")]
+position = Vector2(1073.73, -1099.46)
+gravity = -3254.0
+gravityFieldSize = 449.0
+gravityStrength = -3254.0
+centerSize = 79.0
+
+[node name="Star24" parent="Stars" index="23" instance=ExtResource("3_eg452")]
+position = Vector2(1688.82, -668.772)
+gravity = -3254.0
+gravityFieldSize = 449.0
+gravityStrength = -3254.0
+centerSize = 79.0
+
+[node name="Star25" parent="Stars" index="24" instance=ExtResource("3_eg452")]
+position = Vector2(2140.72, -69.0885)
+gravity = -3254.0
+gravityFieldSize = 449.0
+gravityStrength = -3254.0
+centerSize = 79.0
+
+[node name="Star26" parent="Stars" index="25" instance=ExtResource("3_eg452")]
+position = Vector2(2385.18, 640.888)
+gravity = -3254.0
+gravityFieldSize = 449.0
+gravityStrength = -3254.0
+centerSize = 79.0
+
+[node name="Star27" parent="Stars" index="26" instance=ExtResource("3_eg452")]
+position = Vector2(2398.29, 1391.66)
+gravity = -3254.0
+gravityFieldSize = 449.0
+gravityStrength = -3254.0
+centerSize = 79.0
+
+[node name="Star28" parent="Stars" index="27" instance=ExtResource("3_eg452")]
+position = Vector2(2178.75, 2109.73)
+gravity = -3254.0
+gravityFieldSize = 449.0
+gravityStrength = -3254.0
+centerSize = 79.0
+
+[node name="Star29" parent="Stars" index="28" instance=ExtResource("3_eg452")]
+position = Vector2(1748.06, 2724.82)
+gravity = -3254.0
+gravityFieldSize = 449.0
+gravityStrength = -3254.0
+centerSize = 79.0
+
+[node name="Star30" parent="Stars" index="29" instance=ExtResource("3_eg452")]
+position = Vector2(1148.38, 3176.72)
+gravity = -3254.0
+gravityFieldSize = 449.0
+gravityStrength = -3254.0
+centerSize = 79.0
+
+[node name="Star31" parent="Stars" index="30" instance=ExtResource("3_eg452")]
+position = Vector2(438.399, 3421.18)
+gravity = -3254.0
+gravityFieldSize = 449.0
+gravityStrength = -3254.0
+centerSize = 79.0
+
+[node name="Star32" parent="Stars" index="31" instance=ExtResource("3_eg452")]
+position = Vector2(-312.372, 3434.29)
+gravity = -3254.0
+gravityFieldSize = 449.0
+gravityStrength = -3254.0
+centerSize = 79.0
+
+[node name="Star33" parent="Stars" index="32" instance=ExtResource("3_eg452")]
+position = Vector2(-1030.45, 3214.75)
+gravity = -3254.0
+gravityFieldSize = 449.0
+gravityStrength = -3254.0
+centerSize = 79.0
+
+[node name="Star34" parent="Stars" index="33" instance=ExtResource("3_eg452")]
+position = Vector2(-1645.54, 2784.06)
+gravity = -3254.0
+gravityFieldSize = 449.0
+gravityStrength = -3254.0
+centerSize = 79.0
+
+[node name="Star35" parent="Stars" index="34" instance=ExtResource("3_eg452")]
+position = Vector2(-2097.43, 2184.38)
+gravity = -3254.0
+gravityFieldSize = 449.0
+gravityStrength = -3254.0
+centerSize = 79.0
+
+[node name="Star36" parent="Stars" index="35" instance=ExtResource("3_eg452")]
+position = Vector2(-2341.9, 1474.4)
+gravity = -3254.0
+gravityFieldSize = 449.0
+gravityStrength = -3254.0
+centerSize = 79.0
+
+[node name="Star37" parent="Stars" index="36" instance=ExtResource("3_eg452")]
+position = Vector2(-2355, 723.628)
+gravity = -3254.0
+gravityFieldSize = 449.0
+gravityStrength = -3254.0
+centerSize = 79.0
+
+[node name="Star38" parent="Stars" index="37" instance=ExtResource("3_eg452")]
+position = Vector2(-2135.46, 5.55261)
+gravity = -3254.0
+gravityFieldSize = 449.0
+gravityStrength = -3254.0
+centerSize = 79.0
+
+[node name="Star39" parent="Stars" index="38" instance=ExtResource("3_eg452")]
+position = Vector2(-1704.77, -609.537)
+gravity = -3254.0
+gravityFieldSize = 449.0
+gravityStrength = -3254.0
+centerSize = 79.0
+
+[node name="Star40" parent="Stars" index="39" instance=ExtResource("3_eg452")]
+position = Vector2(-1105.09, -1061.43)
+gravity = -3254.0
+gravityFieldSize = 449.0
+gravityStrength = -3254.0
+centerSize = 79.0
+
+[node name="BlackHole" parent="BlackHoles" index="0" instance=ExtResource("2_kjhkd")]
+position = Vector2(-13, 1113)
+gravity = 2.0
+boostEnabled = false
+gravityFieldSize = 2059.0
+gravityStrength = 2.0
+centerSize = 265.0
+
+[node name="WormHole2" parent="WormHoles" index="0" node_paths=PackedStringArray("warpTarget") instance=ExtResource("5_h4mr1")]
+position = Vector2(1498, 1167)
+gravity = 243.0
+warpTarget = NodePath("../WormHole3")
+gravityFieldSize = 310.0
+gravityStrength = 243.0
+centerSize = 73.0
+
+[node name="WormHole3" parent="WormHoles" index="1" node_paths=PackedStringArray("warpTarget") instance=ExtResource("5_h4mr1")]
+position = Vector2(-1470, 1163)
+gravity = 243.0
+warpTarget = NodePath("../WormHole2")
+gravityFieldSize = 310.0
+gravityStrength = 243.0
+centerSize = 73.0
+
+[node name="Collectible" parent="Collectibles" index="0" instance=ExtResource("3_bee08")]
+position = Vector2(-67, 988)
+
+[node name="Collectible2" parent="Collectibles" index="1" instance=ExtResource("3_bee08")]
+position = Vector2(90, 1005)
+
+[node name="FuelTank" parent="Collectibles" index="2" instance=ExtResource("4_x3df3")]
+modulate = Color(0, 0.489443, 0.813093, 1)
+position = Vector2(-62, 975)
+
+[node name="FuelTank2" parent="Collectibles" index="3" instance=ExtResource("4_x3df3")]
+modulate = Color(0, 0.489443, 0.813093, 1)
+position = Vector2(80, 989)
+
+[node name="Collectible3" parent="Collectibles" index="4" instance=ExtResource("4_hqnfd")]
+position = Vector2(435, 1120)
+
+[node name="Collectible4" parent="Collectibles" index="5" instance=ExtResource("4_hqnfd")]
+position = Vector2(428.163, 1198.14)
+
+[node name="Collectible5" parent="Collectibles" index="6" instance=ExtResource("4_hqnfd")]
+position = Vector2(407.862, 1273.91)
+
+[node name="Collectible6" parent="Collectibles" index="7" instance=ExtResource("4_hqnfd")]
+position = Vector2(374.711, 1345)
+
+[node name="Collectible7" parent="Collectibles" index="8" instance=ExtResource("4_hqnfd")]
+position = Vector2(329.72, 1409.25)
+
+[node name="Collectible8" parent="Collectibles" index="9" instance=ExtResource("4_hqnfd")]
+position = Vector2(274.254, 1464.72)
+
+[node name="Collectible9" parent="Collectibles" index="10" instance=ExtResource("4_hqnfd")]
+position = Vector2(210, 1509.71)
+
+[node name="Collectible10" parent="Collectibles" index="11" instance=ExtResource("4_hqnfd")]
+position = Vector2(138.909, 1542.86)
+
+[node name="Collectible11" parent="Collectibles" index="12" instance=ExtResource("4_hqnfd")]
+position = Vector2(63.1417, 1563.16)
+
+[node name="Collectible12" parent="Collectibles" index="13" instance=ExtResource("4_hqnfd")]
+position = Vector2(-15, 1570)
+
+[node name="Collectible13" parent="Collectibles" index="14" instance=ExtResource("4_hqnfd")]
+position = Vector2(-93.1417, 1563.16)
+
+[node name="Collectible14" parent="Collectibles" index="15" instance=ExtResource("4_hqnfd")]
+position = Vector2(-168.909, 1542.86)
+
+[node name="Collectible15" parent="Collectibles" index="16" instance=ExtResource("4_hqnfd")]
+position = Vector2(-240, 1509.71)
+
+[node name="Collectible16" parent="Collectibles" index="17" instance=ExtResource("4_hqnfd")]
+position = Vector2(-304.254, 1464.72)
+
+[node name="Collectible17" parent="Collectibles" index="18" instance=ExtResource("4_hqnfd")]
+position = Vector2(-359.72, 1409.25)
+
+[node name="Collectible18" parent="Collectibles" index="19" instance=ExtResource("4_hqnfd")]
+position = Vector2(-404.711, 1345)
+
+[node name="Collectible19" parent="Collectibles" index="20" instance=ExtResource("4_hqnfd")]
+position = Vector2(-437.862, 1273.91)
+
+[node name="Collectible20" parent="Collectibles" index="21" instance=ExtResource("4_hqnfd")]
+position = Vector2(-458.163, 1198.14)
+
+[node name="Collectible21" parent="Collectibles" index="22" instance=ExtResource("4_hqnfd")]
+position = Vector2(-465, 1120)
+
+[node name="Collectible22" parent="Collectibles" index="23" instance=ExtResource("4_hqnfd")]
+position = Vector2(-458.163, 1041.86)
+
+[node name="Collectible23" parent="Collectibles" index="24" instance=ExtResource("4_hqnfd")]
+position = Vector2(-437.862, 966.091)
+
+[node name="Collectible24" parent="Collectibles" index="25" instance=ExtResource("4_hqnfd")]
+position = Vector2(-404.711, 895)
+
+[node name="Collectible25" parent="Collectibles" index="26" instance=ExtResource("4_hqnfd")]
+position = Vector2(-359.72, 830.746)
+
+[node name="Collectible26" parent="Collectibles" index="27" instance=ExtResource("4_hqnfd")]
+position = Vector2(-304.254, 775.28)
+
+[node name="Collectible27" parent="Collectibles" index="28" instance=ExtResource("4_hqnfd")]
+position = Vector2(-240, 730.289)
+
+[node name="Collectible28" parent="Collectibles" index="29" instance=ExtResource("4_hqnfd")]
+position = Vector2(-168.909, 697.138)
+
+[node name="Collectible29" parent="Collectibles" index="30" instance=ExtResource("4_hqnfd")]
+position = Vector2(-93.1417, 676.837)
+
+[node name="Collectible30" parent="Collectibles" index="31" instance=ExtResource("4_hqnfd")]
+position = Vector2(-15, 670)
+
+[node name="Collectible31" parent="Collectibles" index="32" instance=ExtResource("4_hqnfd")]
+position = Vector2(63.1417, 676.837)
+
+[node name="Collectible32" parent="Collectibles" index="33" instance=ExtResource("4_hqnfd")]
+position = Vector2(138.909, 697.138)
+
+[node name="Collectible33" parent="Collectibles" index="34" instance=ExtResource("4_hqnfd")]
+position = Vector2(210, 730.289)
+
+[node name="Collectible34" parent="Collectibles" index="35" instance=ExtResource("4_hqnfd")]
+position = Vector2(274.254, 775.28)
+
+[node name="Collectible35" parent="Collectibles" index="36" instance=ExtResource("4_hqnfd")]
+position = Vector2(329.72, 830.746)
+
+[node name="Collectible36" parent="Collectibles" index="37" instance=ExtResource("4_hqnfd")]
+position = Vector2(374.711, 895)
+
+[node name="Collectible37" parent="Collectibles" index="38" instance=ExtResource("4_hqnfd")]
+position = Vector2(407.862, 966.091)
+
+[node name="Collectible38" parent="Collectibles" index="39" instance=ExtResource("4_hqnfd")]
+position = Vector2(428.163, 1041.86)
+
+[node name="Collectible39" parent="Collectibles" index="40" instance=ExtResource("4_hqnfd")]
+position = Vector2(445, 1120)
+
+[node name="Collectible40" parent="Collectibles" index="41" instance=ExtResource("4_hqnfd")]
+position = Vector2(437.608, 1202.14)
+
+[node name="Collectible41" parent="Collectibles" index="42" instance=ExtResource("4_hqnfd")]
+position = Vector2(415.668, 1281.63)
+
+[node name="Collectible42" parent="Collectibles" index="43" instance=ExtResource("4_hqnfd")]
+position = Vector2(379.886, 1355.93)
+
+[node name="Collectible43" parent="Collectibles" index="44" instance=ExtResource("4_hqnfd")]
+position = Vector2(331.413, 1422.65)
+
+[node name="Collectible44" parent="Collectibles" index="45" instance=ExtResource("4_hqnfd")]
+position = Vector2(271.805, 1479.64)
+
+[node name="Collectible45" parent="Collectibles" index="46" instance=ExtResource("4_hqnfd")]
+position = Vector2(202.98, 1525.07)
+
+[node name="Collectible46" parent="Collectibles" index="47" instance=ExtResource("4_hqnfd")]
+position = Vector2(127.148, 1557.49)
+
+[node name="Collectible47" parent="Collectibles" index="48" instance=ExtResource("4_hqnfd")]
+position = Vector2(46.7473, 1575.84)
+
+[node name="Collectible48" parent="Collectibles" index="49" instance=ExtResource("4_hqnfd")]
+position = Vector2(-35.6378, 1579.54)
+
+[node name="Collectible49" parent="Collectibles" index="50" instance=ExtResource("4_hqnfd")]
+position = Vector2(-117.36, 1568.47)
+
+[node name="Collectible50" parent="Collectibles" index="51" instance=ExtResource("4_hqnfd")]
+position = Vector2(-195.792, 1542.98)
+
+[node name="Collectible51" parent="Collectibles" index="52" instance=ExtResource("4_hqnfd")]
+position = Vector2(-268.413, 1503.9)
+
+[node name="Collectible52" parent="Collectibles" index="53" instance=ExtResource("4_hqnfd")]
+position = Vector2(-332.889, 1452.49)
+
+[node name="Collectible53" parent="Collectibles" index="54" instance=ExtResource("4_hqnfd")]
+position = Vector2(-387.148, 1390.38)
+
+[node name="Collectible54" parent="Collectibles" index="55" instance=ExtResource("4_hqnfd")]
+position = Vector2(-429.446, 1319.59)
+
+[node name="Collectible55" parent="Collectibles" index="56" instance=ExtResource("4_hqnfd")]
+position = Vector2(-458.423, 1242.38)
+
+[node name="Collectible56" parent="Collectibles" index="57" instance=ExtResource("4_hqnfd")]
+position = Vector2(-473.148, 1161.23)
+
+[node name="Collectible57" parent="Collectibles" index="58" instance=ExtResource("4_hqnfd")]
+position = Vector2(-473.148, 1078.77)
+
+[node name="Collectible58" parent="Collectibles" index="59" instance=ExtResource("4_hqnfd")]
+position = Vector2(-458.423, 997.623)
+
+[node name="Collectible59" parent="Collectibles" index="60" instance=ExtResource("4_hqnfd")]
+position = Vector2(-429.446, 920.413)
+
+[node name="Collectible60" parent="Collectibles" index="61" instance=ExtResource("4_hqnfd")]
+position = Vector2(-387.148, 849.619)
+
+[node name="Collectible61" parent="Collectibles" index="62" instance=ExtResource("4_hqnfd")]
+position = Vector2(-332.889, 787.514)
+
+[node name="Collectible62" parent="Collectibles" index="63" instance=ExtResource("4_hqnfd")]
+position = Vector2(-268.413, 736.096)
+
+[node name="Collectible63" parent="Collectibles" index="64" instance=ExtResource("4_hqnfd")]
+position = Vector2(-195.792, 697.017)
+
+[node name="Collectible64" parent="Collectibles" index="65" instance=ExtResource("4_hqnfd")]
+position = Vector2(-117.36, 671.533)
+
+[node name="Collectible65" parent="Collectibles" index="66" instance=ExtResource("4_hqnfd")]
+position = Vector2(-35.6378, 660.463)
+
+[node name="Collectible66" parent="Collectibles" index="67" instance=ExtResource("4_hqnfd")]
+position = Vector2(46.7473, 664.163)
+
+[node name="Collectible67" parent="Collectibles" index="68" instance=ExtResource("4_hqnfd")]
+position = Vector2(127.148, 682.514)
+
+[node name="Collectible68" parent="Collectibles" index="69" instance=ExtResource("4_hqnfd")]
+position = Vector2(202.98, 714.926)
+
+[node name="Collectible69" parent="Collectibles" index="70" instance=ExtResource("4_hqnfd")]
+position = Vector2(271.805, 760.358)
+
+[node name="Collectible70" parent="Collectibles" index="71" instance=ExtResource("4_hqnfd")]
+position = Vector2(331.413, 817.348)
+
+[node name="Collectible71" parent="Collectibles" index="72" instance=ExtResource("4_hqnfd")]
+position = Vector2(379.886, 884.066)
+
+[node name="Collectible72" parent="Collectibles" index="73" instance=ExtResource("4_hqnfd")]
+position = Vector2(415.668, 958.368)
+
+[node name="Collectible73" parent="Collectibles" index="74" instance=ExtResource("4_hqnfd")]
+position = Vector2(437.608, 1037.86)
+
+[node name="Collectible74" parent="Collectibles" index="75" instance=ExtResource("4_hqnfd")]
+position = Vector2(465, 1120)
+
+[node name="Collectible75" parent="Collectibles" index="76" instance=ExtResource("4_hqnfd")]
+position = Vector2(456.827, 1208.2)
+
+[node name="Collectible76" parent="Collectibles" index="77" instance=ExtResource("4_hqnfd")]
+position = Vector2(432.587, 1293.4)
+
+[node name="Collectible77" parent="Collectibles" index="78" instance=ExtResource("4_hqnfd")]
+position = Vector2(393.104, 1372.69)
+
+[node name="Collectible78" parent="Collectibles" index="79" instance=ExtResource("4_hqnfd")]
+position = Vector2(339.724, 1443.37)
+
+[node name="Collectible79" parent="Collectibles" index="80" instance=ExtResource("4_hqnfd")]
+position = Vector2(274.265, 1503.05)
+
+[node name="Collectible80" parent="Collectibles" index="81" instance=ExtResource("4_hqnfd")]
+position = Vector2(198.954, 1549.68)
+
+[node name="Collectible81" parent="Collectibles" index="82" instance=ExtResource("4_hqnfd")]
+position = Vector2(116.358, 1581.68)
+
+[node name="Collectible82" parent="Collectibles" index="83" instance=ExtResource("4_hqnfd")]
+position = Vector2(29.2888, 1597.95)
+
+[node name="Collectible83" parent="Collectibles" index="84" instance=ExtResource("4_hqnfd")]
+position = Vector2(-59.2888, 1597.95)
+
+[node name="Collectible84" parent="Collectibles" index="85" instance=ExtResource("4_hqnfd")]
+position = Vector2(-146.358, 1581.68)
+
+[node name="Collectible85" parent="Collectibles" index="86" instance=ExtResource("4_hqnfd")]
+position = Vector2(-228.954, 1549.68)
+
+[node name="Collectible86" parent="Collectibles" index="87" instance=ExtResource("4_hqnfd")]
+position = Vector2(-304.265, 1503.05)
+
+[node name="Collectible87" parent="Collectibles" index="88" instance=ExtResource("4_hqnfd")]
+position = Vector2(-369.724, 1443.37)
+
+[node name="Collectible88" parent="Collectibles" index="89" instance=ExtResource("4_hqnfd")]
+position = Vector2(-423.104, 1372.69)
+
+[node name="Collectible89" parent="Collectibles" index="90" instance=ExtResource("4_hqnfd")]
+position = Vector2(-462.587, 1293.4)
+
+[node name="Collectible90" parent="Collectibles" index="91" instance=ExtResource("4_hqnfd")]
+position = Vector2(-486.827, 1208.2)
+
+[node name="Collectible91" parent="Collectibles" index="92" instance=ExtResource("4_hqnfd")]
+position = Vector2(-495, 1120)
+
+[node name="Collectible92" parent="Collectibles" index="93" instance=ExtResource("4_hqnfd")]
+position = Vector2(-486.827, 1031.8)
+
+[node name="Collectible93" parent="Collectibles" index="94" instance=ExtResource("4_hqnfd")]
+position = Vector2(-462.587, 946.604)
+
+[node name="Collectible94" parent="Collectibles" index="95" instance=ExtResource("4_hqnfd")]
+position = Vector2(-423.104, 867.313)
+
+[node name="Collectible95" parent="Collectibles" index="96" instance=ExtResource("4_hqnfd")]
+position = Vector2(-369.724, 796.626)
+
+[node name="Collectible96" parent="Collectibles" index="97" instance=ExtResource("4_hqnfd")]
+position = Vector2(-304.265, 736.952)
+
+[node name="Collectible97" parent="Collectibles" index="98" instance=ExtResource("4_hqnfd")]
+position = Vector2(-228.954, 690.322)
+
+[node name="Collectible98" parent="Collectibles" index="99" instance=ExtResource("4_hqnfd")]
+position = Vector2(-146.358, 658.324)
+
+[node name="Collectible99" parent="Collectibles" index="100" instance=ExtResource("4_hqnfd")]
+position = Vector2(-59.2888, 642.048)
+
+[node name="Collectible100" parent="Collectibles" index="101" instance=ExtResource("4_hqnfd")]
+position = Vector2(29.2888, 642.048)
+
+[node name="Collectible101" parent="Collectibles" index="102" instance=ExtResource("4_hqnfd")]
+position = Vector2(116.358, 658.324)
+
+[node name="Collectible102" parent="Collectibles" index="103" instance=ExtResource("4_hqnfd")]
+position = Vector2(198.954, 690.322)
+
+[node name="Collectible103" parent="Collectibles" index="104" instance=ExtResource("4_hqnfd")]
+position = Vector2(274.265, 736.952)
+
+[node name="Collectible104" parent="Collectibles" index="105" instance=ExtResource("4_hqnfd")]
+position = Vector2(339.724, 796.626)
+
+[node name="Collectible105" parent="Collectibles" index="106" instance=ExtResource("4_hqnfd")]
+position = Vector2(393.104, 867.313)
+
+[node name="Collectible106" parent="Collectibles" index="107" instance=ExtResource("4_hqnfd")]
+position = Vector2(432.587, 946.604)
+
+[node name="Collectible107" parent="Collectibles" index="108" instance=ExtResource("4_hqnfd")]
+position = Vector2(456.827, 1031.8)
+
+[node name="Collectible108" parent="Collectibles" index="109" instance=ExtResource("4_hqnfd")]
+position = Vector2(495, 1120)
+
+[node name="Collectible109" parent="Collectibles" index="110" instance=ExtResource("4_hqnfd")]
+position = Vector2(485.784, 1216.52)
+
+[node name="Collectible110" parent="Collectibles" index="111" instance=ExtResource("4_hqnfd")]
+position = Vector2(458.468, 1309.55)
+
+[node name="Collectible111" parent="Collectibles" index="112" instance=ExtResource("4_hqnfd")]
+position = Vector2(414.039, 1395.73)
+
+[node name="Collectible112" parent="Collectibles" index="113" instance=ExtResource("4_hqnfd")]
+position = Vector2(354.104, 1471.94)
+
+[node name="Collectible113" parent="Collectibles" index="114" instance=ExtResource("4_hqnfd")]
+position = Vector2(280.829, 1535.43)
+
+[node name="Collectible114" parent="Collectibles" index="115" instance=ExtResource("4_hqnfd")]
+position = Vector2(196.862, 1583.91)
+
+[node name="Collectible115" parent="Collectibles" index="116" instance=ExtResource("4_hqnfd")]
+position = Vector2(105.237, 1615.62)
+
+[node name="Collectible116" parent="Collectibles" index="117" instance=ExtResource("4_hqnfd")]
+position = Vector2(9.26678, 1629.42)
+
+[node name="Collectible117" parent="Collectibles" index="118" instance=ExtResource("4_hqnfd")]
+position = Vector2(-87.5806, 1624.81)
+
+[node name="Collectible118" parent="Collectibles" index="119" instance=ExtResource("4_hqnfd")]
+position = Vector2(-181.805, 1601.95)
+
+[node name="Collectible119" parent="Collectibles" index="120" instance=ExtResource("4_hqnfd")]
+position = Vector2(-270, 1561.67)
+
+[node name="Collectible120" parent="Collectibles" index="121" instance=ExtResource("4_hqnfd")]
+position = Vector2(-348.979, 1505.43)
+
+[node name="Collectible121" parent="Collectibles" index="122" instance=ExtResource("4_hqnfd")]
+position = Vector2(-415.887, 1435.26)
+
+[node name="Collectible122" parent="Collectibles" index="123" instance=ExtResource("4_hqnfd")]
+position = Vector2(-468.306, 1353.7)
+
+[node name="Collectible123" parent="Collectibles" index="124" instance=ExtResource("4_hqnfd")]
+position = Vector2(-504.341, 1263.68)
+
+[node name="Collectible124" parent="Collectibles" index="125" instance=ExtResource("4_hqnfd")]
+position = Vector2(-522.691, 1168.48)
+
+[node name="Collectible125" parent="Collectibles" index="126" instance=ExtResource("4_hqnfd")]
+position = Vector2(-522.691, 1071.52)
+
+[node name="Collectible126" parent="Collectibles" index="127" instance=ExtResource("4_hqnfd")]
+position = Vector2(-504.341, 976.316)
+
+[node name="Collectible127" parent="Collectibles" index="128" instance=ExtResource("4_hqnfd")]
+position = Vector2(-468.306, 886.304)
+
+[node name="Collectible128" parent="Collectibles" index="129" instance=ExtResource("4_hqnfd")]
+position = Vector2(-415.887, 804.739)
+
+[node name="Collectible129" parent="Collectibles" index="130" instance=ExtResource("4_hqnfd")]
+position = Vector2(-348.979, 734.568)
+
+[node name="Collectible130" parent="Collectibles" index="131" instance=ExtResource("4_hqnfd")]
+position = Vector2(-270, 678.327)
+
+[node name="Collectible131" parent="Collectibles" index="132" instance=ExtResource("4_hqnfd")]
+position = Vector2(-181.805, 638.05)
+
+[node name="Collectible132" parent="Collectibles" index="133" instance=ExtResource("4_hqnfd")]
+position = Vector2(-87.5806, 615.191)
+
+[node name="Collectible133" parent="Collectibles" index="134" instance=ExtResource("4_hqnfd")]
+position = Vector2(9.26678, 610.578)
+
+[node name="Collectible134" parent="Collectibles" index="135" instance=ExtResource("4_hqnfd")]
+position = Vector2(105.237, 624.376)
+
+[node name="Collectible135" parent="Collectibles" index="136" instance=ExtResource("4_hqnfd")]
+position = Vector2(196.862, 656.088)
+
+[node name="Collectible136" parent="Collectibles" index="137" instance=ExtResource("4_hqnfd")]
+position = Vector2(280.829, 704.566)
+
+[node name="Collectible137" parent="Collectibles" index="138" instance=ExtResource("4_hqnfd")]
+position = Vector2(354.104, 768.06)
+
+[node name="Collectible138" parent="Collectibles" index="139" instance=ExtResource("4_hqnfd")]
+position = Vector2(414.039, 844.273)
+
+[node name="Collectible139" parent="Collectibles" index="140" instance=ExtResource("4_hqnfd")]
+position = Vector2(458.468, 930.452)
+
+[node name="Collectible140" parent="Collectibles" index="141" instance=ExtResource("4_hqnfd")]
+position = Vector2(485.784, 1023.48)
+
+[node name="Collectible141" parent="Collectibles" index="142" instance=ExtResource("4_hqnfd")]
+position = Vector2(535, 1120)
+
+[node name="Collectible142" parent="Collectibles" index="143" instance=ExtResource("4_hqnfd")]
+position = Vector2(524.432, 1227.3)
+
+[node name="Collectible143" parent="Collectibles" index="144" instance=ExtResource("4_hqnfd")]
+position = Vector2(493.134, 1330.48)
+
+[node name="Collectible144" parent="Collectibles" index="145" instance=ExtResource("4_hqnfd")]
+position = Vector2(442.308, 1425.56)
+
+[node name="Collectible145" parent="Collectibles" index="146" instance=ExtResource("4_hqnfd")]
+position = Vector2(373.909, 1508.91)
+
+[node name="Collectible146" parent="Collectibles" index="147" instance=ExtResource("4_hqnfd")]
+position = Vector2(290.564, 1577.31)
+
+[node name="Collectible147" parent="Collectibles" index="148" instance=ExtResource("4_hqnfd")]
+position = Vector2(195.476, 1628.13)
+
+[node name="Collectible148" parent="Collectibles" index="149" instance=ExtResource("4_hqnfd")]
+position = Vector2(92.2997, 1659.43)
+
+[node name="Collectible149" parent="Collectibles" index="150" instance=ExtResource("4_hqnfd")]
+position = Vector2(-15, 1670)
+
+[node name="Collectible150" parent="Collectibles" index="151" instance=ExtResource("4_hqnfd")]
+position = Vector2(-122.3, 1659.43)
+
+[node name="Collectible151" parent="Collectibles" index="152" instance=ExtResource("4_hqnfd")]
+position = Vector2(-225.476, 1628.13)
+
+[node name="Collectible152" parent="Collectibles" index="153" instance=ExtResource("4_hqnfd")]
+position = Vector2(-320.564, 1577.31)
+
+[node name="Collectible153" parent="Collectibles" index="154" instance=ExtResource("4_hqnfd")]
+position = Vector2(-403.909, 1508.91)
+
+[node name="Collectible154" parent="Collectibles" index="155" instance=ExtResource("4_hqnfd")]
+position = Vector2(-472.308, 1425.56)
+
+[node name="Collectible155" parent="Collectibles" index="156" instance=ExtResource("4_hqnfd")]
+position = Vector2(-523.134, 1330.48)
+
+[node name="Collectible156" parent="Collectibles" index="157" instance=ExtResource("4_hqnfd")]
+position = Vector2(-554.432, 1227.3)
+
+[node name="Collectible157" parent="Collectibles" index="158" instance=ExtResource("4_hqnfd")]
+position = Vector2(-565, 1120)
+
+[node name="Collectible158" parent="Collectibles" index="159" instance=ExtResource("4_hqnfd")]
+position = Vector2(-554.432, 1012.7)
+
+[node name="Collectible159" parent="Collectibles" index="160" instance=ExtResource("4_hqnfd")]
+position = Vector2(-523.134, 909.524)
+
+[node name="Collectible160" parent="Collectibles" index="161" instance=ExtResource("4_hqnfd")]
+position = Vector2(-472.308, 814.436)
+
+[node name="Collectible161" parent="Collectibles" index="162" instance=ExtResource("4_hqnfd")]
+position = Vector2(-403.909, 731.091)
+
+[node name="Collectible162" parent="Collectibles" index="163" instance=ExtResource("4_hqnfd")]
+position = Vector2(-320.564, 662.692)
+
+[node name="Collectible163" parent="Collectibles" index="164" instance=ExtResource("4_hqnfd")]
+position = Vector2(-225.476, 611.866)
+
+[node name="Collectible164" parent="Collectibles" index="165" instance=ExtResource("4_hqnfd")]
+position = Vector2(-122.3, 580.568)
+
+[node name="Collectible165" parent="Collectibles" index="166" instance=ExtResource("4_hqnfd")]
+position = Vector2(-15, 570)
+
+[node name="Collectible166" parent="Collectibles" index="167" instance=ExtResource("4_hqnfd")]
+position = Vector2(92.2997, 580.568)
+
+[node name="Collectible167" parent="Collectibles" index="168" instance=ExtResource("4_hqnfd")]
+position = Vector2(195.476, 611.866)
+
+[node name="Collectible168" parent="Collectibles" index="169" instance=ExtResource("4_hqnfd")]
+position = Vector2(290.564, 662.692)
+
+[node name="Collectible169" parent="Collectibles" index="170" instance=ExtResource("4_hqnfd")]
+position = Vector2(373.909, 731.091)
+
+[node name="Collectible170" parent="Collectibles" index="171" instance=ExtResource("4_hqnfd")]
+position = Vector2(442.308, 814.436)
+
+[node name="Collectible171" parent="Collectibles" index="172" instance=ExtResource("4_hqnfd")]
+position = Vector2(493.134, 909.524)
+
+[node name="Collectible172" parent="Collectibles" index="173" instance=ExtResource("4_hqnfd")]
+position = Vector2(524.432, 1012.7)
+
+[node name="Collectible173" parent="Collectibles" index="174" instance=ExtResource("4_hqnfd")]
+position = Vector2(595, 1120)
+
+[node name="Collectible174" parent="Collectibles" index="175" instance=ExtResource("4_hqnfd")]
+position = Vector2(582.513, 1242.79)
+
+[node name="Collectible175" parent="Collectibles" index="176" instance=ExtResource("4_hqnfd")]
+position = Vector2(545.564, 1360.56)
+
+[node name="Collectible176" parent="Collectibles" index="177" instance=ExtResource("4_hqnfd")]
+position = Vector2(485.666, 1468.47)
+
+[node name="Collectible177" parent="Collectibles" index="178" instance=ExtResource("4_hqnfd")]
+position = Vector2(405.27, 1562.12)
+
+[node name="Collectible178" parent="Collectibles" index="179" instance=ExtResource("4_hqnfd")]
+position = Vector2(307.668, 1637.67)
+
+[node name="Collectible179" parent="Collectibles" index="180" instance=ExtResource("4_hqnfd")]
+position = Vector2(196.856, 1692.03)
+
+[node name="Collectible180" parent="Collectibles" index="181" instance=ExtResource("4_hqnfd")]
+position = Vector2(77.3709, 1722.97)
+
+[node name="Collectible181" parent="Collectibles" index="182" instance=ExtResource("4_hqnfd")]
+position = Vector2(-45.896, 1729.22)
+
+[node name="Collectible182" parent="Collectibles" index="183" instance=ExtResource("4_hqnfd")]
+position = Vector2(-167.898, 1710.53)
+
+[node name="Collectible183" parent="Collectibles" index="184" instance=ExtResource("4_hqnfd")]
+position = Vector2(-283.64, 1667.66)
+
+[node name="Collectible184" parent="Collectibles" index="185" instance=ExtResource("4_hqnfd")]
+position = Vector2(-388.385, 1602.37)
+
+[node name="Collectible185" parent="Collectibles" index="186" instance=ExtResource("4_hqnfd")]
+position = Vector2(-477.842, 1517.34)
+
+[node name="Collectible186" parent="Collectibles" index="187" instance=ExtResource("4_hqnfd")]
+position = Vector2(-548.351, 1416.03)
+
+[node name="Collectible187" parent="Collectibles" index="188" instance=ExtResource("4_hqnfd")]
+position = Vector2(-597.025, 1302.61)
+
+[node name="Collectible188" parent="Collectibles" index="189" instance=ExtResource("4_hqnfd")]
+position = Vector2(-621.87, 1181.71)
+
+[node name="Collectible189" parent="Collectibles" index="190" instance=ExtResource("4_hqnfd")]
+position = Vector2(-621.87, 1058.29)
+
+[node name="Collectible190" parent="Collectibles" index="191" instance=ExtResource("4_hqnfd")]
+position = Vector2(-597.025, 937.388)
+
+[node name="Collectible191" parent="Collectibles" index="192" instance=ExtResource("4_hqnfd")]
+position = Vector2(-548.351, 823.966)
+
+[node name="Collectible192" parent="Collectibles" index="193" instance=ExtResource("4_hqnfd")]
+position = Vector2(-477.842, 722.663)
+
+[node name="Collectible193" parent="Collectibles" index="194" instance=ExtResource("4_hqnfd")]
+position = Vector2(-388.385, 637.627)
+
+[node name="Collectible194" parent="Collectibles" index="195" instance=ExtResource("4_hqnfd")]
+position = Vector2(-283.64, 572.339)
+
+[node name="Collectible195" parent="Collectibles" index="196" instance=ExtResource("4_hqnfd")]
+position = Vector2(-167.898, 529.473)
+
+[node name="Collectible196" parent="Collectibles" index="197" instance=ExtResource("4_hqnfd")]
+position = Vector2(-45.896, 510.783)
+
+[node name="Collectible197" parent="Collectibles" index="198" instance=ExtResource("4_hqnfd")]
+position = Vector2(77.3709, 517.034)
+
+[node name="Collectible198" parent="Collectibles" index="199" instance=ExtResource("4_hqnfd")]
+position = Vector2(196.856, 547.971)
+
+[node name="Collectible199" parent="Collectibles" index="200" instance=ExtResource("4_hqnfd")]
+position = Vector2(307.668, 602.327)
+
+[node name="Collectible200" parent="Collectibles" index="201" instance=ExtResource("4_hqnfd")]
+position = Vector2(405.27, 677.876)
+
+[node name="Collectible201" parent="Collectibles" index="202" instance=ExtResource("4_hqnfd")]
+position = Vector2(485.666, 771.526)
+
+[node name="Collectible202" parent="Collectibles" index="203" instance=ExtResource("4_hqnfd")]
+position = Vector2(545.564, 879.443)
+
+[node name="Collectible203" parent="Collectibles" index="204" instance=ExtResource("4_hqnfd")]
+position = Vector2(582.513, 997.208)
+
+[node name="Collectible204" parent="Collectibles" index="205" instance=ExtResource("4_hqnfd")]
+position = Vector2(665, 1120)
+
+[node name="Collectible205" parent="Collectibles" index="206" instance=ExtResource("4_hqnfd")]
+position = Vector2(650.14, 1261.38)
+
+[node name="Collectible206" parent="Collectibles" index="207" instance=ExtResource("4_hqnfd")]
+position = Vector2(606.211, 1396.58)
+
+[node name="Collectible207" parent="Collectibles" index="208" instance=ExtResource("4_hqnfd")]
+position = Vector2(535.132, 1519.69)
+
+[node name="Collectible208" parent="Collectibles" index="209" instance=ExtResource("4_hqnfd")]
+position = Vector2(440.009, 1625.34)
+
+[node name="Collectible209" parent="Collectibles" index="210" instance=ExtResource("4_hqnfd")]
+position = Vector2(325, 1708.9)
+
+[node name="Collectible210" parent="Collectibles" index="211" instance=ExtResource("4_hqnfd")]
+position = Vector2(195.132, 1766.72)
+
+[node name="Collectible211" parent="Collectibles" index="212" instance=ExtResource("4_hqnfd")]
+position = Vector2(56.0794, 1796.27)
+
+[node name="Collectible212" parent="Collectibles" index="213" instance=ExtResource("4_hqnfd")]
+position = Vector2(-86.0794, 1796.27)
+
+[node name="Collectible213" parent="Collectibles" index="214" instance=ExtResource("4_hqnfd")]
+position = Vector2(-225.132, 1766.72)
+
+[node name="Collectible214" parent="Collectibles" index="215" instance=ExtResource("4_hqnfd")]
+position = Vector2(-355, 1708.9)
+
+[node name="Collectible215" parent="Collectibles" index="216" instance=ExtResource("4_hqnfd")]
+position = Vector2(-470.009, 1625.34)
+
+[node name="Collectible216" parent="Collectibles" index="217" instance=ExtResource("4_hqnfd")]
+position = Vector2(-565.132, 1519.69)
+
+[node name="Collectible217" parent="Collectibles" index="218" instance=ExtResource("4_hqnfd")]
+position = Vector2(-636.211, 1396.58)
+
+[node name="Collectible218" parent="Collectibles" index="219" instance=ExtResource("4_hqnfd")]
+position = Vector2(-680.14, 1261.38)
+
+[node name="Collectible219" parent="Collectibles" index="220" instance=ExtResource("4_hqnfd")]
+position = Vector2(-695, 1120)
+
+[node name="Collectible220" parent="Collectibles" index="221" instance=ExtResource("4_hqnfd")]
+position = Vector2(-680.14, 978.62)
+
+[node name="Collectible221" parent="Collectibles" index="222" instance=ExtResource("4_hqnfd")]
+position = Vector2(-636.211, 843.419)
+
+[node name="Collectible222" parent="Collectibles" index="223" instance=ExtResource("4_hqnfd")]
+position = Vector2(-565.132, 720.306)
+
+[node name="Collectible223" parent="Collectibles" index="224" instance=ExtResource("4_hqnfd")]
+position = Vector2(-470.009, 614.661)
+
+[node name="Collectible224" parent="Collectibles" index="225" instance=ExtResource("4_hqnfd")]
+position = Vector2(-355, 531.103)
+
+[node name="Collectible225" parent="Collectibles" index="226" instance=ExtResource("4_hqnfd")]
+position = Vector2(-225.132, 473.282)
+
+[node name="Collectible226" parent="Collectibles" index="227" instance=ExtResource("4_hqnfd")]
+position = Vector2(-86.0794, 443.725)
+
+[node name="Collectible227" parent="Collectibles" index="228" instance=ExtResource("4_hqnfd")]
+position = Vector2(56.0794, 443.725)
+
+[node name="Collectible228" parent="Collectibles" index="229" instance=ExtResource("4_hqnfd")]
+position = Vector2(195.132, 473.282)
+
+[node name="Collectible229" parent="Collectibles" index="230" instance=ExtResource("4_hqnfd")]
+position = Vector2(325, 531.103)
+
+[node name="Collectible230" parent="Collectibles" index="231" instance=ExtResource("4_hqnfd")]
+position = Vector2(440.009, 614.661)
+
+[node name="Collectible231" parent="Collectibles" index="232" instance=ExtResource("4_hqnfd")]
+position = Vector2(535.132, 720.306)
+
+[node name="Collectible232" parent="Collectibles" index="233" instance=ExtResource("4_hqnfd")]
+position = Vector2(606.211, 843.419)
+
+[node name="Collectible233" parent="Collectibles" index="234" instance=ExtResource("4_hqnfd")]
+position = Vector2(650.14, 978.62)
+
+[node name="Collectible234" parent="Collectibles" index="235" instance=ExtResource("4_hqnfd")]
+position = Vector2(745, 1120)
+
+[node name="Collectible235" parent="Collectibles" index="236" instance=ExtResource("4_hqnfd")]
+position = Vector2(727.232, 1283.38)
+
+[node name="Collectible236" parent="Collectibles" index="237" instance=ExtResource("4_hqnfd")]
+position = Vector2(674.757, 1439.12)
+
+[node name="Collectible237" parent="Collectibles" index="238" instance=ExtResource("4_hqnfd")]
+position = Vector2(590.031, 1579.93)
+
+[node name="Collectible238" parent="Collectibles" index="239" instance=ExtResource("4_hqnfd")]
+position = Vector2(477.014, 1699.24)
+
+[node name="Collectible239" parent="Collectibles" index="240" instance=ExtResource("4_hqnfd")]
+position = Vector2(340.99, 1791.47)
+
+[node name="Collectible240" parent="Collectibles" index="241" instance=ExtResource("4_hqnfd")]
+position = Vector2(188.322, 1852.3)
+
+[node name="Collectible241" parent="Collectibles" index="242" instance=ExtResource("4_hqnfd")]
+position = Vector2(26.1456, 1878.89)
+
+[node name="Collectible242" parent="Collectibles" index="243" instance=ExtResource("4_hqnfd")]
+position = Vector2(-137.954, 1869.99)
+
+[node name="Collectible243" parent="Collectibles" index="244" instance=ExtResource("4_hqnfd")]
+position = Vector2(-296.305, 1826.02)
+
+[node name="Collectible244" parent="Collectibles" index="245" instance=ExtResource("4_hqnfd")]
+position = Vector2(-441.502, 1749.04)
+
+[node name="Collectible245" parent="Collectibles" index="246" instance=ExtResource("4_hqnfd")]
+position = Vector2(-566.757, 1642.65)
+
+[node name="Collectible246" parent="Collectibles" index="247" instance=ExtResource("4_hqnfd")]
+position = Vector2(-666.211, 1511.82)
+
+[node name="Collectible247" parent="Collectibles" index="248" instance=ExtResource("4_hqnfd")]
+position = Vector2(-735.216, 1362.67)
+
+[node name="Collectible248" parent="Collectibles" index="249" instance=ExtResource("4_hqnfd")]
+position = Vector2(-770.545, 1202.17)
+
+[node name="Collectible249" parent="Collectibles" index="250" instance=ExtResource("4_hqnfd")]
+position = Vector2(-770.545, 1037.83)
+
+[node name="Collectible250" parent="Collectibles" index="251" instance=ExtResource("4_hqnfd")]
+position = Vector2(-735.216, 877.331)
+
+[node name="Collectible251" parent="Collectibles" index="252" instance=ExtResource("4_hqnfd")]
+position = Vector2(-666.211, 728.179)
+
+[node name="Collectible252" parent="Collectibles" index="253" instance=ExtResource("4_hqnfd")]
+position = Vector2(-566.757, 597.348)
+
+[node name="Collectible253" parent="Collectibles" index="254" instance=ExtResource("4_hqnfd")]
+position = Vector2(-441.502, 490.956)
+
+[node name="Collectible254" parent="Collectibles" index="255" instance=ExtResource("4_hqnfd")]
+position = Vector2(-296.305, 413.978)
+
+[node name="Collectible255" parent="Collectibles" index="256" instance=ExtResource("4_hqnfd")]
+position = Vector2(-137.954, 370.012)
+
+[node name="Collectible256" parent="Collectibles" index="257" instance=ExtResource("4_hqnfd")]
+position = Vector2(26.1456, 361.115)
+
+[node name="Collectible257" parent="Collectibles" index="258" instance=ExtResource("4_hqnfd")]
+position = Vector2(188.322, 387.702)
+
+[node name="Collectible258" parent="Collectibles" index="259" instance=ExtResource("4_hqnfd")]
+position = Vector2(340.99, 448.531)
+
+[node name="Collectible259" parent="Collectibles" index="260" instance=ExtResource("4_hqnfd")]
+position = Vector2(477.014, 540.757)
+
+[node name="Collectible260" parent="Collectibles" index="261" instance=ExtResource("4_hqnfd")]
+position = Vector2(590.031, 660.068)
+
+[node name="Collectible261" parent="Collectibles" index="262" instance=ExtResource("4_hqnfd")]
+position = Vector2(674.757, 800.884)
+
+[node name="Collectible262" parent="Collectibles" index="263" instance=ExtResource("4_hqnfd")]
+position = Vector2(727.232, 956.622)
+
+[node name="Collectible263" parent="Collectibles" index="264" instance=ExtResource("4_hqnfd")]
+position = Vector2(835, 1120)
+
+[node name="Collectible264" parent="Collectibles" index="265" instance=ExtResource("4_hqnfd")]
+position = Vector2(813.689, 1309.14)
+
+[node name="Collectible265" parent="Collectibles" index="266" instance=ExtResource("4_hqnfd")]
+position = Vector2(750.824, 1488.8)
+
+[node name="Collectible266" parent="Collectibles" index="267" instance=ExtResource("4_hqnfd")]
+position = Vector2(649.557, 1649.97)
+
+[node name="Collectible267" parent="Collectibles" index="268" instance=ExtResource("4_hqnfd")]
+position = Vector2(514.966, 1784.56)
+
+[node name="Collectible268" parent="Collectibles" index="269" instance=ExtResource("4_hqnfd")]
+position = Vector2(353.801, 1885.82)
+
+[node name="Collectible269" parent="Collectibles" index="270" instance=ExtResource("4_hqnfd")]
+position = Vector2(174.143, 1948.69)
+
+[node name="Collectible270" parent="Collectibles" index="271" instance=ExtResource("4_hqnfd")]
+position = Vector2(-15, 1970)
+
+[node name="Collectible271" parent="Collectibles" index="272" instance=ExtResource("4_hqnfd")]
+position = Vector2(-204.143, 1948.69)
+
+[node name="Collectible272" parent="Collectibles" index="273" instance=ExtResource("4_hqnfd")]
+position = Vector2(-383.801, 1885.82)
+
+[node name="Collectible273" parent="Collectibles" index="274" instance=ExtResource("4_hqnfd")]
+position = Vector2(-544.966, 1784.56)
+
+[node name="Collectible274" parent="Collectibles" index="275" instance=ExtResource("4_hqnfd")]
+position = Vector2(-679.557, 1649.97)
+
+[node name="Collectible275" parent="Collectibles" index="276" instance=ExtResource("4_hqnfd")]
+position = Vector2(-780.824, 1488.8)
+
+[node name="Collectible276" parent="Collectibles" index="277" instance=ExtResource("4_hqnfd")]
+position = Vector2(-843.689, 1309.14)
+
+[node name="Collectible277" parent="Collectibles" index="278" instance=ExtResource("4_hqnfd")]
+position = Vector2(-865, 1120)
+
+[node name="Collectible278" parent="Collectibles" index="279" instance=ExtResource("4_hqnfd")]
+position = Vector2(-843.689, 930.857)
+
+[node name="Collectible279" parent="Collectibles" index="280" instance=ExtResource("4_hqnfd")]
+position = Vector2(-780.824, 751.199)
+
+[node name="Collectible280" parent="Collectibles" index="281" instance=ExtResource("4_hqnfd")]
+position = Vector2(-679.557, 590.034)
+
+[node name="Collectible281" parent="Collectibles" index="282" instance=ExtResource("4_hqnfd")]
+position = Vector2(-544.966, 455.443)
+
+[node name="Collectible282" parent="Collectibles" index="283" instance=ExtResource("4_hqnfd")]
+position = Vector2(-383.801, 354.176)
+
+[node name="Collectible283" parent="Collectibles" index="284" instance=ExtResource("4_hqnfd")]
+position = Vector2(-204.143, 291.311)
+
+[node name="Collectible284" parent="Collectibles" index="285" instance=ExtResource("4_hqnfd")]
+position = Vector2(-15, 270)
+
+[node name="Collectible285" parent="Collectibles" index="286" instance=ExtResource("4_hqnfd")]
+position = Vector2(174.143, 291.311)
+
+[node name="Collectible286" parent="Collectibles" index="287" instance=ExtResource("4_hqnfd")]
+position = Vector2(353.801, 354.176)
+
+[node name="Collectible287" parent="Collectibles" index="288" instance=ExtResource("4_hqnfd")]
+position = Vector2(514.966, 455.443)
+
+[node name="Collectible288" parent="Collectibles" index="289" instance=ExtResource("4_hqnfd")]
+position = Vector2(649.557, 590.034)
+
+[node name="Collectible289" parent="Collectibles" index="290" instance=ExtResource("4_hqnfd")]
+position = Vector2(750.824, 751.199)
+
+[node name="Collectible290" parent="Collectibles" index="291" instance=ExtResource("4_hqnfd")]
+position = Vector2(813.689, 930.857)
+
+[node name="Collectible291" parent="Collectibles" index="292" instance=ExtResource("4_hqnfd")]
+position = Vector2(935, 1120)
+
+[node name="Collectible292" parent="Collectibles" index="293" instance=ExtResource("4_hqnfd")]
+position = Vector2(909.393, 1339.09)
+
+[node name="Collectible293" parent="Collectibles" index="294" instance=ExtResource("4_hqnfd")]
+position = Vector2(833.951, 1546.36)
+
+[node name="Collectible294" parent="Collectibles" index="295" instance=ExtResource("4_hqnfd")]
+position = Vector2(712.742, 1730.65)
+
+[node name="Collectible295" parent="Collectibles" index="296" instance=ExtResource("4_hqnfd")]
+position = Vector2(552.301, 1882.02)
+
+[node name="Collectible296" parent="Collectibles" index="297" instance=ExtResource("4_hqnfd")]
+position = Vector2(361.276, 1992.31)
+
+[node name="Collectible297" parent="Collectibles" index="298" instance=ExtResource("4_hqnfd")]
+position = Vector2(149.966, 2055.57)
+
+[node name="Collectible298" parent="Collectibles" index="299" instance=ExtResource("4_hqnfd")]
+position = Vector2(-70.2376, 2068.39)
+
+[node name="Collectible299" parent="Collectibles" index="300" instance=ExtResource("4_hqnfd")]
+position = Vector2(-287.463, 2030.09)
+
+[node name="Collectible300" parent="Collectibles" index="301" instance=ExtResource("4_hqnfd")]
+position = Vector2(-490, 1942.72)
+
+[node name="Collectible301" parent="Collectibles" index="302" instance=ExtResource("4_hqnfd")]
+position = Vector2(-666.93, 1811)
+
+[node name="Collectible302" parent="Collectibles" index="303" instance=ExtResource("4_hqnfd")]
+position = Vector2(-808.713, 1642.03)
+
+[node name="Collectible303" parent="Collectibles" index="304" instance=ExtResource("4_hqnfd")]
+position = Vector2(-907.708, 1444.92)
+
+[node name="Collectible304" parent="Collectibles" index="305" instance=ExtResource("4_hqnfd")]
+position = Vector2(-958.576, 1230.29)
+
+[node name="Collectible305" parent="Collectibles" index="306" instance=ExtResource("4_hqnfd")]
+position = Vector2(-958.576, 1009.71)
+
+[node name="Collectible306" parent="Collectibles" index="307" instance=ExtResource("4_hqnfd")]
+position = Vector2(-907.708, 795.081)
+
+[node name="Collectible307" parent="Collectibles" index="308" instance=ExtResource("4_hqnfd")]
+position = Vector2(-808.713, 597.966)
+
+[node name="Collectible308" parent="Collectibles" index="309" instance=ExtResource("4_hqnfd")]
+position = Vector2(-666.93, 428.995)
+
+[node name="Collectible309" parent="Collectibles" index="310" instance=ExtResource("4_hqnfd")]
+position = Vector2(-490, 297.276)
+
+[node name="Collectible310" parent="Collectibles" index="311" instance=ExtResource("4_hqnfd")]
+position = Vector2(-287.463, 209.91)
+
+[node name="Collectible311" parent="Collectibles" index="312" instance=ExtResource("4_hqnfd")]
+position = Vector2(-70.2376, 171.607)
+
+[node name="Collectible312" parent="Collectibles" index="313" instance=ExtResource("4_hqnfd")]
+position = Vector2(149.966, 184.433)
+
+[node name="Collectible313" parent="Collectibles" index="314" instance=ExtResource("4_hqnfd")]
+position = Vector2(361.276, 247.695)
+
+[node name="Collectible314" parent="Collectibles" index="315" instance=ExtResource("4_hqnfd")]
+position = Vector2(552.301, 357.983)
+
+[node name="Collectible315" parent="Collectibles" index="316" instance=ExtResource("4_hqnfd")]
+position = Vector2(712.742, 509.352)
+
+[node name="Collectible316" parent="Collectibles" index="317" instance=ExtResource("4_hqnfd")]
+position = Vector2(833.951, 693.641)
+
+[node name="Collectible317" parent="Collectibles" index="318" instance=ExtResource("4_hqnfd")]
+position = Vector2(909.393, 900.915)
+
+[node name="Collectible318" parent="Collectibles" index="319" instance=ExtResource("4_hqnfd")]
+position = Vector2(1045, 1120)
+
+[node name="Collectible319" parent="Collectibles" index="320" instance=ExtResource("4_hqnfd")]
+position = Vector2(1014.2, 1373.67)
+
+[node name="Collectible320" parent="Collectibles" index="321" instance=ExtResource("4_hqnfd")]
+position = Vector2(923.583, 1612.61)
+
+[node name="Collectible321" parent="Collectibles" index="322" instance=ExtResource("4_hqnfd")]
+position = Vector2(778.421, 1822.91)
+
+[node name="Collectible322" parent="Collectibles" index="323" instance=ExtResource("4_hqnfd")]
+position = Vector2(587.149, 1992.36)
+
+[node name="Collectible323" parent="Collectibles" index="324" instance=ExtResource("4_hqnfd")]
+position = Vector2(360.881, 2111.12)
+
+[node name="Collectible324" parent="Collectibles" index="325" instance=ExtResource("4_hqnfd")]
+position = Vector2(112.769, 2172.27)
+
+[node name="Collectible325" parent="Collectibles" index="326" instance=ExtResource("4_hqnfd")]
+position = Vector2(-142.769, 2172.27)
+
+[node name="Collectible326" parent="Collectibles" index="327" instance=ExtResource("4_hqnfd")]
+position = Vector2(-390.881, 2111.12)
+
+[node name="Collectible327" parent="Collectibles" index="328" instance=ExtResource("4_hqnfd")]
+position = Vector2(-617.149, 1992.36)
+
+[node name="Collectible328" parent="Collectibles" index="329" instance=ExtResource("4_hqnfd")]
+position = Vector2(-808.421, 1822.91)
+
+[node name="Collectible329" parent="Collectibles" index="330" instance=ExtResource("4_hqnfd")]
+position = Vector2(-953.583, 1612.61)
+
+[node name="Collectible330" parent="Collectibles" index="331" instance=ExtResource("4_hqnfd")]
+position = Vector2(-1044.2, 1373.67)
+
+[node name="Collectible331" parent="Collectibles" index="332" instance=ExtResource("4_hqnfd")]
+position = Vector2(-1075, 1120)
+
+[node name="Collectible332" parent="Collectibles" index="333" instance=ExtResource("4_hqnfd")]
+position = Vector2(-1044.2, 866.325)
+
+[node name="Collectible333" parent="Collectibles" index="334" instance=ExtResource("4_hqnfd")]
+position = Vector2(-953.583, 627.393)
+
+[node name="Collectible334" parent="Collectibles" index="335" instance=ExtResource("4_hqnfd")]
+position = Vector2(-808.421, 417.09)
+
+[node name="Collectible335" parent="Collectibles" index="336" instance=ExtResource("4_hqnfd")]
+position = Vector2(-617.149, 247.637)
+
+[node name="Collectible336" parent="Collectibles" index="337" instance=ExtResource("4_hqnfd")]
+position = Vector2(-390.881, 128.883)
+
+[node name="Collectible337" parent="Collectibles" index="338" instance=ExtResource("4_hqnfd")]
+position = Vector2(-142.769, 67.7286)
+
+[node name="Collectible338" parent="Collectibles" index="339" instance=ExtResource("4_hqnfd")]
+position = Vector2(112.769, 67.7286)
+
+[node name="Collectible339" parent="Collectibles" index="340" instance=ExtResource("4_hqnfd")]
+position = Vector2(360.881, 128.883)
+
+[node name="Collectible340" parent="Collectibles" index="341" instance=ExtResource("4_hqnfd")]
+position = Vector2(587.149, 247.637)
+
+[node name="Collectible341" parent="Collectibles" index="342" instance=ExtResource("4_hqnfd")]
+position = Vector2(778.421, 417.09)
+
+[node name="Collectible342" parent="Collectibles" index="343" instance=ExtResource("4_hqnfd")]
+position = Vector2(923.583, 627.393)
+
+[node name="Collectible343" parent="Collectibles" index="344" instance=ExtResource("4_hqnfd")]
+position = Vector2(1014.2, 866.325)
+
+[node name="Collectible344" parent="Collectibles" index="345" instance=ExtResource("4_hqnfd")]
+position = Vector2(1165, 1120)
+
+[node name="Collectible345" parent="Collectibles" index="346" instance=ExtResource("4_hqnfd")]
+position = Vector2(1127.93, 1413.45)
+
+[node name="Collectible346" parent="Collectibles" index="347" instance=ExtResource("4_hqnfd")]
+position = Vector2(1019.04, 1688.47)
+
+[node name="Collectible347" parent="Collectibles" index="348" instance=ExtResource("4_hqnfd")]
+position = Vector2(845.183, 1927.77)
+
+[node name="Collectible348" parent="Collectibles" index="349" instance=ExtResource("4_hqnfd")]
+position = Vector2(617.276, 2116.31)
+
+[node name="Collectible349" parent="Collectibles" index="350" instance=ExtResource("4_hqnfd")]
+position = Vector2(349.64, 2242.25)
+
+[node name="Collectible350" parent="Collectibles" index="351" instance=ExtResource("4_hqnfd")]
+position = Vector2(59.0928, 2297.67)
+
+[node name="Collectible351" parent="Collectibles" index="352" instance=ExtResource("4_hqnfd")]
+position = Vector2(-236.11, 2279.1)
+
+[node name="Collectible352" parent="Collectibles" index="353" instance=ExtResource("4_hqnfd")]
+position = Vector2(-517.42, 2187.7)
+
+[node name="Collectible353" parent="Collectibles" index="354" instance=ExtResource("4_hqnfd")]
+position = Vector2(-767.16, 2029.21)
+
+[node name="Collectible354" parent="Collectibles" index="355" instance=ExtResource("4_hqnfd")]
+position = Vector2(-969.64, 1813.59)
+
+[node name="Collectible355" parent="Collectibles" index="356" instance=ExtResource("4_hqnfd")]
+position = Vector2(-1112.14, 1554.39)
+
+[node name="Collectible356" parent="Collectibles" index="357" instance=ExtResource("4_hqnfd")]
+position = Vector2(-1185.7, 1267.89)
+
+[node name="Collectible357" parent="Collectibles" index="358" instance=ExtResource("4_hqnfd")]
+position = Vector2(-1185.7, 972.107)
+
+[node name="Collectible358" parent="Collectibles" index="359" instance=ExtResource("4_hqnfd")]
+position = Vector2(-1112.14, 685.613)
+
+[node name="Collectible359" parent="Collectibles" index="360" instance=ExtResource("4_hqnfd")]
+position = Vector2(-969.64, 426.413)
+
+[node name="Collectible360" parent="Collectibles" index="361" instance=ExtResource("4_hqnfd")]
+position = Vector2(-767.16, 210.794)
+
+[node name="Collectible361" parent="Collectibles" index="362" instance=ExtResource("4_hqnfd")]
+position = Vector2(-517.42, 52.3041)
+
+[node name="Collectible362" parent="Collectibles" index="363" instance=ExtResource("4_hqnfd")]
+position = Vector2(-236.11, -39.099)
+
+[node name="Collectible363" parent="Collectibles" index="364" instance=ExtResource("4_hqnfd")]
+position = Vector2(59.0928, -57.6715)
+
+[node name="Collectible364" parent="Collectibles" index="365" instance=ExtResource("4_hqnfd")]
+position = Vector2(349.64, -2.2467)
+
+[node name="Collectible365" parent="Collectibles" index="366" instance=ExtResource("4_hqnfd")]
+position = Vector2(617.276, 123.693)
+
+[node name="Collectible366" parent="Collectibles" index="367" instance=ExtResource("4_hqnfd")]
+position = Vector2(845.183, 312.234)
+
+[node name="Collectible367" parent="Collectibles" index="368" instance=ExtResource("4_hqnfd")]
+position = Vector2(1019.04, 551.531)
+
+[node name="Collectible368" parent="Collectibles" index="369" instance=ExtResource("4_hqnfd")]
+position = Vector2(1127.93, 826.546)
+
+[node name="Collectible369" parent="Collectibles" index="370" instance=ExtResource("4_hqnfd")]
+position = Vector2(1295, 1120)
+
+[node name="Collectible370" parent="Collectibles" index="371" instance=ExtResource("4_hqnfd")]
+position = Vector2(1250.36, 1459.05)
+
+[node name="Collectible371" parent="Collectibles" index="372" instance=ExtResource("4_hqnfd")]
+position = Vector2(1119.49, 1775)
+
+[node name="Collectible372" parent="Collectibles" index="373" instance=ExtResource("4_hqnfd")]
+position = Vector2(911.31, 2046.31)
+
+[node name="Collectible373" parent="Collectibles" index="374" instance=ExtResource("4_hqnfd")]
+position = Vector2(640, 2254.49)
+
+[node name="Collectible374" parent="Collectibles" index="375" instance=ExtResource("4_hqnfd")]
+position = Vector2(324.053, 2385.36)
+
+[node name="Collectible375" parent="Collectibles" index="376" instance=ExtResource("4_hqnfd")]
+position = Vector2(-15, 2430)
+
+[node name="Collectible376" parent="Collectibles" index="377" instance=ExtResource("4_hqnfd")]
+position = Vector2(-354.053, 2385.36)
+
+[node name="Collectible377" parent="Collectibles" index="378" instance=ExtResource("4_hqnfd")]
+position = Vector2(-670, 2254.49)
+
+[node name="Collectible378" parent="Collectibles" index="379" instance=ExtResource("4_hqnfd")]
+position = Vector2(-941.31, 2046.31)
+
+[node name="Collectible379" parent="Collectibles" index="380" instance=ExtResource("4_hqnfd")]
+position = Vector2(-1149.49, 1775)
+
+[node name="Collectible380" parent="Collectibles" index="381" instance=ExtResource("4_hqnfd")]
+position = Vector2(-1280.36, 1459.05)
+
+[node name="Collectible381" parent="Collectibles" index="382" instance=ExtResource("4_hqnfd")]
+position = Vector2(-1325, 1120)
+
+[node name="Collectible382" parent="Collectibles" index="383" instance=ExtResource("4_hqnfd")]
+position = Vector2(-1280.36, 780.947)
+
+[node name="Collectible383" parent="Collectibles" index="384" instance=ExtResource("4_hqnfd")]
+position = Vector2(-1149.49, 465)
+
+[node name="Collectible384" parent="Collectibles" index="385" instance=ExtResource("4_hqnfd")]
+position = Vector2(-941.31, 193.69)
+
+[node name="Collectible385" parent="Collectibles" index="386" instance=ExtResource("4_hqnfd")]
+position = Vector2(-670, -14.4933)
+
+[node name="Collectible386" parent="Collectibles" index="387" instance=ExtResource("4_hqnfd")]
+position = Vector2(-354.053, -145.363)
+
+[node name="Collectible387" parent="Collectibles" index="388" instance=ExtResource("4_hqnfd")]
+position = Vector2(-15, -190)
+
+[node name="Collectible388" parent="Collectibles" index="389" instance=ExtResource("4_hqnfd")]
+position = Vector2(324.053, -145.363)
+
+[node name="Collectible389" parent="Collectibles" index="390" instance=ExtResource("4_hqnfd")]
+position = Vector2(640, -14.4933)
+
+[node name="Collectible390" parent="Collectibles" index="391" instance=ExtResource("4_hqnfd")]
+position = Vector2(911.31, 193.69)
+
+[node name="Collectible391" parent="Collectibles" index="392" instance=ExtResource("4_hqnfd")]
+position = Vector2(1119.49, 465)
+
+[node name="Collectible392" parent="Collectibles" index="393" instance=ExtResource("4_hqnfd")]
+position = Vector2(1250.36, 780.947)
+
+[node name="FuelTank3" parent="Collectibles" index="394" instance=ExtResource("4_x3df3")]
+position = Vector2(1309.08, 1763)
+scale = Vector2(2, 2)
+
+[node name="FuelTank4" parent="Collectibles" index="395" instance=ExtResource("4_x3df3")]
+position = Vector2(10.0381, 2513)
+scale = Vector2(2, 2)
+
+[node name="FuelTank5" parent="Collectibles" index="396" instance=ExtResource("4_x3df3")]
+position = Vector2(-1289, 1763)
+scale = Vector2(2, 2)
+
+[node name="FuelTank6" parent="Collectibles" index="397" instance=ExtResource("4_x3df3")]
+position = Vector2(-1289, 263)
+scale = Vector2(2, 2)
+
+[node name="FuelTank9" parent="Collectibles" index="398" instance=ExtResource("4_x3df3")]
+position = Vector2(-374, 854)
+scale = Vector2(2, 2)
+
+[node name="FuelTank10" parent="Collectibles" index="399" instance=ExtResource("4_x3df3")]
+position = Vector2(380, 872)
+scale = Vector2(2, 2)
+
+[node name="FuelTank11" parent="Collectibles" index="400" instance=ExtResource("4_x3df3")]
+position = Vector2(-15, 1577)
+scale = Vector2(2, 2)
+
+[node name="FuelTank7" parent="Collectibles" index="401" instance=ExtResource("4_x3df3")]
+position = Vector2(10.0381, -487)
+scale = Vector2(2, 2)
+
+[node name="FuelTank8" parent="Collectibles" index="402" instance=ExtResource("4_x3df3")]
+position = Vector2(1309.08, 263)
+scale = Vector2(2, 2)
+
+[node name="Planets" parent="." index="9"]
+script = ExtResource("3_awcxs")
+resource = ExtResource("3_bee08")
+density = 30
+angle_offset = 30.0
+x_radius = 1500.0
+y_radius = 1500.0
+
+[node name="Ball" parent="Planets" index="0" instance=ExtResource("3_f5ome")]
+position = Vector2(1034.46, 1618)
+
+[node name="Ball2" parent="Planets" index="1" instance=ExtResource("3_f5ome")]
+position = Vector2(-4.76953, 2218)
+
+[node name="Ball3" parent="Planets" index="2" instance=ExtResource("3_f5ome")]
+position = Vector2(-1044, 1618)
+
+[node name="Ball4" parent="Planets" index="3" instance=ExtResource("3_f5ome")]
+position = Vector2(-1044, 418)
+
+[node name="Ball5" parent="Planets" index="4" instance=ExtResource("3_f5ome")]
+position = Vector2(-4.76953, -182)
+isFirstBall = true
+
+[node name="Ball6" parent="Planets" index="5" instance=ExtResource("3_f5ome")]
+position = Vector2(1034.46, 418)
+
+[node name="Collectible2" parent="Planets" index="6" instance=ExtResource("3_bee08")]
+position = Vector2(1121.5, 2019.7)
+pointValue = 20
+
+[node name="Collectible3" parent="Planets" index="7" instance=ExtResource("3_bee08")]
+position = Vector2(888.461, 2229.53)
+pointValue = 20
+
+[node name="Collectible4" parent="Planets" index="8" instance=ExtResource("3_bee08")]
+position = Vector2(616.888, 2386.32)
+pointValue = 20
+
+[node name="Collectible5" parent="Planets" index="9" instance=ExtResource("3_bee08")]
+position = Vector2(318.65, 2483.22)
+pointValue = 20
+
+[node name="Collectible7" parent="Planets" index="10" instance=ExtResource("3_bee08")]
+position = Vector2(-305.085, 2483.22)
+pointValue = 20
+
+[node name="Collectible8" parent="Planets" index="11" instance=ExtResource("3_bee08")]
+position = Vector2(-603.322, 2386.32)
+pointValue = 20
+
+[node name="Collectible9" parent="Planets" index="12" instance=ExtResource("3_bee08")]
+position = Vector2(-874.895, 2229.53)
+pointValue = 20
+
+[node name="Collectible10" parent="Planets" index="13" instance=ExtResource("3_bee08")]
+position = Vector2(-1107.93, 2019.7)
+pointValue = 20
+
+[node name="Collectible12" parent="Planets" index="14" instance=ExtResource("3_bee08")]
+position = Vector2(-1419.8, 1479.53)
+pointValue = 20
+
+[node name="Collectible14" parent="Planets" index="15" instance=ExtResource("3_bee08")]
+position = Vector2(-1485, 859.207)
+pointValue = 20
+
+[node name="Collectible15" parent="Planets" index="16" instance=ExtResource("3_bee08")]
+position = Vector2(-1419.8, 552.474)
+pointValue = 20
+
+[node name="Collectible17" parent="Planets" index="17" instance=ExtResource("3_bee08")]
+position = Vector2(-1107.93, 12.3041)
+pointValue = 20
+
+[node name="Collectible18" parent="Planets" index="18" instance=ExtResource("3_bee08")]
+position = Vector2(-874.895, -197.526)
+pointValue = 20
+
+[node name="Collectible19" parent="Planets" index="19" instance=ExtResource("3_bee08")]
+position = Vector2(-603.322, -354.318)
+pointValue = 20
+
+[node name="Collectible20" parent="Planets" index="20" instance=ExtResource("3_bee08")]
+position = Vector2(-305.085, -451.221)
+pointValue = 20
+
+[node name="Collectible22" parent="Planets" index="21" instance=ExtResource("3_bee08")]
+position = Vector2(318.65, -451.221)
+pointValue = 20
+
+[node name="Collectible23" parent="Planets" index="22" instance=ExtResource("3_bee08")]
+position = Vector2(616.888, -354.318)
+pointValue = 20
+
+[node name="Collectible24" parent="Planets" index="23" instance=ExtResource("3_bee08")]
+position = Vector2(888.461, -197.526)
+pointValue = 20
+
+[node name="Collectible25" parent="Planets" index="24" instance=ExtResource("3_bee08")]
+position = Vector2(1121.5, 12.3041)
+pointValue = 20
+
+[node name="Collectible27" parent="Planets" index="25" instance=ExtResource("3_bee08")]
+position = Vector2(1433.37, 552.474)
+pointValue = 20
+
+[node name="Collectible28" parent="Planets" index="26" instance=ExtResource("3_bee08")]
+position = Vector2(1498.57, 859.207)
+pointValue = 20
+
+[node name="Collectible30" parent="Planets" index="27" instance=ExtResource("3_bee08")]
+position = Vector2(1433.37, 1479.53)
+pointValue = 20
+
+[node name="ScoreLabel" parent="UI" index="0"]
+metadata/_edit_use_anchors_ = true
+
+[node name="FuelLabel" parent="UI" index="1"]
+metadata/_edit_use_anchors_ = true
+
+[node name="StrokesLabel" parent="UI" index="3"]
+metadata/_edit_use_anchors_ = true
+
+[node name="DeathScreen" parent="UI" index="5"]
+material = SubResource("ShaderMaterial_bcalg")
+
+[node name="Star" parent="." index="14" instance=ExtResource("3_eg452")]
+position = Vector2(-527, 153)
+gravity = 196.0
+gravityFieldSize = 472.0
+gravityStrength = 196.0
+centerSize = 20.0
+
+[node name="Star2" parent="." index="15" instance=ExtResource("3_eg452")]
+position = Vector2(514, 145)
+gravity = 196.0
+gravityFieldSize = 472.0
+gravityStrength = 196.0
+centerSize = 20.0
+
+[node name="Star3" parent="." index="16" instance=ExtResource("3_eg452")]
+position = Vector2(565, 1955)
+gravity = 196.0
+gravityFieldSize = 472.0
+gravityStrength = 196.0
+centerSize = 20.0
+
+[node name="Star4" parent="." index="17" instance=ExtResource("3_eg452")]
+position = Vector2(-544, 1940)
+gravity = 196.0
+gravityFieldSize = 472.0
+gravityStrength = 196.0
+centerSize = 20.0

@@ -17,6 +17,16 @@ shader_parameter/brightness = 1.0
 
 [node name="BaseLevel" instance=ExtResource("1_jfr8v")]
 
+[node name="TextureRect" parent="ParallaxBackground" index="0"]
+offset_left = -11000.0
+offset_top = -9000.0
+offset_right = -8000.0
+offset_bottom = -6000.0
+scale = Vector2(8, 8)
+
+[node name="Camera2D" parent="." index="3"]
+zoom = Vector2(0.4, 0.4)
+
 [node name="Star49" parent="Stars" index="0" instance=ExtResource("2_51vgh")]
 position = Vector2(4077, 2085)
 gravity = 400.0
@@ -829,5 +839,5 @@ position = Vector2(-2976, 2317)
 [node name="Ball8" parent="Planets" index="7" instance=ExtResource("7_yrhys")]
 position = Vector2(-2769, 2177)
 
-[node name="DeathScreen" parent="UI" index="4"]
+[node name="DeathScreen" parent="UI" index="5"]
 material = SubResource("ShaderMaterial_scw40")

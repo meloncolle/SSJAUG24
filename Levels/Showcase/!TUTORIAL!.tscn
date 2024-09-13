@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctyss6manpqsx"]
+
+[ext_resource type="PackedScene" uid="uid://jwa57sqwi2ws" path="res://Levels/base_level.tscn" id="1_lc5ln"]
+[ext_resource type="Shader" path="res://ArtAssets/Shaders/blur.gdshader" id="2_e27ov"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ndf5t"]
+resource_local_to_scene = true
+shader = ExtResource("2_e27ov")
+shader_parameter/blur = 0.0
+shader_parameter/brightness = 1.0
+
+[node name="BaseLevel" instance=ExtResource("1_lc5ln")]
+
+[node name="DeathScreen" parent="UI" index="5"]
+material = SubResource("ShaderMaterial_ndf5t")
