@@ -31,6 +31,9 @@ offset_bottom = 907.0
 [node name="Power" parent="." index="1"]
 force = 17.0
 
+[node name="Fuel" parent="." index="2"]
+startingFuel = 0.0
+
 [node name="Star" parent="Stars" index="0" instance=ExtResource("2_31tq3")]
 position = Vector2(327, -60)
 rotation = -0.413906
@@ -48,7 +51,7 @@ gravityStrength = 463.0
 centerSize = 0.0
 
 [node name="Star3" parent="Stars" index="2" instance=ExtResource("2_31tq3")]
-modulate = Color(1, 0, 0.0166664, 0.694118)
+modulate = Color(1, 1, 1, 0.596078)
 self_modulate = Color(4.81307e-07, 0.619797, 0.619996, 1)
 position = Vector2(46, 180)
 rotation = 2.14298
@@ -146,19 +149,19 @@ centerSize = 19.0
 
 [node name="FreezeHole11" parent="WormHoles" index="10" instance=ExtResource("6_7hdnr")]
 position = Vector2(-1172, -496)
-gravity = 2031.0
+gravity = 1063.0
 boostEnabled = false
 gravityFieldSize = 160.0
-gravityStrength = 2031.0
+gravityStrength = 1063.0
 centerSize = 124.0
 
 [node name="FreezeHole12" parent="WormHoles" index="11" node_paths=PackedStringArray("warpTarget") instance=ExtResource("6_7hdnr")]
 position = Vector2(-1172, -496)
-gravity = 1805.0
+gravity = 1224.0
 warpTarget = NodePath("../FreezeHole14")
 boostEnabled = false
-gravityFieldSize = 113.0
-gravityStrength = 1805.0
+gravityFieldSize = 140.0
+gravityStrength = 1224.0
 centerSize = 20.0
 
 [node name="FreezeHole13" parent="WormHoles" index="12" instance=ExtResource("6_7hdnr")]
@@ -169,207 +172,280 @@ gravityStrength = 451.0
 centerSize = 0.0
 
 [node name="FreezeHole14" parent="WormHoles" index="13" instance=ExtResource("6_7hdnr")]
-position = Vector2(-1422, 323)
-gravity = -1677.0
-gravityFieldSize = 78.0
-gravityStrength = -1677.0
+position = Vector2(-1068, 492)
+gravity = -323.0
+gravityFieldSize = 279.0
+gravityStrength = -323.0
+centerSize = 38.0
 
 [node name="Collectibles" parent="." index="7"]
 script = ExtResource("5_80bm5")
 resource = ExtResource("6_o6o2s")
-density = 7
-start_angle = 110.0
-end_angle = 180.0
-x_radius = 70.0
-y_radius = 70.0
+density = 20
+x_radius = 190.0
+y_radius = 190.0
 
 [node name="Collectible" parent="Collectibles" index="0" instance=ExtResource("6_o6o2s")]
 position = Vector2(177, -252)
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.52, 0.52)
 
 [node name="Collectible2" parent="Collectibles" index="1" instance=ExtResource("6_o6o2s")]
 position = Vector2(173.574, -230.369)
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.52, 0.52)
 
 [node name="Collectible3" parent="Collectibles" index="2" instance=ExtResource("6_o6o2s")]
 position = Vector2(163.631, -210.855)
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.52, 0.52)
 
 [node name="Collectible4" parent="Collectibles" index="3" instance=ExtResource("6_o6o2s")]
 position = Vector2(148.145, -195.369)
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.52, 0.52)
 
 [node name="Collectible5" parent="Collectibles" index="4" instance=ExtResource("6_o6o2s")]
 position = Vector2(128.631, -185.426)
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.52, 0.52)
 
 [node name="Collectible6" parent="Collectibles" index="5" instance=ExtResource("6_o6o2s")]
 position = Vector2(107, -182)
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.52, 0.52)
 
 [node name="Collectible7" parent="Collectibles" index="6" instance=ExtResource("6_o6o2s")]
 position = Vector2(85.3688, -185.426)
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.52, 0.52)
 
 [node name="Collectible8" parent="Collectibles" index="7" instance=ExtResource("6_o6o2s")]
 position = Vector2(65.855, -195.369)
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.52, 0.52)
 
 [node name="Collectible9" parent="Collectibles" index="8" instance=ExtResource("6_o6o2s")]
 position = Vector2(50.3688, -210.855)
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.52, 0.52)
 
 [node name="Collectible10" parent="Collectibles" index="9" instance=ExtResource("6_o6o2s")]
 position = Vector2(40.426, -230.369)
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.52, 0.52)
 
 [node name="Collectible11" parent="Collectibles" index="10" instance=ExtResource("6_o6o2s")]
 position = Vector2(37, -252)
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.52, 0.52)
 
 [node name="Collectible12" parent="Collectibles" index="11" instance=ExtResource("6_o6o2s")]
 position = Vector2(40.426, -273.631)
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.52, 0.52)
 
 [node name="Collectible13" parent="Collectibles" index="12" instance=ExtResource("6_o6o2s")]
 position = Vector2(50.3688, -293.145)
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.52, 0.52)
 
 [node name="Collectible14" parent="Collectibles" index="13" instance=ExtResource("6_o6o2s")]
 position = Vector2(65.855, -308.631)
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.52, 0.52)
 
 [node name="Collectible15" parent="Collectibles" index="14" instance=ExtResource("6_o6o2s")]
 position = Vector2(85.3688, -318.574)
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.52, 0.52)
 
 [node name="Collectible16" parent="Collectibles" index="15" instance=ExtResource("6_o6o2s")]
 position = Vector2(107, -322)
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.52, 0.52)
 
 [node name="Collectible17" parent="Collectibles" index="16" instance=ExtResource("6_o6o2s")]
 position = Vector2(128.631, -318.574)
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.52, 0.52)
 
 [node name="Collectible18" parent="Collectibles" index="17" instance=ExtResource("6_o6o2s")]
 position = Vector2(148.145, -308.631)
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.52, 0.52)
 
 [node name="Collectible19" parent="Collectibles" index="18" instance=ExtResource("6_o6o2s")]
 position = Vector2(163.631, -293.145)
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.52, 0.52)
 
 [node name="Collectible20" parent="Collectibles" index="19" instance=ExtResource("6_o6o2s")]
 position = Vector2(173.574, -273.631)
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.52, 0.52)
 
 [node name="Collectible21" parent="Collectibles" index="20" instance=ExtResource("6_o6o2s")]
 position = Vector2(-274, -187)
+scale = Vector2(0.52, 0.52)
 
 [node name="Collectible22" parent="Collectibles" index="21" instance=ExtResource("6_o6o2s")]
 position = Vector2(-135, -249)
+scale = Vector2(0.52, 0.52)
 
 [node name="Collectible23" parent="Collectibles" index="22" instance=ExtResource("6_o6o2s")]
 position = Vector2(-142, -284)
+scale = Vector2(0.52, 0.52)
 
 [node name="Collectible24" parent="Collectibles" index="23" instance=ExtResource("6_o6o2s")]
 position = Vector2(-151, -181)
+scale = Vector2(0.52, 0.52)
 
 [node name="Collectible25" parent="Collectibles" index="24" instance=ExtResource("6_o6o2s")]
 position = Vector2(-246, -173)
+scale = Vector2(0.52, 0.52)
 
 [node name="Collectible26" parent="Collectibles" index="25" instance=ExtResource("6_o6o2s")]
 modulate = Color(0.0762294, 0.971882, 0.0681857, 1)
 position = Vector2(97, 0)
+scale = Vector2(0.52, 0.52)
 pointValue = 20
 
 [node name="Collectible27" parent="Collectibles" index="26" instance=ExtResource("6_o6o2s")]
 modulate = Color(0.0762294, 0.971882, 0.0681857, 1)
 position = Vector2(375, -46)
+scale = Vector2(0.52, 0.52)
 pointValue = 30
 
 [node name="Collectible28" parent="Collectibles" index="27" instance=ExtResource("6_o6o2s")]
 modulate = Color(0.0762294, 0.971882, 0.0681857, 1)
 position = Vector2(-58, -351)
+scale = Vector2(0.52, 0.52)
 pointValue = 20
 
 [node name="Collectible29" parent="Collectibles" index="28" instance=ExtResource("6_o6o2s")]
 modulate = Color(0.0762294, 0.971882, 0.0681857, 1)
 position = Vector2(249, -153)
+scale = Vector2(0.52, 0.52)
 pointValue = 20
 
 [node name="Collectible30" parent="Collectibles" index="29" instance=ExtResource("6_o6o2s")]
 modulate = Color(1, 0, 0.227451, 1)
 position = Vector2(250, -352)
+scale = Vector2(0.52, 0.52)
 pointValue = 40
 
 [node name="Collectible31" parent="Collectibles" index="30" instance=ExtResource("6_o6o2s")]
 modulate = Color(0.0762294, 0.971882, 0.0681857, 1)
 position = Vector2(-59, -156)
+scale = Vector2(0.52, 0.52)
 pointValue = 20
 
 [node name="Collectible32" parent="Collectibles" index="31" instance=ExtResource("6_o6o2s")]
 position = Vector2(-133, -213)
+scale = Vector2(0.52, 0.52)
 
 [node name="Collectible33" parent="Collectibles" index="32" instance=ExtResource("6_o6o2s")]
 position = Vector2(-218, -171)
+scale = Vector2(0.52, 0.52)
 
 [node name="Collectible34" parent="Collectibles" index="33" instance=ExtResource("6_o6o2s")]
 position = Vector2(-183, -171)
+scale = Vector2(0.52, 0.52)
 
 [node name="Collectible35" parent="Collectibles" index="34" instance=ExtResource("6_o6o2s")]
 position = Vector2(376, -277)
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.52, 0.52)
 
 [node name="Collectible36" parent="Collectibles" index="35" instance=ExtResource("6_o6o2s")]
 modulate = Color(0.0762294, 0.971882, 0.0681857, 1)
 position = Vector2(97, -25)
+scale = Vector2(0.52, 0.52)
 pointValue = 20
 
 [node name="Collectible37" parent="Collectibles" index="36" instance=ExtResource("6_o6o2s")]
 modulate = Color(0.0762294, 0.971882, 0.0681857, 1)
 position = Vector2(97, -52)
+scale = Vector2(0.52, 0.52)
 pointValue = 20
 
 [node name="Collectible38" type="Area2D" parent="Collectibles" index="37" instance=ExtResource("6_o6o2s")]
-position = Vector2(-1545.94, 421.778)
-scale = Vector2(0.7, 0.7)
+position = Vector2(-870, 498)
 script = ExtResource("7_nsbdf")
 pointValue = 10
 
 [node name="Collectible39" type="Area2D" parent="Collectibles" index="38" instance=ExtResource("6_o6o2s")]
-position = Vector2(-1558.75, 415.578)
-scale = Vector2(0.7, 0.7)
+position = Vector2(-879.299, 556.713)
 script = ExtResource("7_nsbdf")
 pointValue = 10
 
 [node name="Collectible40" type="Area2D" parent="Collectibles" index="39" instance=ExtResource("6_o6o2s")]
-position = Vector2(-1570.04, 406.916)
-scale = Vector2(0.7, 0.7)
+position = Vector2(-906.287, 609.679)
 script = ExtResource("7_nsbdf")
 pointValue = 10
 
 [node name="Collectible41" type="Area2D" parent="Collectibles" index="40" instance=ExtResource("6_o6o2s")]
-position = Vector2(-1579.34, 396.15)
-scale = Vector2(0.7, 0.7)
+position = Vector2(-948.321, 651.713)
 script = ExtResource("7_nsbdf")
 pointValue = 10
 
 [node name="Collectible42" type="Area2D" parent="Collectibles" index="41" instance=ExtResource("6_o6o2s")]
-position = Vector2(-1586.28, 383.726)
-scale = Vector2(0.7, 0.7)
+position = Vector2(-1001.29, 678.701)
 script = ExtResource("7_nsbdf")
 pointValue = 10
 
 [node name="Collectible43" type="Area2D" parent="Collectibles" index="42" instance=ExtResource("6_o6o2s")]
-position = Vector2(-1590.55, 370.155)
-scale = Vector2(0.7, 0.7)
+position = Vector2(-1060, 688)
 script = ExtResource("7_nsbdf")
 pointValue = 10
 
 [node name="Collectible44" type="Area2D" parent="Collectibles" index="43" instance=ExtResource("6_o6o2s")]
-position = Vector2(-1592, 356)
-scale = Vector2(0.7, 0.7)
+position = Vector2(-1118.71, 678.701)
+script = ExtResource("7_nsbdf")
+pointValue = 10
+
+[node name="Collectible45" type="Area2D" parent="Collectibles" index="44" instance=ExtResource("6_o6o2s")]
+position = Vector2(-1171.68, 651.713)
+script = ExtResource("7_nsbdf")
+pointValue = 10
+
+[node name="Collectible46" type="Area2D" parent="Collectibles" index="45" instance=ExtResource("6_o6o2s")]
+position = Vector2(-1213.71, 609.679)
+script = ExtResource("7_nsbdf")
+pointValue = 10
+
+[node name="Collectible47" type="Area2D" parent="Collectibles" index="46" instance=ExtResource("6_o6o2s")]
+position = Vector2(-1240.7, 556.713)
+script = ExtResource("7_nsbdf")
+pointValue = 10
+
+[node name="Collectible48" type="Area2D" parent="Collectibles" index="47" instance=ExtResource("6_o6o2s")]
+position = Vector2(-1250, 498)
+script = ExtResource("7_nsbdf")
+pointValue = 10
+
+[node name="Collectible49" type="Area2D" parent="Collectibles" index="48" instance=ExtResource("6_o6o2s")]
+position = Vector2(-1240.7, 439.287)
+script = ExtResource("7_nsbdf")
+pointValue = 10
+
+[node name="Collectible50" type="Area2D" parent="Collectibles" index="49" instance=ExtResource("6_o6o2s")]
+position = Vector2(-1213.71, 386.321)
+script = ExtResource("7_nsbdf")
+pointValue = 10
+
+[node name="Collectible51" type="Area2D" parent="Collectibles" index="50" instance=ExtResource("6_o6o2s")]
+position = Vector2(-1171.68, 344.287)
+script = ExtResource("7_nsbdf")
+pointValue = 10
+
+[node name="Collectible52" type="Area2D" parent="Collectibles" index="51" instance=ExtResource("6_o6o2s")]
+position = Vector2(-1118.71, 317.299)
+script = ExtResource("7_nsbdf")
+pointValue = 10
+
+[node name="Collectible53" type="Area2D" parent="Collectibles" index="52" instance=ExtResource("6_o6o2s")]
+position = Vector2(-1060, 308)
+script = ExtResource("7_nsbdf")
+pointValue = 10
+
+[node name="Collectible54" type="Area2D" parent="Collectibles" index="53" instance=ExtResource("6_o6o2s")]
+position = Vector2(-1001.29, 317.299)
+script = ExtResource("7_nsbdf")
+pointValue = 10
+
+[node name="Collectible55" type="Area2D" parent="Collectibles" index="54" instance=ExtResource("6_o6o2s")]
+position = Vector2(-948.321, 344.287)
+script = ExtResource("7_nsbdf")
+pointValue = 10
+
+[node name="Collectible56" type="Area2D" parent="Collectibles" index="55" instance=ExtResource("6_o6o2s")]
+position = Vector2(-906.287, 386.321)
+script = ExtResource("7_nsbdf")
+pointValue = 10
+
+[node name="Collectible57" type="Area2D" parent="Collectibles" index="56" instance=ExtResource("6_o6o2s")]
+position = Vector2(-879.299, 439.287)
 script = ExtResource("7_nsbdf")
 pointValue = 10
 
@@ -457,7 +533,7 @@ position = Vector2(-1180, -248)
 rotation = 1.64473
 
 [node name="Boundary30" parent="Boundaries" index="18" instance=ExtResource("5_ulf32")]
-position = Vector2(-1371, -246)
+position = Vector2(-1397, -259)
 rotation = -0.975641
 
 [node name="Boundary17" parent="Boundaries" index="19" instance=ExtResource("5_ulf32")]
@@ -522,31 +598,31 @@ position = Vector2(-481, -251)
 rotation = 0.86529
 
 [node name="Boundary34" parent="Boundaries" index="31" instance=ExtResource("5_ulf32")]
-position = Vector2(-1196, 402)
+position = Vector2(-1537, 439)
 scale = Vector2(0.56031, 0.239799)
 
 [node name="Boundary35" parent="Boundaries" index="32" instance=ExtResource("5_ulf32")]
-position = Vector2(-1120, 341)
+position = Vector2(-1461, 378)
 rotation = -2.1224
 scale = Vector2(0.56031, 0.239799)
 
 [node name="Boundary37" parent="Boundaries" index="33" instance=ExtResource("5_ulf32")]
-position = Vector2(-1558, 435)
+position = Vector2(-1899, 472)
 rotation = 0.353798
 scale = Vector2(0.56031, 0.239799)
 
 [node name="Boundary38" parent="Boundaries" index="34" instance=ExtResource("5_ulf32")]
-position = Vector2(-1216, 241)
+position = Vector2(-1557, 278)
 rotation = 0.201348
 scale = Vector2(0.56031, 0.239799)
 
 [node name="Boundary39" parent="Boundaries" index="35" instance=ExtResource("5_ulf32")]
-position = Vector2(-1413, 239)
-rotation = -0.341328
+position = Vector2(-1738, 267)
+rotation = -0.0803682
 scale = Vector2(0.735373, 0.239799)
 
 [node name="Boundary40" parent="Boundaries" index="36" instance=ExtResource("5_ulf32")]
-position = Vector2(-1577, 320)
+position = Vector2(-1918, 357)
 rotation = -0.770531
 scale = Vector2(0.675115, 0.239799)
 
@@ -557,7 +633,7 @@ rotation = -1.82355
 scale = Vector2(0.171636, 0.239799)
 
 [node name="Boundary36" parent="Boundaries" index="38" instance=ExtResource("5_ulf32")]
-position = Vector2(-1383, 431)
+position = Vector2(-1708, 480)
 rotation = -0.263107
 scale = Vector2(0.647961, 0.239799)
 
@@ -583,10 +659,10 @@ metadata/_edit_use_anchors_ = true
 [node name="FuelLabel" parent="UI" index="1"]
 metadata/_edit_use_anchors_ = true
 
-[node name="StrokesLabel" parent="UI" index="2"]
+[node name="StrokesLabel" parent="UI" index="3"]
 metadata/_edit_use_anchors_ = true
 
-[node name="DeathScreen" parent="UI" index="4"]
+[node name="DeathScreen" parent="UI" index="5"]
 material = SubResource("ShaderMaterial_jrflj")
 
 [node name="BackgroundMusic" parent="Audio" index="0"]

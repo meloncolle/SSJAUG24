@@ -222,7 +222,8 @@ func _on_changed_fuel(newVal: float, oldVal: float):
 	if newVal > oldVal:
 		sfx.fuelGet.play()
 	fuelLabel.value = newVal
-	submitHint.visible = newVal <= hintLimit
+	if fuel.startingFuel > 0:
+		submitHint.visible = newVal <= hintLimit
 
 func update_ball_indices():
 	var ballCount := 0
