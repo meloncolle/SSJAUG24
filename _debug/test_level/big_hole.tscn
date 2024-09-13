@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://bx7cu3ikfdm6g"]
+
+[ext_resource type="PackedScene" uid="uid://jwa57sqwi2ws" path="res://Levels/base_level.tscn" id="1_mq86q"]
+[ext_resource type="PackedScene" uid="uid://dawmy7e4kekbg" path="res://Entities/Environment/BlackHole.tscn" id="2_kjhkd"]
+[ext_resource type="Shader" path="res://ArtAssets/Shaders/blur.gdshader" id="2_vm3jt"]
+[ext_resource type="PackedScene" uid="uid://b0q8p531yqss6" path="res://Entities/Ball.tscn" id="3_f5ome"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bcalg"]
+resource_local_to_scene = true
+shader = ExtResource("2_vm3jt")
+shader_parameter/blur = 0.0
+shader_parameter/brightness = 1.0
+
+[node name="BaseLevel" instance=ExtResource("1_mq86q")]
+
+[node name="BlackHole" parent="BlackHoles" index="0" instance=ExtResource("2_kjhkd")]
+position = Vector2(-336, -94)
+gravity = 252.0
+gravityFieldSize = 309.0
+gravityStrength = 252.0
+centerSize = 87.0
+
+[node name="Ball" parent="Planets" index="0" instance=ExtResource("3_f5ome")]
+
+[node name="DeathScreen" parent="UI" index="4"]
+material = SubResource("ShaderMaterial_bcalg")

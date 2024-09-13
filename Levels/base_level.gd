@@ -26,6 +26,8 @@ var strokes: int = 0: set = set_strokes
 
 @onready var fadeAnimationPlayer: AnimationPlayer = $FadeAnimationPlayer
 
+@onready var submitHint: Control = $UI/SubmitHint
+@export var hintLimit: float = 10
 ###KYE STUFF
 ###KYE STUFF
 ###KYE STUFF
@@ -196,6 +198,7 @@ func set_state(newState: Enums.LevelState):
 			powerMeter.visible = true
 		
 		Enums.LevelState.DEAD:
+			submitHint.visible = false
 			Globals.disableInput = true
 			Globals.isPausable = false
 			deathScreen.visible = true
@@ -215,6 +218,7 @@ func _on_changed_fuel(newVal: float, oldVal: float):
 	if newVal > oldVal:
 		sfx.fuelGet.play()
 	fuelLabel.value = newVal
+	submitHint.visible = newVal <= hintLimit
 
 func update_ball_indices():
 	var ballCount := 0
@@ -222,7 +226,10 @@ func update_ball_indices():
 		b.set_index(ballCount)
 		ballCount += 1
 
-func _on_ball_destroyed(destroyedIndex: int, points: int = 0):
+func _on_ball_destroyed(destroyedIndex: int, pos: Vector2, points: int = 0):
+	var explosion: Sprite2D = ResourceLoader.load("res://ArtAssets/Sprites/explode.tscn").instantiate()
+	explosion.global_position = pos
+	$Planets.add_child(explosion)
 	if points != 0:
 		set_score(points)
 	
@@ -231,6 +238,9 @@ func _on_ball_destroyed(destroyedIndex: int, points: int = 0):
 		activeBallIndex -= 1
 	update_ball_indices()	
 	
+	await explosion.get_node("AnimationPlayer").animation_finished
+	explosion.queue_free()
+	
 	if balls.size() == 0:
 		end_level(true)
 	else:
@@ -238,6 +248,7 @@ func _on_ball_destroyed(destroyedIndex: int, points: int = 0):
 
 func end_level(died: bool = false):
 	state = Enums.LevelState.DEAD
+	$MusicSwitcher.play("end_lvl")
 	deathScreen.show_results(died, score, fuel.fuel, strokes)
 
 func _on_press_retry():

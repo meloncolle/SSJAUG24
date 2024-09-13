@@ -1,17 +1,18 @@
-[gd_scene load_steps=23 format=3 uid="uid://jwa57sqwi2ws"]
+[gd_scene load_steps=28 format=3 uid="uid://jwa57sqwi2ws"]
 
 [ext_resource type="Script" path="res://Levels/base_level.gd" id="1_uc3i8"]
+[ext_resource type="Texture2D" uid="uid://tmt0o8yl4bfp" path="res://ArtAssets/background.png" id="2_0d2cv"]
 [ext_resource type="Script" path="res://Scripts/cam.gd" id="2_1qgfg"]
 [ext_resource type="Script" path="res://Scripts/power.gd" id="2_bhbfv"]
 [ext_resource type="PackedScene" uid="uid://c6a1hop38o3mq" path="res://UI/menus/death_screen.tscn" id="2_l5cqc"]
 [ext_resource type="Shader" path="res://ArtAssets/Shaders/blur.gdshader" id="3_2ydd2"]
 [ext_resource type="Script" path="res://Scripts/fuel.gd" id="3_ma3hl"]
 [ext_resource type="PackedScene" uid="uid://bx3uslokvfceg" path="res://UI/PowerMeter.tscn" id="5_j3a3o"]
-[ext_resource type="Texture2D" uid="uid://chw2b1i41ldvx" path="res://ArtAssets/bg.png" id="7_ch58c"]
 [ext_resource type="FontFile" uid="uid://dwadptpgvjl5g" path="res://ArtAssets/UI/CAT North.ttf" id="7_oh2q1"]
 [ext_resource type="AudioStream" uid="uid://cb6ex57pdok7a" path="res://_debug/Audio/Placeholder/SSG-prelim loop.wav" id="7_q1rc5"]
 [ext_resource type="Script" path="res://UI/UI_label.gd" id="8_qh13y"]
 [ext_resource type="AudioStream" uid="uid://to7aepsocryg" path="res://_debug/Audio/v0.1 sfx/zapsplat_multimedia_game_sound_retro_arcade_hit_blip_002_92276.mp3" id="12_ggnrl"]
+[ext_resource type="AudioStream" uid="uid://c74cb3qsopchl" path="res://_debug/Audio/Placeholder/9trillion again 9-5 acid edit.mp3" id="12_q67sk"]
 [ext_resource type="AudioStream" uid="uid://deoeeuo4iv55y" path="res://_debug/Audio/v0.1 sfx/esm_fun_bonus_explode_3_sound_fx_arcade_casino_kids_mobile_app.mp3" id="13_cpngn"]
 [ext_resource type="AudioStream" uid="uid://c2m7hw2xsknm2" path="res://_debug/Audio/v0.1 sfx/zapsplat_multimedia_game_sound_retro_arcade_lo_fi_die_death_lose_life_warble_107580.mp3" id="14_fv3bp"]
 [ext_resource type="AudioStream" uid="uid://fj778cqkxxcb" path="res://_debug/Audio/v0.1 sfx/esm_game_bonus_sound_long_2_sound_fx_arcade_casino_kids_mobile_app.mp3" id="15_2w7c8"]
@@ -19,11 +20,70 @@
 [ext_resource type="AudioStream" uid="uid://di23bpo8ep1op" path="res://_debug/Audio/v0.1 sfx/zapsplat_multimedia_game_sound_coil_collect_digital_arcade_001_64267.mp3" id="17_lhbbc"]
 [ext_resource type="AudioStream" uid="uid://3wm8vtau2tid" path="res://_debug/Audio/v0.1 sfx/jessey_drake_oldschool_SHORT_WARP_DOWN_video_retro_game_chip_set_8BIT_JD.mp3" id="18_bkwis"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gyker"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aopju"]
 resource_local_to_scene = true
 shader = ExtResource("3_2ydd2")
 shader_parameter/blur = 0.0
 shader_parameter/brightness = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iumy0"]
+bg_color = Color(0, 0, 0, 0.392157)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.921569)
+
+[sub_resource type="Animation" id="Animation_eyv71"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/Fader:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/Fader:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Audio/BackgroundMusic:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Audio/EndLevelMusic:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_urvjq"]
 resource_name = "fade_out"
@@ -65,25 +125,43 @@ tracks/2/keys = {
 "update": 0,
 "values": [-80.0, 0.0]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Audio/EndLevelMusic:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-80.0, 0.0]
+}
 
-[sub_resource type="Animation" id="Animation_eyv71"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ej1co"]
+_data = {
+"RESET": SubResource("Animation_eyv71"),
+"fade_in": SubResource("Animation_urvjq")
+}
+
+[sub_resource type="Animation" id="Animation_7g138"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("UI/Fader:color")
+tracks/0/path = NodePath("Audio/BackgroundMusic:volume_db")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0, 0, 0, 1)]
+"values": [0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("UI/Fader:visible")
+tracks/1/path = NodePath("Audio/BackgroundMusic:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -95,20 +173,85 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Audio/BackgroundMusic:volume_db")
+tracks/2/path = NodePath("Audio/EndLevelMusic:playing")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Audio/EndLevelMusic:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [-80.0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ej1co"]
+[sub_resource type="Animation" id="Animation_a0lxr"]
+resource_name = "end_lvl"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Audio/BackgroundMusic:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -80.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Audio/BackgroundMusic:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Audio/EndLevelMusic:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Audio/EndLevelMusic:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.25, 0.45),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-80.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3t5rd"]
 _data = {
-"RESET": SubResource("Animation_eyv71"),
-"fade_in": SubResource("Animation_urvjq")
+"RESET": SubResource("Animation_7g138"),
+"end_lvl": SubResource("Animation_a0lxr")
 }
 
 [node name="BaseLevel" type="Node2D"]
@@ -117,14 +260,18 @@ script = ExtResource("1_uc3i8")
 
 [node name="ParallaxBackground" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.5, 0.5)
+repeat_times = 3
 metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground"]
-offset_left = -1894.0
-offset_top = -1498.0
-offset_right = 1946.0
-offset_bottom = 1502.0
-texture = ExtResource("7_ch58c")
+offset_left = -6500.0
+offset_top = -6500.0
+offset_right = -3500.0
+offset_bottom = -3500.0
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("2_0d2cv")
+stretch_mode = 1
+flip_h = true
 metadata/_edit_lock_ = true
 
 [node name="Power" type="Node" parent="."]
@@ -212,7 +359,7 @@ scale = Vector2(0.478595, 0.478595)
 
 [node name="DeathScreen" parent="UI" instance=ExtResource("2_l5cqc")]
 visible = false
-material = SubResource("ShaderMaterial_gyker")
+material = SubResource("ShaderMaterial_aopju")
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -232,12 +379,37 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
+[node name="SubmitHint" type="Panel" parent="UI"]
+visible = false
+offset_left = 12.0
+offset_top = 122.0
+offset_right = 228.0
+offset_bottom = 183.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_iumy0")
+
+[node name="Txt" type="RichTextLabel" parent="UI/SubmitHint"]
+layout_mode = 2
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 206.0
+offset_bottom = 51.0
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "[center]Press ESC > Submit Score
+to end the level at any time.[/center]"
+
 [node name="Audio" type="Node" parent="."]
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("7_q1rc5")
 autoplay = true
 bus = &"BGM"
+
+[node name="EndLevelMusic" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("12_q67sk")
+volume_db = -80.0
+bus = &"BGM"
+parameters/looping = true
 
 [node name="HitBall" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("12_ggnrl")
@@ -275,3 +447,8 @@ libraries = {
 "": SubResource("AnimationLibrary_ej1co")
 }
 autoplay = "fade_in"
+
+[node name="MusicSwitcher" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3t5rd")
+}
