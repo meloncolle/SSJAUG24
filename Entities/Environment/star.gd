@@ -4,11 +4,14 @@ extends Boostable
 class_name StarEntity
 
 @onready var dieSFX = $DieEmitter
+@export var hurtsYou = true
 
 func _init():
 	rotationSpeed = 0.25
 
 func _on_center_entered(body: Node2D) -> void:
+	if !hurtsYou:
+		return
 	if body is BallEntity:
 		# Don't grant points in inventory
 		body.destroy(false)

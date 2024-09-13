@@ -15,6 +15,7 @@ shader_parameter/blur = 0.0
 shader_parameter/brightness = 1.0
 
 [node name="BaseLevel" instance=ExtResource("1_h1s5e")]
+infinite_fuel = true
 
 [node name="TextureRect" parent="ParallaxBackground" index="0"]
 offset_left = -7500.0

@@ -1,7 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctyss6manpqsx"]
+[gd_scene load_steps=12 format=3 uid="uid://ctyss6manpqsx"]
 
 [ext_resource type="PackedScene" uid="uid://jwa57sqwi2ws" path="res://Levels/base_level.tscn" id="1_lc5ln"]
 [ext_resource type="Shader" path="res://ArtAssets/Shaders/blur.gdshader" id="2_e27ov"]
+[ext_resource type="PackedScene" uid="uid://bqujgumw3qfky" path="res://Entities/Environment/Star.tscn" id="2_fqths"]
+[ext_resource type="PackedScene" uid="uid://dawmy7e4kekbg" path="res://Entities/Environment/BlackHole.tscn" id="2_jmfi8"]
+[ext_resource type="PackedScene" uid="uid://b0q8p531yqss6" path="res://Entities/Ball.tscn" id="2_v3tgi"]
+[ext_resource type="PackedScene" uid="uid://bjw3hnypih6fe" path="res://Entities/Environment/WormHole.tscn" id="3_cbno7"]
+[ext_resource type="PackedScene" uid="uid://ceht6yka27cw1" path="res://Entities/Collectible/Collectible.tscn" id="3_etutu"]
+[ext_resource type="PackedScene" uid="uid://bpiqrfkgh1fl1" path="res://Entities/Environment/Static/Boundary.tscn" id="5_i1wli"]
+[ext_resource type="PackedScene" uid="uid://4f1m2s6ovnyx" path="res://Entities/Collectible/FuelTank.tscn" id="9_okxwg"]
+[ext_resource type="PackedScene" uid="uid://bifkp2m7aoj61" path="res://Entities/Environment/Static/Boundary (bouncy).tscn" id="10_27ik1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ndf5t"]
 resource_local_to_scene = true
@@ -10,6 +18,649 @@ shader_parameter/blur = 0.0
 shader_parameter/brightness = 1.0
 
 [node name="BaseLevel" instance=ExtResource("1_lc5ln")]
+infinite_fuel = true
+
+[node name="Camera2D" parent="." index="3"]
+zoom = Vector2(0.8, 0.8)
+
+[node name="Star" parent="Stars" index="0" instance=ExtResource("2_fqths")]
+position = Vector2(1199, -635)
+gravity = 400.0
+boostEnabled = false
+gravityFieldSize = 204.0
+gravityStrength = 400.0
+centerSize = 30.0
+
+[node name="Star2" parent="Stars" index="1" instance=ExtResource("2_fqths")]
+position = Vector2(502, -638)
+gravity = -400.0
+boostEnabled = false
+gravityFieldSize = 204.0
+gravityStrength = -400.0
+centerSize = 30.0
+
+[node name="Star3" parent="Stars" index="2" instance=ExtResource("2_fqths")]
+position = Vector2(-77, 396)
+gravity = 250.0
+hurtsYou = false
+gravityFieldSize = 346.0
+gravityStrength = 250.0
+centerSize = 8.0
+
+[node name="Star4" parent="Stars" index="3" instance=ExtResource("2_fqths")]
+position = Vector2(366, 816)
+gravity = -2891.0
+hurtsYou = false
+gravityFieldSize = 140.0
+gravityStrength = -2891.0
+centerSize = 8.0
+
+[node name="Star5" parent="Stars" index="4" instance=ExtResource("2_fqths")]
+position = Vector2(494, 680)
+gravity = -2891.0
+hurtsYou = false
+gravityFieldSize = 140.0
+gravityStrength = -2891.0
+centerSize = 8.0
+
+[node name="Star6" parent="Stars" index="5" instance=ExtResource("2_fqths")]
+position = Vector2(680, 605)
+gravity = -2891.0
+hurtsYou = false
+gravityFieldSize = 140.0
+gravityStrength = -2891.0
+centerSize = 8.0
+
+[node name="Star7" parent="Stars" index="6" instance=ExtResource("2_fqths")]
+position = Vector2(258, 201)
+gravity = 194.0
+hurtsYou = false
+gravityFieldSize = 234.0
+gravityStrength = 194.0
+centerSize = 8.0
+
+[node name="Star9" parent="Stars" index="7" instance=ExtResource("2_fqths")]
+position = Vector2(557, 273)
+gravity = 194.0
+hurtsYou = false
+gravityFieldSize = 234.0
+gravityStrength = 194.0
+centerSize = 8.0
+
+[node name="Star8" parent="Stars" index="8" instance=ExtResource("2_fqths")]
+position = Vector2(261, 509)
+gravity = 250.0
+hurtsYou = false
+gravityStrength = 250.0
+centerSize = 8.0
+
+[node name="Star10" parent="Stars" index="9" instance=ExtResource("2_fqths")]
+position = Vector2(-248, 185)
+gravity = 250.0
+hurtsYou = false
+gravityStrength = 250.0
+centerSize = 8.0
+
+[node name="BlackHole" parent="BlackHoles" index="0" instance=ExtResource("2_jmfi8")]
+position = Vector2(176, 1326)
+gravityFieldSize = 218.0
+centerSize = 59.0
+
+[node name="WormHole" parent="WormHoles" index="0" node_paths=PackedStringArray("warpTarget") instance=ExtResource("3_cbno7")]
+position = Vector2(5, -291)
+warpTarget = NodePath("../WormHole2")
+gravityFieldSize = 0.0
+centerSize = 38.0
+
+[node name="WormHole2" parent="WormHoles" index="1" instance=ExtResource("3_cbno7")]
+position = Vector2(-803, 399)
+gravityFieldSize = 0.0
+centerSize = 38.0
+
+[node name="WormHole3" parent="WormHoles" index="2" node_paths=PackedStringArray("warpTarget") instance=ExtResource("3_cbno7")]
+position = Vector2(-375, 1339)
+warpTarget = NodePath("../WormHole4")
+gravityFieldSize = 0.0
+centerSize = 38.0
+
+[node name="WormHole4" parent="WormHoles" index="3" instance=ExtResource("3_cbno7")]
+position = Vector2(1161, -279)
+gravityFieldSize = 0.0
+centerSize = 38.0
+
+[node name="WormHole5" parent="WormHoles" index="4" node_paths=PackedStringArray("warpTarget") instance=ExtResource("3_cbno7")]
+position = Vector2(547, -279)
+warpTarget = NodePath("../WormHole6")
+gravityFieldSize = 0.0
+centerSize = 38.0
+
+[node name="WormHole6" parent="WormHoles" index="5" instance=ExtResource("3_cbno7")]
+position = Vector2(-273, 795)
+gravityFieldSize = 0.0
+centerSize = 38.0
+
+[node name="WormHole7" parent="WormHoles" index="6" node_paths=PackedStringArray("warpTarget") instance=ExtResource("3_cbno7")]
+position = Vector2(659, 829)
+warpTarget = NodePath("../WormHole8")
+gravityFieldSize = 0.0
+centerSize = 38.0
+
+[node name="WormHole8" parent="WormHoles" index="7" instance=ExtResource("3_cbno7")]
+position = Vector2(787, 1391)
+gravityFieldSize = 0.0
+centerSize = 38.0
+
+[node name="Collectible" parent="Collectibles" index="0" instance=ExtResource("3_etutu")]
+position = Vector2(-621, -289)
+
+[node name="Collectible6" parent="Collectibles" index="1" instance=ExtResource("3_etutu")]
+position = Vector2(-694, 1067)
+
+[node name="Collectible7" parent="Collectibles" index="2" instance=ExtResource("3_etutu")]
+position = Vector2(-827, 918)
+
+[node name="Collectible8" parent="Collectibles" index="3" instance=ExtResource("3_etutu")]
+position = Vector2(-772, 985)
+
+[node name="Collectible9" parent="Collectibles" index="4" instance=ExtResource("3_etutu")]
+position = Vector2(-699, 640)
+
+[node name="Collectible10" parent="Collectibles" index="5" instance=ExtResource("3_etutu")]
+position = Vector2(-761, 712)
+
+[node name="Collectible11" parent="Collectibles" index="6" instance=ExtResource("3_etutu")]
+position = Vector2(-826, 772)
+
+[node name="Collectible12" parent="Collectibles" index="7" instance=ExtResource("3_etutu")]
+position = Vector2(-895, 841)
+
+[node name="Collectible2" parent="Collectibles" index="8" instance=ExtResource("3_etutu")]
+position = Vector2(-521, -289)
+
+[node name="Collectible3" parent="Collectibles" index="9" instance=ExtResource("3_etutu")]
+position = Vector2(-421, -289)
+
+[node name="Collectible4" parent="Collectibles" index="10" instance=ExtResource("3_etutu")]
+position = Vector2(-321, -289)
+
+[node name="Collectible5" parent="Collectibles" index="11" instance=ExtResource("3_etutu")]
+position = Vector2(-221, -289)
+
+[node name="Collectible41" parent="Collectibles" index="12" instance=ExtResource("3_etutu")]
+position = Vector2(431, 1323)
+
+[node name="Collectible42" parent="Collectibles" index="13" instance=ExtResource("3_etutu")]
+position = Vector2(543, 1340)
+
+[node name="Collectible43" parent="Collectibles" index="14" instance=ExtResource("3_etutu")]
+position = Vector2(650, 1372)
+
+[node name="Collectible44" parent="Collectibles" index="15" instance=ExtResource("3_etutu")]
+position = Vector2(105, 1589)
+
+[node name="Collectible45" parent="Collectibles" index="16" instance=ExtResource("3_etutu")]
+position = Vector2(102, 1667)
+
+[node name="Collectible47" parent="Collectibles" index="17" instance=ExtResource("3_etutu")]
+position = Vector2(227, 1664)
+
+[node name="Collectible46" parent="Collectibles" index="18" instance=ExtResource("3_etutu")]
+position = Vector2(223, 1588)
+
+[node name="Collectible48" parent="Collectibles" index="19" instance=ExtResource("3_etutu")]
+position = Vector2(167, 1759)
+
+[node name="Collectible49" parent="Collectibles" index="20" instance=ExtResource("3_etutu")]
+position = Vector2(167, 1667)
+
+[node name="Collectible50" parent="Collectibles" index="21" instance=ExtResource("3_etutu")]
+position = Vector2(170, 1584)
+
+[node name="Collectible21" parent="Collectibles" index="22" instance=ExtResource("3_etutu")]
+position = Vector2(-291, 242)
+
+[node name="Collectible22" parent="Collectibles" index="23" instance=ExtResource("3_etutu")]
+position = Vector2(-286, 135)
+
+[node name="Collectible23" parent="Collectibles" index="24" instance=ExtResource("3_etutu")]
+position = Vector2(-55, 299)
+
+[node name="Collectible24" parent="Collectibles" index="25" instance=ExtResource("3_etutu")]
+position = Vector2(139, 410)
+
+[node name="Collectible25" parent="Collectibles" index="26" instance=ExtResource("3_etutu")]
+position = Vector2(474, 309)
+
+[node name="Collectible26" parent="Collectibles" index="27" instance=ExtResource("3_etutu")]
+position = Vector2(532, 191)
+
+[node name="Collectible27" parent="Collectibles" index="28" instance=ExtResource("3_etutu")]
+position = Vector2(-187, 207)
+
+[node name="Collectible28" parent="Collectibles" index="29" instance=ExtResource("3_etutu")]
+position = Vector2(-146, 330)
+
+[node name="Collectible29" parent="Collectibles" index="30" instance=ExtResource("3_etutu")]
+position = Vector2(32, 358)
+
+[node name="Collectible30" parent="Collectibles" index="31" instance=ExtResource("3_etutu")]
+position = Vector2(638, 244)
+
+[node name="Collectible31" parent="Collectibles" index="32" instance=ExtResource("3_etutu")]
+position = Vector2(-214, 395)
+
+[node name="Collectible32" parent="Collectibles" index="33" instance=ExtResource("3_etutu")]
+position = Vector2(-11, 543)
+
+[node name="Collectible33" parent="Collectibles" index="34" instance=ExtResource("3_etutu")]
+position = Vector2(32, 448)
+
+[node name="Collectible34" parent="Collectibles" index="35" instance=ExtResource("3_etutu")]
+position = Vector2(598, 356)
+
+[node name="Collectible35" parent="Collectibles" index="36" instance=ExtResource("3_etutu")]
+position = Vector2(185, 250)
+
+[node name="Collectible36" parent="Collectibles" index="37" instance=ExtResource("3_etutu")]
+position = Vector2(-273, 466)
+
+[node name="Collectible37" parent="Collectibles" index="38" instance=ExtResource("3_etutu")]
+position = Vector2(-97, 619)
+
+[node name="Collectible38" parent="Collectibles" index="39" instance=ExtResource("3_etutu")]
+position = Vector2(581, 687)
+
+[node name="Collectible39" parent="Collectibles" index="40" instance=ExtResource("3_etutu")]
+position = Vector2(466, 502)
+
+[node name="Collectible40" parent="Collectibles" index="41" instance=ExtResource("3_etutu")]
+position = Vector2(530, 595)
+
+[node name="Collectible16" parent="Collectibles" index="42" instance=ExtResource("3_etutu")]
+position = Vector2(653, -395)
+
+[node name="Collectible17" parent="Collectibles" index="43" instance=ExtResource("3_etutu")]
+position = Vector2(747, -430)
+
+[node name="Collectible18" parent="Collectibles" index="44" instance=ExtResource("3_etutu")]
+position = Vector2(848, -435)
+
+[node name="Collectible19" parent="Collectibles" index="45" instance=ExtResource("3_etutu")]
+position = Vector2(947, -430)
+
+[node name="Collectible20" parent="Collectibles" index="46" instance=ExtResource("3_etutu")]
+position = Vector2(1053, -395)
+
+[node name="Collectible13" parent="Collectibles" index="47" instance=ExtResource("3_etutu")]
+position = Vector2(-634, 1344)
+
+[node name="Collectible14" parent="Collectibles" index="48" instance=ExtResource("3_etutu")]
+position = Vector2(-564, 1343)
+
+[node name="FuelTank" parent="Collectibles" index="49" instance=ExtResource("9_okxwg")]
+position = Vector2(-814, 1211)
+
+[node name="Collectible15" parent="Collectibles" index="50" instance=ExtResource("3_etutu")]
+position = Vector2(-498, 1343)
+
+[node name="Boundary" parent="Boundaries" index="0" instance=ExtResource("5_i1wli")]
+position = Vector2(-392, -508)
+scale = Vector2(4, 1)
+
+[node name="Boundary2" parent="Boundaries" index="1" instance=ExtResource("5_i1wli")]
+position = Vector2(-392, -110)
+scale = Vector2(4, 1)
+
+[node name="Boundary28" parent="Boundaries" index="2" instance=ExtResource("5_i1wli")]
+position = Vector2(186, 21)
+scale = Vector2(4, 1)
+
+[node name="Boundary30" parent="Boundaries" index="3" instance=ExtResource("5_i1wli")]
+position = Vector2(238, 920)
+scale = Vector2(4, 1)
+
+[node name="Boundary13" parent="Boundaries" index="4" instance=ExtResource("5_i1wli")]
+position = Vector2(849, -720)
+scale = Vector2(3, 1)
+
+[node name="Boundary17" parent="Boundaries" index="5" instance=ExtResource("5_i1wli")]
+position = Vector2(858, -121)
+scale = Vector2(3, 1)
+
+[node name="Boundary15" parent="Boundaries" index="6" instance=ExtResource("5_i1wli")]
+position = Vector2(1287, -395)
+rotation = 1.5708
+scale = Vector2(2, 1)
+
+[node name="Boundary16" parent="Boundaries" index="7" instance=ExtResource("5_i1wli")]
+position = Vector2(417, -417)
+rotation = 1.5708
+scale = Vector2(2, 1)
+
+[node name="Boundary3" parent="Boundaries" index="8" instance=ExtResource("5_i1wli")]
+position = Vector2(-967, -310)
+rotation = 1.5708
+scale = Vector2(1.5, 1)
+
+[node name="Boundary4" parent="Boundaries" index="9" instance=ExtResource("5_i1wli")]
+position = Vector2(184, -310)
+rotation = 1.5708
+scale = Vector2(1.5, 1)
+
+[node name="Boundary14" parent="Boundaries" index="10" instance=ExtResource("5_i1wli")]
+position = Vector2(661, -227)
+rotation = 1.5708
+scale = Vector2(0.75, 0.5)
+
+[node name="Boundary24" parent="Boundaries" index="11" instance=ExtResource("5_i1wli")]
+position = Vector2(554, -632)
+rotation = 1.5708
+scale = Vector2(0.4, 0.3)
+
+[node name="Boundary25" parent="Boundaries" index="12" instance=ExtResource("5_i1wli")]
+position = Vector2(449, -634)
+rotation = 1.5708
+scale = Vector2(0.4, 0.3)
+
+[node name="Boundary26" parent="Boundaries" index="13" instance=ExtResource("5_i1wli")]
+position = Vector2(501, -685)
+scale = Vector2(0.4, 0.3)
+
+[node name="Boundary27" parent="Boundaries" index="14" instance=ExtResource("5_i1wli")]
+position = Vector2(503, -581)
+scale = Vector2(0.4, 0.3)
+
+[node name="Boundary35" parent="Boundaries" index="15" instance=ExtResource("5_i1wli")]
+position = Vector2(1248, -629)
+rotation = 1.5708
+scale = Vector2(0.4, 0.3)
+
+[node name="Boundary36" parent="Boundaries" index="16" instance=ExtResource("5_i1wli")]
+position = Vector2(1143, -631)
+rotation = 1.5708
+scale = Vector2(0.4, 0.3)
+
+[node name="Boundary37" parent="Boundaries" index="17" instance=ExtResource("5_i1wli")]
+position = Vector2(1195, -682)
+scale = Vector2(0.4, 0.3)
+
+[node name="Boundary38" parent="Boundaries" index="18" instance=ExtResource("5_i1wli")]
+position = Vector2(1197, -578)
+scale = Vector2(0.4, 0.3)
+
+[node name="Boundary18" parent="Boundaries" index="19" instance=ExtResource("5_i1wli")]
+position = Vector2(1033, -219)
+rotation = 1.5708
+scale = Vector2(0.75, 0.5)
+
+[node name="Boundary19" parent="Boundaries" index="20" instance=ExtResource("5_i1wli")]
+position = Vector2(1033, -219)
+rotation = 1.5708
+scale = Vector2(0.75, 0.5)
+
+[node name="Boundary5" parent="Boundaries" index="21" instance=ExtResource("5_i1wli")]
+position = Vector2(-805, 250)
+scale = Vector2(1.5, 1)
+
+[node name="Boundary6" parent="Boundaries" index="22" instance=ExtResource("5_i1wli")]
+position = Vector2(-408, 1152)
+scale = Vector2(1.5, 1)
+
+[node name="Boundary12" parent="Boundaries" index="23" instance=ExtResource("5_i1wli")]
+position = Vector2(-607, 1509)
+scale = Vector2(2.5, 1)
+
+[node name="Boundary63" parent="Boundaries" index="24" instance=ExtResource("5_i1wli")]
+position = Vector2(471, 1102)
+scale = Vector2(3.5, 1)
+
+[node name="Boundary65" parent="Boundaries" index="25" instance=ExtResource("5_i1wli")]
+position = Vector2(971, 1354)
+rotation = 1.5708
+scale = Vector2(1.5, 1)
+
+[node name="Boundary66" parent="Boundaries" index="26" instance=ExtResource("5_i1wli")]
+position = Vector2(381, 1875)
+rotation = 1.5708
+scale = Vector2(2, 1)
+
+[node name="Boundary68" parent="Boundaries" index="27" instance=ExtResource("5_i1wli")]
+position = Vector2(652, 1547)
+scale = Vector2(2, 1)
+
+[node name="Boundary67" parent="Boundaries" index="28" instance=ExtResource("5_i1wli")]
+position = Vector2(179, 2159)
+scale = Vector2(1.5, 1)
+
+[node name="Boundary64" parent="Boundaries" index="29" instance=ExtResource("5_i1wli")]
+position = Vector2(-30, 1638)
+rotation = 1.5708
+scale = Vector2(3.5, 1)
+
+[node name="Boundary11" parent="Boundaries" index="30" instance=ExtResource("5_i1wli")]
+position = Vector2(-211, 1331)
+rotation = 1.5708
+scale = Vector2(1.25, 1)
+
+[node name="Boundary9" parent="Boundaries" index="31" instance=ExtResource("5_i1wli")]
+position = Vector2(-877, 989)
+rotation = 0.785398
+scale = Vector2(1, 0.5)
+
+[node name="Boundary10" parent="Boundaries" index="32" instance=ExtResource("5_i1wli")]
+position = Vector2(-692, 712)
+rotation = -0.785398
+scale = Vector2(1, 0.5)
+
+[node name="Boundary7" parent="Boundaries" index="33" instance=ExtResource("5_i1wli")]
+position = Vector2(-1005, 902)
+rotation = 1.5708
+scale = Vector2(4.5, 1)
+
+[node name="Boundary8" parent="Boundaries" index="34" instance=ExtResource("5_i1wli")]
+position = Vector2(-607, 675)
+rotation = 1.5708
+scale = Vector2(3, 1)
+
+[node name="Boundary29" parent="Boundaries" index="35" instance=ExtResource("5_i1wli")]
+position = Vector2(-381, 496)
+rotation = 1.5708
+scale = Vector2(3, 1)
+
+[node name="Boundary32" parent="Boundaries" index="36" instance=ExtResource("10_27ik1")]
+position = Vector2(-971, 581)
+rotation = 1.5708
+scale = Vector2(2, 0.75)
+
+[node name="Boundary33" parent="Boundaries" index="37" instance=ExtResource("10_27ik1")]
+position = Vector2(196, 62)
+rotation = 0.0
+scale = Vector2(4, 0.75)
+
+[node name="Boundary34" parent="Boundaries" index="38" instance=ExtResource("10_27ik1")]
+position = Vector2(-644, 909)
+rotation = 1.5708
+scale = Vector2(1.5, 0.75)
+
+[node name="Boundary31" parent="Boundaries" index="39" instance=ExtResource("5_i1wli")]
+position = Vector2(766, 483)
+rotation = 1.5708
+scale = Vector2(3, 1)
+
+[node name="Ball" parent="Planets" index="0" instance=ExtResource("2_v3tgi")]
+position = Vector2(-741, -288)
+isFirstBall = true
+
+[node name="Ball2" parent="Planets" index="1" instance=ExtResource("2_v3tgi")]
+position = Vector2(172, 1864)
+
+[node name="Ball3" parent="Planets" index="2" instance=ExtResource("2_v3tgi")]
+position = Vector2(238, 1758)
+
+[node name="Ball4" parent="Planets" index="3" instance=ExtResource("2_v3tgi")]
+position = Vector2(104, 1762)
+
+[node name="ScoreLabel" parent="UI" index="0"]
+offset_top = 9.0
+offset_right = 142.0
+offset_bottom = 44.0
+metadata/_edit_use_anchors_ = true
+
+[node name="FuelLabel" parent="UI" index="1"]
+offset_left = -725.0
+offset_top = -247.0
+offset_right = -725.0
+offset_bottom = -212.0
+metadata/_edit_use_anchors_ = true
+
+[node name="InfinityFuel" parent="UI" index="2"]
+visible = true
+
+[node name="StrokesLabel" parent="UI" index="3"]
+offset_top = 71.0
+offset_right = 111.0
+offset_bottom = 106.0
+metadata/_edit_use_anchors_ = true
 
 [node name="DeathScreen" parent="UI" index="5"]
 material = SubResource("ShaderMaterial_ndf5t")
+
+[node name="Txt" type="Node" parent="." index="14"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Txt" index="0"]
+offset_left = -947.0
+offset_top = -462.0
+offset_right = -556.0
+offset_bottom = -367.0
+theme_override_font_sizes/normal_font_size = 19
+bbcode_enabled = true
+text = "[center]This is your ball. Hold and release the
+ [color=\"#00ffff\"]left mouse button[/color] to shoot it in the direction of your cursor.[/center]"
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel9" type="RichTextLabel" parent="Txt" index="1"]
+anchors_preset = -1
+anchor_top = -0.0447531
+anchor_bottom = 0.162037
+offset_left = -179.0
+offset_top = 670.0
+offset_right = 212.0
+offset_bottom = 765.0
+theme_override_font_sizes/normal_font_size = 19
+bbcode_enabled = true
+text = "[center]You can click and hold the [color=\"#00ffff\"]right mouse button[/color] on a field to increase its gravitational pull.
+
+Try manipulating the gravity fields
+to gain momentum.
+
+[color=\"#00ffff\"](Scroll wheel[/color] to change zoom)
+[/center]"
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Txt" index="2"]
+offset_left = -882.0
+offset_top = -228.0
+offset_right = -624.0
+offset_bottom = -151.0
+theme_override_font_sizes/normal_font_size = 19
+bbcode_enabled = true
+text = "[center]You can zoom in/out using the [color=\"#00ffff\"]scroll wheel[/color].[/center]"
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Txt" index="3"]
+offset_left = -139.0
+offset_top = -450.0
+offset_right = 135.0
+offset_bottom = -391.0
+theme_override_font_sizes/normal_font_size = 19
+bbcode_enabled = true
+text = "[center]Enter this [color=\"#00ffff\"]wormhole[/color] to proceed to the next area.[/center]"
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Txt" index="4"]
+offset_left = -954.0
+offset_top = 497.0
+offset_right = -648.0
+offset_bottom = 589.0
+theme_override_font_sizes/normal_font_size = 19
+bbcode_enabled = true
+text = "[center]Pick up the [color=\"#ffff00\"]yellow collectibles[/color], so you can deliver them to the black hole at the end of the level.[/center]"
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel11" type="RichTextLabel" parent="Txt" index="5"]
+offset_left = 636.0
+offset_top = 1179.0
+offset_right = 942.0
+offset_bottom = 1271.0
+theme_override_font_sizes/normal_font_size = 19
+bbcode_enabled = true
+text = "[center]Deliver your [color=\"#ffff00\"]items[/color] to the black hole to score points.[/center]"
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel12" type="RichTextLabel" parent="Txt" index="6"]
+anchors_preset = -1
+anchor_bottom = 0.16358
+offset_left = 26.0
+offset_top = 1919.0
+offset_right = 332.0
+offset_bottom = 2011.0
+theme_override_font_sizes/normal_font_size = 19
+bbcode_enabled = true
+text = "[center]If there are multiple balls in the level, press [color=\"#00ffff\"]space[/color] to toggle between them.
+
+The level ends once all balls are destroyed.[/center]"
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="Txt" index="7"]
+offset_left = 989.0
+offset_top = -543.0
+offset_right = 1295.0
+offset_bottom = -451.0
+theme_override_font_sizes/normal_font_size = 19
+bbcode_enabled = true
+text = "[center]Yellow fields [color=\"#ffff00\"]attract[/color].[/center]"
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel8" type="RichTextLabel" parent="Txt" index="8"]
+offset_left = 397.0
+offset_top = -530.0
+offset_right = 703.0
+offset_bottom = -438.0
+theme_override_font_sizes/normal_font_size = 19
+bbcode_enabled = true
+text = "[center]Purple fields [color=\"#ff00ff\"]repel[/color].[/center]"
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel10" type="RichTextLabel" parent="Txt" index="9"]
+offset_left = 703.0
+offset_top = -631.0
+offset_right = 1009.0
+offset_bottom = -539.0
+theme_override_font_sizes/normal_font_size = 19
+bbcode_enabled = true
+text = "[center]<-- (walled off for your safety) -->[/center]"
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="Txt" index="10"]
+offset_left = 698.0
+offset_top = -339.0
+offset_right = 1004.0
+offset_bottom = -169.0
+theme_override_font_sizes/normal_font_size = 19
+bbcode_enabled = true
+text = "[center]Celestial bodies have [color=\"#00ffff\"]gravitational fields[/color] that affect you when you get too close.
+
+The center of stars will [color=\"#ff0000\"]destroy you on impact[/color][/center]"
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="Txt" index="11"]
+offset_left = -955.0
+offset_top = 1267.0
+offset_right = -673.0
+offset_bottom = 1452.0
+theme_override_font_sizes/normal_font_size = 19
+bbcode_enabled = true
+text = "[center][color=\"#00ff00\"]Green items[/color] restore fuel. 
+
+Normally, fuel is consumed when shooting the ball, but you have infinite fuel for this tutorial.[/center]"
+metadata/_edit_use_anchors_ = true
