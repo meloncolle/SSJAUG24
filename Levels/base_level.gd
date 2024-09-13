@@ -100,14 +100,14 @@ func _ready():
 	set_active_ball(activeBallIndex)
 	
 	# Hook up death screen buttons
-	deathScreen.get_node("Panel/VBoxContainer/RetryButton").pressed.connect(_on_press_retry)
-	deathScreen.get_node("Panel/VBoxContainer/QuitButton").pressed.connect(_on_press_quit)
+	deathScreen.get_node("RetryButton").pressed.connect(_on_press_retry)
+	deathScreen.get_node("QuitButton").pressed.connect(_on_press_quit)
 	
 	if Globals.sceneController != null:
 		# Hook up button sounds (UI sound emitter is in main.tscn)
 		for button in [
-			deathScreen.get_node("Panel/VBoxContainer/RetryButton"),
-			deathScreen.get_node("Panel/VBoxContainer/QuitButton"),
+			deathScreen.get_node("RetryButton"),
+			deathScreen.get_node("QuitButton"),
 		]:
 			button.pressed.connect(func(): Globals.sceneController.sfx.UIButtonPress.play())
 			

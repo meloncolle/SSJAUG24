@@ -30,28 +30,27 @@ func show_results(_died: bool, _points: int, _fuel_remaining: float, _strokes: i
 	
 	var new_hi_score: int = Config.add_new_score(level_name, final_score, end_time)
 	
+	$Clear.text = level_name + " CLEARED!!!"
+	
 	$Results/PointsCollected.text = "Points Collected: \t%d" % points
 	$Results/FuelBonus.text = "Fuel Bonus: \tx%d" % (fuel_remaining * fuel_bonus)
 	$Results/StrokePenalty.text = "Stroke Penalty: \t-%d" % (strokes * stroke_penalty) 
-	$Results/FinalScore.text = "FINAL SCORE: \t%d Points" % (final_score)
-	$HiScores/Title.text = level_name + "\nHigh Scores:"
+	$Results/Score.text = "[center]%d[/center]" % final_score
 	
 	var hi_scores = Config.data.get_value("Scores", level_name, [])
 	
-	var hs_string: String = "\t\tScore\t\t\t\tDate"
-	hs_string += "\n--------------------------------------------"
+	var children = $HiScores/Scores.get_children()
 	for i in Globals.MAX_SCORES_PER_LEVEL:
-		hs_string += "\n#%d.\t " % (i + 1)
+		var score := "----"
+		var date := ""
 		if i < hi_scores.size():
+			score = str(hi_scores[i][0])
+			date = hi_scores[i][1]
 			if i == new_hi_score:
-				hs_string += "[color=#11ff01]"
-			hs_string += "%d" % hi_scores[i][0]
-			hs_string += "\t\t\t%s" % hi_scores[i][1]
-			if i == new_hi_score:
-				hs_string += "[/color]"
-		else:
-			hs_string += "----"
-	
-	$HiScores/RichTextLabel.text = hs_string
+				score = "[color=#11ff01]%s[/color]" % score
+				date = "[color=#11ff01]%s[/color]" % date
+				
+		children[i].text = score
+		children[i].get_node("Date").text = date
 	
 	$AnimationPlayer.play("show")
